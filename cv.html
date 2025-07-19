@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="履歴書・経歴 - 学歴、職歴、スキル、資格">
+    <title>CV - Portfolio</title>
+    
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">Portfolio</a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="cv.html" class="nav-link active">CV</a>
+                <a href="portfolio.html" class="nav-link">Portfolio</a>
+                <a href="links.html" class="nav-link">Links</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CV Content -->
+    <main class="main-content">
+        <div class="container">
+            <section class="cv-header" data-aos="fade-up">
+                <h1 class="section-title">Curriculum Vitae</h1>
+                <div class="cv-download">
+                    <a href="assets/cv.pdf" class="btn-primary" target="_blank">
+                        <i class="fas fa-download"></i>
+                        PDF版をダウンロード
+                    </a>
+                </div>
+            </section>
+
+            <!-- Education Section -->
+            <section class="cv-section" data-aos="fade-up" data-aos-delay="200">
+                <h2 class="cv-section-title">
+                    <i class="fas fa-graduation-cap"></i>
+                    Education
+                </h2>
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h3>東京工科大学 情報学部 情報学科</h3>
+                        <span class="cv-date">2022年4月 - 2026年3月（予定）</span>
+                    </div>
+                    <div class="cv-item-content">
+                        <p><strong>GPA:</strong> 3.9/4.0 (学年上位5%)</p>
+                        <p><strong>主な履修科目:</strong> データ構造とアルゴリズム、ソフトウェア工学、データベース設計、Web開発、機械学習、人工知能、ヒューマンコンピュータインタラクション、情報セキュリティ</p>
+                        <p><strong>卒業研究テーマ:</strong> 「深層学習を用いたリアルタイム画像認識システムの開発」（予定）</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Work Experience Section -->
+            <section class="cv-section" data-aos="fade-up" data-aos-delay="300">
+                <h2 class="cv-section-title">
+                    <i class="fas fa-briefcase"></i>
+                    Work Experience
+                </h2>
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h3>フロントエンド開発インターン</h3>
+                        <span class="cv-date">2023年8月 - 2023年9月</span>
+                    </div>
+                    <div class="cv-item-content">
+                        <p><strong>会社名:</strong> 株式会社TechSolutions</p>
+                        <p><strong>業務内容:</strong> React.js + TypeScriptを使用したWebアプリケーションの新機能開発、UIコンポーネントライブラリの構築、レスポンシブデザインの実装、Jest/React Testing Libraryを使用したテスト作成</p>
+                        <p><strong>成果:</strong> ユーザー満足度15%向上に貢献、コードレビュー文化の理解、アジャイル開発プロセスの実践経験</p>
+                    </div>
+                </div>
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h3>AI研究アシスタント</h3>
+                        <span class="cv-date">2024年4月 - 現在</span>
+                    </div>
+                    <div class="cv-item-content">
+                        <p><strong>所属:</strong> 東京工科大学 AI研究室</p>
+                        <p><strong>業務内容:</strong> 深層学習モデルの実装・評価、データセットの前処理、研究論文の調査・要約、実験結果の可視化</p>
+                        <p><strong>成果:</strong> 画像分類精度を従来手法より8%向上、学会発表予定</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section class="cv-section" data-aos="fade-up" data-aos-delay="400">
+                <h2 class="cv-section-title">
+                    <i class="fas fa-cogs"></i>
+                    Skills
+                </h2>
+                
+                <div class="skills-category">
+                    <h3>Languages</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <span class="skill-name">JavaScript/TypeScript</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Python</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Java</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">HTML5/CSS3</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="95"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">C++</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="70"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3>Frameworks / Libraries</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <span class="skill-name">React.js/Next.js</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Node.js/Express.js</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Django/FastAPI</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">TensorFlow/PyTorch</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="70"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">React Native</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="65"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3>Tools & Platforms</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <span class="skill-name">Git/GitHub</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Docker/Kubernetes</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="70"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">AWS/GCP</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="65"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Figma/Adobe XD</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Unity</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="60"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3>Databases</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <span class="skill-name">PostgreSQL</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">MongoDB</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Redis</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="65"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Firebase</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="70"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Overview Section -->
+            <section class="cv-section" data-aos="fade-up" data-aos-delay="500">
+                <h2 class="cv-section-title">
+                    <i class="fas fa-project-diagram"></i>
+                    Projects Overview
+                </h2>
+                <div class="projects-overview">
+                    <div class="project-overview-item">
+                        <h3>StudyBuddy - AI学習支援アプリ</h3>
+                        <p>Next.js + Python/FastAPI + PostgreSQL で開発。AI機能でパーソナライズされた学習計画を提案</p>
+                    </div>
+                    <div class="project-overview-item">
+                        <h3>EcoTracker - 環境データ可視化プラットフォーム</h3>
+                        <p>React + D3.js でリアルタイム環境データを美しく可視化するWebアプリケーション</p>
+                    </div>
+                    <div class="project-overview-item">
+                        <h3>SmartRecipe - レシピ推薦システム</h3>
+                        <p>機械学習を活用した個人の好みに基づくレシピ推薦アプリ（React Native + TensorFlow）</p>
+                    </div>
+                    <div class="project-overview-item">
+                        <h3>CodeCollab - リアルタイム共同開発ツール</h3>
+                        <p>WebSocket + Redis を使用したリアルタイムコード共有・編集プラットフォーム</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Certifications Section -->
+            <section class="cv-section" data-aos="fade-up" data-aos-delay="600">
+                <h2 class="cv-section-title">
+                    <i class="fas fa-certificate"></i>
+                    Certifications
+                </h2>
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h3>基本情報技術者試験</h3>
+                        <span class="cv-date">2024年9月</span>
+                    </div>
+                </div>
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h3>TOEIC Score 820</h3>
+                        <span class="cv-date">2024年6月</span>
+                    </div>
+                </div>
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h3>AWS Certified Cloud Practitioner</h3>
+                        <span class="cv-date">2024年11月</span>
+                    </div>
+                </div>
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h3>Google Analytics Individual Qualification</h3>
+                        <span class="cv-date">2024年3月</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Awards Section -->
+            <section class="cv-section" data-aos="fade-up" data-aos-delay="700">
+                <h2 class="cv-section-title">
+                    <i class="fas fa-trophy"></i>
+                    Awards
+                </h2>
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h3>TechChallenge 2023 ハッカソン 優秀賞</h3>
+                        <span class="cv-date">2023年3月</span>
+                    </div>
+                    <div class="cv-item-content">
+                        <p>チーム「CodeCrafters」でAI搭載学習支援アプリを開発。特にUI/UXデザインと技術実装が高く評価される</p>
+                    </div>
+                </div>
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h3>学部長賞（学業優秀者表彰）</h3>
+                        <span class="cv-date">2024年3月</span>
+                    </div>
+                    <div class="cv-item-content">
+                        <p>2023年度の学業成績優秀者として表彰（GPA 3.9、学年上位5%）</p>
+                    </div>
+                </div>
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h3>GitHub Stars 500+ 達成</h3>
+                        <span class="cv-date">2024年8月</span>
+                    </div>
+                    <div class="cv-item-content">
+                        <p>個人開発プロジェクト「StudyBuddy」がGitHubで500スターを突破、オープンソースコミュニティから高評価</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Grants Section -->
+            <section class="cv-section" data-aos="fade-up" data-aos-delay="800">
+                <h2 class="cv-section-title">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    Grants
+                </h2>
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h3>東京工科大学 学業優秀奨学金</h3>
+                        <span class="cv-date">2023年4月 - 2025年3月</span>
+                    </div>
+                    <div class="cv-item-content">
+                        <p>学業成績優秀者（GPA 3.8以上）に対する給付型奨学金を2年連続受給</p>
+                    </div>
+                </div>
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h3>JASSO 第一種奨学金（無利子）</h3>
+                        <span class="cv-date">2022年4月 - 2026年3月（予定）</span>
+                    </div>
+                    <div class="cv-item-content">
+                        <p>日本学生支援機構の成績優秀者向け無利子奨学金を受給</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Portfolio. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="back-to-top" id="back-to-top">
+            <i class="fas fa-chevron-up"></i>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
