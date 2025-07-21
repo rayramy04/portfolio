@@ -1,15 +1,57 @@
 [
   {
-    "title": "Research Assistant",
-    "company": "Monash University Malaysia",
+    "company": "株式会社リアブロード（スマ留）",
+    "period": "2025.05 - Present",
+    "title": "業務委託（公式アンバサダー）",
+    "description": "留学関係のイベント登壇・運営、記事執筆など",
+    "link": "https://smaryu.com/"
+  },
+  {
+    "company": "株式会社GFIエデュケーションズ（Go for it）",
+    "period": "2024 - Present",
+    "title": "インターンシップ",
+    "description": "留学関係の記事執筆、WordPressウェブサイトの構築、SEO対策など",
+    "link": "https://go-for-it-malaysia.com/"
+  },
+  {
+    "company": "Tobiratory Japan",
+    "period": "2024 - Present",
+    "title": "インターンシップ",
+    "description": "AIを用いた業務自動化ツールの作成、JavaScriptフレームワークを用いたウェブサイト制作など",
+    "link": "https://www.tobiratory.com/"
+  },
+  {
+    "company": "グローバルハブジャパン株式会社（マレーシア留学サポートセンター）",
+    "period": "2024",
+    "title": "インターンシップ（学生サポーター）",
+    "description": "留学関係のイベント登壇・運営、通訳など",
+    "link": "https://malaysia-ryugaku.jp/"
+  },
+  {
+    "company": "個人事業",
+    "period": "2024",
+    "title": "家庭教師",
+    "description": "中学数学の個別指導など"
+  },
+  {
+    "company": "株式会社ココナラ",
     "period": "2023 - Present",
-    "location": "Selangor, Malaysia",
-    "description": "Conducting research in data science and machine learning applications",
-    "responsibilities": [
-      "Data analysis and statistical modeling",
-      "Machine learning algorithm implementation",
-      "Research paper writing and publication",
-      "Collaboration with international research teams"
-    ]
+    "title": "フリーランス音楽講師・楽譜制作",
+    "description": "フリーランス音楽講師およびオーダーメイド楽譜制作など",
+    "link": "https://coconala.com/users/4454434"
+  },
+  {
+    "company": "株式会社LOOPAL",
+    "period": "2023 - Present",
+    "title": "インターンシップ",
+    "description": "留学関係の記事執筆、SEO対策など",
+    "link": "https://loopal.net/"
+  },
+  {
+    "company": "一般社団法人52Hz",
+    "period": "2023 - Present",
+    "title": "会員、業務委託（52Hz Accelerator 0期メンター）",
+    "description": "中高生の進路サポートや課外活動のメンターなど",
+    "link": "https://52hz.world/"
   }
 ]

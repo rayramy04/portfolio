@@ -1,10 +1,20 @@
 [
   {
     "institution": "Monash University Malaysia",
-    "degree": "Bachelor of Computer Science & Data Science",
-    "period": "2022 - Present",
-    "location": "Selangor, Malaysia",
-    "description": "Studying Computer Science and Data Science with focus on machine learning, statistical analysis, and software development.",
-    "subjects": ["Data Structures & Algorithms", "Machine Learning", "Statistical Analysis", "Web Development", "Database Systems", "Artificial Intelligence", "Research Methods"]
+    "degree": "Bachelor of Computer Science in Data Science, School of Information Technology",
+    "period": "2024.07 - Present",
+    "description": "GPA 4.0、主席表彰、奨学金獲得"
+  },
+  {
+    "institution": "Sunway College",
+    "degree": "Monash University Foundation Year (MUFY)",
+    "period": "2023.07 - 2024.06",
+    "description": "GPA 4.0（WAM93.25%）、成績優秀表彰、奨学金獲得"
+  },
+  {
+    "institution": "公立高等学校（国際バカロレア認定校）",
+    "degree": "普通科",
+    "period": "2020.04 - 2023.03",
+    "description": "GPA 4.0"
   }
 ]
