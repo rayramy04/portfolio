@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Machine Learning Specialization",
+    "organization": "Coursera (Stanford University)",
+    "date": "2023-06-15",
+    "credentialId": "ML-2023-001",
+    "score": "95%"
+  },
+  {
+    "title": "AWS Certified Cloud Practitioner",
+    "organization": "Amazon Web Services",
+    "date": "2023-08-20",
+    "credentialId": "AWS-CCP-2023"
+  },
+  {
+    "title": "TOEIC",
+    "organization": "Educational Testing Service",
+    "date": "2025-05-15",
+    "credentialId": "TOEIC-2025-001",
+    "score": "800"
+  }
+]

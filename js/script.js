@@ -1,24 +1,12 @@
-// ===== NAVIGATION FUNCTIONALITY =====
+// ===== MAIN FUNCTIONALITY =====
 document.addEventListener('DOMContentLoaded', function () {
-    // Mobile menu toggle
-    const navToggle = document.getElementById('nav-toggle');
-    const navMenu = document.getElementById('nav-menu');
+    // Initialize features immediately
+    initializeMainFeatures();
+});
 
-    if (navToggle && navMenu) {
-        navToggle.addEventListener('click', function () {
-            navToggle.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
+// Data rendering is now handled by load-components.js
 
-        // Close menu when clicking on a link
-        const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function () {
-                navToggle.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-        });
-    }
+function initializeMainFeatures() {
 
     // Navbar scroll effect
     const navbar = document.getElementById('navbar');
@@ -53,34 +41,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Back to top button
-    const backToTop = document.getElementById('back-to-top');
-    if (backToTop) {
-        window.addEventListener('scroll', function () {
-            if (window.scrollY > 300) {
-                backToTop.classList.add('show');
-            } else {
-                backToTop.classList.remove('show');
-            }
-        });
 
-        backToTop.addEventListener('click', function () {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    }
 
-    // Initialize AOS (Animate On Scroll)
-    if (typeof AOS !== 'undefined') {
-        AOS.init({
-            duration: 1000,
-            easing: 'ease-in-out',
-            once: true,
-            mirror: false
-        });
-    }
 
     // Initialize Particles.js for hero section
     if (typeof particlesJS !== 'undefined' && document.getElementById('particles-js')) {
@@ -216,56 +178,34 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Portfolio filter functionality
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const portfolioItems = document.querySelectorAll('.portfolio-item');
 
-    if (filterButtons.length > 0 && portfolioItems.length > 0) {
-        filterButtons.forEach(button => {
-            button.addEventListener('click', function () {
-                // Remove active class from all buttons
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                // Add active class to clicked button
-                this.classList.add('active');
 
-                const filterValue = this.getAttribute('data-filter');
+    // Typewriter effect for hero name (disabled to prevent conflicts with dynamic loading)
+    // const heroName = document.querySelector('.hero-name');
+    // if (heroName && heroName.textContent) {
+    //     const text = heroName.textContent;
+    //     heroName.textContent = '';
+    //     heroName.style.borderRight = '2px solid white';
 
-                portfolioItems.forEach(item => {
-                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                        item.style.display = 'block';
-                        item.style.animation = 'fadeIn 0.5s ease-in-out';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-        });
-    }
+    //     let i = 0;
+    //     const typeWriter = () => {
+    //         if (i < text.length) {
+    //             heroName.textContent += text.charAt(i);
+    //             i++;
+    //             setTimeout(typeWriter, 100);
+    //         } else {
+    //             setTimeout(() => {
+    //                 heroName.style.borderRight = 'none';
+    //             }, 1000);
+    //         }
+    //     };
 
-    // Typewriter effect for hero name (if on home page)
-    const heroName = document.querySelector('.hero-name');
-    if (heroName && heroName.textContent) {
-        const text = heroName.textContent;
-        heroName.textContent = '';
-        heroName.style.borderRight = '2px solid white';
+    //     // Start typewriter effect after a delay
+    //     setTimeout(typeWriter, 1000);
+    // }
+}
 
-        let i = 0;
-        const typeWriter = () => {
-            if (i < text.length) {
-                heroName.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100);
-            } else {
-                setTimeout(() => {
-                    heroName.style.borderRight = 'none';
-                }, 1000);
-            }
-        };
-
-        // Start typewriter effect after a delay
-        setTimeout(typeWriter, 1000);
-    }
-});
+// Page content rendering is now handled by load-components.js
 
 // ===== UTILITY FUNCTIONS =====
 

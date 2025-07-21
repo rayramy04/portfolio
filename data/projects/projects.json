@@ -1,0 +1,47 @@
+[
+  {
+    "id": "ai-study-assistant",
+    "name": "AI Study Assistant",
+    "category": "ai-ml",
+    "description": "An intelligent study companion that helps students organize their learning materials and provides personalized study recommendations.",
+    "longDescription": "Developed a comprehensive AI-powered study assistant using machine learning algorithms to analyze student learning patterns and provide personalized recommendations. The system includes features for note organization, progress tracking, and adaptive learning path generation.",
+    "technologies": ["Python", "TensorFlow", "Flask", "React", "PostgreSQL", "Docker"],
+    "githubUrl": "https://github.com/ll-0013py/ai-study-assistant",
+    "liveUrl": "https://ai-study-assistant.ray-globallife.com",
+    "image": "assets/project1.jpg",
+    "featured": true,
+    "status": "completed",
+    "startDate": "2024-01",
+    "endDate": "2024-06"
+  },
+  {
+    "id": "data-visualization-dashboard",
+    "name": "Interactive Data Visualization Dashboard",
+    "category": "data-science",
+    "description": "A comprehensive dashboard for visualizing and analyzing complex datasets with interactive charts and real-time updates.",
+    "longDescription": "Built a powerful data visualization platform that allows users to upload datasets, perform exploratory data analysis, and create interactive visualizations. The dashboard supports multiple chart types, real-time data updates, and collaborative features for team analysis.",
+    "technologies": ["React", "D3.js", "Python", "FastAPI", "MongoDB", "WebSocket"],
+    "githubUrl": "https://github.com/ll-0013py/data-viz-dashboard",
+    "liveUrl": "https://dataviz.ray-globallife.com",
+    "image": "assets/project2.jpg",
+    "featured": true,
+    "status": "active",
+    "startDate": "2023-09",
+    "endDate": null
+  },
+  {
+    "id": "personal-portfolio-website",
+    "name": "Personal Portfolio Website",
+    "category": "web-development",
+    "description": "A modern, responsive portfolio website showcasing projects, skills, and professional experience.",
+    "longDescription": "Designed and developed a comprehensive portfolio website using modern web technologies. The site features a clean, professional design with smooth animations, responsive layout, and optimized performance. Implemented a data-driven architecture for easy content management.",
+    "technologies": ["HTML5", "CSS3", "JavaScript", "Intersection Observer", "GitHub Pages"],
+    "githubUrl": "https://github.com/ll-0013py/portfolio",
+    "liveUrl": "https://ll-0013py.github.io/portfolio",
+    "image": "assets/project3.jpg",
+    "featured": true,
+    "status": "active",
+    "startDate": "2023-06",
+    "endDate": null
+  }
+]
