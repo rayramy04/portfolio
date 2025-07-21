@@ -1,32 +1,32 @@
 [
   {
-    "title": "Data Science & Analytics",
-    "description": "Exploring patterns in data to derive meaningful insights",
-    "icon": "fas fa-chart-bar"
-  },
-  {
-    "title": "Machine Learning & AI",
-    "description": "Building intelligent systems that can learn and adapt",
-    "icon": "fas fa-robot"
-  },
-  {
-    "title": "Web Development",
-    "description": "Creating modern, responsive web applications",
+    "title": "Programming",
+    "description": "PythonやJavaScriptを使った開発、機械学習の実装、ウェブサイト制作。",
     "icon": "fas fa-code"
   },
   {
-    "title": "Research & Writing",
-    "description": "Academic research and technical writing",
-    "icon": "fas fa-pen-alt"
+    "title": "Music",
+    "description": "ピアノ演奏、耳コピでの楽譜制作。セッションができる友達募集中です！",
+    "icon": "fas fa-music"
   },
   {
-    "title": "International Experience",
-    "description": "Cross-cultural learning and global perspectives",
-    "icon": "fas fa-globe"
+    "title": "Shogi (Japanese Chess)",
+    "description": "アマチュア二段、三間飛車党。チェスもいつかやりたい。",
+    "icon": "fas fa-chess"
   },
   {
-    "title": "Technical Reading",
-    "description": "Staying updated with latest technology trends and research papers",
-    "icon": "fas fa-book-open"
+    "title": "Travel",
+    "description": "アジア各国へ15か国ほど旅行。異文化体験と食べ歩きが好き。",
+    "icon": "fas fa-plane"
+  },
+  {
+    "title": "Sports",
+    "description": "テニスから格闘技までなんでも！最近はピックルボールにハマっています。",
+    "icon": "fas fa-dumbbell"
+  },
+  {
+    "title": "Reading",
+    "description": "技術書から小説まで、幅広いジャンルの読書。ミステリー小説が特に好き。",
+    "icon": "fas fa-book"
   }
 ]

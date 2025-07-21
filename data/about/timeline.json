@@ -1,37 +1,37 @@
 [
   {
-    "date": "2022-03",
-    "title": "Started at Monash University Malaysia",
-    "subtitle": "Computer Science & Data Science Program",
-    "description": "Began my journey in computer science fundamentals and entered the world of programming seriously.",
-    "icon": "graduation-cap"
+    "date": "Present",
+    "title": "現在",
+    "subtitle": "",
+    "description": "現在は学部2年生として、より専門的なプログラミングやデータ解析の分野を学んでいる。学業の傍ら、インターンシップや音楽活動、ウェブサイト運営などにも取り組む。",
+    "icon": "laptop-code"
+  },
+  {
+    "date": "2024-07",
+    "title": "モナッシュ大学の学部課程に進学",
+    "subtitle": "",
+    "description": "MUFY修了後、モナッシュ大学マレーシア校の学部課程（Bachelor of Computer Science in Data Science）に進学。",
+    "icon": "university"
+  },
+  {
+    "date": "2023-07",
+    "title": "マレーシア留学開始",
+    "subtitle": "",
+    "description": "海外での新生活をスタート。Monash University Foundation Year (MUFY)に入学。",
+    "icon": "plane"
   },
   {
     "date": "2023-03",
-    "title": "First Hackathon - TechChallenge 2023 Excellence Award",
-    "subtitle": "Team 'CodeCrafters'",
-    "description": "Developed an AI-powered learning support app. Received high praise for UI/UX design.",
-    "icon": "trophy"
+    "title": "高校卒業",
+    "subtitle": "",
+    "description": "地元の公立高校（IB校）を卒業。",
+    "icon": "graduation-cap"
   },
   {
-    "date": "2023-08",
-    "title": "TechSolutions Inc. Summer Internship",
-    "subtitle": "React.js Web App Development Team",
-    "description": "Participated in a web app development team using React.js. Experienced actual product development processes.",
-    "icon": "briefcase"
-  },
-  {
-    "date": "2024-02",
-    "title": "Personal Project 'StudyBuddy' Release",
-    "subtitle": "AI-powered Study Management App",
-    "description": "Developed a study management app with AI features independently. GitHub Stars exceeded 500.",
-    "icon": "rocket"
-  },
-  {
-    "date": "2024-09",
-    "title": "AWS Certified Cloud Practitioner",
-    "subtitle": "Cloud Computing Certification",
-    "description": "Systematically acquired foundational knowledge as a cloud computing practitioner.",
-    "icon": "certificate"
+    "date": "2004-04",
+    "title": "誕生",
+    "subtitle": "",
+    "description": "神奈川県で生まれ、千葉県で幼少期を過ごす。",
+    "icon": "baby"
   }
 ]
