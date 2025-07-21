@@ -295,7 +295,7 @@ function updateAboutContent(data) {
         if (aboutPosition) aboutPosition.textContent = data.personal.position;
 
         const aboutDescription = document.getElementById('about-description');
-        if (aboutDescription) aboutDescription.textContent = data.personal.description;
+        if (aboutDescription) aboutDescription.innerHTML = data.personal.description.replace(/\n/g, '<br>');
         
         console.log('About: Personal content populated successfully');
         
@@ -390,9 +390,11 @@ function updateTimelineContent(data) {
                         <i class="fas fa-${item.icon}"></i>
                     </div>
                     <div class="timeline-content">
-                        <h3>${item.date}</h3>
-                        <h4>${item.title}</h4>
-                        <h5>${item.subtitle}</h5>
+                        <div class="timeline-header">
+                            <h3>${item.date}</h3>
+                            <h4>${item.title}</h4>
+                        </div>
+                        ${item.subtitle ? `<h5>${item.subtitle}</h5>` : ''}
                         <p>${item.description}</p>
                     </div>
                 </div>
@@ -787,7 +789,6 @@ function updateProjectsContent(data) {
     const projectsContainer = document.getElementById('projects-container');
     
     if (projectsContainer && projects.length > 0) {
-        projectsContainer.className = 'projects-grid';
         projectsContainer.innerHTML = projects.map(project => `
             <div class="project-item">
                 <div class="project-card">
@@ -929,28 +930,39 @@ function updateLinksContent(data) {
             `;
         }
 
-        // Projects Internal Link
-        html += `
-            <section class="links-section">
-                <h2 class="links-section-title">
-                    <i class="fas fa-folder-open"></i>
-                    Projects
-                </h2>
-                <div class="links-grid">
-                    <a href="projects.html" class="link-card projects-card">
+        // Portfolio Section
+        if (data.portfolioLinks) {
+            html += `
+                <section class="links-section">
+                    <h2 class="links-section-title">
+                        <i class="fas fa-briefcase"></i>
+                        Portfolio
+                    </h2>
+                    <div class="links-grid">
+            `;
+            
+            data.portfolioLinks.forEach((link, index) => {
+                html += `
+                    <a href="${link.url}" class="link-card portfolio-card">
                         <div class="link-card-content">
                             <div class="link-icon">
-                                <i class="fas fa-code"></i>
+                                <i class="${link.icon}"></i>
                             </div>
-                            <h3>Projects</h3>
+                            <h3>${link.title}</h3>
+                            ${link.description ? `<p>${link.description}</p>` : ''}
                         </div>
                         <div class="link-arrow">
                             <i class="fas fa-arrow-right"></i>
                         </div>
                     </a>
-                </div>
-            </section>
-        `;
+                `;
+            });
+            
+            html += `
+                    </div>
+                </section>
+            `;
+        }
 
         linksContent.innerHTML = html;
         console.log('Links: Content populated successfully');

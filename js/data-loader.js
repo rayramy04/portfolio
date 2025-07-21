@@ -123,6 +123,7 @@ class DataLoader {
                 // Common data
                 profile: commonData.profile || {},
                 socialLinks: commonData.socialLinks || [],
+                portfolioLinks: commonData.portfolioLinks || [],
                 navigation: commonData.navigation || [],
                 
                 // Home page
@@ -153,6 +154,7 @@ class DataLoader {
             return {
                 profile: {},
                 socialLinks: [],
+                portfolioLinks: [],
                 navigation: [],
                 hero: {},
                 personal: {},
@@ -185,6 +187,7 @@ const dataLoader = new DataLoader();
 let portfolioData = {
     profile: {},
     socialLinks: [],
+    portfolioLinks: [],
     navigation: [],
     hero: {},
     personal: {},

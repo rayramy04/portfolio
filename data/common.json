@@ -17,17 +17,9 @@
       "name": "twitter",
       "url": "https://x.com/ll_0013py",
       "username": "@ll_0013py",
-      "title": "X (旧Twitter)",
-      "description": "日常の学習記録や技術情報をツイート",
+      "title": "X (Twitter)",
+      "description": "日常の生活や学習記録をポスト",
       "icon": "fab fa-twitter"
-    },
-    {
-      "name": "youtube",
-      "url": "https://www.youtube.com/@ray_pianocover",
-      "username": "@ray_pianocover",
-      "title": "YouTube",
-      "description": "音楽の動画を投稿",
-      "icon": "fab fa-youtube"
     },
     {
       "name": "note",
@@ -36,13 +28,50 @@
       "title": "note",
       "description": "留学記事や学習記録を執筆",
       "icon": "fas fa-pen-nib"
+    },
+    {
+      "name": "youtube",
+      "url": "https://www.youtube.com/@ray_pianocover",
+      "username": "@ray_pianocover",
+      "title": "YouTube",
+      "description": "音楽の動画を投稿",
+      "icon": "fab fa-youtube"
+    }
+  ],
+  "portfolioLinks": [
+    {
+      "name": "Portfolio",
+      "url": "index.html",
+      "title": "Portfolio",
+      "description": "ポートフォリオのトップページ",
+      "icon": "fas fa-home"
     }
   ],
   "navigation": [
-    { "name": "Home", "href": "index.html", "icon": "fas fa-home" },
-    { "name": "About", "href": "about.html", "icon": "fas fa-user" },
-    { "name": "CV", "href": "cv.html", "icon": "fas fa-file-alt" },
-    { "name": "Projects", "href": "projects.html", "icon": "fas fa-briefcase" },
-    { "name": "Links", "href": "links.html", "icon": "fas fa-link" }
+    {
+      "name": "Home",
+      "href": "index.html",
+      "icon": "fas fa-home"
+    },
+    {
+      "name": "About",
+      "href": "about.html",
+      "icon": "fas fa-user"
+    },
+    {
+      "name": "CV",
+      "href": "cv.html",
+      "icon": "fas fa-file-alt"
+    },
+    {
+      "name": "Projects",
+      "href": "projects.html",
+      "icon": "fas fa-briefcase"
+    },
+    {
+      "name": "Links",
+      "href": "links.html",
+      "icon": "fas fa-link"
+    }
   ]
 }
