@@ -1,186 +1,75 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="私について - 情報学部学生の経歴と価値観">
-    <title>About - Portfolio</title>
+    <meta name="description" content="About Ray - Computer Science & Data Science Student">
+    <title>About - Ray's Portfolio</title>
     
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="index.html">Portfolio</a>
-            </div>
-            <div class="nav-menu" id="nav-menu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="about.html" class="nav-link active">About</a>
-                <a href="cv.html" class="nav-link">CV</a>
-                <a href="portfolio.html" class="nav-link">Portfolio</a>
-                <a href="links.html" class="nav-link">Links</a>
-            </div>
-            <div class="nav-toggle" id="nav-toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
-    </nav>
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
 
     <!-- About Content -->
     <main class="main-content">
         <div class="container">
             <!-- Who I Am Section -->
-            <section class="about-section" data-aos="fade-up">
+            <section class="about-section">
                 <h1 class="section-title">About Me</h1>
                 
                 <div class="who-i-am">
                     <div class="about-content">
                         <div class="about-text">
-                            <h2>Who I Am</h2>
-                            <h3>田中 健太 (Kenta Tanaka)</h3>
-                            <p class="current-position">東京工科大学 情報学部 3年生</p>
-                            <p>21歳のフルスタック開発者として、Web開発からAI・機械学習まで幅広い技術領域に挑戦しています。「技術で人々の生活をより豊かにする」をモットーに、ユーザー中心設計を重視したプロダクト開発に情熱を注いでいます。ハッカソンでの受賞経験や複数のインターンシップを通じて、実践的なスキルを磨いています。</p>
+                            <h2 id="about-title">Who I Am</h2>
+                            <h3 id="about-name"></h3>
+                            <p class="current-position" id="about-position"></p>
+                            <p id="about-description"></p>
                         </div>
-                        <div class="about-image">
-                            <img src="assets/about-photo.jpg" alt="About写真">
-                        </div>
+                    </div>
+                    <div class="about-image-external">
+                        <img src="assets/about-photo.jpg" alt="Ray's photo">
                     </div>
                 </div>
             </section>
 
             <!-- My Story Section -->
-            <section class="story-section" data-aos="fade-up" data-aos-delay="200">
+            <section class="about-section">
                 <h2>My Story</h2>
-                <div class="story-content">
-                    <p>中学生の時に初めてHTMLに触れ、自分でWebページを作れることに感動したのがプログラミングとの出会いでした。高校では情報科学部に所属し、チーム開発の楽しさを知りました。大学では情報学部を選択し、コンピュータサイエンスの理論から実践的な開発スキルまで幅広く学んでいます。</p>
-                    <p>「テクノロジーは人と人をつなぐ架け橋」という信念のもと、常にエンドユーザーの視点を大切にしています。アジャイル開発やデザイン思考を取り入れ、チームでの協働を通じて、より良いプロダクトを生み出すことを目指しています。</p>
+                <div class="story-content" id="story-content">
+                    <!-- Story content will be populated from JSON -->
                 </div>
             </section>
 
             <!-- Timeline Section -->
-            <section class="timeline-section" data-aos="fade-up" data-aos-delay="400">
+            <section class="timeline-section">
                 <h2>Timeline</h2>
-                <div class="timeline">
-                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <h3>2022年4月</h3>
-                            <h4>東京工科大学 情報学部入学</h4>
-                            <p>コンピュータサイエンスの基礎を学び、プログラミングの世界に本格的に足を踏み入れる</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <h3>2023年3月</h3>
-                            <h4>初ハッカソン「TechChallenge 2023」優秀賞受賞</h4>
-                            <p>チーム「CodeCrafters」でAI搭載学習支援アプリを開発。UI/UXデザインが高く評価される</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="300">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <h3>2023年8月</h3>
-                            <h4>株式会社TechSolutions サマーインターン</h4>
-                            <p>React.jsを使ったWebアプリ開発チームに参加。実際のプロダクト開発プロセスを経験</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item" data-aos="fade-left" data-aos-delay="400">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <h3>2024年2月</h3>
-                            <h4>個人プロジェクト「StudyBuddy」リリース</h4>
-                            <p>AI機能付き学習管理アプリを個人開発。GitHub Starsが500を突破</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="500">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <h3>2024年9月</h3>
-                            <h4>基本情報技術者試験 合格</h4>
-                            <p>情報処理技術者としての基礎知識を体系的に習得</p>
-                        </div>
-                    </div>
+                <div class="timeline" id="timeline-container">
+                    <!-- Timeline will be populated from JSON -->
                 </div>
             </section>
 
             <!-- Interests Section -->
-            <section class="interests-section" data-aos="fade-up" data-aos-delay="600">
+            <section class="interests-section">
                 <h2>Interests</h2>
-                <div class="interests-grid">
-                    <div class="interest-card" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="interest-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <h3>フルスタック開発</h3>
-                        <p>React/Next.js、Python/Django、モバイルアプリ開発まで幅広くカバー</p>
-                    </div>
-                    <div class="interest-card" data-aos="zoom-in" data-aos-delay="200">
-                        <div class="interest-icon">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <h3>AI・機械学習</h3>
-                        <p>TensorFlow、PyTorchを使った画像認識・自然言語処理に挑戦中</p>
-                    </div>
-                    <div class="interest-card" data-aos="zoom-in" data-aos-delay="300">
-                        <div class="interest-icon">
-                            <i class="fas fa-palette"></i>
-                        </div>
-                        <h3>UI/UXデザイン</h3>
-                        <p>Figma、Adobe XDでのプロトタイピングとユーザビリティ向上に情熱</p>
-                    </div>
-                    <div class="interest-card" data-aos="zoom-in" data-aos-delay="400">
-                        <div class="interest-icon">
-                            <i class="fas fa-gamepad"></i>
-                        </div>
-                        <h3>ゲーム開発</h3>
-                        <p>Unity、Unreal Engineでのインディーゲーム制作が趣味</p>
-                    </div>
-                    <div class="interest-card" data-aos="zoom-in" data-aos-delay="500">
-                        <div class="interest-icon">
-                            <i class="fas fa-mountain"></i>
-                        </div>
-                        <h3>アウトドア</h3>
-                        <p>登山とキャンプで自然からインスピレーションを得ています</p>
-                    </div>
-                    <div class="interest-card" data-aos="zoom-in" data-aos-delay="600">
-                        <div class="interest-icon">
-                            <i class="fas fa-book-open"></i>
-                        </div>
-                        <h3>技術書・SF小説</h3>
-                        <p>最新技術のキャッチアップとSF作品から未来のアイデアを探求</p>
-                    </div>
+                <div class="interests-grid" id="interests-container">
+                    <!-- Interests will be populated from JSON -->
                 </div>
             </section>
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2025 Portfolio. All rights reserved.</p>
-            <div class="footer-social">
-                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
-            </div>
-        </div>
-        <div class="back-to-top" id="back-to-top">
-            <i class="fas fa-chevron-up"></i>
-        </div>
-    </footer>
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/data-loader.js"></script>
+    <script src="js/load-components.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>

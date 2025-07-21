@@ -1,0 +1,37 @@
+[
+  {
+    "date": "2022-03",
+    "title": "Started at Monash University Malaysia",
+    "subtitle": "Computer Science & Data Science Program",
+    "description": "Began my journey in computer science fundamentals and entered the world of programming seriously.",
+    "icon": "graduation-cap"
+  },
+  {
+    "date": "2023-03",
+    "title": "First Hackathon - TechChallenge 2023 Excellence Award",
+    "subtitle": "Team 'CodeCrafters'",
+    "description": "Developed an AI-powered learning support app. Received high praise for UI/UX design.",
+    "icon": "trophy"
+  },
+  {
+    "date": "2023-08",
+    "title": "TechSolutions Inc. Summer Internship",
+    "subtitle": "React.js Web App Development Team",
+    "description": "Participated in a web app development team using React.js. Experienced actual product development processes.",
+    "icon": "briefcase"
+  },
+  {
+    "date": "2024-02",
+    "title": "Personal Project 'StudyBuddy' Release",
+    "subtitle": "AI-powered Study Management App",
+    "description": "Developed a study management app with AI features independently. GitHub Stars exceeded 500.",
+    "icon": "rocket"
+  },
+  {
+    "date": "2024-09",
+    "title": "AWS Certified Cloud Practitioner",
+    "subtitle": "Cloud Computing Certification",
+    "description": "Systematically acquired foundational knowledge as a cloud computing practitioner.",
+    "icon": "certificate"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Data Science & Analytics",
+    "description": "Exploring patterns in data to derive meaningful insights",
+    "icon": "fas fa-chart-bar"
+  },
+  {
+    "title": "Machine Learning & AI",
+    "description": "Building intelligent systems that can learn and adapt",
+    "icon": "fas fa-robot"
+  },
+  {
+    "title": "Web Development",
+    "description": "Creating modern, responsive web applications",
+    "icon": "fas fa-code"
+  },
+  {
+    "title": "Research & Writing",
+    "description": "Academic research and technical writing",
+    "icon": "fas fa-pen-alt"
+  },
+  {
+    "title": "International Experience",
+    "description": "Cross-cultural learning and global perspectives",
+    "icon": "fas fa-globe"
+  },
+  {
+    "title": "Technical Reading",
+    "description": "Staying updated with latest technology trends and research papers",
+    "icon": "fas fa-book-open"
+  }
+]
