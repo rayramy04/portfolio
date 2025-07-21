@@ -687,20 +687,23 @@ h1, h2, h3, h4, h5, h6 {
 
 .skill-info {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: var(--space-4);
+  flex-direction: column;
+  gap: var(--space-2);
 }
 
 .skill-name {
   font-weight: var(--fw-medium);
   color: var(--text-primary);
   font-size: var(--fs-base);
+  line-height: 1.4;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 .skill-stars {
   display: flex;
   gap: 3px;
+  justify-content: flex-start;
 }
 
 .skill-stars i {
