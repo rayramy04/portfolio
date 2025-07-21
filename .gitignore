@@ -1,49 +1,120 @@
-# Exclude files not related to the portfolio site
+# ==============================================
+# Professional Portfolio - Git Ignore Rules
+# ==============================================
 
-# Kiro related files
-.kiro/
-Kiro.md
-
-# Requirements definition files
-portfolio requirements.md
-
-# macOS
+# Operating System Files
+# -----------------------
 .DS_Store
 .DS_Store?
 ._*
 .Spotlight-V100
 .Trashes
+Icon?
 ehthumbs.db
+ehthumbs_vista.db
 Thumbs.db
+desktop.ini
 
-# Editor related
+# Editor & IDE Files
+# ------------------
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
+.sublime-*
+.atom/
 
-# Log files
+# Development Tools
+# -----------------
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+lerna-debug.log*
+.eslintcache
+.stylelintcache
 
-# Dependencies (if using Node.js)
-node_modules/
-package-lock.json
-yarn.lock
+# Local Development Servers
+# -------------------------
+server.py
+local-server.*
+*.local
+.vercel
+.netlify/
 
-# Temporary files
-*.tmp
-*.temp
+# Build & Distribution
+# -------------------
+dist/
+build/
+out/
+coverage/
+*.tgz
+*.tar.gz
 
-# Backup files
+# Environment & Sensitive Data
+# ----------------------------
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+config.local.js
+secrets.json
+
+# Backup & Temporary Files
+# ------------------------
 *.bak
 *.backup
+*.orig
+*.tmp
+*.temp
+*.swp
+*.swo
+*.pid
+*.seed
+*.pid.lock
 
-# Development notes
-notes.md
-todo.md
-memo.txt
-README.md
+# Documentation Drafts
+# --------------------
+docs/drafts/
+*.draft.md
+NOTES.md
+TODO.md
+
+# Testing & Coverage
+# ------------------
+.nyc_output
+lib-cov
+coverage/
+*.lcov
+.coverage
+.pytest_cache/
+
+# Package Managers
+# ----------------
+node_modules/
+npm-debug.log
+yarn-error.log
+.pnpm-debug.log*
+.yarn/
+.pnp.*
+
+# Deployment
+# ----------
+.firebase/
+.surge/
+now.json
+.now
+
+# Analytics & Monitoring
+# ----------------------
+.sentry/
+newrelic_agent.log
+
+# Personal Development Files
+# --------------------------
+scratch/
+playground/
+experiments/
+.personal/
