@@ -1,22 +1,27 @@
 [
   {
-    "title": "Machine Learning Specialization",
-    "organization": "Coursera (Stanford University)",
-    "date": "2023-06-15",
-    "credentialId": "ML-2023-001",
-    "score": "95%"
+    "title": "基本情報技術者試験",
+    "organization": "独立行政法人情報処理推進機構（IPA）",
+    "date": "2025.02"
   },
   {
-    "title": "AWS Certified Cloud Practitioner",
-    "organization": "Amazon Web Services",
-    "date": "2023-08-20",
-    "credentialId": "AWS-CCP-2023"
+    "title": "ITパスポート試験",
+    "organization": "独立行政法人情報処理推進機構（IPA）",
+    "date": "2025.02"
   },
   {
-    "title": "TOEIC",
-    "organization": "Educational Testing Service",
-    "date": "2025-05-15",
-    "credentialId": "TOEIC-2025-001",
-    "score": "800"
+    "title": "日本商工会議所 簿記検定試験 3級",
+    "organization": "日本商工会議所",
+    "date": "2025.02"
+  },
+  {
+    "title": "Mahout (象使い) 免許資格",
+    "organization": "Manifa Elephant Camp（ラオス）",
+    "date": "2024.06"
+  },
+  {
+    "title": "普通自動車第一種運転免許（AT限定）",
+    "organization": "日本国公安委員会",
+    "date": "2023.05"
   }
 ]

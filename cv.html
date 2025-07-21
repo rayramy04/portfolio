@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="履歴書・経歴 - 学歴、職歴、スキル、資格">
+    <meta name="description" content="Curriculum Vitae - Education, Experience, Skills, and Achievements of Ray">
     <title>CV - Ray's Portfolio</title>
     
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
@@ -26,67 +26,85 @@
 
             <!-- Education Section -->
             <section class="cv-section">
-                <h2 class="cv-section-title">
+                <h2 class="cv-section-title" data-section="education">
                     <i class="fas fa-graduation-cap"></i>
                     Education
+                    <i class="fas fa-chevron-up toggle-icon"></i>
                 </h2>
-                <div id="education-container">
-                    <!-- Education items will be populated by JavaScript -->
+                <div class="cv-section-content" id="education-content">
+                    <div id="education-container">
+                        <!-- Education items will be populated by JavaScript -->
+                    </div>
                 </div>
             </section>
 
             <!-- Work Experience Section -->
             <section class="cv-section">
-                <h2 class="cv-section-title">
+                <h2 class="cv-section-title" data-section="experience">
                     <i class="fas fa-briefcase"></i>
                     Work Experience
+                    <i class="fas fa-chevron-up toggle-icon"></i>
                 </h2>
-                <div id="experience-container">
-                    <!-- Experience items will be populated by JavaScript -->
+                <div class="cv-section-content" id="experience-content">
+                    <div id="experience-container">
+                        <!-- Experience items will be populated by JavaScript -->
+                    </div>
                 </div>
             </section>
 
             <!-- Skills Section -->
             <section class="cv-section">
-                <h2 class="cv-section-title">
+                <h2 class="cv-section-title" data-section="skills">
                     <i class="fas fa-cogs"></i>
                     Skills
+                    <i class="fas fa-chevron-up toggle-icon"></i>
                 </h2>
-                <div id="skills-container">
-                    <!-- Skills will be populated by JavaScript -->
+                <div class="cv-section-content" id="skills-content">
+                    <div id="skills-container">
+                        <!-- Skills will be populated by JavaScript -->
+                    </div>
                 </div>
             </section>
 
             <!-- Certifications Section -->
             <section class="cv-section">
-                <h2 class="cv-section-title">
+                <h2 class="cv-section-title" data-section="certifications">
                     <i class="fas fa-certificate"></i>
                     Certifications
+                    <i class="fas fa-chevron-up toggle-icon"></i>
                 </h2>
-                <div id="certifications-container">
-                    <!-- Certifications will be populated by JavaScript -->
+                <div class="cv-section-content" id="certifications-content">
+                    <div id="certifications-container">
+                        <!-- Certifications will be populated by JavaScript -->
+                    </div>
                 </div>
             </section>
 
             <!-- Awards Section -->
             <section class="cv-section">
-                <h2 class="cv-section-title">
+                <h2 class="cv-section-title" data-section="awards">
                     <i class="fas fa-trophy"></i>
                     Awards
+                    <i class="fas fa-chevron-up toggle-icon"></i>
                 </h2>
-                <div id="awards-container">
-                    <!-- Awards will be populated by JavaScript -->
+                <div class="cv-section-content" id="awards-content">
+                    <div id="awards-container">
+                        <!-- Awards will be populated by JavaScript -->
+                    </div>
                 </div>
             </section>
 
             <!-- Grants Section -->
             <section class="cv-section">
-                <h2 class="cv-section-title">
+                <h2 class="cv-section-title" data-section="grants">
                     <i class="fas fa-hand-holding-usd"></i>
                     Grants
+                    <i class="fas fa-chevron-up toggle-icon"></i>
                 </h2>
-                <div id="grants-container">
-                    <!-- Grants will be populated by JavaScript -->
+                <div class="cv-section-content" id="grants-content">
+                    <div id="grants-container">
+                        <!-- Grants will be populated by JavaScript -->
+                    </div>
                 </div>
             </section>
         </div>
@@ -97,6 +115,5 @@
 
     <script src="js/data-loader.js"></script>
     <script src="js/load-components.js"></script>
-    <script src="js/script.js"></script>
 </body>
 </html>

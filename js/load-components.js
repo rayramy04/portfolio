@@ -1,7 +1,7 @@
-// HTML Component Templates
+// HTML Component Templates for dynamic injection
 const ComponentTemplates = {
     header: `
-        <!-- Navigation -->
+        <!-- Main Navigation Bar -->
         <nav class="navbar" id="navbar">
             <div class="nav-container">
                 <div class="nav-logo">
@@ -24,12 +24,12 @@ const ComponentTemplates = {
     `,
     
     footer: `
-        <!-- Footer -->
+        <!-- Site Footer with Social Links -->
         <footer class="footer">
             <div class="footer-content">
                 <p class="copyright">&copy; Ray. All rights reserved.</p>
                 <div class="footer-social" id="footer-social">
-                    <!-- Social links will be populated dynamically -->
+                    <!-- Social media links populated dynamically -->
                 </div>
             </div>
             <div class="back-to-top" id="back-to-top">
@@ -39,37 +39,41 @@ const ComponentTemplates = {
     `
 };
 
-// Load components when DOM is ready
+// Initialize application when DOM content is fully loaded
 document.addEventListener('DOMContentLoaded', async function() {
-    // Load header and footer components first
+    // Load reusable components (header/footer)
     loadComponents();
     
-    // Initialize data
+    // Initialize data loading system
     await initializeData();
     
-    // Set active navigation link
+    // Highlight current page in navigation
     setActiveNavLink();
     
-    // Initialize mobile menu and back-to-top functionality
+    // Setup interactive elements
     initializeMobileMenu();
     initializeBackToTop();
+    initializeNavbarEffects();
     
-    // Initialize page-specific content after data is loaded
+    // Load page-specific content based on current page
     initializePageContent();
+    
+    // Initialize particles and animations
+    initializeParticles();
 });
 
 function loadComponents() {
-    // Load header
+    // Inject header component into designated placeholder
     const headerPlaceholder = document.getElementById('header-placeholder');
     if (headerPlaceholder) {
         headerPlaceholder.innerHTML = ComponentTemplates.header;
     }
     
-    // Load footer
+    // Inject footer component and initialize social links
     const footerPlaceholder = document.getElementById('footer-placeholder');
     if (footerPlaceholder) {
         footerPlaceholder.innerHTML = ComponentTemplates.footer;
-        // Setup footer social links (will populate when data is loaded)
+        // Social links will be populated when data loads
         populateFooterSocial();
     }
 }
@@ -128,6 +132,62 @@ function initializeBackToTop() {
     }
 }
 
+function initializeNavbarEffects() {
+    const navbar = document.getElementById('navbar');
+    if (navbar) {
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+    }
+
+    // Smooth scrolling for anchor links
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+    anchorLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href !== '#' && href.length > 1) {
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+}
+
+function initializeParticles() {
+    if (typeof particlesJS !== 'undefined' && document.getElementById('particles-js')) {
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: ['#059669', '#14b8a6', '#06b6d4', '#34d399'] },
+                shape: { type: ['circle', 'triangle'], stroke: { width: 1, color: '#059669' } },
+                opacity: { value: 0.4, random: true, anim: { enable: true, speed: 1.5, opacity_min: 0.1, sync: false } },
+                size: { value: 4, random: true, anim: { enable: true, speed: 2, size_min: 1, sync: false } },
+                line_linked: { enable: true, distance: 120, color: '#059669', opacity: 0.3, width: 1.5 },
+                move: { enable: true, speed: 2, direction: 'none', random: true, straight: false, out_mode: 'out', bounce: false, attract: { enable: true, rotateX: 600, rotateY: 1200 } }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' }, resize: true },
+                modes: { repulse: { distance: 200, duration: 0.4 }, push: { particles_nb: 4 } }
+            },
+            retina_detect: true
+        });
+    }
+}
+
 function initializePageContent() {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     
@@ -152,157 +212,103 @@ function initializePageContent() {
 // Track if hero content has been populated to prevent duplicates
 let heroContentPopulated = false;
 
+// Utility function for DOM element checking and retry logic
+function ensureElementsExist(elementIds, callback, maxRetries = 3, delay = 0) {
+    let retryCount = 0;
+    
+    const checkElements = () => {
+        const elements = {};
+        let allExist = true;
+        
+        elementIds.forEach(id => {
+            elements[id] = document.getElementById(id);
+            if (!elements[id]) {
+                allExist = false;
+            }
+        });
+        
+        if (allExist) {
+            callback(elements);
+        } else if (retryCount < maxRetries) {
+            retryCount++;
+            setTimeout(checkElements, delay);
+        } else {
+            console.error('Required DOM elements not found:', elementIds.filter(id => !elements[id]));
+        }
+    };
+    
+    checkElements();
+}
+
 // Page-specific content population functions
 function populateHeroContent() {
-    console.log('Hero: populateHeroContent function called');
-    console.log('Hero: heroContentPopulated flag:', heroContentPopulated);
+    if (heroContentPopulated) return;
     
-    if (heroContentPopulated) {
-        console.log('Hero: Content already populated, skipping');
-        return;
-    }
-    
-    // First, check if DOM elements exist
-    const heroName = document.getElementById('hero-name');
-    const heroTitle = document.getElementById('hero-title');
-    const keywordsList = document.getElementById('keywords-list');
-    
-    console.log('Hero: DOM elements check:', {
-        heroName: !!heroName,
-        heroTitle: !!heroTitle,
-        keywordsList: !!keywordsList
+    ensureElementsExist(['hero-name', 'hero-title', 'keywords-list'], (elements) => {
+        const existingData = getPortfolioData();
+        if (existingData && existingData.hero && Object.keys(existingData.hero).length > 0) {
+            updateHeroContent(existingData);
+            return;
+        }
+        
+        document.addEventListener('dataLoaded', function(event) {
+            updateHeroContent(event.detail);
+        }, { once: true });
     });
-    
-    if (!heroName || !heroTitle || !keywordsList) {
-        console.error('Hero: Some required DOM elements are missing, retrying immediately');
-        setTimeout(populateHeroContent, 0);
-        return;
-    }
-    
-    // Check if data is already available
-    const existingData = getPortfolioData();
-    if (existingData && existingData.hero && Object.keys(existingData.hero).length > 0) {
-        console.log('Hero: Using existing data:', existingData.hero);
-        updateHeroContent(existingData);
-        return;
-    }
-    
-    // Otherwise, wait for dataLoaded event
-    document.addEventListener('dataLoaded', function(event) {
-        const data = event.detail;
-        console.log('Hero: Data loaded event received:', data);
-        updateHeroContent(data);
-    }, { once: true });
 }
 
 function updateHeroContent(data) {
-    console.log('Hero: Updating content with data:', data);
-    console.log('Hero: data.hero =', data.hero);
-    
     if (data && data.hero) {
         const heroName = document.getElementById('hero-name');
-        console.log('Hero: heroName element found:', !!heroName);
-        if (heroName) {
-            console.log('Hero: Current hero name content before update:', heroName.textContent);
-            heroName.textContent = data.hero.name || 'Ray';
-            console.log('Hero: Set hero name to:', heroName.textContent);
-        } else {
-            console.error('Hero: hero-name element not found in DOM');
-        }
-
         const heroTitle = document.getElementById('hero-title');
-        console.log('Hero: heroTitle element found:', !!heroTitle);
-        if (heroTitle) {
-            heroTitle.innerHTML = data.hero.subtitle || data.hero.title || 'Computer Science & Data Science Student';
-            console.log('Hero: Set hero title to:', heroTitle.innerHTML);
-        } else {
-            console.error('Hero: hero-title element not found in DOM');
-        }
-
         const keywordsList = document.getElementById('keywords-list');
-        console.log('Hero: keywordsList element found:', !!keywordsList);
-        console.log('Hero: keywords data:', data.hero.keywords);
+        
+        if (heroName) heroName.textContent = data.hero.name || 'Ray';
+        if (heroTitle) heroTitle.innerHTML = data.hero.subtitle || data.hero.title || 'Computer Science & Data Science Student';
         if (keywordsList && data.hero.keywords) {
             keywordsList.innerHTML = data.hero.keywords
                 .map(keyword => `<li class="keyword-item">${keyword}</li>`)
                 .join('');
-            console.log('Hero: Set keywords to:', keywordsList.innerHTML);
-        } else {
-            if (!keywordsList) console.error('Hero: keywords-list element not found in DOM');
-            if (!data.hero.keywords) console.error('Hero: keywords data is missing');
         }
         
-        // Mark as populated to prevent future duplicates
         heroContentPopulated = true;
-        console.log('Hero: Content populated successfully, flag set to true');
-        
-        // Initialize scroll animations (same as CV page)
         initializeScrollAnimations();
-    } else {
-        console.error('Hero: Hero data not found or invalid:', data);
     }
 }
 
 function populateAboutContent() {
-    console.log('About: populateAboutContent function called');
-    
-    // Check if DOM elements exist first
-    const aboutTitle = document.getElementById('about-title');
-    const aboutName = document.getElementById('about-name');
-    const aboutPosition = document.getElementById('about-position');
-    const aboutDescription = document.getElementById('about-description');
-    
-    console.log('About: DOM elements check:', {
-        aboutTitle: !!aboutTitle,
-        aboutName: !!aboutName,
-        aboutPosition: !!aboutPosition,
-        aboutDescription: !!aboutDescription
-    });
-    
-    if (!aboutTitle || !aboutName || !aboutPosition || !aboutDescription) {
-        console.error('About: Some required DOM elements are missing, retrying immediately');
+    const elements = ['about-title', 'about-name', 'about-position', 'about-description'];
+    if (!elements.every(id => document.getElementById(id))) {
         setTimeout(populateAboutContent, 0);
         return;
     }
     
-    // Check if data is already available
     const existingData = getPortfolioData();
     if (existingData && existingData.personal && Object.keys(existingData.personal).length > 0) {
-        console.log('About: Using existing data:', existingData.personal);
         updateAboutContent(existingData);
         return;
     }
     
-    // Otherwise, wait for dataLoaded event
     document.addEventListener('dataLoaded', function(event) {
-        const data = event.detail;
-        console.log('About: Data loaded event received:', data);
-        updateAboutContent(data);
+        updateAboutContent(event.detail);
     }, { once: true });
 }
 
 function updateAboutContent(data) {
-    console.log('About: updateAboutContent called with data:', data);
-    
     if (data && data.personal) {
-        const aboutTitle = document.getElementById('about-title');
-        if (aboutTitle) aboutTitle.textContent = "Who I Am";
-
-        const aboutName = document.getElementById('about-name');
-        if (aboutName) aboutName.textContent = data.personal.name;
-
-        const aboutPosition = document.getElementById('about-position');
-        if (aboutPosition) aboutPosition.textContent = data.personal.position;
-
-        const aboutDescription = document.getElementById('about-description');
-        if (aboutDescription) aboutDescription.innerHTML = data.personal.description.replace(/\n/g, '<br>');
+        const elements = {
+            'about-title': 'Who I Am',
+            'about-name': data.personal.name,
+            'about-position': data.personal.position,
+            'about-description': data.personal.description.replace(/\n/g, '<br>')
+        };
         
-        console.log('About: Personal content populated successfully');
+        Object.entries(elements).forEach(([id, content]) => {
+            const element = document.getElementById(id);
+            if (element) element[id === 'about-description' ? 'innerHTML' : 'textContent'] = content;
+        });
         
-        // Initialize scroll animations (same as CV page)
         initializeScrollAnimations();
-    } else {
-        console.error('About: Personal data not found:', data);
     }
 }
 
@@ -532,12 +538,12 @@ function updateCVContent(data) {
     if (data.experience && data.experience.length > 0) {
         const container = document.getElementById('experience-container');
         if (container) {
-            container.innerHTML = data.experience.map(exp => `
-                <div class="cv-item">
+            container.innerHTML = data.experience.map(exp => {
+                const cardContent = `
                     <div class="cv-item-header">
                         <div>
-                            <h3>${exp.title}</h3>
-                            <p class="cv-company">${exp.company}</p>
+                            <h3>${exp.company}</h3>
+                            <p class="cv-company">${exp.title}</p>
                         </div>
                         <div>
                             <p class="cv-date">${exp.period}</p>
@@ -545,12 +551,30 @@ function updateCVContent(data) {
                     </div>
                     <div class="cv-item-content">
                         <p>${exp.description}</p>
-                        <ul class="cv-responsibilities">
-                            ${exp.responsibilities.map(resp => `<li>${resp}</li>`).join('')}
-                        </ul>
                     </div>
-                </div>
-            `).join('');
+                `;
+                
+                if (exp.link) {
+                    return `
+                        <div class="cv-item cv-item-linkable">
+                            <a href="${exp.link}" target="_blank" class="cv-item-overlay">
+                                <div class="cv-item-overlay-content">
+                                    <div class="cv-item-link-icon">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </div>
+                                </div>
+                            </a>
+                            ${cardContent}
+                        </div>
+                    `;
+                } else {
+                    return `
+                        <div class="cv-item">
+                            ${cardContent}
+                        </div>
+                    `;
+                }
+            }).join('');
         }
     }
     
@@ -563,11 +587,21 @@ function updateCVContent(data) {
                     <h3>${category.category}</h3>
                     <div class="skills-list">
                         ${category.skills.map(skill => {
-                            // Convert percentage to 5-star rating
-                            const stars = Math.round(skill.level / 20);
+                            // Use direct 1-5 star rating
+                            const stars = skill.level;
                             const starDisplay = Array.from({length: 5}, (_, i) => 
                                 i < stars ? '<i class="fas fa-star"></i>' : '<i class="far fa-star"></i>'
                             ).join('');
+                            
+                            // Handle description as array for bullet points or string for regular text
+                            let descriptionHtml = '';
+                            if (skill.description) {
+                                if (Array.isArray(skill.description)) {
+                                    descriptionHtml = `<ul class="skill-description-list">${skill.description.map(item => `<li>${item}</li>`).join('')}</ul>`;
+                                } else {
+                                    descriptionHtml = `<p class="skill-description">${skill.description}</p>`;
+                                }
+                            }
                             
                             return `
                                 <div class="skill-item">
@@ -577,6 +611,7 @@ function updateCVContent(data) {
                                             ${starDisplay}
                                         </div>
                                     </div>
+                                    ${descriptionHtml}
                                 </div>
                             `;
                         }).join('')}
@@ -598,27 +633,40 @@ function updateCVContent(data) {
                 awardsHtml += `<div class="awards-year"><h3>${year}</h3>`;
                 
                 data.awards[year].forEach(award => {
-                    // Extract month and day from date if available
-                    let dateDisplay = '';
-                    if (award.date) {
-                        const dateObj = new Date(award.date);
-                        const month = dateObj.toLocaleString('default', { month: 'short' });
-                        const day = dateObj.getDate();
-                        dateDisplay = `${month} ${day}`;
-                    }
+                    // Use date as-is from JSON
+                    const dateDisplay = award.date || '';
                     
-                    awardsHtml += `
-                        <div class="cv-item">
-                            <div class="cv-item-header">
-                                <div>
-                                    <h3>${award.title}</h3>
-                                    <p class="award-org">${award.organization}</p>
-                                </div>
-                                ${dateDisplay ? `<div><p class="cv-date">${dateDisplay}</p></div>` : ''}
+                    const cardContent = `
+                        <div class="cv-item-header">
+                            <div>
+                                <h3>${award.title}</h3>
+                                <p class="award-org">${award.organization}</p>
                             </div>
-                            <p>${award.description}</p>
+                            ${dateDisplay ? `<div><p class="cv-date">${dateDisplay}</p></div>` : ''}
                         </div>
+                        <p>${award.description}</p>
                     `;
+                    
+                    if (award.link) {
+                        awardsHtml += `
+                            <div class="cv-item cv-item-linkable">
+                                <a href="${award.link}" target="_blank" class="cv-item-overlay">
+                                    <div class="cv-item-overlay-content">
+                                        <div class="cv-item-link-icon">
+                                            <i class="fas fa-external-link-alt"></i>
+                                        </div>
+                                    </div>
+                                </a>
+                                ${cardContent}
+                            </div>
+                        `;
+                    } else {
+                        awardsHtml += `
+                            <div class="cv-item">
+                                ${cardContent}
+                            </div>
+                        `;
+                    }
                 });
                 
                 awardsHtml += '</div>';
@@ -633,11 +681,8 @@ function updateCVContent(data) {
         const container = document.getElementById('certifications-container');
         if (container) {
             container.innerHTML = data.certifications.map(cert => {
-                // Extract year and month from date
-                const dateObj = new Date(cert.date);
-                const year = dateObj.getFullYear();
-                const month = dateObj.toLocaleString('default', { month: 'short' });
-                const dateDisplay = `${month} ${year}`;
+                // Use date as-is from JSON
+                const dateDisplay = cert.date || '';
                 
                 return `
                     <div class="cv-item">
@@ -648,7 +693,6 @@ function updateCVContent(data) {
                             </div>
                             <div>
                                 <p class="cv-date">${dateDisplay}</p>
-                                ${cert.score ? `<p class="cert-score">${cert.score}</p>` : ''}
                             </div>
                         </div>
                     </div>
@@ -661,21 +705,26 @@ function updateCVContent(data) {
     if (data.grants && data.grants.length > 0) {
         const container = document.getElementById('grants-container');
         if (container) {
-            container.innerHTML = data.grants.map(grant => `
-                <div class="cv-item">
-                    <div class="cv-item-header">
-                        <div>
-                            <h3>${grant.title}</h3>
-                            <p class="grant-org">${grant.organization}</p>
+            container.innerHTML = data.grants.map(grant => {
+                // Use date as-is from JSON
+                const dateDisplay = grant.date || '';
+                
+                return `
+                    <div class="cv-item">
+                        <div class="cv-item-header">
+                            <div>
+                                <h3>${grant.title}</h3>
+                                <p class="grant-org">${grant.organization}</p>
+                            </div>
+                            <div>
+                                <p class="cv-date">${dateDisplay}</p>
+                                <p class="grant-amount">${grant.amount}</p>
+                            </div>
                         </div>
-                        <div>
-                            <p class="cv-date">${grant.year}</p>
-                            <p class="grant-amount">${grant.amount}</p>
-                        </div>
+                        <p>${grant.description}</p>
                     </div>
-                    <p>${grant.description}</p>
-                </div>
-            `).join('');
+                `;
+            }).join('');
         }
     }
     
@@ -700,22 +749,7 @@ function initializeScrollAnimations() {
         threshold: 0.1 // At least 10% visible
     };
     
-    // Create the observer
-    const sectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Add loaded class with a slight delay for smoother effect
-                setTimeout(() => {
-                    entry.target.classList.add('loaded');
-                }, 100);
-                
-                // Stop observing this element once animated
-                sectionObserver.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-    
-    // Define selectors for each page
+    // Define selectors for each page in document order
     let selectors = [];
     
     switch(currentPage) {
@@ -727,7 +761,8 @@ function initializeScrollAnimations() {
             selectors = ['.hero-content'];
             break;
         case 'about.html':
-            selectors = ['.about-section', '.timeline-section', '.interests-section'];
+            // Ensure proper document order for about page sections
+            selectors = ['.about-section', '.story-section', '.timeline-section', '.interests-section'];
             break;
         case 'projects.html':
             selectors = ['.projects-section'];
@@ -737,16 +772,68 @@ function initializeScrollAnimations() {
             break;
     }
     
-    // Observe all matching elements
-    let totalElements = 0;
+    // Collect all elements and sort them by their position in the document
+    let allElements = [];
     selectors.forEach(selector => {
         const elements = document.querySelectorAll(selector);
-        elements.forEach(element => {
-            sectionObserver.observe(element);
-            totalElements++;
-        });
+        allElements = allElements.concat(Array.from(elements));
     });
     
+    // Sort elements by their position in the document to ensure proper order
+    allElements.sort((a, b) => {
+        const position = a.compareDocumentPosition(b);
+        if (position & Node.DOCUMENT_POSITION_FOLLOWING) {
+            return -1; // a comes before b
+        } else if (position & Node.DOCUMENT_POSITION_PRECEDING) {
+            return 1; // a comes after b
+        }
+        return 0; // same position
+    });
+    
+    // Check if any elements are already visible and trigger animation immediately
+    let hasVisibleElement = false;
+    allElements.forEach(element => {
+        const rect = element.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            hasVisibleElement = true;
+        }
+    });
+    
+    // If elements are already visible, animate immediately
+    if (hasVisibleElement) {
+        allElements.forEach((element, index) => {
+            setTimeout(() => {
+                element.classList.add('loaded');
+            }, index * 200);
+        });
+    } else {
+        // Create observer that triggers sequential animation when first element becomes visible
+        const sequentialObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.hasAttribute('data-animated')) {
+                    // Mark as animated to prevent retriggering
+                    entry.target.setAttribute('data-animated', 'true');
+                    
+                    // Animate all elements sequentially from top to bottom
+                    allElements.forEach((element, index) => {
+                        setTimeout(() => {
+                            element.classList.add('loaded');
+                        }, index * 200); // 200ms delay between each section
+                    });
+                    
+                    // Stop observing all elements once animation starts
+                    allElements.forEach(el => sequentialObserver.unobserve(el));
+                }
+            });
+        }, observerOptions);
+        
+        // Only observe the first element to trigger the sequence
+        if (allElements.length > 0) {
+            sequentialObserver.observe(allElements[0]);
+        }
+    }
+    
+    let totalElements = allElements.length;
     console.log(`${currentPage}: Intersection Observer initialized for ${totalElements} elements`);
 }
 
@@ -807,9 +894,9 @@ function updateProjectsContent(data) {
                     </div>
                     <div class="project-content">
                         <h3>${project.name}</h3>
-                        <p>${project.longDescription || project.description}</p>
+                        <p>${project.description}</p>
                         <div class="project-tech">
-                            ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                            ${(project.technologies || []).map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
                         </div>
                     </div>
                 </div>
@@ -1019,5 +1106,51 @@ function updateFooterSocial(data) {
             socialLinks: data.socialLinks,
             socialLinksLength: data.socialLinks ? data.socialLinks.length : 0
         });
+    }
+}
+
+// CV Section Toggle Functionality
+function initializeCVToggle() {
+    console.log('CV Toggle: Initializing CV section toggles');
+    
+    // Find all CV section titles
+    const sectionTitles = document.querySelectorAll('.cv-section-title');
+    console.log('CV Toggle: Found section titles:', sectionTitles.length);
+    
+    sectionTitles.forEach(title => {
+        title.addEventListener('click', function() {
+            const sectionName = this.dataset.section;
+            const contentElement = document.getElementById(`${sectionName}-content`);
+            
+            if (!contentElement) {
+                console.error('CV Toggle: Content element not found for section:', sectionName);
+                return;
+            }
+            
+            // Toggle collapsed state
+            const isCollapsed = contentElement.classList.contains('collapsed');
+            
+            if (isCollapsed) {
+                // Expand
+                contentElement.classList.remove('collapsed');
+                this.classList.remove('collapsed');
+                console.log('CV Toggle: Expanded section:', sectionName);
+            } else {
+                // Collapse
+                contentElement.classList.add('collapsed');
+                this.classList.add('collapsed');
+                console.log('CV Toggle: Collapsed section:', sectionName);
+            }
+        });
+    });
+}
+
+// Initialize CV toggles when on CV page
+if (document.querySelector('.cv-section')) {
+    // Wait for DOM to be fully loaded
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeCVToggle);
+    } else {
+        initializeCVToggle();
     }
 }
