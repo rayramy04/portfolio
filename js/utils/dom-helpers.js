@@ -125,9 +125,38 @@ class PageBase {
 
 
     /**
+     * 全ナビゲーション状態を完全リセット
+     */
+    resetAllNavigationStates() {
+        // フォーカスされている要素をクリア
+        if (document.activeElement && document.activeElement !== document.body) {
+            document.activeElement.blur();
+        }
+        
+        document.querySelectorAll('.nav-link').forEach(link => {
+            // 全クラスを削除
+            link.classList.remove('active', 'clicked');
+            // フォーカスをクリア
+            link.blur();
+            // インラインスタイルをクリア
+            link.style.cssText = '';
+        });
+        
+        // 短い遅延後に再度実行（確実性のため）
+        setTimeout(() => {
+            if (document.activeElement && document.activeElement !== document.body) {
+                document.activeElement.blur();
+            }
+        }, 10);
+    }
+
+    /**
      * Initialize navigation: active links and mobile menu
      */
     initializeNavigation() {
+        // 完全な状態リセット
+        this.resetAllNavigationStates();
+        
         // Set active navigation link based on current page
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
         document.querySelectorAll('.nav-link').forEach(link => {
