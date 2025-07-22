@@ -9,7 +9,7 @@ class HomePage extends PageBase {
     }
 
     async populateHeroContent() {
-        try {
+        await ErrorHandler.safeExecute(async () => {
             const { name, subtitle, keywords } = window.homeData.hero;
             
             const [heroName, heroTitle, keywordsList] = await Promise.all([
@@ -28,11 +28,7 @@ class HomePage extends PageBase {
 
             const heroContent = document.querySelector('.hero-content');
             DOMHelpers.addLoadedClass(heroContent, 100);
-
-
-        } catch (error) {
-            this.handleError(error, 'hero-content');
-        }
+        }, 'hero-content', this);
     }
 
 

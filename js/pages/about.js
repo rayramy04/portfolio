@@ -11,7 +11,7 @@ class AboutPage extends PageBase {
     }
 
     async populatePersonalInfo() {
-        try {
+        await ErrorHandler.safeExecute(async () => {
             const personalData = window.aboutData.personal;
             
             const aboutName = document.getElementById('about-name');
@@ -28,14 +28,11 @@ class AboutPage extends PageBase {
             if (aboutSection) {
                 DOMHelpers.addLoadedClass(aboutSection, 100);
             }
-
-        } catch (error) {
-            this.handleError(error);
-        }
+        }, null, this);
     }
 
     async populateStoryContent() {
-        try {
+        await ErrorHandler.safeExecute(async () => {
             const storyData = window.aboutData.story;
             const storyContent = await DOMHelpers.getElement('story-content-inner');
             const storyHTML = storyData.paragraphs
@@ -50,18 +47,14 @@ class AboutPage extends PageBase {
             }
             
             DOMHelpers.loadSection('.story-section', 300);
-
-        } catch (error) {
-            this.handleError(error, 'story-content');
-        }
+        }, 'story-content', this);
     }
 
     async populateTimelineContent() {
-        try {
-            const timelineData = window.aboutData.timeline;
-            const timelineContainer = await DOMHelpers.getElement('timeline-container');
-            
-            const timelineHTML = HTMLGenerator.renderList(timelineData, (item) => `
+        await DataPopulator.populateList({
+            dataPath: 'aboutData.timeline',
+            containerId: 'timeline-container',
+            itemRenderer: (item) => `
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <div class="timeline-header">
@@ -71,22 +64,16 @@ class AboutPage extends PageBase {
                         <p>${item.description}</p>
                     </div>
                 </div>
-            `);
-
-            DOMHelpers.setHTML(timelineContainer, timelineHTML);
-            DOMHelpers.loadSection('.timeline-section', 500);
-
-        } catch (error) {
-            this.handleError(error, 'timeline-container');
-        }
+            `,
+            options: { delay: 500, sectionSelector: '.timeline-section' }
+        }, this);
     }
 
     async populateInterestsContent() {
-        try {
-            const interestsData = window.aboutData.interests;
-            const interestsContainer = await DOMHelpers.getElement('interests-container');
-            
-            const interestsHTML = HTMLGenerator.renderList(interestsData, (interest) => `
+        await DataPopulator.populateList({
+            dataPath: 'aboutData.interests',
+            containerId: 'interests-container',
+            itemRenderer: (interest) => `
                 <div class="interest-card">
                     <div class="interest-icon">
                         <i class="${interest.icon}"></i>
@@ -94,14 +81,9 @@ class AboutPage extends PageBase {
                     <h3>${interest.title}</h3>
                     <p>${interest.description}</p>
                 </div>
-            `);
-
-            DOMHelpers.setHTML(interestsContainer, interestsHTML);
-            DOMHelpers.loadSection('.interests-section', 700);
-
-        } catch (error) {
-            this.handleError(error, 'interests-container');
-        }
+            `,
+            options: { delay: 700, sectionSelector: '.interests-section' }
+        }, this);
     }
 
 }
