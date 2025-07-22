@@ -57,63 +57,62 @@ class DataLoader {
         return {};
     }
 
-    // Load all data files for new structure
+    // Domain-specific load functions for better organization
+    async loadCommonJSON() {
+        return await this.loadJSON('data/common.json');
+    }
+
+    async loadHomeJSON() {
+        return await this.loadJSON('data/home/hero.json');
+    }
+
+    async loadAboutJSON() {
+        return await Promise.all([
+            this.loadJSON('data/about/personal.json'),
+            this.loadJSON('data/about/story.json'),
+            this.loadJSON('data/about/timeline.json'),
+            this.loadJSON('data/about/interests.json')
+        ]);
+    }
+
+    async loadCVJSON() {
+        return await Promise.all([
+            this.loadJSON('data/cv/education.json'),
+            this.loadJSON('data/cv/experience.json'),
+            this.loadJSON('data/cv/skills.json'),
+            this.loadJSON('data/cv/awards.json'),
+            this.loadJSON('data/cv/certifications.json'),
+            this.loadJSON('data/cv/grants.json')
+        ]);
+    }
+
+    async loadProjectsJSON() {
+        return await this.loadJSON('data/projects/projects.json');
+    }
+
+    async loadLinksJSON() {
+        return await this.loadJSON('data/links/contact.json');
+    }
+
+    // Load all data using domain-specific functions
     async loadAllData() {
         try {
-            const [
-                // Common data
-                commonData,
-                
-                // Home page data
-                heroData,
-                
-                // About page data
-                personalData,
-                storyData,
-                timelineData,
-                interestsData,
-                
-                // CV page data
-                educationData,
-                experienceData,
-                skillsData,
-                awardsData,
-                certificationsData,
-                grantsData,
-                
-                // Projects page data
-                projectsData,
-                
-                // Links page data
-                contactData
-            ] = await Promise.all([
-                // Common
-                this.loadJSON('data/common.json'),
-                
-                // Home
-                this.loadJSON('data/home/hero.json'),
-                
-                // About
-                this.loadJSON('data/about/personal.json'),
-                this.loadJSON('data/about/story.json'),
-                this.loadJSON('data/about/timeline.json'),
-                this.loadJSON('data/about/interests.json'),
-                
-                // CV
-                this.loadJSON('data/cv/education.json'),
-                this.loadJSON('data/cv/experience.json'),
-                this.loadJSON('data/cv/skills.json'),
-                this.loadJSON('data/cv/awards.json'),
-                this.loadJSON('data/cv/certifications.json'),
-                this.loadJSON('data/cv/grants.json'),
-                
-                // Projects
-                this.loadJSON('data/projects/projects.json'),
-                
-                // Links
-                this.loadJSON('data/links/contact.json')
-            ]);
+            // Load all domains in parallel using abstracted functions
+            const [commonData, heroData, aboutData, cvData, projectsData, contactData] = 
+                await Promise.all([
+                    this.loadCommonJSON(),
+                    this.loadHomeJSON(),
+                    this.loadAboutJSON(),
+                    this.loadCVJSON(),
+                    this.loadProjectsJSON(),
+                    this.loadLinksJSON()
+                ]);
 
+            // Destructure domain data arrays
+            const [personalData, storyData, timelineData, interestsData] = aboutData;
+            const [educationData, experienceData, skillsData, awardsData, certificationsData, grantsData] = cvData;
+
+            // Structure the final data object
             return {
                 // Common data
                 profile: commonData.profile || {},
