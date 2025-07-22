@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ray's portfolio - Computer Science & Data Science student at Monash University Malaysia. AI, ML, web development, research.">
-    <meta name="keywords" content="Ray, portfolio, computer science, data science, AI, machine learning, web development, Monash University Malaysia">
+    <meta name="description" content="Links - Social media, contact information, and online presence">
+    <meta name="keywords" content="Ray, links, social media, contact, GitHub, Twitter, LinkedIn">
     <meta name="author" content="Ray">
-    <title>Ray's Portfolio | Computer Science & Data Science</title>
+    <title>Links - Ray's Portfolio</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
-    
 </head>
 <body>
     <!-- Static Header -->
@@ -37,29 +36,21 @@
         </div>
     </nav>
 
-        <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="hero-background">
-            <div id="particles-js"></div>
-        </div>
-        <div class="hero-content">
-            <div class="profile-photo">
-                <img src="assets/profile.jpg" alt="Ray's profile photo"
-                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                <div class="profile-photo-placeholder" style="display: none;">
-                    <i class="fas fa-user"></i>
-                </div>
-            </div>
-            <h1 class="hero-name" id="hero-name"></h1>
-            <p class="hero-title" id="hero-title"></p>
+    <!-- Links Content -->
+    <main class="main-content">
+        <div class="container">
+            <section class="links-header">
+                <h1 class="section-title" style="text-align: center;">Links</h1>
+            </section>
 
-            <div class="keywords-section">
-                <h3 class="keywords-title">Keywords</h3>
-                <ul class="keywords" id="keywords-list"></ul>
+            <!-- Dynamic Links Content -->
+            <div id="links-content">
+                <!-- Content will be populated dynamically from JSON data -->
             </div>
         </div>
-    </section>
+    </main>
 
+    <!-- Footer Placeholder -->
     <!-- Static Footer -->
     <footer class="footer">
         <div class="footer-content">
@@ -73,15 +64,12 @@
         </div>
     </footer>
 
-        <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-</script>
     <script src="js/utils/dom-helpers.js"></script>
     <script src="js/utils/html-generator.js"></script>
     <script src="js/utils/error-handler.js"></script>
     <script src="js/utils/data-populator.js"></script>
     <script src="data/common.js"></script>
-    <script src="data/home.js"></script>
-    <script src="js/pages/home.js"></script>
+    <script src="data/links.js"></script>
+    <script src="js/pages/links.js"></script>
 </body>
 </html>

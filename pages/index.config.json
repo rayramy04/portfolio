@@ -1,0 +1,8 @@
+{
+  "META_DESCRIPTION": "Ray's portfolio - Computer Science & Data Science student at Monash University Malaysia. AI, ML, web development, research.",
+  "META_KEYWORDS": "Ray, portfolio, computer science, data science, AI, machine learning, web development, Monash University Malaysia",
+  "PAGE_TITLE": "Ray's Portfolio | Computer Science & Data Science",
+  "ADDITIONAL_HEAD": "",
+  "MAIN_CONTENT": "pages/index-content.html",
+  "SCRIPTS": "pages/index-scripts.html"
+}
