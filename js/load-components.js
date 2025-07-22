@@ -1036,7 +1036,6 @@ function updateLinksContent(data) {
                                 <i class="${link.icon}"></i>
                             </div>
                             <h3>${link.title}</h3>
-                            ${link.description ? `<p>${link.description}</p>` : ''}
                         </div>
                         <div class="link-arrow">
                             <i class="fas fa-arrow-right"></i>

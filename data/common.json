@@ -10,7 +10,6 @@
       "url": "https://github.com/ll-0013py",
       "username": "@ll-0013py",
       "title": "GitHub",
-      "description": "プロジェクトのソースコードを公開",
       "icon": "fab fa-github"
     },
     {
@@ -18,7 +17,6 @@
       "url": "https://x.com/ll_0013py",
       "username": "@ll_0013py",
       "title": "X (Twitter)",
-      "description": "日常の生活や学習記録をポスト",
       "icon": "fab fa-twitter"
     },
     {
@@ -26,7 +24,6 @@
       "url": "https://note.com/ll_0013py",
       "username": "@ll_0013py",
       "title": "note",
-      "description": "留学記事や学習記録を執筆",
       "icon": "fas fa-pen-nib"
     },
     {
@@ -34,7 +31,6 @@
       "url": "https://www.youtube.com/@ray_pianocover",
       "username": "@ray_pianocover",
       "title": "YouTube",
-      "description": "音楽の動画を投稿",
       "icon": "fab fa-youtube"
     }
   ],
@@ -43,7 +39,6 @@
       "name": "Portfolio",
       "url": "index.html",
       "title": "Portfolio",
-      "description": "",
       "icon": "fas fa-home"
     }
   ],
