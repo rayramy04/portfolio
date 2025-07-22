@@ -350,6 +350,14 @@ function updateStoryContent(data) {
                 .map(paragraph => `<p>${paragraph}</p>`)
                 .join('');
             console.log('Story: Content populated successfully');
+            
+            // Add loaded class to story section for transition
+            const storySection = document.querySelector('.story-section');
+            if (storySection) {
+                setTimeout(() => {
+                    storySection.classList.add('loaded');
+                }, 100);
+            }
         }
     } else {
         console.error('Story: Story data not found:', data);
@@ -406,6 +414,14 @@ function updateTimelineContent(data) {
                 </div>
             `).join('');
             console.log('Timeline: Content populated successfully');
+            
+            // Add loaded class to timeline section for transition
+            const timelineSection = document.querySelector('.timeline-section');
+            if (timelineSection) {
+                setTimeout(() => {
+                    timelineSection.classList.add('loaded');
+                }, 100);
+            }
         }
     } else {
         console.error('Timeline: Timeline data not found:', data);
@@ -456,6 +472,14 @@ function updateInterestsContent(data) {
                 </div>
             `).join('');
             console.log('Interests: Content populated successfully');
+            
+            // Add loaded class to interests section for transition
+            const interestsSection = document.querySelector('.interests-section');
+            if (interestsSection) {
+                setTimeout(() => {
+                    interestsSection.classList.add('loaded');
+                }, 100);
+            }
         }
     } else {
         console.error('Interests: Interests data not found:', data);

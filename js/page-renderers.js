@@ -4,18 +4,26 @@
 class PageRenderers {
     // Home page rendering
     static renderHero(data) {
+        console.log('renderHero called with data:', data);
         const heroSection = document.getElementById('hero-content');
-        if (!heroSection || !data.hero) return;
+        if (!heroSection) {
+            console.error('hero-content element not found');
+            return;
+        }
+        if (!data.hero) {
+            console.error('No hero data found');
+            return;
+        }
 
         const hero = data.hero;
         const profile = data.profile || {};
         
-        heroSection.innerHTML = `
+        const htmlContent = `
             <div class="hero-container">
                 <div class="hero-content">
                     <div class="hero-text">
-                        <h1 class="hero-title">${hero.title || profile.name || 'Welcome'}</h1>
-                        <p class="hero-subtitle">${hero.subtitle || profile.title || ''}</p>
+                        <h1 class="hero-title">${hero.name || hero.title || profile.name || 'Welcome'}</h1>
+                        <p class="hero-subtitle">${hero.subtitle || hero.title || profile.title || ''}</p>
                         <p class="hero-description">${hero.description || ''}</p>
                         ${hero.cta ? `
                             <div class="hero-cta">
@@ -26,42 +34,53 @@ class PageRenderers {
                             </div>
                         ` : ''}
                     </div>
-                    ${profile.photo ? `
+                    ${hero.photo || profile.photo ? `
                         <div class="hero-image">
-                            <img src="${profile.photo}" alt="${profile.name}" class="profile-photo">
+                            <img src="${hero.photo || profile.photo}" alt="${hero.name || profile.name}" class="profile-photo">
                         </div>
                     ` : ''}
                 </div>
             </div>
         `;
+        
+        console.log('Generated HTML content:', htmlContent);
+        heroSection.innerHTML = htmlContent;
+        console.log('After setting innerHTML, heroSection content:', heroSection.innerHTML);
+        
+        // Add loaded class for transition effect
+        setTimeout(() => {
+            heroSection.classList.add('loaded');
+        }, 100);
     }
 
     // About page rendering functions
     static renderPersonal(data) {
-        const personalSection = document.getElementById('personal-content');
-        if (!personalSection || !data.personal) return;
+        console.log('renderPersonal called with data:', data);
+        // About page uses different element IDs, update dynamically
+        const aboutTitle = document.getElementById('about-title');
+        const aboutName = document.getElementById('about-name');
+        const aboutPosition = document.getElementById('about-position');
+        const aboutDescription = document.getElementById('about-description');
+        
+        if (!aboutName || !data.personal) {
+            console.error('About page personal elements not found or no personal data');
+            return;
+        }
 
         const personal = data.personal;
-        personalSection.innerHTML = `
-            <div class="personal-container">
-                <h2>About Me</h2>
-                <div class="personal-content">
-                    <div class="personal-text">
-                        <p>${personal.introduction || ''}</p>
-                        ${personal.highlights ? `
-                            <ul class="personal-highlights">
-                                ${personal.highlights.map(item => `<li>${item}</li>`).join('')}
-                            </ul>
-                        ` : ''}
-                    </div>
-                    ${personal.image ? `
-                        <div class="personal-image">
-                            <img src="${personal.image}" alt="About me" class="about-photo">
-                        </div>
-                    ` : ''}
-                </div>
-            </div>
-        `;
+        
+        // Update individual elements instead of innerHTML
+        if (aboutName) aboutName.textContent = personal.name || '';
+        if (aboutPosition) aboutPosition.textContent = personal.position || '';
+        if (aboutDescription) aboutDescription.textContent = personal.description || '';
+        
+        // Add loaded class to about content container
+        const aboutContent = document.querySelector('.about-content');
+        if (aboutContent) {
+            setTimeout(() => {
+                aboutContent.classList.add('loaded');
+            }, 100);
+        }
     }
 
     static renderStory(data) {
@@ -76,11 +95,24 @@ class PageRenderers {
                 </div>
             </div>
         `;
+        
+        // Add loaded class for transition effect
+        setTimeout(() => {
+            storySection.classList.add('loaded');
+        }, 100);
     }
 
     static renderTimeline(data) {
-        const timelineSection = document.getElementById('timeline-content');
-        if (!timelineSection || !data.timeline) return;
+        console.log('renderTimeline called with data:', data);
+        const timelineSection = document.getElementById('timeline-container');
+        if (!timelineSection) {
+            console.error('timeline-container element not found');
+            return;
+        }
+        if (!data.timeline) {
+            console.error('No timeline data found');
+            return;
+        }
 
         const timelineItems = Array.isArray(data.timeline) ? data.timeline : [];
         
@@ -101,11 +133,24 @@ class PageRenderers {
                 </div>
             </div>
         `;
+        
+        // Add loaded class for transition effect
+        setTimeout(() => {
+            timelineSection.classList.add('loaded');
+        }, 100);
     }
 
     static renderInterests(data) {
-        const interestsSection = document.getElementById('interests-content');
-        if (!interestsSection || !data.interests) return;
+        console.log('renderInterests called with data:', data);
+        const interestsSection = document.getElementById('interests-container');
+        if (!interestsSection) {
+            console.error('interests-container element not found');
+            return;
+        }
+        if (!data.interests) {
+            console.error('No interests data found');
+            return;
+        }
 
         const interests = Array.isArray(data.interests) ? data.interests : [];
         
@@ -125,6 +170,11 @@ class PageRenderers {
                 </div>
             </div>
         `;
+        
+        // Add loaded class for transition effect
+        setTimeout(() => {
+            interestsSection.classList.add('loaded');
+        }, 100);
     }
 
     // CV page rendering functions
@@ -153,6 +203,11 @@ class PageRenderers {
                 </div>
             </div>
         `;
+        
+        // Add loaded class for transition effect
+        setTimeout(() => {
+            educationSection.classList.add('loaded');
+        }, 100);
     }
 
     static renderExperience(data) {
@@ -179,6 +234,11 @@ class PageRenderers {
                 </div>
             </div>
         `;
+        
+        // Add loaded class for transition effect
+        setTimeout(() => {
+            experienceSection.classList.add('loaded');
+        }, 100);
     }
 
     static renderSkills(data) {
@@ -217,14 +277,28 @@ class PageRenderers {
                 </div>
             </div>
         `;
+        
+        // Add loaded class for transition effect
+        setTimeout(() => {
+            skillsSection.classList.add('loaded');
+        }, 100);
     }
 
     // Projects page rendering
     static renderProjects(data) {
-        const projectsSection = document.getElementById('projects-content');
-        if (!projectsSection || !data.projects) return;
+        console.log('renderProjects called with data:', data);
+        const projectsSection = document.getElementById('projects-container');
+        if (!projectsSection) {
+            console.error('projects-container element not found');
+            return;
+        }
+        if (!data.projects) {
+            console.error('No projects data found');
+            return;
+        }
 
         const projects = Array.isArray(data.projects) ? data.projects : [];
+        console.log('Projects data:', projects);
         
         projectsSection.innerHTML = `
             <div class="projects-container">
@@ -233,11 +307,11 @@ class PageRenderers {
                         <div class="project-card">
                             ${project.image ? `
                                 <div class="project-image">
-                                    <img src="${project.image}" alt="${project.title}">
+                                    <img src="${project.image}" alt="${project.name || project.title}">
                                 </div>
                             ` : ''}
                             <div class="project-content">
-                                <h3>${project.title}</h3>
+                                <h3>${project.name || project.title}</h3>
                                 <p>${project.description}</p>
                                 ${project.technologies ? `
                                     <div class="project-tech">
@@ -246,14 +320,26 @@ class PageRenderers {
                                         ).join('')}
                                     </div>
                                 ` : ''}
-                                ${project.links ? `
+                                ${project.githubUrl || project.liveUrl || project.links ? `
                                     <div class="project-links">
-                                        ${project.links.map(link => `
+                                        ${project.githubUrl ? `
+                                            <a href="${project.githubUrl}" target="_blank" class="project-link">
+                                                <i class="fab fa-github"></i>
+                                                GitHub
+                                            </a>
+                                        ` : ''}
+                                        ${project.liveUrl ? `
+                                            <a href="${project.liveUrl}" target="_blank" class="project-link">
+                                                <i class="fas fa-external-link-alt"></i>
+                                                Live Demo
+                                            </a>
+                                        ` : ''}
+                                        ${project.links ? project.links.map(link => `
                                             <a href="${link.url}" target="_blank" class="project-link">
                                                 <i class="${link.icon}"></i>
                                                 ${link.text}
                                             </a>
-                                        `).join('')}
+                                        `).join('') : ''}
                                     </div>
                                 ` : ''}
                             </div>
@@ -262,6 +348,11 @@ class PageRenderers {
                 </div>
             </div>
         `;
+        
+        // Add loaded class for transition effect
+        setTimeout(() => {
+            projectsSection.classList.add('loaded');
+        }, 100);
     }
 
     // Links page rendering
