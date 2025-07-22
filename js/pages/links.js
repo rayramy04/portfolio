@@ -1,19 +1,14 @@
-// Links ページ専用 JavaScript
 class LinksPage extends PageBase {
     constructor() {
         super('Links');
     }
 
-    // ページ固有の初期化
     async initializePageContent() {
         await this.populateLinksContent();
-        await this.populateFooterSocial();
     }
 
-    // Links コンテンツ
     async populateLinksContent() {
         try {
-            // windowオブジェクトからデータを取得
             const contactLinksData = window.linksData.contact;
             const socialLinksData = window.linksData.social;
             
@@ -95,7 +90,6 @@ class LinksPage extends PageBase {
 
             DOMHelpers.setHTML(linksContainer, linksHTML);
             
-            // 各セクションに時間差でトランジションを適用
             const linksSections = document.querySelectorAll('.links-section');
             linksSections.forEach((section, index) => {
                 DOMHelpers.addLoadedClass(section, 200 + (index * 200));
@@ -106,27 +100,8 @@ class LinksPage extends PageBase {
         }
     }
 
-    // フッターソーシャルリンク
-    async populateFooterSocial() {
-        try {
-            const footerSocial = document.getElementById('footer-social');
-            if (footerSocial && window.commonData.socialLinks) {
-                const socialHTML = window.commonData.socialLinks
-                    .map(social => `
-                        <a href="${social.url}" target="_blank" title="${social.title}">
-                            <i class="${social.icon}"></i>
-                        </a>
-                    `)
-                    .join('');
-                
-                DOMHelpers.setHTML(footerSocial, socialHTML);
-            }
-        } catch (error) {
-        }
-    }
 }
 
-// ページ初期化
 document.addEventListener('DOMContentLoaded', async () => {
     const linksPage = new LinksPage();
     await linksPage.init();

@@ -1,16 +1,12 @@
-// Projects ページ専用 JavaScript
 class ProjectsPage extends PageBase {
     constructor() {
         super('Projects');
     }
 
-    // ページ固有の初期化
     async initializePageContent() {
         await this.populateProjectsContent();
-        await this.populateFooterSocial();
     }
 
-    // Projects コンテンツ
     async populateProjectsContent() {
         try {
             const projectsData = window.projectsData;
@@ -53,27 +49,8 @@ class ProjectsPage extends PageBase {
         }
     }
 
-    // フッターソーシャルリンク
-    async populateFooterSocial() {
-        try {
-            const footerSocial = document.getElementById('footer-social');
-            if (footerSocial && window.commonData.socialLinks) {
-                const socialHTML = window.commonData.socialLinks
-                    .map(social => `
-                        <a href="${social.url}" target="_blank" title="${social.title}">
-                            <i class="${social.icon}"></i>
-                        </a>
-                    `)
-                    .join('');
-                
-                DOMHelpers.setHTML(footerSocial, socialHTML);
-            }
-        } catch (error) {
-        }
-    }
 }
 
-// ページ初期化
 document.addEventListener('DOMContentLoaded', async () => {
     const projectsPage = new ProjectsPage();
     await projectsPage.init();
