@@ -34,11 +34,8 @@ class DOMHelpers {
     // クラスを追加してトランジション効果
     static addLoadedClass(element, delay = 100) {
         if (!element) return;
-        setTimeout(() => {
-            element.classList.add('loaded');
-        }, delay);
+        setTimeout(() => element.classList.add('loaded'), delay);
     }
-
 
     // セクション全体にloaded クラスを追加
     static loadSection(sectionSelector, delay = 100) {
@@ -59,7 +56,6 @@ class PageBase {
         if (this.isInitialized) return;
         
         try {
-            
             // 共通コンポーネントの読み込み
             await this.loadCommonComponents();
             
@@ -67,7 +63,6 @@ class PageBase {
             await this.initializePageContent();
             
             this.isInitialized = true;
-            
         } catch (error) {
             console.error(`Failed to initialize ${this.pageName} page:`, error);
         }
@@ -76,10 +71,8 @@ class PageBase {
     // 共通コンポーネント読み込み
     async loadCommonComponents() {
         this.loadComponents();
-        this.setActiveNavLink();
-        this.initializeMobileMenu();
-        this.initializeBackToTop();
-        this.initializeNavbarEffects();
+        this.initializeNavigation();
+        this.initializeScrollEffects();
         
         // CV style見出しがある場合、トグル機能を初期化
         if (this.pageName === 'CV' || this.pageName === 'About' || document.querySelector('.cv-section-title')) {
@@ -156,24 +149,19 @@ class PageBase {
         }
     }
 
-    // ナビゲーションのアクティブリンク設定
-    setActiveNavLink() {
+    // ナビゲーション機能を統合初期化
+    initializeNavigation() {
+        // アクティブリンク設定
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-        const navLinks = document.querySelectorAll('.nav-link');
-        
-        navLinks.forEach(link => {
-            const href = link.getAttribute('href');
-            if (href === currentPage) {
+        document.querySelectorAll('.nav-link').forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
                 link.classList.add('active');
             }
         });
-    }
 
-    // モバイルメニューの初期化
-    initializeMobileMenu() {
+        // モバイルメニュー
         const navToggle = document.getElementById('nav-toggle');
         const navMenu = document.getElementById('nav-menu');
-        
         if (navToggle && navMenu) {
             navToggle.addEventListener('click', () => {
                 navMenu.classList.toggle('active');
@@ -182,69 +170,45 @@ class PageBase {
         }
     }
 
-    // トップへ戻るボタンの初期化
-    initializeBackToTop() {
+    // スクロール関連機能を統合初期化
+    initializeScrollEffects() {
+        const navbar = document.getElementById('navbar');
         const backToTop = document.getElementById('back-to-top');
         
-        if (backToTop) {
-            window.addEventListener('scroll', () => {
-                if (window.pageYOffset > 300) {
-                    backToTop.classList.add('visible');
-                } else {
-                    backToTop.classList.remove('visible');
-                }
-            });
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
             
-            backToTop.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-        }
-    }
-
-    // ナビバー効果の初期化
-    initializeNavbarEffects() {
-        const navbar = document.getElementById('navbar');
+            // ナビバー効果
+            if (navbar) {
+                navbar.classList.toggle('scrolled', scrollY > 50);
+            }
+            
+            // トップへ戻るボタン表示
+            if (backToTop) {
+                backToTop.classList.toggle('visible', scrollY > 300);
+            }
+        });
         
-        if (navbar) {
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
+        // トップへ戻るボタンクリック
+        if (backToTop) {
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         }
     }
 
     // CV セクショントグル機能の初期化
     initializeCVToggle() {
-        const sectionTitles = document.querySelectorAll('.cv-section-title');
-        
-        sectionTitles.forEach(title => {
+        document.querySelectorAll('.cv-section-title').forEach(title => {
             title.addEventListener('click', function() {
-                const sectionName = this.dataset.section;
-                
-                // Find the content element
-                const content = document.getElementById(sectionName + '-content');
+                const content = document.getElementById(this.dataset.section + '-content');
                 const toggleIcon = this.querySelector('.toggle-icon');
                 
                 if (content && toggleIcon) {
                     const isCollapsed = content.classList.contains('collapsed');
-                    
-                    if (isCollapsed) {
-                        // Expand
-                        content.classList.remove('collapsed');
-                        toggleIcon.classList.remove('fa-chevron-down');
-                        toggleIcon.classList.add('fa-chevron-up');
-                    } else {
-                        // Collapse
-                        content.classList.add('collapsed');
-                        toggleIcon.classList.remove('fa-chevron-up');
-                        toggleIcon.classList.add('fa-chevron-down');
-                    }
+                    content.classList.toggle('collapsed', !isCollapsed);
+                    toggleIcon.classList.toggle('fa-chevron-down', !isCollapsed);
+                    toggleIcon.classList.toggle('fa-chevron-up', isCollapsed);
                 }
             });
         });
