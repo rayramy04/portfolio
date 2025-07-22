@@ -39,14 +39,6 @@ class DOMHelpers {
         }, delay);
     }
 
-    // 複数要素にloaded クラスを追加
-    static addLoadedClassToMultiple(elements, delay = 100) {
-        elements.forEach(element => {
-            if (element) {
-                this.addLoadedClass(element, delay);
-            }
-        });
-    }
 
     // セクション全体にloaded クラスを追加
     static loadSection(sectionSelector, delay = 100) {
@@ -67,7 +59,6 @@ class PageBase {
         if (this.isInitialized) return;
         
         try {
-            console.log(`Initializing ${this.pageName} page`);
             
             // 共通コンポーネントの読み込み
             await this.loadCommonComponents();
@@ -76,7 +67,6 @@ class PageBase {
             await this.initializePageContent();
             
             this.isInitialized = true;
-            console.log(`${this.pageName} page initialized successfully`);
             
         } catch (error) {
             console.error(`Failed to initialize ${this.pageName} page:`, error);
@@ -231,16 +221,11 @@ class PageBase {
 
     // CV セクショントグル機能の初期化
     initializeCVToggle() {
-        console.log('CV Toggle: Initializing CV section toggles');
-        
-        // Find all CV section titles
         const sectionTitles = document.querySelectorAll('.cv-section-title');
-        console.log('CV Toggle: Found section titles:', sectionTitles.length);
         
         sectionTitles.forEach(title => {
             title.addEventListener('click', function() {
                 const sectionName = this.dataset.section;
-                console.log('CV Toggle: Clicked section:', sectionName);
                 
                 // Find the content element
                 const content = document.getElementById(sectionName + '-content');
@@ -254,16 +239,12 @@ class PageBase {
                         content.classList.remove('collapsed');
                         toggleIcon.classList.remove('fa-chevron-down');
                         toggleIcon.classList.add('fa-chevron-up');
-                        console.log('CV Toggle: Expanded section:', sectionName);
                     } else {
                         // Collapse
                         content.classList.add('collapsed');
                         toggleIcon.classList.remove('fa-chevron-up');
                         toggleIcon.classList.add('fa-chevron-down');
-                        console.log('CV Toggle: Collapsed section:', sectionName);
                     }
-                } else {
-                    console.warn('CV Toggle: Could not find content or toggle icon for section:', sectionName);
                 }
             });
         });

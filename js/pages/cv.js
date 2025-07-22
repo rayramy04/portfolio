@@ -6,8 +6,6 @@ class CVPage extends PageBase {
 
     // ページ固有の初期化
     async initializePageContent() {
-        console.log('CV: Starting page initialization');
-        console.log('CV: Available data:', window.cvData);
         
         await this.populateEducationContent();
         await this.populateExperienceContent();
@@ -17,15 +15,12 @@ class CVPage extends PageBase {
         await this.populateGrantsContent();
         await this.populateFooterSocial();
         
-        console.log('CV: Page initialization completed');
     }
 
     // Education コンテンツ
     async populateEducationContent() {
         try {
             const educationData = window.cvData.education;
-            console.log('CV Education: Data loaded', educationData);
-            console.log('CV Education: Data count', educationData ? educationData.length : 'undefined');
             
             const educationContainer = await DOMHelpers.getElement('education-container');
             
@@ -54,7 +49,6 @@ class CVPage extends PageBase {
                 DOMHelpers.addLoadedClass(educationSection, 200);
             }
 
-            console.log('CV: Education content populated successfully');
         } catch (error) {
             this.handleError(error, 'education-container');
         }
@@ -131,7 +125,6 @@ class CVPage extends PageBase {
                 DOMHelpers.addLoadedClass(skillsSection, 400);
             }
 
-            console.log('CV: Skills content populated successfully');
         } catch (error) {
             this.handleError(error, 'skills-container');
         }
@@ -178,9 +171,7 @@ class CVPage extends PageBase {
                 DOMHelpers.addLoadedClass(experienceSection, 300);
             }
 
-            console.log('CV: Experience content populated successfully');
         } catch (error) {
-            console.log('CV: No experience data found');
         }
     }
 
@@ -212,9 +203,7 @@ class CVPage extends PageBase {
                 DOMHelpers.addLoadedClass(certificationsSection, 500);
             }
 
-            console.log('CV: Certifications content populated successfully');
         } catch (error) {
-            console.log('CV: No certifications data found');
         }
     }
 
@@ -281,9 +270,7 @@ class CVPage extends PageBase {
                 DOMHelpers.addLoadedClass(awardsSection, 600);
             }
 
-            console.log('CV: Awards content populated successfully');
         } catch (error) {
-            console.log('CV: No awards data found');
         }
     }
 
@@ -320,9 +307,7 @@ class CVPage extends PageBase {
                 DOMHelpers.addLoadedClass(grantsSection, 700);
             }
 
-            console.log('CV: Grants content populated successfully');
         } catch (error) {
-            console.log('CV: No grants data found');
         }
     }
 
@@ -356,7 +341,6 @@ class CVPage extends PageBase {
                     .join('');
                 
                 DOMHelpers.setHTML(footerSocial, socialHTML);
-                console.log('CV: Footer social links populated');
             }
         } catch (error) {
             console.error('Failed to populate footer social links:', error);

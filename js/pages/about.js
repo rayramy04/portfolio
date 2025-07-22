@@ -35,7 +35,6 @@ class AboutPage extends PageBase {
                 DOMHelpers.addLoadedClass(aboutSection, 100);
             }
 
-            console.log('About: Personal info populated successfully');
         } catch (error) {
             this.handleError(error);
         }
@@ -60,7 +59,6 @@ class AboutPage extends PageBase {
             
             DOMHelpers.loadSection('.story-section', 300);
 
-            console.log('About: Story content populated successfully');
         } catch (error) {
             this.handleError(error, 'story-content');
         }
@@ -86,7 +84,6 @@ class AboutPage extends PageBase {
             DOMHelpers.setHTML(timelineContainer, timelineHTML);
             DOMHelpers.loadSection('.timeline-section', 500);
 
-            console.log('About: Timeline content populated successfully');
         } catch (error) {
             this.handleError(error, 'timeline-container');
         }
@@ -110,7 +107,6 @@ class AboutPage extends PageBase {
             DOMHelpers.setHTML(interestsContainer, interestsHTML);
             DOMHelpers.loadSection('.interests-section', 700);
 
-            console.log('About: Interests content populated successfully');
         } catch (error) {
             this.handleError(error, 'interests-container');
         }
@@ -130,7 +126,6 @@ class AboutPage extends PageBase {
                     .join('');
 
                 DOMHelpers.setHTML(footerSocial, socialHTML);
-                console.log('About: Footer social links populated');
             }
         } catch (error) {
             console.error('Failed to populate footer social links:', error);
