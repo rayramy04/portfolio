@@ -8,7 +8,7 @@ class ProjectsPage extends PageBase {
     }
 
     async populateProjectsContent() {
-        try {
+        await ErrorHandler.safeExecute(async () => {
             const projectsData = window.projectsData;
             const projectsContainer = await DOMHelpers.getElement('projects-container');
             
@@ -50,10 +50,7 @@ class ProjectsPage extends PageBase {
                     card.classList.add('loaded');
                 });
             }, 400);
-
-        } catch (error) {
-            this.handleError(error, 'projects-container');
-        }
+        }, 'projects-container', this);
     }
 
 }

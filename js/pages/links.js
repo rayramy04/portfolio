@@ -8,7 +8,7 @@ class LinksPage extends PageBase {
     }
 
     async populateLinksContent() {
-        try {
+        await ErrorHandler.safeExecute(async () => {
             const contactLinksData = window.linksData.contact;
             const socialLinksData = window.linksData.social;
             
@@ -65,10 +65,7 @@ class LinksPage extends PageBase {
             linksSections.forEach((section, index) => {
                 DOMHelpers.addLoadedClass(section, 200 + (index * 200));
             });
-
-        } catch (error) {
-            this.handleError(error, 'links-content');
-        }
+        }, 'links-content', this);
     }
 
 }
