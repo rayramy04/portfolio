@@ -1,56 +1,52 @@
-// Data population utilities
+// Simplified data population
 class DataPopulator {
-    static async populate(config, context = null) {
-        return await ErrorHandler.safeExecute(async () => {
+    // Basic data population
+    static async populate(config) {
+        try {
             const data = this.getNestedData(window, config.dataPath);
-            console.log(`DataPopulator: ${config.dataPath} ->`, data);
-            const container = await DOMHelpers.getElement(config.containerId);
+            const container = document.getElementById(config.containerId);
             
-            let html;
+            if (!container) return false;
+            
+            let html = '';
             if (config.renderer) {
                 html = config.renderer(data);
             } else if (config.itemRenderer) {
-                html = HTMLGenerator.renderList(data, config.itemRenderer, config.options || {});
+                html = data.map(config.itemRenderer).join('');
             } else {
                 html = data.toString();
             }
             
-            console.log(`Generated HTML length: ${html.length}`, html.substring(0, 100));
-            DOMHelpers.setHTML(container, html);
+            container.innerHTML = html;
             
             if (config.options && config.options.delay) {
-                DOMHelpers.addLoadedClass(container, config.options.delay);
+                setTimeout(() => container.classList.add('loaded'), config.options.delay);
             }
             
             return true;
-        }, config.containerId, context);
+        } catch (error) {
+            console.error('Data population error:', error);
+            return false;
+        }
     }
 
-    static async populateAll(configs, context = null) {
-        return await Promise.all(
-            configs.map(config => this.populate(config, context))
-        );
+    // CV items (simplified)
+    static async populateCVItems(config) {
+        return this.populate({
+            ...config,
+            itemRenderer: (item) => HTMLGenerator.cvItem(item, config.cvItemConfig || {})
+        });
     }
 
-    static async populateCVItems(config, context = null) {
-        return await this.populate({
-            dataPath: config.dataPath,
-            containerId: config.containerId,
-            itemRenderer: (item) => HTMLGenerator.cvItem(item, config.cvItemConfig || {}),
-            options: { delay: config.delay }
-        }, context);
+    // List population (simplified)
+    static async populateList(config) {
+        return this.populate(config);
     }
 
+    // Get nested data from object
     static getNestedData(obj, path) {
         return path.split('.').reduce((current, key) => {
             return current && current[key] !== undefined ? current[key] : null;
         }, obj);
-    }
-
-    static async populateList(config, context = null) {
-        return await this.populate({
-            ...config,
-            itemRenderer: config.itemRenderer
-        }, context);
     }
 }
