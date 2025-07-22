@@ -119,16 +119,24 @@ playground/
 experiments/
 .personal/
 
-# Legacy JSON Data Files (Now using JS-based data)
-# ------------------------------------------------
-data/**/*.json
-!data/README.md
+# Generated HTML files (auto-generated from templates)
+# ---------------------------------------------------
+# Uncomment if using template system
+# index.html
+# about.html
+# cv.html
+# projects.html
+# links.html
 
-# Generated or Combined CSS
+# Template generation tools
 # -------------------------
-css/style-combined.css
-css/pages/
-css/components/
+generate-pages.js
+template-base.html
+content/
+
+# SEO and Meta Configuration
+# --------------------------
+data/seo-config.js
 
 # Development Scripts
 # -------------------

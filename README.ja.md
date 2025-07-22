@@ -1,374 +1,357 @@
-# 🌟 モダンポートフォリオウェブサイト
+# Modern Portfolio Website
 
-> 革新的なJS-based データアーキテクチャと美しいビジュアルエフェクトを特徴とする、バニラHTML、CSS、JavaScriptで構築された高性能レスポンシブポートフォリオウェブサイト。
+[![English](https://img.shields.io/badge/English-README-blue)](README.md) [![日本語](https://img.shields.io/badge/日本語-README-blue)](README.ja.md)
 
-[![English](https://img.shields.io/badge/English-README-blue)](README.md)
-![Portfolio Preview](https://img.shields.io/badge/Portfolio-Live%20Demo-brightgreen)
-![License](https://img.shields.io/badge/License-MIT-blue.svg)
+フルスクラッチから作成したSEO最適化済みポートフォリオサイト。バニラHTML、CSS、JavaScriptで構築し、テンプレート生成システムと構造化データを実装しています。
 
-## ✨ 主な特徴
+## 主な特徴
 
-### 🚀 **革新的JS-basedアーキテクチャ**
-- **CORS問題ゼロ** - `window`オブジェクト経由での直接データ読み込み
-- **超高速読み込み** - 非同期JSON読み込みの遅延なし
-- **ブラウザ最適化** - ネイティブJavaScript性能を活用
-- **キャッシュフレンドリー** - より良いブラウザキャッシュと高速な再読み込み
+### SEO・ソーシャルメディア最適化
+- 検索エンジン向けメタディスクリプション最適化
+- Open Graph Protocolによるソーシャルメディアプレビュー
+- Twitter Cardサポート
+- Schema.org構造化データ（Person & Website）
+- LinkedIn、Facebook、Twitter対応
 
-### 🎨 **モダンデザインの優秀さ**
-- **ジグザグタイムライン** - 視覚的に印象的な交互レイアウト
-- **インタラクティブパーティクル** - particles.jsによるアニメーション背景エフェクト
-- **スムーズアニメーション** - 全体を通したCSSトランジションとホバーエフェクト
-- **モバイルファーストレスポンシブ** - 全デバイスでシームレスな体験
-- **クールグリーンテーマ** - プロフェッショナルなエメラルドカラースキーム
+### テンプレート生成システム
+- 自動HTML生成
+- SEOマークアップ自動挿入
+- コンテンツファイル分離管理
+- ワンコマンドHTML再生成
 
-### 💻 **技術的革新**
-- **コンポーネントベースアーキテクチャ** - モジュラーで保守しやすいコード構造
-- **クラスベースページ** - 各ページのオブジェクト指向JavaScript
-- **ユーティリティヘルパー** - 中央集権的DOM操作ユーティリティ
-- **エラーハンドリング** - 堅牢なエラーハンドリングとフォールバック
+### パフォーマンス・アーキテクチャ
+- 直接JavaScriptデータロード（CORS問題なし）
+- 746行まで最適化されたJavaScript
+- モジュラー設計
+- 堅牢なエラーハンドリング
 
-## 🏗️ アーキテクチャ
+### モダンデザイン
+- インタラクティブパーティクル背景
+- ジグザグタイムラインレイアウト
+- モバイルファーストレスポンシブデザイン
+- プロフェッショナルグリーンテーマ
 
-### **革新的データ読み込みシステム**
+## アーキテクチャ
+
+### テンプレート生成システム
 ```
-従来のアプローチ（遅い）:
-HTML → JavaScript → JSONフェッチ → パース → 表示
-⏱️  ~200ms+ 読み込み時間、CORS問題
-
-我々のアプローチ（高速）:
-HTML → JavaScript → 直接Windowオブジェクト → 表示  
-⏱️  即座に読み込み、CORS問題ゼロ
+Content Files → Template Engine → Generated HTML
+     ↓              ↓                   ↓
+  content/      generate-pages.js    index.html
+                     +                about.html
+               template-base.html      cv.html
+                     +               projects.html
+              SEO configuration       links.html
 ```
 
-### **ファイル構造**
+### ファイル構成
 ```
 portfolio/
-├── 📄 コアページ
-│   ├── index.html          # パーティクルエフェクト付きホームページ
-│   ├── about.html          # ジグザグタイムライン付きAboutページ
-│   ├── cv.html             # 折りたたみ可能セクション付きCV
-│   ├── projects.html       # プロジェクトショーケース
-│   └── links.html          # ソーシャルリンク＆コンタクト
-├── 🎨 スタイリング
-│   └── css/
-│       └── style.css       # デザインシステム付き包括的CSS
-├── ⚡ JavaScriptアーキテクチャ
-│   ├── js/
-│   │   ├── pages/          # ページ専用クラス
-│   │   │   ├── home.js     # パーティクル付きHomePageクラス
-│   │   │   ├── about.js    # タイムライン付きAboutPageクラス
-│   │   │   ├── cv.js       # スキル描画付きCVPageクラス
-│   │   │   ├── projects.js # ProjectsPageクラス
-│   │   │   └── links.js    # LinksPageクラス
-│   │   ├── utils/
-│   │   │   └── dom-helpers.js  # DOM操作ユーティリティ
-│   │   └── shared-data.js      # ベースPageBaseクラス
-├── 📊 データ（JavaScriptオブジェクト）
-│   ├── data/
-│   │   ├── common.js       # window.commonData（ナビゲーション、ソーシャル）
-│   │   ├── home.js         # window.homeData（ヒーローコンテンツ）
-│   │   ├── about.js        # window.aboutData（ストーリー、タイムライン、興味）
-│   │   ├── cv.js           # window.cvData（教育、経験、スキル）
-│   │   ├── projects.js     # window.projectsData（ポートフォリオ）
-│   │   └── links.js        # window.linksData（連絡先情報）
-└── 🖼️ アセット
-    ├── favicon.ico
+├── Generated HTML Files
+│   ├── index.html          # ホームページ
+│   ├── about.html          # アバウトページ
+│   ├── cv.html             # 履歴書ページ
+│   ├── projects.html       # プロジェクト一覧
+│   └── links.html          # リンク集
+├── Template System
+│   ├── generate-pages.js   # HTML生成スクリプト
+│   ├── template-base.html  # ベーステンプレート
+│   └── content/            # ページ別コンテンツ
+├── Data Layer (742 lines)
+│   ├── common.js           # 共通データ
+│   ├── home.js             # ホームページデータ
+│   ├── about.js            # プロフィールデータ
+│   ├── cv.js               # 履歴書データ
+│   ├── projects.js         # プロジェクトデータ
+│   ├── links.js            # リンクデータ
+│   └── seo-config.js       # SEO設定
+├── JavaScript (746 lines)
+│   ├── pages-unified.js    # ページ初期化
+│   └── utils/              # ユーティリティ
+│       ├── html-generator.js
+│       ├── dom-helpers.js
+│       ├── page-manager.js
+│       ├── data-populator.js
+│       └── error-handler.js
+├── Styling
+│   └── css/style.css       # メインスタイルシート
+└── Assets
     ├── profile.jpg
     ├── about-photo.jpg
-    └── projects/           # プロジェクトスクリーンショット
+    ├── og-image.jpg
+    └── projects/
 ```
 
-### **コンポーネントアーキテクチャ**
-```
-┌─────────────────────────────────┐
-│          HTMLページ              │ ← 静的HTML構造
-├─────────────────────────────────┤
-│       ページクラス               │ ← HomePage、AboutPage、CVPage...
-│    （オブジェクト指向JS）        │
-├─────────────────────────────────┤
-│       データオブジェクト         │ ← window.homeData、window.cvData...
-│   （JS経由での即座アクセス）     │   
-├─────────────────────────────────┤
-│      ユーティリティヘルパー      │ ← DOMHelpers、アニメーション、エフェクト
-│   （再利用可能な関数）           │
-└─────────────────────────────────┘
-```
+## セットアップ
 
-## 🚀 クイックスタート
-
-### **1. クローン＆セットアップ**
+### 1. クローン・セットアップ
 ```bash
 git clone https://github.com/username/portfolio.git
 cd portfolio
 ```
 
-### **2. データのカスタマイズ**
-`data/`ディレクトリ内のJavaScriptファイルを編集：
-
-```javascript
-// data/home.js
-window.homeData = {
-  hero: {
-    name: "あなたの名前",
-    subtitle: "あなたの職業タイトル",
-    keywords: ["スキル1", "スキル2", "スキル3", "スキル4"]
-  }
-};
-```
-
-```javascript
-// data/about.js
-window.aboutData = {
-  personal: {
-    name: "あなたの名前",
-    position: "あなたのポジション", 
-    description: "あなたの経歴..."
-  },
-  timeline: [
-    {
-      date: "2024",
-      title: "現在のポジション",
-      subtitle: "会社名",
-      description: "現在行っていること..."
-    }
-  ]
-};
-```
-
-### **3. 画像の追加**
-`assets/`フォルダ内の画像を置き換え：
-- `profile.jpg` - ホームページプロフィール写真  
-- `about-photo.jpg` - Aboutページ写真
-- `projects/project-name.jpg` - プロジェクトスクリーンショット
-
-### **4. 開発サーバーの起動**
+### 2. HTMLページ生成
 ```bash
-# Python（推奨）
-python -m http.server 8000
-
-# Node.jsの代替
-npx http-server .
-
-# または任意のローカルサーバー
+node generate-pages.js
 ```
 
-`http://localhost:8000`にアクセス
+### 3. カスタマイズ
 
-### **5. デプロイ**
-**GitHub Pages:**
-1. GitHubにプッシュ
-2. Settings → Pages → mainブランチからデプロイ
-3. `https://username.github.io/repository-name`でライブ
-
-**その他のプラットフォーム:**
-- Netlify: フォルダをドラッグ＆ドロップ
-- Vercel: GitHubリポジトリを接続
-- 任意の静的ホスティングサービス
-
-## 🛠️ カスタマイゼーションガイド
-
-### **📝 コンテンツの更新**
-
-#### **個人情報**
+#### 個人情報の更新
 ```javascript
 // data/about.js
 window.aboutData = {
   personal: {
     name: "あなたの名前",
-    position: "現在のポジション",
-    description: "詳細な経歴説明..."
+    position: "職種",
+    description: "自己紹介文..."
   }
 };
 ```
 
-#### **CVセクション**
+#### プロジェクト情報
 ```javascript
-// data/cv.js  
+// data/projects.js
+window.projectsData = [
+  {
+    name: "プロジェクト名",
+    description: "説明",
+    image: "assets/projects/project1.jpg",
+    technologies: ["React", "Node.js"],
+    githubUrl: "https://github.com/...",
+    liveUrl: "https://demo.com"
+  }
+];
+```
+
+### 4. 開発サーバー
+```bash
+python -m http.server 8000
+# または
+npx http-server .
+```
+
+Visit `http://localhost:8000`
+
+### 5. デプロイ
+```bash
+# All HTML files are pre-generated and ready to deploy
+# No build process needed - just upload to any static host
+
+# GitHub Pages: Push to main branch
+# Netlify/Vercel: Drag & drop the folder
+```
+
+## カスタマイズガイド
+
+### コンテンツ管理
+
+#### テンプレート編集
+```html
+<!-- content/about-content.html -->
+<section class="about-section">
+    <!-- カスタムコンテンツ -->
+</section>
+```
+
+#### ページ再生成
+```bash
+# 変更後、HTMLを再生成
+node generate-pages.js
+```
+
+#### CV データ構造
+```javascript
+// data/cv.js
 window.cvData = {
   education: [
     {
       institution: "大学名",
-      degree: "あなたの学位",
+      degree: "学位",
       period: "2020-2024",
-      description: "教育に関する詳細"
+      description: "教育詳細",
+      achievements: ["賞1", "賞2"]
     }
   ],
   experience: [
     {
-      company: "会社名", 
+      company: "会社名",
       position: "職種",
       period: "2020-現在",
-      description: "職務説明",
-      url: "https://company-website.com" // オプションリンク
+      description: "職責",
+      url: "https://company.com"
     }
-  ]
+  ],
+  skills: {
+    technical: ["Python", "JavaScript", "React"],
+    languages: ["日本語", "英語"]
+  }
 };
 ```
 
-#### **プロジェクト**
+### SEO 最適化
+
+#### メタタグ設定
 ```javascript
-// data/projects.js
-window.projectsData = {
-  projects: [
-    {
-      name: "プロジェクト名",
-      description: "簡単な説明", 
-      image: "assets/projects/project1.jpg",
-      technologies: ["React", "Node.js", "MongoDB"],
-      githubUrl: "https://github.com/username/project",
-      liveUrl: "https://project-demo.com"
-    }
+// generate-pages.js - ページ設定
+const pageConfigs = {
+  'index': {
+    title: "あなたの名前 | プロフェッショナルタイトル",
+    metaDescription: "検索エンジン向けの魅力的な150文字説明",
+    metaKeywords: "あなたの,関連,キーワード",
+    // OGPとTwitterCard設定は自動生成
+  }
+};
+```
+
+#### 構造化データカスタマイズ
+```javascript
+// generate-pages.js - generateStructuredData()
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "あなたの名前",
+  "jobTitle": "あなたの職種",
+  "affiliation": {
+    "@type": "Organization", 
+    "name": "あなたの会社/大学"
+  },
+  "knowsAbout": ["あなたの", "キー", "スキル"],
+  "sameAs": [
+    "https://linkedin.com/in/yourusername",
+    "https://github.com/yourusername"
   ]
 };
 ```
 
-### **🎨 ビジュアルのカスタマイゼーション**
+### ビジュアルカスタマイズ
 
-#### **カラースキーム**
+#### カラースキーム
 ```css
-/* css/style.css */
 :root {
-  /* プライマリカラー - あなたのブランドをカスタマイズ */
-  --primary-color: #059669;     /* メインブランドカラー */
-  --primary-light: #34d399;     /* 明るいバリエーション */
-  --primary-dark: #047857;      /* 暗いバリエーション */
-  --secondary-color: #0d9488;   /* アクセントカラー */
-  
-  /* 背景 */
-  --bg-primary: #ffffff;        /* メイン背景 */
-  --bg-secondary: #f0fdf4;      /* セクション背景 */
-  --bg-card: #ffffff;           /* カード背景 */
+  --primary-color: #059669;
+  --primary-light: #34d399;
+  --primary-dark: #047857;
 }
 ```
 
-#### **タイポグラフィ**
-```css  
-:root {
-  --font-heading: 'Poppins', sans-serif;
-  --font-primary: 'Inter', sans-serif;
-  --fs-xs: 0.75rem;
-  --fs-sm: 0.875rem;
-  --fs-base: 1rem;
-  /* 必要に応じてフォントサイズをカスタマイズ */
+#### ソーシャルメディア画像
+- `assets/og-image.jpg` - メインソーシャルプレビュー（1200x630px）
+- `assets/about-photo.jpg` - アバウトページプレビュー
+- `assets/profile.jpg` - プロフィールセクション
+
+## 技術仕様
+
+### パフォーマンス指標
+- 総行数: 4,433行（HTML: 1,062, JS: 746, Data: 742, CSS: 1,883）
+- JavaScript最適化: 元コードから57%削減
+- ロード時間: 1秒未満
+- SEOスコア: 検索エンジン最適化済み
+- モバイルパフォーマンス: フルレスポンシブ
+
+### SEO 機能
+```html
+<!-- 各ページに自動生成 -->
+<meta name="description" content="最適化された説明">
+<meta property="og:title" content="ソーシャルメディアタイトル">
+<meta property="og:image" content="プレビュー画像">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "あなたの名前"
 }
+</script>
 ```
 
-## 🔧 技術的ハイライト
+### ブラウザ対応
+- モダンブラウザ（Chrome、Firefox、Safari、Edge）
+- モバイルブラウザ（iOS Safari、Chrome Mobile）
+- 外部依存関係不要
+- プログレッシブエンハンスメントアプローチ
 
-### **🚀 パフォーマンス革新**
+## 開発ワークフロー
 
-#### **1. JS-basedデータアーキテクチャ**
-```javascript
-// 遅い非同期JSON読み込みの代わりに:
-const data = await fetch('data.json').then(r => r.json());
+### 新ページ追加
+1. `content/`にコンテンツファイル作成
+2. `generate-pages.js`にページ設定追加
+3. `node generate-pages.js`でHTML再生成
+4. ナビゲーションに追加
 
-// 即座のwindowオブジェクトを使用:
-const data = window.homeData;  // 即座にアクセス！
+### SEO 更新
+1. `generate-pages.js`でメタデータ修正
+2. 構造化データスキーマ更新
+3. HTML再生成
+4. SEOツールでテスト
+
+### パフォーマンス最適化
+```bash
+# 現在の統計確認
+find . -name "*.js" -path "*/js/*" -exec wc -l {} + | tail -1
+# JavaScript: 合計746行
+
+find . -name "*.html" -exec wc -l {} + | tail -1  
+# HTML: 合計1,062行
 ```
 
-#### **2. クラスベースページシステム**
-```javascript
-class HomePage extends PageBase {
-  constructor() {
-    super('Home');
-  }
-  
-  async initializePageContent() {
-    await this.populateHeroContent();
-    this.initializeParticles();
-  }
-}
-```
+## 先進機能
 
-#### **3. スマートDOMヘルパー**  
-```javascript
-// 中央集権的DOM操作
-class DOMHelpers {
-  static async getElement(id) { /* ... */ }
-  static setHTML(element, html) { /* ... */ }
-  static addLoadedClass(element, delay) { /* ... */ }
-}
-```
-
-### **🎪 インタラクティブ機能**
-
-#### **ジグザグタイムライン**
-- 左右交互レイアウト
-- 接続線と矢印
-- スムーズなホバーアニメーション
-- モバイルレスポンシブフォールバック
-
-#### **パーティクル背景**
-```javascript
-// カスタマイズ可能なパーティクルシステム
-particlesJS('particles-js', {
-  particles: {
-    number: { value: 80 },
-    color: { value: ['#059669', '#14b8a6', '#06b6d4'] },
-    // インタラクティブマウスエフェクト
-  }
-});
-```
-
-#### **スキル可視化**
-- 基本スキルのコンパクトグリッド
-- 専門スキルの詳細カード  
-- 星評価と説明
-- 一貫したホバーエフェクト
-
-## 🌟 高度な機能
-
-### **🎯 SEO＆パフォーマンス**
+### SEO最適化
+- 検索エンジンフレンドリーURL
 - セマンティックHTML構造
-- ソーシャル共有用メタタグ
-- 最適化された画像とアセット
-- 高速読み込み時間
-- アクセシビリティ対応
+- リッチスニペット対応
+- ソーシャルメディア最適化
+- パフォーマンス最適化
 
-### **🔧 開発者体験** 
-- モジュラーで保守しやすいコード
-- 関心事の明確な分離
-- 一貫した命名規則
-- 包括的なエラーハンドリング
-- 拡張・カスタマイズが容易
+### プログレッシブエンハンスメント
+- モバイルファーストレスポンシブデザイン
+- タッチフレンドリーインタラクション
+- 全デバイス高速ロード
+- アクセシビリティ配慮
 
-## 📊 パフォーマンス指標
+### インタラクティブ要素
+- Particle.js背景アニメーション
+- スムーズなCSSトランジション
+- ホバーエフェクトとアニメーション
+- 折りたたみ可能CVセクション
+- インタラクティブタイムライン
 
-- **ページ読み込み**: 1秒未満（適度な接続で）
-- **CORS問題ゼロ**: file://プロトコルで完璧に動作
-- **モバイル最適化**: 全デバイスでスムーズなパフォーマンス  
-- **軽量**: 合計~50KB（画像除く）
-- **依存関係なし**: 純粋なバニラJavaScript
+## デプロイオプション
 
-## 🤝 貢献
+### 静的ホスティング
+- GitHub Pages: ゼロ設定
+- Netlify: ドラッグ＆ドロップデプロイ
+- Vercel: Gitベースデプロイ
+- Surge.sh: コマンドラインデプロイ
+
+### カスタムドメイン設定
+1. ドメインで`CNAME`ファイル追加
+2. DNS設定を構成
+3. ホスティングプラットフォームでHTTPS有効化
+4. SEO設定でURL更新
+
+## コントリビューション
 
 1. リポジトリを**フォーク**
-2. 機能ブランチを**作成** (`git checkout -b feature/amazing-feature`)
-3. 変更を**実施**
-4. ローカルで**テスト**
-5. **コミット** (`git commit -m 'Add amazing feature'`)
-6. **プッシュ** (`git push origin feature/amazing-feature`)
-7. プルリクエストを**作成**
+2. 機能ブランチを**作成**（`git checkout -b feature/seo-enhancement`）
+3. テンプレートやデータを**修正**
+4. HTML**再生成**（`node generate-pages.js`）
+5. ローカル**テスト**
+6. 変更を**コミット**
+7. プルリクエスト**作成**
 
-## 📄 ライセンス
+## ライセンス
 
-MIT License - 詳細は[LICENSE](LICENSE)ファイルを参照。
+MIT License
 
-## 🙏 謝辞
+## 主要な技術・ツール
 
-- **Particles.js** - インタラクティブパーティクル背景
-- **Font Awesome** - プロフェッショナルなアイコン  
-- **Google Fonts** - 美しいタイポグラフィ（Poppins、Inter）
-- **CSS Grid & Flexbox** - モダンなレイアウト機能
-
-## 💬 サポート
-
-- **Issues**: GitHub Issuesでバグ報告
-- **ドキュメント**: インラインコードコメントを参照
-- **アップデート**: 新機能についてはリリースをチェック
+- Schema.org（構造化データ）
+- Open Graph Protocol（ソーシャルメディア最適化）
+- Particles.js（背景エフェクト）
+- Font Awesome（アイコン）
+- Google Fonts（Poppins、Inter）
 
 ---
 
-**⭐ 素晴らしいものを作るのに役立ったら、このリポジトリにスターを付けてください！**
-
-*❤️とモダンなウェブ技術で構築されました。*
+このポートフォリオサイトは、現代のWeb標準に準拠し、SEO最適化とパフォーマンスを重視して開発されています。

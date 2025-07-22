@@ -21,4 +21,4 @@ Allow: /data/
 Crawl-delay: 1
 
 # Sitemap location (when available)
-# Sitemap: https://yoursite.com/sitemap.xml
+# Sitemap: https://ll-0013py.github.io/portfolio/sitemap.xml
