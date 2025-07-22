@@ -1,0 +1,514 @@
+/* ===== CV PAGE STYLES ===== */
+
+/* Hide content containers initially for transition effects */
+#education-content,
+#experience-content, 
+#skills-content,
+#awards-content,
+#certifications-content,
+#grants-content {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Show content when loaded */
+#education-content.loaded,
+#experience-content.loaded,
+#skills-content.loaded,
+#awards-content.loaded,
+#certifications-content.loaded,
+#grants-content.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== CV STYLES ===== */
+.cv-header {
+  text-align: center;
+  margin-bottom: var(--space-16);
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cv-section {
+  margin-bottom: var(--space-16);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 2s ease, transform 2s ease;
+}
+
+.cv-section.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cv-section-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  font-size: var(--fs-2xl);
+  color: var(--primary-color);
+  margin-bottom: var(--space-12);
+  padding: var(--space-4) var(--space-6) var(--space-6) var(--space-6);
+  border-bottom: 2px solid var(--bg-secondary);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  user-select: none;
+  background: transparent;
+}
+
+.cv-section-title:hover {
+  color: var(--secondary-color);
+  background: var(--bg-secondary);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+  border-bottom-color: var(--secondary-color);
+}
+
+.cv-section-title .toggle-icon {
+  margin-left: auto;
+  transition: all var(--transition-normal);
+  font-size: var(--fs-lg);
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+  background: var(--bg-tertiary);
+}
+
+.cv-section-title:hover .toggle-icon {
+  background: var(--secondary-color);
+  color: white;
+  transform: scale(1.1);
+}
+
+.cv-section-title.collapsed .toggle-icon {
+  transform: rotate(-90deg);
+}
+
+.cv-section-title.collapsed:hover .toggle-icon {
+  transform: rotate(-90deg) scale(1.1);
+}
+
+.cv-section-content {
+  max-height: 10000px;
+  overflow: visible;
+  transition: max-height var(--transition-slow), opacity var(--transition-normal);
+  opacity: 1;
+}
+
+.cv-section-content.collapsed {
+  max-height: 0;
+  opacity: 0;
+  margin-top: 0;
+  overflow: hidden;
+}
+
+.cv-item {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  margin-bottom: var(--space-12);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-normal);
+}
+
+.cv-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Experience card links - Projects-style overlay */
+.cv-item-linkable {
+  position: relative;
+  overflow: visible;
+  cursor: pointer;
+}
+
+.cv-item-linkable:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-xl);
+}
+
+.cv-item-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-overlay);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: var(--transition-normal);
+  text-decoration: none;
+  z-index: 2;
+}
+
+.cv-item-linkable:hover .cv-item-overlay {
+  opacity: 1;
+}
+
+.cv-item-overlay-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cv-item-link-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--text-white);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-2xl);
+  transition: var(--transition-fast);
+  backdrop-filter: blur(10px);
+}
+
+.cv-item-link-icon:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.cv-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-8);
+}
+
+.cv-item-header h3,
+.cv-item-header h4 {
+  color: var(--primary-color);
+  margin-bottom: var(--space-4);
+}
+
+.cv-date {
+  color: var(--text-light);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-base);
+}
+
+.cv-item-content p {
+  margin-bottom: var(--space-4);
+  line-height: 1.7;
+}
+
+.cv-item-content ul {
+  margin-left: var(--space-4);
+}
+
+/* Education and Experience specific spacing */
+.cv-degree,
+.cv-company {
+  color: var(--text-secondary);
+  font-weight: var(--fw-medium);
+  margin: var(--space-2) 0;
+}
+
+.cv-responsibilities {
+  padding-left: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.cv-responsibilities li {
+  margin-bottom: var(--space-2);
+  line-height: 1.6;
+}
+
+/* Compact education and experience cards */
+#education-container .cv-item,
+#experience-container .cv-item {
+  padding: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+#education-container .cv-item-header,
+#experience-container .cv-item-header {
+  margin-bottom: var(--space-4);
+}
+
+#education-container .cv-item-content,
+#experience-container .cv-item-content {
+  margin-top: var(--space-2);
+}
+
+#education-container .cv-date,
+#experience-container .cv-date {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-semibold);
+}
+
+/* ===== SKILLS STYLES ===== */
+.skills-category {
+  margin-bottom: var(--space-32);
+  background: var(--bg-card);
+  padding: var(--space-8);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--bg-secondary);
+  transition: var(--transition-normal);
+}
+
+.skills-category:last-child {
+  margin-bottom: var(--space-32);
+}
+
+/* Fix spacing between skills and next category */
+.skills-category+.skills-category {
+  margin-top: var(--space-16);
+}
+
+.skills-category:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-light);
+}
+
+.skills-category h3 {
+  color: var(--primary-color);
+  margin-bottom: var(--space-24);
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-bold);
+  padding-bottom: var(--space-6);
+  border-bottom: 2px solid var(--bg-secondary);
+  position: relative;
+}
+
+.skills-category h3::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: var(--gradient-button);
+  border-radius: var(--radius-full);
+}
+
+.skills-list {
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin-bottom: var(--space-8);
+}
+
+.skill-item {
+  background: var(--bg-primary);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--bg-tertiary);
+  transition: var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--gradient-button);
+  transform: scaleX(0);
+  transition: var(--transition-normal);
+}
+
+.skill-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-green);
+  border-color: var(--primary-color);
+}
+
+.skill-item:hover::before {
+  transform: scaleX(1);
+}
+
+.skill-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.skill-name {
+  font-weight: var(--fw-medium);
+  color: var(--text-primary);
+  font-size: var(--fs-base);
+  line-height: 1.4;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.skill-stars {
+  display: flex;
+  gap: 3px;
+  justify-content: flex-start;
+}
+
+.skill-stars i {
+  color: var(--primary-color);
+  font-size: var(--fs-lg);
+  transition: var(--transition-fast);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.skill-stars .far {
+  color: var(--text-light);
+  opacity: 0.4;
+}
+
+.skill-item:hover .skill-stars i {
+  transform: scale(1.15);
+  filter: brightness(1.2);
+}
+
+/* Skill description styles */
+.skill-description {
+  margin-top: var(--space-4);
+  color: var(--text-light);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+}
+
+.skill-description-list {
+  margin-top: var(--space-4);
+  padding-left: var(--space-4);
+  color: var(--text-light);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+}
+
+.skill-description-list li {
+  margin-bottom: var(--space-2);
+}
+
+.skill-description-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* ===== AWARDS STYLES ===== */
+.awards-year {
+  margin-bottom: var(--space-12);
+}
+
+.awards-year:last-child {
+  margin-bottom: var(--space-32);
+}
+
+.awards-year h3 {
+  color: var(--primary-color);
+  font-size: var(--fs-xl);
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--bg-secondary);
+}
+
+/* ===== CERTIFICATION STYLES ===== */
+.cert-score {
+  color: var(--text-secondary);
+  font-weight: var(--fw-medium);
+  margin: var(--space-2) 0;
+  font-size: var(--fs-base);
+}
+
+/* Compact certification and award cards */
+#certifications-container .cv-item {
+  padding: var(--space-4) var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+#awards-container .cv-item {
+  padding: var(--space-6) var(--space-6) var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+#certifications-container .cv-item-header {
+  margin-bottom: var(--space-2);
+}
+
+#awards-container .cv-item-header {
+  margin-bottom: var(--space-4);
+}
+
+#certifications-container h3,
+#awards-container h3 {
+  font-size: var(--fs-lg);
+  margin-bottom: var(--space-2);
+}
+
+.award-org {
+  color: var(--text-secondary);
+  font-weight: var(--fw-medium);
+  margin: var(--space-2) 0;
+  font-size: var(--fs-sm);
+}
+
+.cert-org {
+  color: var(--text-secondary);
+  font-weight: var(--fw-medium);
+  margin: var(--space-2) 0;
+  font-size: var(--fs-sm);
+}
+
+/* ===== GRANT STYLES ===== */
+.grant-org {
+  color: var(--text-secondary);
+  font-weight: var(--fw-medium);
+  margin: var(--space-2) 0;
+}
+
+.grant-amount {
+  color: var(--primary-color);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-xl);
+  margin: var(--space-2) 0;
+}
+
+/* Ensure grants section is visible and compact */
+#grants-container {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+#grants-container .cv-item {
+  padding: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+#grants-container .cv-item-header {
+  margin-bottom: var(--space-4);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .cv-item-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cv-section {
+    margin-bottom: var(--space-20);
+  }
+
+  .skills-category:last-child {
+    margin-bottom: var(--space-24);
+  }
+
+  .awards-year:last-child {
+    margin-bottom: var(--space-24);
+  }
+}
+
+@media (max-width: 480px) {
+  .cv-section-title {
+    font-size: var(--fs-xl);
+  }
+}

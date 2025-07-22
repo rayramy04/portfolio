@@ -1097,7 +1097,18 @@ h6 {
   box-shadow: var(--shadow-lg);
 }
 
-.story-section,
+.story-section {
+  margin-bottom: var(--space-16);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 2s ease, transform 2s ease;
+}
+
+.story-section.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .timeline-section {
   margin-bottom: var(--space-16);
 }
@@ -1123,6 +1134,19 @@ h6 {
 
 
 /* ===== TIMELINE STYLES ===== */
+.timeline-section,
+.interests-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 2s ease, transform 2s ease;
+}
+
+.timeline-section.loaded,
+.interests-section.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .timeline {
   position: relative;
   padding-left: var(--space-8);
