@@ -1,0 +1,8 @@
+{
+  "META_DESCRIPTION": "Projects - Portfolio of development work and technical achievements",
+  "META_KEYWORDS": "Ray, projects, portfolio, development, programming, web development",
+  "PAGE_TITLE": "Projects - Ray's Portfolio",
+  "ADDITIONAL_HEAD": "",
+  "MAIN_CONTENT": "pages/projects-content.html",
+  "SCRIPTS": "pages/projects-scripts.html"
+}

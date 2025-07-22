@@ -1,0 +1,8 @@
+{
+  "META_DESCRIPTION": "About Ray - Computer Science & Data Science Student at Monash University Malaysia",
+  "META_KEYWORDS": "Ray, about, computer science, data science, Monash University Malaysia",
+  "PAGE_TITLE": "About - Ray's Portfolio",
+  "ADDITIONAL_HEAD": "",
+  "MAIN_CONTENT": "pages/about-content.html",
+  "SCRIPTS": "pages/about-scripts.html"
+}
