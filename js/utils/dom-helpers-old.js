@@ -1,28 +1,53 @@
-// Simplified DOM utilities
+// DOM utilities and page framework
 class DOMHelpers {
-    // Basic element getter
-    static async getElement(id) {
-        return document.getElementById(id);
+    static getElement(id, retryCount = 3) {
+        return new Promise((resolve, reject) => {
+            const attempt = (count) => {
+                const element = document.getElementById(id);
+                if (element) {
+                    resolve(element);
+                } else if (count > 0) {
+                    setTimeout(() => attempt(count - 1), 50);
+                } else {
+                    reject(new Error(`Element with id '${id}' not found`));
+                }
+            };
+            attempt(retryCount);
+        });
     }
 
-    // Set HTML content
+    static setContent(element, content, type = 'html') {
+        if (!element) return false;
+        if (type === 'text') {
+            element.textContent = content;
+        } else {
+            element.innerHTML = content;
+        }
+        return true;
+    }
+
     static setHTML(element, html) {
-        if (element) element.innerHTML = html;
+        return this.setContent(element, html, 'html');
     }
 
-    // Set text content
     static setText(element, text) {
-        if (element) element.textContent = text;
+        return this.setContent(element, text, 'text');
     }
 
-    // Add loaded class for animations
-    static addLoadedClass(element, delay = 100) {
+    static addLoadedClass(elementOrSelector, delay = 100) {
+        const element = typeof elementOrSelector === 'string' 
+            ? document.querySelector(elementOrSelector)
+            : elementOrSelector;
         if (!element) return;
         setTimeout(() => element.classList.add('loaded'), delay);
     }
+
+    static loadSection(sectionSelector, delay = 100) {
+        this.addLoadedClass(sectionSelector, delay);
+    }
 }
 
-// Base class for pages (simplified)
+// Base class for page initialization
 class PageBase {
     constructor(pageName) {
         this.pageName = pageName;
@@ -55,13 +80,37 @@ class PageBase {
         // Override in child classes
     }
 
-    initializeNavigation() {
-        // Reset navigation states
+    handleError(error, elementId = null) {
+        console.error(`${this.pageName} page error:`, error);
+        if (elementId) {
+            const element = document.getElementById(elementId);
+            if (element) {
+                element.innerHTML = `<div class="error">Failed to load content</div>`;
+            }
+        }
+    }
+
+    resetAllNavigationStates() {
+        if (document.activeElement && document.activeElement !== document.body) {
+            document.activeElement.blur();
+        }
+        
         document.querySelectorAll('.nav-link').forEach(link => {
             link.classList.remove('active', 'clicked');
+            link.blur();
+            link.style.cssText = '';
         });
         
-        // Set active navigation
+        setTimeout(() => {
+            if (document.activeElement && document.activeElement !== document.body) {
+                document.activeElement.blur();
+            }
+        }, 10);
+    }
+
+    initializeNavigation() {
+        this.resetAllNavigationStates();
+        
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
         document.querySelectorAll('.nav-link').forEach(link => {
             if (link.getAttribute('href') === currentPage) {
@@ -69,7 +118,6 @@ class PageBase {
             }
         });
 
-        // Mobile menu
         const navToggle = document.getElementById('nav-toggle');
         const navMenu = document.getElementById('nav-menu');
         if (navToggle && navMenu) {
@@ -136,3 +184,4 @@ class PageBase {
         } catch (error) {}
     }
 }
+

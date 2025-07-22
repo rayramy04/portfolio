@@ -1,312 +1,299 @@
-const PAGE_CONFIGS = {
-    home: async (manager) => {
-        manager.addDOMPopulator(async function() {
-            const { name, subtitle, keywords } = window.homeData.hero;
-            
-            const [heroName, heroTitle, keywordsList] = await Promise.all([
-                DOMHelpers.getElement('hero-name'),
-                DOMHelpers.getElement('hero-title'),
-                DOMHelpers.getElement('keywords-list')
-            ]);
-
-            DOMHelpers.setText(heroName, name);
-            DOMHelpers.setText(heroTitle, subtitle);
-
-            const keywordsHTML = HTMLGenerator.renderList(keywords, (keyword) => 
-                `<li class="keyword-item">${keyword}</li>`
-            );
-            DOMHelpers.setHTML(keywordsList, keywordsHTML);
-        }, { errorElement: 'hero-content' });
-
-        manager.addCustomInitializer(function() {
-            if (typeof particlesJS !== 'undefined' && document.getElementById('particles-js')) {
-                particlesJS('particles-js', {
-                    particles: {
-                        number: { value: 80, density: { enable: true, value_area: 800 } },
-                        color: { value: ['#059669', '#14b8a6', '#06b6d4', '#34d399'] },
-                        shape: { type: ['circle', 'triangle'], stroke: { width: 1, color: '#059669' } },
-                        opacity: { value: 0.4, random: true, anim: { enable: true, speed: 1.5, opacity_min: 0.1, sync: false } },
-                        size: { value: 4, random: true, anim: { enable: true, speed: 2, size_min: 1, sync: false } },
-                        line_linked: { enable: true, distance: 120, color: '#059669', opacity: 0.3, width: 1.5 },
-                        move: { enable: true, speed: 2, direction: 'none', random: true, straight: false, out_mode: 'out', bounce: false, attract: { enable: true, rotateX: 600, rotateY: 1200 } }
-                    },
-                    interactivity: {
-                        detect_on: 'canvas',
-                        events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' }, resize: true },
-                        modes: { repulse: { distance: 200, duration: 0.4 }, push: { particles_nb: 4 } }
-                    },
-                    retina_detect: true
-                });
-            }
-        });
-
-        manager.addAnimation('.hero-content', 100);
-    },
-
-    about: async (manager) => {
-        manager.addDOMPopulator(async function() {
-            const personalData = window.aboutData.personal;
-            
-            const aboutName = document.getElementById('about-name');
-            const aboutPosition = document.getElementById('about-position');
-            const aboutDescription = document.getElementById('about-description');
-
-            DOMHelpers.setText(aboutName, personalData.name);
-            DOMHelpers.setText(aboutPosition, personalData.position);
-            if (aboutDescription) {
-                aboutDescription.innerHTML = personalData.description;
-            }
-        });
-
-        manager.addDOMPopulator(async function() {
-            const storyData = window.aboutData.story;
-            const storyContent = await DOMHelpers.getElement('story-content-inner');
-            const storyHTML = storyData.paragraphs
-                .map(paragraph => `<p>${paragraph}</p>`)
-                .join('');
-
-            DOMHelpers.setHTML(storyContent, storyHTML);
-        }, { errorElement: 'story-content' });
-
-        manager.addDataPopulator({
-            type: 'list',
-            dataPath: 'aboutData.timeline',
-            containerId: 'timeline-container',
-            itemRenderer: (item) => `
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>${item.period}</h3>
-                            <h4>${item.title}</h4>
-                        </div>
-                        <p>${item.description}</p>
-                    </div>
-                </div>
-            `,
-            options: { delay: 500, sectionSelector: '.timeline-section' }
-        });
-
-        manager.addDataPopulator({
-            type: 'list',
-            dataPath: 'aboutData.interests',
-            containerId: 'interests-container',
-            itemRenderer: (interest) => `
-                <div class="interest-card">
-                    <div class="interest-icon">
-                        <i class="${interest.icon}"></i>
-                    </div>
-                    <h3>${interest.title}</h3>
-                    <p>${interest.description}</p>
-                </div>
-            `,
-            options: { delay: 700, sectionSelector: '.interests-section' }
-        });
-
-        manager.addSequentialAnimations(['.about-section', '.timeline-section', '.interests-section'], 100, 100);
-    },
-
-    cv: async (manager) => {
-        manager.addDataPopulator({
-            type: 'cv',
-            dataPath: 'cvData.education',
-            containerId: 'education-container',
-            cvItemConfig: {
-                titleField: 'institution',
-                subtitleField: 'degree',
-                dateField: 'period',
-                descriptionField: 'description'
-            },
-            delay: 200
-        });
-
-        manager.addDataPopulator({
-            type: 'cv',
-            dataPath: 'cvData.experience',
-            containerId: 'experience-container',
-            cvItemConfig: {
-                showLink: true,
-                titleField: 'company',
-                subtitleField: 'position',
-                dateField: 'period'
-            },
-            delay: 300
-        });
-
-        manager.addDataPopulator({
-            dataPath: 'cvData.skills',
-            containerId: 'skills-container',
-            renderer: (skillsData) => HTMLGenerator.skillsSection(skillsData, manager.generateStars.bind(manager)),
-            options: { delay: 400 }
-        });
-
-        manager.addDataPopulator({
-            type: 'list',
-            dataPath: 'cvData.certifications',
-            containerId: 'certifications-container',
-            itemRenderer: (cert) => HTMLGenerator.certificationItem(cert),
-            options: { delay: 500 }
-        });
-
-        manager.addDataPopulator({
-            dataPath: 'cvData.awards',
-            containerId: 'awards-container',
-            renderer: (awardsData) => HTMLGenerator.awardsSection(awardsData),
-            options: { delay: 600 }
-        });
-
-        manager.addDataPopulator({
-            type: 'list',
-            dataPath: 'cvData.grants',
-            containerId: 'grants-container',
-            itemRenderer: (grant) => HTMLGenerator.grantItem(grant),
-            options: { delay: 700 }
-        });
-
-        manager.generateStars = function(level) {
-            const maxStars = 5;
-            let starsHTML = '';
-            
-            for (let i = 1; i <= maxStars; i++) {
-                if (i <= level) {
-                    starsHTML += '<i class="fas fa-star"></i>';
-                } else {
-                    starsHTML += '<i class="far fa-star"></i>';
-                }
-            }
-            
-            return starsHTML;
-        };
-
-        manager.addSequentialAnimations(['.cv-section'], 400, 200);
-    },
-
-    projects: async (manager) => {
-        manager.addDOMPopulator(async function() {
-            console.log('Projects page loading...');
-            const projectsData = window.projectsData;
-            console.log('Projects data:', projectsData);
-            const projectsContainer = await DOMHelpers.getElement('projects-container');
-            
-            const projectsHTML = HTMLGenerator.renderList(projectsData, (project) => `
-                <div class="project-card">
-                    ${HTMLGenerator.renderIf(project.image, `
-                        <div class="project-image">
-                            <img src="${project.image}" alt="${project.name || project.title}">
-                        </div>
-                    `)}
-                    <div class="project-content">
-                        <h3>${project.name || project.title}</h3>
-                        ${HTMLGenerator.renderIf(project.description, `<p class="project-description">${project.description}</p>`)}
-                        ${HTMLGenerator.renderIf(project.technologies?.length, `
-                            <div class="project-technologies">
-                                ${HTMLGenerator.renderList(project.technologies, (tech) => `<span class="tech-tag">${tech}</span>`)}
-                            </div>
-                        `)}
-                        ${HTMLGenerator.renderIf(project.githubUrl || project.liveUrl, `
-                            <div class="project-links">
-                                ${project.githubUrl ? `
-                                    <a href="${project.githubUrl}" target="_blank" class="project-link" title="GitHub">
-                                        <i class="fab fa-github"></i>
-                                        GitHub
-                                    </a>
-                                ` : ''}
-                                ${project.liveUrl ? `
-                                    <a href="${project.liveUrl}" target="_blank" class="project-link" title="Live Demo">
-                                        <i class="fas fa-external-link-alt"></i>
-                                        Live Demo
-                                    </a>
-                                ` : ''}
-                            </div>
-                        `)}
-                    </div>
-                </div>
-            `);
-
-            console.log('Generated HTML:', projectsHTML);
-            DOMHelpers.setHTML(projectsContainer, projectsHTML);
-            console.log('Projects content set successfully');
-        }, { errorElement: 'projects-container' });
-
-        manager.addSequentialAnimations(['.projects-section'], 400, 200);
-    },
-
-    links: async (manager) => {
-        manager.addDOMPopulator(async function() {
-            const contactLinksData = window.linksData.contact;
-            const socialLinksData = window.linksData.social;
-            
-            const linksContainer = await DOMHelpers.getElement('links-content');
-            
-            const linksHTML = `
-                <!-- Website & Contact Links -->
-                <section class="links-section">
-                    <h2 class="links-section-title" style="text-align: center;">
-                        <i class="fas fa-globe"></i>
-                        Website & Contact
-                    </h2>
-                    <div class="links-grid">
-                        ${HTMLGenerator.renderList(contactLinksData, (link) => 
-                            HTMLGenerator.linkCard(link, { cardClass: 'link-card website-card', external: true })
-                        )}
-                    </div>
-                </section>
-
-                <!-- Social Media Links -->
-                <section class="links-section">
-                    <h2 class="links-section-title" style="text-align: center;">
-                        <i class="fas fa-share-alt"></i>
-                        Social Media
-                    </h2>
-                    <div class="links-grid">
-                        ${HTMLGenerator.renderList(socialLinksData, (link) => 
-                            HTMLGenerator.linkCard(link, { cardClass: 'link-card social-card', external: true })
-                        )}
-                    </div>
-                </section>
-
-                <!-- Portfolio Links -->
-                <section class="links-section">
-                    <h2 class="links-section-title" style="text-align: center;">
-                        <i class="fas fa-briefcase"></i>
-                        Portfolio
-                    </h2>
-                    <div class="links-grid">
-                        ${HTMLGenerator.renderList(window.linksData.portfolio, (link) => 
-                            HTMLGenerator.linkCard(link, { 
-                                cardClass: 'link-card portfolio-card', 
-                                external: link.url.startsWith('http'),
-                                showArrow: true 
-                            })
-                        )}
-                    </div>
-                </section>
-            `;
-
-            DOMHelpers.setHTML(linksContainer, linksHTML);
-        }, { errorElement: 'links-content' });
-
-        manager.addSequentialAnimations(['.links-section'], 200, 200);
-    }
-};
-
+// Simplified direct page implementation
 async function initializePage() {
     const pageName = getCurrentPageName();
-    console.log('Initializing page:', pageName);
     
-    if (PAGE_CONFIGS[pageName]) {
-        console.log('Found config for page:', pageName);
-        await PageManager.createAndInit(pageName, PAGE_CONFIGS[pageName]);
-        console.log('Page initialization complete');
-    } else {
-        console.warn(`No configuration found for page: ${pageName}`);
+    // Initialize base functionality
+    await initializeBase();
+    
+    // Initialize page-specific content
+    switch (pageName) {
+        case 'home':
+            await initHome();
+            break;
+        case 'about':
+            await initAbout();
+            break;
+        case 'cv':
+            await initCV();
+            break;
+        case 'projects':
+            await initProjects();
+            break;
+        case 'links':
+            await initLinks();
+            break;
     }
 }
 
+// Base functionality
+async function initializeBase() {
+    const pageBase = new PageBase('current');
+    await pageBase.loadCommonComponents();
+    
+    // Animate page title
+    setTimeout(() => {
+        const sectionTitle = document.querySelector('.section-title');
+        if (sectionTitle) sectionTitle.classList.add('loaded');
+    }, 200);
+}
+
+// Home page initialization
+async function initHome() {
+    const { name, subtitle, keywords } = window.homeData.hero;
+    
+    const heroName = document.getElementById('hero-name');
+    const heroTitle = document.getElementById('hero-title');
+    const keywordsList = document.getElementById('keywords-list');
+    
+    if (heroName) heroName.textContent = name;
+    if (heroTitle) heroTitle.textContent = subtitle;
+    if (keywordsList) {
+        keywordsList.innerHTML = keywords.map(keyword => 
+            `<li class="keyword-item">${keyword}</li>`
+        ).join('');
+    }
+    
+    // Initialize particles
+    if (typeof particlesJS !== 'undefined' && document.getElementById('particles-js')) {
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: ['#059669', '#14b8a6', '#06b6d4', '#34d399'] },
+                shape: { type: ['circle', 'triangle'], stroke: { width: 1, color: '#059669' } },
+                opacity: { value: 0.4, random: true, anim: { enable: true, speed: 1.5, opacity_min: 0.1, sync: false } },
+                size: { value: 4, random: true, anim: { enable: true, speed: 2, size_min: 1, sync: false } },
+                line_linked: { enable: true, distance: 120, color: '#059669', opacity: 0.3, width: 1.5 },
+                move: { enable: true, speed: 2, direction: 'none', random: true, straight: false, out_mode: 'out', bounce: false, attract: { enable: true, rotateX: 600, rotateY: 1200 } }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' }, resize: true },
+                modes: { repulse: { distance: 200, duration: 0.4 }, push: { particles_nb: 4 } }
+            },
+            retina_detect: true
+        });
+    }
+    
+    // Animate hero content
+    setTimeout(() => {
+        const heroContent = document.querySelector('.hero-content');
+        if (heroContent) heroContent.classList.add('loaded');
+    }, 100);
+}
+
+// About page initialization
+async function initAbout() {
+    const personalData = window.aboutData.personal;
+    
+    const aboutName = document.getElementById('about-name');
+    const aboutPosition = document.getElementById('about-position');
+    const aboutDescription = document.getElementById('about-description');
+    
+    if (aboutName) aboutName.textContent = personalData.name;
+    if (aboutPosition) aboutPosition.textContent = personalData.position;
+    if (aboutDescription) aboutDescription.innerHTML = personalData.description;
+    
+    // Story content
+    const storyContent = document.getElementById('story-content-inner');
+    if (storyContent && window.aboutData?.story?.paragraphs) {
+        storyContent.innerHTML = window.aboutData.story.paragraphs
+            .map(p => `<p>${p}</p>`).join('');
+    }
+    
+    // Timeline
+    const timelineContainer = document.getElementById('timeline-container');
+    if (timelineContainer) {
+        timelineContainer.innerHTML = window.aboutData.timeline.map(item => `
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <h3>${item.period}</h3>
+                        <h4>${item.title}</h4>
+                    </div>
+                    <p>${item.description}</p>
+                </div>
+            </div>
+        `).join('');
+    }
+    
+    // Interests
+    const interestsContainer = document.getElementById('interests-container');
+    if (interestsContainer) {
+        interestsContainer.innerHTML = window.aboutData.interests.map(interest => `
+            <div class="interest-card">
+                <div class="interest-icon">
+                    <i class="${interest.icon}"></i>
+                </div>
+                <h3>${interest.title}</h3>
+                <p>${interest.description}</p>
+            </div>
+        `).join('');
+    }
+    
+    // Animate sections
+    setTimeout(() => {
+        document.querySelectorAll('.about-section').forEach(section => section.classList.add('loaded'));
+    }, 100);
+    setTimeout(() => document.querySelector('.timeline-section')?.classList.add('loaded'), 200);
+    setTimeout(() => document.querySelector('.interests-section')?.classList.add('loaded'), 300);
+}
+
+// CV page initialization
+async function initCV() {
+    // Education
+    const educationContainer = document.getElementById('education-container');
+    if (educationContainer) {
+        educationContainer.innerHTML = window.cvData.education.map(item => 
+            HTMLGenerator.cvItem(item)
+        ).join('');
+    }
+    
+    // Experience
+    const experienceContainer = document.getElementById('experience-container');
+    if (experienceContainer) {
+        experienceContainer.innerHTML = window.cvData.experience.map(item => 
+            HTMLGenerator.cvItem(item)
+        ).join('');
+    }
+    
+    // Skills
+    const skillsContainer = document.getElementById('skills-container');
+    if (skillsContainer) {
+        skillsContainer.innerHTML = HTMLGenerator.skillsSection(window.cvData.skills, generateStars);
+    }
+    
+    // Certifications
+    const certificationsContainer = document.getElementById('certifications-container');
+    if (certificationsContainer) {
+        certificationsContainer.innerHTML = window.cvData.certifications.map(cert => 
+            HTMLGenerator.certificationItem(cert)
+        ).join('');
+    }
+    
+    // Awards
+    const awardsContainer = document.getElementById('awards-container');
+    if (awardsContainer) {
+        awardsContainer.innerHTML = HTMLGenerator.awardsSection(window.cvData.awards);
+    }
+    
+    // Grants
+    const grantsContainer = document.getElementById('grants-container');
+    if (grantsContainer) {
+        grantsContainer.innerHTML = window.cvData.grants.map(grant => 
+            HTMLGenerator.grantItem(grant)
+        ).join('');
+    }
+    
+    // Animate sections
+    setTimeout(() => {
+        document.querySelectorAll('.cv-section').forEach((section, index) => {
+            setTimeout(() => section.classList.add('loaded'), index * 100);
+        });
+    }, 400);
+}
+
+// Projects page initialization
+async function initProjects() {
+    const projectsContainer = document.getElementById('projects-container');
+    if (projectsContainer) {
+        projectsContainer.innerHTML = window.projectsData.map(project => `
+            <div class="project-card">
+                ${project.image ? `
+                    <div class="project-image">
+                        <img src="${project.image}" alt="${project.name || project.title}">
+                    </div>
+                ` : ''}
+                <div class="project-content">
+                    <h3>${project.name || project.title}</h3>
+                    ${project.description ? `<p class="project-description">${project.description}</p>` : ''}
+                    ${project.technologies?.length ? `
+                        <div class="project-technologies">
+                            ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                        </div>
+                    ` : ''}
+                    ${project.githubUrl || project.liveUrl ? `
+                        <div class="project-links">
+                            ${project.githubUrl ? `
+                                <a href="${project.githubUrl}" target="_blank" class="project-link" title="GitHub">
+                                    <i class="fab fa-github"></i>
+                                    GitHub
+                                </a>
+                            ` : ''}
+                            ${project.liveUrl ? `
+                                <a href="${project.liveUrl}" target="_blank" class="project-link" title="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    Live Demo
+                                </a>
+                            ` : ''}
+                        </div>
+                    ` : ''}
+                </div>
+            </div>
+        `).join('');
+    }
+    
+    // Animate projects section
+    setTimeout(() => {
+        document.querySelector('.projects-section')?.classList.add('loaded');
+    }, 400);
+}
+
+// Links page initialization
+async function initLinks() {
+    const linksContainer = document.getElementById('links-content');
+    if (linksContainer) {
+        const contactLinksData = window.linksData.contact;
+        const socialLinksData = window.linksData.social;
+        
+        linksContainer.innerHTML = `
+            <section class="links-section">
+                <h2 class="links-section-title" style="text-align: center;">
+                    <i class="fas fa-globe"></i>
+                    Website & Contact
+                </h2>
+                <div class="links-grid">
+                    ${contactLinksData.map(link => HTMLGenerator.linkCard(link, { cardClass: 'link-card website-card', external: true })).join('')}
+                </div>
+            </section>
+            
+            <section class="links-section">
+                <h2 class="links-section-title" style="text-align: center;">
+                    <i class="fas fa-share-alt"></i>
+                    Social Media
+                </h2>
+                <div class="links-grid">
+                    ${socialLinksData.map(link => HTMLGenerator.linkCard(link, { cardClass: 'link-card social-card', external: true })).join('')}
+                </div>
+            </section>
+            
+            <section class="links-section">
+                <h2 class="links-section-title" style="text-align: center;">
+                    <i class="fas fa-briefcase"></i>
+                    Portfolio
+                </h2>
+                <div class="links-grid">
+                    ${window.linksData.portfolio.map(link => HTMLGenerator.linkCard(link, { 
+                        cardClass: 'link-card portfolio-card', 
+                        external: link.url.startsWith('http'),
+                        showArrow: true 
+                    })).join('')}
+                </div>
+            </section>
+        `;
+    }
+    
+    // Animate links sections
+    setTimeout(() => {
+        document.querySelectorAll('.links-section').forEach((section, index) => {
+            setTimeout(() => section.classList.add('loaded'), index * 200);
+        });
+    }, 200);
+}
+
+// Helper functions
 function getCurrentPageName() {
     const path = window.location.pathname;
     const fileName = path.split('/').pop();
-    
-    console.log('Path detection:', { fullPath: path, fileName: fileName });
     
     if (fileName === 'index.html' || fileName === '') return 'home';
     if (fileName === 'about.html') return 'about';
@@ -314,23 +301,23 @@ function getCurrentPageName() {
     if (fileName === 'projects.html') return 'projects';
     if (fileName === 'links.html') return 'links';
     
-    console.log('No matching page found, defaulting to home');
     return 'home';
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM loaded, starting page initialization...');
-    console.log('Current URL:', window.location.href);
-    console.log('Available data:', {
-        projectsData: window.projectsData,
-        commonData: window.commonData,
-        linksData: window.linksData
-    });
-    console.log('Available utilities:', {
-        DOMHelpers: typeof DOMHelpers,
-        HTMLGenerator: typeof HTMLGenerator,
-        ErrorHandler: typeof ErrorHandler,
-        PageManager: typeof PageManager
-    });
-    initializePage();
-});
+function generateStars(level) {
+    const maxStars = 5;
+    let starsHTML = '';
+    
+    for (let i = 1; i <= maxStars; i++) {
+        if (i <= level) {
+            starsHTML += '<i class="fas fa-star"></i>';
+        } else {
+            starsHTML += '<i class="far fa-star"></i>';
+        }
+    }
+    
+    return starsHTML;
+}
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', initializePage);
