@@ -14,7 +14,6 @@ class CVPage extends PageBase {
         await this.populateAwardsContent();
         await this.populateGrantsContent();
         await this.populateFooterSocial();
-        
     }
 
     // Education コンテンツ
@@ -343,7 +342,6 @@ class CVPage extends PageBase {
                 DOMHelpers.setHTML(footerSocial, socialHTML);
             }
         } catch (error) {
-            console.error('Failed to populate footer social links:', error);
         }
     }
 }
