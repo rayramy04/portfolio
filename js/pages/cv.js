@@ -16,25 +16,16 @@ class CVPage extends PageBase {
     async populateEducationContent() {
         try {
             const educationData = window.cvData.education;
-            
             const educationContainer = await DOMHelpers.getElement('education-container');
             
-            const educationHTML = educationData.map(edu => `
-                <div class="cv-item">
-                    <div class="cv-item-header">
-                        <div>
-                            <h3>${edu.institution}</h3>
-                            <p class="cv-degree">${edu.degree}</p>
-                        </div>
-                        <div>
-                            <p class="cv-date">${edu.period}</p>
-                        </div>
-                    </div>
-                    <div class="cv-item-content">
-                        ${edu.description ? `<p>${edu.description}</p>` : ''}
-                    </div>
-                </div>
-            `).join('');
+            const educationHTML = HTMLGenerator.renderList(educationData, (edu) => 
+                HTMLGenerator.cvItem(edu, {
+                    titleField: 'institution',
+                    subtitleField: 'degree', 
+                    dateField: 'period',
+                    descriptionField: 'description'
+                })
+            );
 
             DOMHelpers.setHTML(educationContainer, educationHTML);
             
@@ -125,31 +116,14 @@ class CVPage extends PageBase {
             const experienceContainer = await DOMHelpers.getElement('experience-container');
             
             if (experienceData && experienceData.length > 0) {
-                const experienceHTML = experienceData.map(exp => `
-                    <div class="cv-item ${exp.url ? 'cv-item-linkable' : ''}">
-                        ${exp.url ? `
-                            <a href="${exp.url}" target="_blank" class="cv-item-overlay">
-                                <div class="cv-item-overlay-content">
-                                    <div class="cv-item-link-icon">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </div>
-                                </div>
-                            </a>
-                        ` : ''}
-                        <div class="cv-item-header">
-                            <div>
-                                <h3>${exp.company || exp.organization}</h3>
-                                <p class="cv-company">${exp.position || exp.title}</p>
-                            </div>
-                            <div>
-                                <p class="cv-date">${exp.period || exp.date}</p>
-                            </div>
-                        </div>
-                        <div class="cv-item-content">
-                            ${exp.description ? `<p>${exp.description}</p>` : ''}
-                        </div>
-                    </div>
-                `).join('');
+                const experienceHTML = HTMLGenerator.renderList(experienceData, (exp) => 
+                    HTMLGenerator.cvItem(exp, {
+                        showLink: true,
+                        titleField: 'company',
+                        subtitleField: 'position',
+                        dateField: 'period'
+                    })
+                );
 
                 DOMHelpers.setHTML(experienceContainer, experienceHTML);
             }
@@ -168,18 +142,9 @@ class CVPage extends PageBase {
             const certificationsContainer = await DOMHelpers.getElement('certifications-container');
             
             if (certificationsData && certificationsData.length > 0) {
-                const certificationsHTML = certificationsData.map(cert => `
-                    <div class="cv-item">
-                        <div class="cv-item-header">
-                            <h3>${cert.name || cert.title}</h3>
-                            <span class="cv-item-date">${cert.date || cert.year}</span>
-                        </div>
-                        <div class="cv-item-details">
-                            <h4>${cert.issuer || cert.organization}</h4>
-                            ${cert.description ? `<p class="cv-item-description">${cert.description}</p>` : ''}
-                        </div>
-                    </div>
-                `).join('');
+                const certificationsHTML = HTMLGenerator.renderList(certificationsData, (cert) => 
+                    HTMLGenerator.certificationItem(cert)
+                );
 
                 DOMHelpers.setHTML(certificationsContainer, certificationsHTML);
             }
@@ -206,42 +171,23 @@ class CVPage extends PageBase {
                     return parseInt(b) - parseInt(a);
                 });
                 
-                years.forEach(year => {
+                awardsHTML = HTMLGenerator.renderList(years, (year) => {
                     const yearAwards = awardsData[year];
-                    if (yearAwards && yearAwards.length > 0) {
-                        awardsHTML += `<div class="awards-year-group">
-                            <h3 class="awards-year">${year}</h3>`;
-                        
-                        yearAwards.forEach(award => {
-                            awardsHTML += `
-                                <div class="cv-item ${award.link ? 'cv-item-linkable' : ''}">
-                                    ${award.link ? `
-                                        <a href="${award.link}" target="_blank" class="cv-item-overlay">
-                                            <div class="cv-item-overlay-content">
-                                                <div class="cv-item-link-icon">
-                                                    <i class="fas fa-external-link-alt"></i>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    ` : ''}
-                                    <div class="cv-item-header">
-                                        <div>
-                                            <h4>${award.title}</h4>
-                                            <p class="cv-company">${award.organization}</p>
-                                        </div>
-                                        <div>
-                                            <p class="cv-date">${award.date}</p>
-                                        </div>
-                                    </div>
-                                    <div class="cv-item-content">
-                                        ${award.description ? `<p>${award.description}</p>` : ''}
-                                    </div>
-                                </div>
-                            `;
-                        });
-                        
-                        awardsHTML += '</div>';
-                    }
+                    if (!yearAwards || yearAwards.length === 0) return '';
+                    
+                    return `
+                        <div class="awards-year-group">
+                            <h3 class="awards-year">${year}</h3>
+                            ${HTMLGenerator.renderList(yearAwards, (award) => 
+                                HTMLGenerator.cvItem(award, {
+                                    showLink: true,
+                                    titleField: 'title',
+                                    subtitleField: 'organization',
+                                    dateField: 'date'
+                                })
+                            )}
+                        </div>
+                    `;
                 });
 
                 DOMHelpers.setHTML(awardsContainer, awardsHTML);
@@ -261,23 +207,9 @@ class CVPage extends PageBase {
             const grantsContainer = await DOMHelpers.getElement('grants-container');
             
             if (grantsData && grantsData.length > 0) {
-                const grantsHTML = grantsData.map(grant => `
-                    <div class="cv-item">
-                        <div class="cv-item-header">
-                            <div>
-                                <h3>${grant.name || grant.title}</h3>
-                                <h4>${grant.organization || grant.funder}</h4>
-                            </div>
-                            <div>
-                                <p class="cv-date">${grant.date || grant.year}</p>
-                                ${grant.amount ? `<p class="cv-amount">${grant.amount}</p>` : ''}
-                            </div>
-                        </div>
-                        <div class="cv-item-content">
-                            ${grant.description ? `<p>${grant.description}</p>` : ''}
-                        </div>
-                    </div>
-                `).join('');
+                const grantsHTML = HTMLGenerator.renderList(grantsData, (grant) => 
+                    HTMLGenerator.grantItem(grant)
+                );
 
                 DOMHelpers.setHTML(grantsContainer, grantsHTML);
             }
