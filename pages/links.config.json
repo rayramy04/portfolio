@@ -1,8 +1,0 @@
-{
-  "META_DESCRIPTION": "Links - Social media, contact information, and online presence",
-  "META_KEYWORDS": "Ray, links, social media, contact, GitHub, Twitter, LinkedIn",
-  "PAGE_TITLE": "Links - Ray's Portfolio",
-  "ADDITIONAL_HEAD": "",
-  "MAIN_CONTENT": "pages/links-content.html",
-  "SCRIPTS": "pages/links-scripts.html"
-}

@@ -48,18 +48,15 @@ class DataPopulator {
     }
 
     /**
-     * Populate multiple sections with batch processing
+     * Populate multiple sections with batch processing (parallel execution)
      * @param {Array} configs - Array of populate configurations
      * @param {Object} context - Context object
      * @returns {Promise<Array>} Array of results
      */
     static async populateAll(configs, context = null) {
-        const results = [];
-        for (const config of configs) {
-            const result = await this.populate(config, context);
-            results.push(result);
-        }
-        return results;
+        return await Promise.all(
+            configs.map(config => this.populate(config, context))
+        );
     }
 
     /**
@@ -72,15 +69,10 @@ class DataPopulator {
      * @param {Object} context - Context
      */
     static async populateCVItems(config, context = null) {
-        return await this.populate({
+        return await this.populateList({
             dataPath: config.dataPath,
             containerId: config.containerId,
-            renderer: (data) => {
-                if (!data || data.length === 0) return '';
-                return HTMLGenerator.renderList(data, (item) => 
-                    HTMLGenerator.cvItem(item, config.cvItemConfig || {})
-                );
-            },
+            itemRenderer: (item) => HTMLGenerator.cvItem(item, config.cvItemConfig || {}),
             options: { delay: config.delay }
         }, context);
     }

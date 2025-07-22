@@ -26,27 +26,45 @@ class DOMHelpers {
     }
 
     /**
+     * Safely sets element content with null checking
+     * @param {HTMLElement} element - Element to modify
+     * @param {string} content - Content to set
+     * @param {string} type - Content type: 'html' or 'text'
+     * @returns {boolean} Success status
+     */
+    static setContent(element, content, type = 'html') {
+        if (!element) return false;
+        if (type === 'text') {
+            element.textContent = content;
+        } else {
+            element.innerHTML = content;
+        }
+        return true;
+    }
+
+    /**
      * Safely sets innerHTML with null checking
      */
     static setHTML(element, html) {
-        if (!element) return false;
-        element.innerHTML = html;
-        return true;
+        return this.setContent(element, html, 'html');
     }
 
     /**
      * Safely sets textContent with null checking
      */
     static setText(element, text) {
-        if (!element) return false;
-        element.textContent = text;
-        return true;
+        return this.setContent(element, text, 'text');
     }
 
     /**
      * Adds 'loaded' class with delay for transition effects
+     * @param {HTMLElement|string} elementOrSelector - Element or CSS selector
+     * @param {number} delay - Delay in milliseconds
      */
-    static addLoadedClass(element, delay = 100) {
+    static addLoadedClass(elementOrSelector, delay = 100) {
+        const element = typeof elementOrSelector === 'string' 
+            ? document.querySelector(elementOrSelector)
+            : elementOrSelector;
         if (!element) return;
         setTimeout(() => element.classList.add('loaded'), delay);
     }
@@ -55,8 +73,7 @@ class DOMHelpers {
      * Convenience method to add loaded class to section by selector
      */
     static loadSection(sectionSelector, delay = 100) {
-        const section = document.querySelector(sectionSelector);
-        this.addLoadedClass(section, delay);
+        this.addLoadedClass(sectionSelector, delay);
     }
 }
 

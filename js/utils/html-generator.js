@@ -31,22 +31,64 @@ class HTMLGenerator {
     }
 
     /**
-     * Common CV item template
-     * @param {Object} item - CV item data
+     * Generic item template renderer
+     * @param {Object} item - Item data
      * @param {Object} config - Configuration for rendering
-     * @returns {string} CV item HTML
+     * @returns {string} Item HTML
      */
-    static cvItem(item, config = {}) {
+    static _renderItem(item, config = {}) {
         const {
             showLink = false,
             titleField = 'title',
-            subtitleField = 'organization', 
+            subtitleField = 'organization',
             dateField = 'date',
-            descriptionField = 'description'
+            descriptionField = 'description',
+            template = 'cv',
+            extraFields = {}
         } = config;
 
         const linkUrl = item.url || item.link;
         const showLinkOverlay = showLink && linkUrl;
+        
+        const title = item[titleField] || item.title || item.name || item.institution;
+        const subtitle = item[subtitleField] || item.organization || item.company || item.position || item.degree || item.issuer || item.funder;
+        const date = item[dateField] || item.date || item.period || item.year;
+        const description = item[descriptionField] || item.description;
+
+        if (template === 'cert') {
+            return `
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h3>${title}</h3>
+                        <span class="cv-item-date">${date}</span>
+                    </div>
+                    <div class="cv-item-details">
+                        <h4>${subtitle}</h4>
+                        ${this.renderIf(description, `<p class="cv-item-description">${description}</p>`)}
+                    </div>
+                </div>
+            `;
+        }
+        
+        if (template === 'grant') {
+            return `
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <div>
+                            <h3>${title}</h3>
+                            <h4>${subtitle}</h4>
+                        </div>
+                        <div>
+                            <p class="cv-date">${date}</p>
+                            ${this.renderIf(extraFields.amount || item.amount, `<p class="cv-amount">${extraFields.amount || item.amount}</p>`)}
+                        </div>
+                    </div>
+                    <div class="cv-item-content">
+                        ${this.renderIf(description, `<p>${description}</p>`)}
+                    </div>
+                </div>
+            `;
+        }
 
         return `
             <div class="cv-item ${showLinkOverlay ? 'cv-item-linkable' : ''}">
@@ -61,18 +103,28 @@ class HTMLGenerator {
                 `)}
                 <div class="cv-item-header">
                     <div>
-                        <h3>${item[titleField] || item.title || item.name || item.institution}</h3>
-                        <p class="cv-company">${item[subtitleField] || item.organization || item.company || item.position || item.degree}</p>
+                        <h3>${title}</h3>
+                        <p class="cv-company">${subtitle}</p>
                     </div>
                     <div>
-                        <p class="cv-date">${item[dateField] || item.date || item.period}</p>
+                        <p class="cv-date">${date}</p>
                     </div>
                 </div>
                 <div class="cv-item-content">
-                    ${this.renderIf(item[descriptionField] || item.description, `<p>${item[descriptionField] || item.description}</p>`)}
+                    ${this.renderIf(description, `<p>${description}</p>`)}
                 </div>
             </div>
         `;
+    }
+
+    /**
+     * Common CV item template
+     * @param {Object} item - CV item data
+     * @param {Object} config - Configuration for rendering
+     * @returns {string} CV item HTML
+     */
+    static cvItem(item, config = {}) {
+        return this._renderItem(item, { ...config, template: 'cv' });
     }
 
     /**
@@ -110,18 +162,7 @@ class HTMLGenerator {
      * @returns {string} Certification HTML
      */
     static certificationItem(cert) {
-        return `
-            <div class="cv-item">
-                <div class="cv-item-header">
-                    <h3>${cert.name || cert.title}</h3>
-                    <span class="cv-item-date">${cert.date || cert.year}</span>
-                </div>
-                <div class="cv-item-details">
-                    <h4>${cert.issuer || cert.organization}</h4>
-                    ${this.renderIf(cert.description, `<p class="cv-item-description">${cert.description}</p>`)}
-                </div>
-            </div>
-        `;
+        return this._renderItem(cert, { template: 'cert' });
     }
 
     /**
@@ -130,23 +171,7 @@ class HTMLGenerator {
      * @returns {string} Grant HTML
      */
     static grantItem(grant) {
-        return `
-            <div class="cv-item">
-                <div class="cv-item-header">
-                    <div>
-                        <h3>${grant.name || grant.title}</h3>
-                        <h4>${grant.organization || grant.funder}</h4>
-                    </div>
-                    <div>
-                        <p class="cv-date">${grant.date || grant.year}</p>
-                        ${this.renderIf(grant.amount, `<p class="cv-amount">${grant.amount}</p>`)}
-                    </div>
-                </div>
-                <div class="cv-item-content">
-                    ${this.renderIf(grant.description, `<p>${grant.description}</p>`)}
-                </div>
-            </div>
-        `;
+        return this._renderItem(grant, { template: 'grant' });
     }
 
     /**
