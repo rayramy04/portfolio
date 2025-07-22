@@ -22,12 +22,16 @@
         <div class="container">
             <!-- Personal Introduction Section -->
             <section class="about-section">
-                <h1 class="section-title">About Me</h1>
+                <h2 class="cv-section-title" data-section="who-i-am">
+                    <i class="fas fa-user"></i>
+                    Who I Am
+                    <i class="fas fa-chevron-up toggle-icon"></i>
+                </h2>
                 
+                <div class="cv-section-content" id="who-i-am-content">
                 <div class="who-i-am">
                     <div class="about-content">
                         <div class="about-text">
-                            <h2 id="about-title">Who I Am</h2>
                             <h3 id="about-name"></h3>
                             <p class="current-position" id="about-position"></p>
                             <p id="about-description"></p>
@@ -37,29 +41,48 @@
                         <img src="assets/about-photo.jpg" alt="Ray's photo">
                     </div>
                 </div>
+                </div>
             </section>
 
             <!-- Personal Journey Section -->
             <section class="about-section">
-                <h2>My Story</h2>
-                <div class="story-content" id="story-content">
+                <h2 class="cv-section-title" data-section="story">
+                    <i class="fas fa-book-open"></i>
+                    My Story
+                    <i class="fas fa-chevron-up toggle-icon"></i>
+                </h2>
+                <div class="cv-section-content" id="story-content">
+                <div class="story-content" id="story-content-inner">
                     <!-- Personal journey narrative loaded from JSON data -->
+                </div>
                 </div>
             </section>
 
             <!-- Life & Career Timeline -->
             <section class="timeline-section">
-                <h2>Timeline</h2>
+                <h2 class="cv-section-title" data-section="timeline">
+                    <i class="fas fa-clock"></i>
+                    Timeline
+                    <i class="fas fa-chevron-up toggle-icon"></i>
+                </h2>
+                <div class="cv-section-content" id="timeline-content">
                 <div class="timeline" id="timeline-container">
                     <!-- Key milestones and events loaded from JSON data -->
+                </div>
                 </div>
             </section>
 
             <!-- Hobbies & Interests -->
             <section class="interests-section">
-                <h2>Interests</h2>
+                <h2 class="cv-section-title" data-section="interests">
+                    <i class="fas fa-heart"></i>
+                    Interests
+                    <i class="fas fa-chevron-up toggle-icon"></i>
+                </h2>
+                <div class="cv-section-content" id="interests-content">
                 <div class="interests-grid" id="interests-container">
                     <!-- Personal interests and hobbies loaded from JSON data -->
+                </div>
                 </div>
             </section>
         </div>
@@ -68,8 +91,11 @@
     <!-- Dynamic Footer Injection Point -->
     <div id="footer-placeholder"></div>
 
-    <script src="js/data-loader.js"></script>
-    <script src="js/load-components.js"></script>
+</script>
+    <script src="js/utils/dom-helpers.js"></script>
+    <script src="data/common.js"></script>
+    <script src="data/about.js"></script>
+    <script src="js/pages/about.js"></script>
     
     
     

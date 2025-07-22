@@ -118,3 +118,41 @@ scratch/
 playground/
 experiments/
 .personal/
+
+# Legacy JSON Data Files (Now using JS-based data)
+# ------------------------------------------------
+data/**/*.json
+!data/README.md
+
+# Generated or Combined CSS
+# -------------------------
+css/style-combined.css
+css/pages/
+css/components/
+
+# Development Scripts
+# -------------------
+css-combiner.js
+build-tools/
+scripts/dev/
+
+# IDE and Editor Specific
+# -----------------------
+*.code-workspace
+.history/
+.vscode/settings.json
+.vscode/launch.json
+
+# Temporary Assets
+# ----------------
+assets/temp/
+assets/backup/
+assets/*.tmp
+assets/raw/
+
+# Deploy and CI/CD
+# ----------------
+.github/workflows/
+deploy.sh
+build.sh
+*.deploy
