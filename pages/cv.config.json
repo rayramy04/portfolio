@@ -1,0 +1,8 @@
+{
+  "META_DESCRIPTION": "Curriculum Vitae - Education, Experience, Skills, and Achievements of Ray",
+  "META_KEYWORDS": "Ray, CV, curriculum vitae, education, experience, skills",
+  "PAGE_TITLE": "CV - Ray's Portfolio",
+  "ADDITIONAL_HEAD": "",
+  "MAIN_CONTENT": "pages/cv-content.html",
+  "SCRIPTS": "pages/cv-scripts.html"
+}
