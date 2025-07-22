@@ -50,12 +50,19 @@ class ErrorHandler {
     }
 
     /**
-     * Batch safe execution for multiple async functions
+     * Batch safe execution for multiple async functions (parallel execution)
      * @param {Array} operations - Array of {fn, containerId} objects
      * @param {Object} context - Context object
+     * @param {boolean} parallel - Execute in parallel (default: true)
      * @returns {Promise<Array>} Array of results
      */
-    static async safeExecuteAll(operations, context = null) {
+    static async safeExecuteAll(operations, context = null, parallel = true) {
+        if (parallel) {
+            return await Promise.all(
+                operations.map(op => this.safeExecute(op.fn, op.containerId, context))
+            );
+        }
+        
         const results = [];
         for (const op of operations) {
             const result = await this.safeExecute(op.fn, op.containerId, context);
