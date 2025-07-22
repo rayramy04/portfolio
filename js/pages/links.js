@@ -122,7 +122,6 @@ class LinksPage extends PageBase {
                 DOMHelpers.setHTML(footerSocial, socialHTML);
             }
         } catch (error) {
-            console.error('Failed to populate footer social links:', error);
         }
     }
 }
