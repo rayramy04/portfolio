@@ -60,7 +60,8 @@ class AboutPage extends PageBase {
         try {
             const timelineData = window.aboutData.timeline;
             const timelineContainer = await DOMHelpers.getElement('timeline-container');
-            const timelineHTML = timelineData.map(item => `
+            
+            const timelineHTML = HTMLGenerator.renderList(timelineData, (item) => `
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <div class="timeline-header">
@@ -70,7 +71,7 @@ class AboutPage extends PageBase {
                         <p>${item.description}</p>
                     </div>
                 </div>
-            `).join('');
+            `);
 
             DOMHelpers.setHTML(timelineContainer, timelineHTML);
             DOMHelpers.loadSection('.timeline-section', 500);
@@ -84,7 +85,8 @@ class AboutPage extends PageBase {
         try {
             const interestsData = window.aboutData.interests;
             const interestsContainer = await DOMHelpers.getElement('interests-container');
-            const interestsHTML = interestsData.map(interest => `
+            
+            const interestsHTML = HTMLGenerator.renderList(interestsData, (interest) => `
                 <div class="interest-card">
                     <div class="interest-icon">
                         <i class="${interest.icon}"></i>
@@ -92,7 +94,7 @@ class AboutPage extends PageBase {
                     <h3>${interest.title}</h3>
                     <p>${interest.description}</p>
                 </div>
-            `).join('');
+            `);
 
             DOMHelpers.setHTML(interestsContainer, interestsHTML);
             DOMHelpers.loadSection('.interests-section', 700);
