@@ -1,15 +1,4 @@
-/**
- * HTML Generation Utilities
- * Provides reusable template rendering for common patterns
- */
 class HTMLGenerator {
-    /**
-     * Renders array data into HTML using a template function
-     * @param {Array} data - Array of data objects
-     * @param {Function} template - Template function that takes (item, index) and returns HTML string
-     * @param {Object} options - Additional options for rendering
-     * @returns {string} Combined HTML string
-     */
     static renderList(data, template, options = {}) {
         if (!Array.isArray(data) || data.length === 0) {
             return options.emptyMessage || '';
@@ -18,24 +7,11 @@ class HTMLGenerator {
         return data.map((item, index) => template(item, index, options)).join(options.separator || '');
     }
 
-    /**
-     * Renders conditional HTML section
-     * @param {boolean} condition - Condition to check
-     * @param {string|Function} template - HTML string or function that returns HTML
-     * @param {*} data - Data to pass to template function
-     * @returns {string} HTML string or empty string
-     */
     static renderIf(condition, template, data = null) {
         if (!condition) return '';
         return typeof template === 'function' ? template(data) : template;
     }
 
-    /**
-     * Generic item template renderer
-     * @param {Object} item - Item data
-     * @param {Object} config - Configuration for rendering
-     * @returns {string} Item HTML
-     */
     static _renderItem(item, config = {}) {
         const {
             showLink = false,
@@ -117,22 +93,10 @@ class HTMLGenerator {
         `;
     }
 
-    /**
-     * Common CV item template
-     * @param {Object} item - CV item data
-     * @param {Object} config - Configuration for rendering
-     * @returns {string} CV item HTML
-     */
     static cvItem(item, config = {}) {
         return this._renderItem(item, { ...config, template: 'cv' });
     }
 
-    /**
-     * Link card template
-     * @param {Object} link - Link data
-     * @param {Object} config - Configuration for link card
-     * @returns {string} Link card HTML
-     */
     static linkCard(link, config = {}) {
         const { cardClass = 'link-card', showArrow = true, external = true, style = 'padding: 20px;' } = config;
         
@@ -156,37 +120,20 @@ class HTMLGenerator {
         `;
     }
 
-    /**
-     * Certification item template
-     * @param {Object} cert - Certification data
-     * @returns {string} Certification HTML
-     */
     static certificationItem(cert) {
         return this._renderItem(cert, { template: 'cert' });
     }
 
-    /**
-     * Grant item template with amount field
-     * @param {Object} grant - Grant data
-     * @returns {string} Grant HTML
-     */
     static grantItem(grant) {
         return this._renderItem(grant, { template: 'grant' });
     }
 
-    /**
-     * Skills section with basic and specialized categories
-     * @param {Array} skillsData - Skills data array
-     * @param {Function} generateStars - Star generation function
-     * @returns {string} Skills HTML
-     */
     static skillsSection(skillsData, generateStars) {
         const specializedSkills = skillsData.find(cat => cat.category === 'Specialized Skills');
         const basicSkillsCategories = skillsData.filter(cat => cat.category !== 'Specialized Skills');
         
         let skillsHTML = '';
         
-        // Basic skills
         if (basicSkillsCategories.length > 0) {
             skillsHTML += this.renderList(basicSkillsCategories, (skillCategory) => `
                 <div class="skills-category compact">
@@ -207,7 +154,6 @@ class HTMLGenerator {
             `);
         }
         
-        // Specialized skills
         if (specializedSkills) {
             skillsHTML += `
                 <div class="skills-category specialized">
@@ -240,11 +186,6 @@ class HTMLGenerator {
         return skillsHTML;
     }
 
-    /**
-     * Awards section with year-based grouping
-     * @param {Object} awardsData - Awards data object grouped by years
-     * @returns {string} Awards HTML
-     */
     static awardsSection(awardsData) {
         if (!awardsData || typeof awardsData !== 'object') return '';
         

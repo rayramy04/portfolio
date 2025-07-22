@@ -1,9 +1,5 @@
-// Unified page management system using PageManager class
-
-// Page configurations
 const PAGE_CONFIGS = {
     home: async (manager) => {
-        // Hero content populator
         manager.addDOMPopulator(async function() {
             const { name, subtitle, keywords } = window.homeData.hero;
             
@@ -22,7 +18,6 @@ const PAGE_CONFIGS = {
             DOMHelpers.setHTML(keywordsList, keywordsHTML);
         }, { errorElement: 'hero-content' });
 
-        // Particles initializer
         manager.addCustomInitializer(function() {
             if (typeof particlesJS !== 'undefined' && document.getElementById('particles-js')) {
                 particlesJS('particles-js', {
@@ -49,7 +44,6 @@ const PAGE_CONFIGS = {
     },
 
     about: async (manager) => {
-        // Personal info populator
         manager.addDOMPopulator(async function() {
             const personalData = window.aboutData.personal;
             
@@ -64,7 +58,6 @@ const PAGE_CONFIGS = {
             }
         });
 
-        // Story content populator
         manager.addDOMPopulator(async function() {
             const storyData = window.aboutData.story;
             const storyContent = await DOMHelpers.getElement('story-content-inner');
@@ -75,7 +68,6 @@ const PAGE_CONFIGS = {
             DOMHelpers.setHTML(storyContent, storyHTML);
         }, { errorElement: 'story-content' });
 
-        // Timeline data populator
         manager.addDataPopulator({
             type: 'list',
             dataPath: 'aboutData.timeline',
@@ -94,7 +86,6 @@ const PAGE_CONFIGS = {
             options: { delay: 500, sectionSelector: '.timeline-section' }
         });
 
-        // Interests data populator
         manager.addDataPopulator({
             type: 'list',
             dataPath: 'aboutData.interests',
@@ -115,7 +106,6 @@ const PAGE_CONFIGS = {
     },
 
     cv: async (manager) => {
-        // Education populator
         manager.addDataPopulator({
             type: 'cv',
             dataPath: 'cvData.education',
@@ -129,7 +119,6 @@ const PAGE_CONFIGS = {
             delay: 200
         });
 
-        // Experience populator
         manager.addDataPopulator({
             type: 'cv',
             dataPath: 'cvData.experience',
@@ -143,7 +132,6 @@ const PAGE_CONFIGS = {
             delay: 300
         });
 
-        // Skills populator with custom method
         manager.addDataPopulator({
             dataPath: 'cvData.skills',
             containerId: 'skills-container',
@@ -151,7 +139,6 @@ const PAGE_CONFIGS = {
             options: { delay: 400 }
         });
 
-        // Certifications populator
         manager.addDataPopulator({
             type: 'list',
             dataPath: 'cvData.certifications',
@@ -160,7 +147,6 @@ const PAGE_CONFIGS = {
             options: { delay: 500 }
         });
 
-        // Awards populator
         manager.addDataPopulator({
             dataPath: 'cvData.awards',
             containerId: 'awards-container',
@@ -168,7 +154,6 @@ const PAGE_CONFIGS = {
             options: { delay: 600 }
         });
 
-        // Grants populator
         manager.addDataPopulator({
             type: 'list',
             dataPath: 'cvData.grants',
@@ -177,7 +162,6 @@ const PAGE_CONFIGS = {
             options: { delay: 700 }
         });
 
-        // Add generateStars method to manager
         manager.generateStars = function(level) {
             const maxStars = 5;
             let starsHTML = '';
@@ -192,6 +176,8 @@ const PAGE_CONFIGS = {
             
             return starsHTML;
         };
+
+        manager.addSequentialAnimations(['.cv-section'], 400, 200);
     },
 
     projects: async (manager) => {
@@ -303,9 +289,7 @@ const PAGE_CONFIGS = {
     }
 };
 
-// Page initialization function
 async function initializePage() {
-    // Detect current page from document title or URL
     const pageName = getCurrentPageName();
     console.log('Initializing page:', pageName);
     
@@ -318,7 +302,6 @@ async function initializePage() {
     }
 }
 
-// Helper function to detect current page
 function getCurrentPageName() {
     const path = window.location.pathname;
     const fileName = path.split('/').pop();
@@ -332,10 +315,9 @@ function getCurrentPageName() {
     if (fileName === 'links.html') return 'links';
     
     console.log('No matching page found, defaulting to home');
-    return 'home'; // Default fallback
+    return 'home';
 }
 
-// Initialize page when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM loaded, starting page initialization...');
     console.log('Current URL:', window.location.href);
