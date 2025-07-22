@@ -1,173 +1,110 @@
-# 🌟 Modern Portfolio Website
+# Modern Portfolio Website
 
-> A high-performance, responsive portfolio website built with vanilla HTML, CSS, and JavaScript featuring innovative JS-based data architecture and stunning visual effects.
+[![English](https://img.shields.io/badge/English-README-blue)](README.md) [![日本語](https://img.shields.io/badge/日本語-README-blue)](README.ja.md)
 
-[![日本語](https://img.shields.io/badge/日本語-README-blue)](README.ja.md)
-![Portfolio Preview](https://img.shields.io/badge/Portfolio-Live%20Demo-brightgreen)
-![License](https://img.shields.io/badge/License-MIT-blue.svg)
+A high-performance, SEO-optimized portfolio website built from scratch with vanilla HTML, CSS, and JavaScript. Features advanced template generation, structured data, and modern web standards.
 
-## ✨ Key Features
+## Key Features
 
-### 🚀 **Revolutionary JS-Based Architecture**
-- **Zero CORS Issues** - Direct data loading via `window` objects
-- **Lightning Fast** - No asynchronous JSON loading delays
-- **Browser Optimized** - Leverages native JavaScript performance
-- **Cache Friendly** - Better browser caching and faster subsequent loads
+### SEO & Social Media Optimization
+- Meta descriptions optimized for search engines
+- Open Graph Protocol for rich social media previews
+- Twitter Cards for professional link sharing
+- Schema.org structured data (Person & Website markup)
+- LinkedIn, Facebook, Twitter optimization
 
-### 🎨 **Modern Design Excellence**
-- **Zigzag Timeline** - Visually striking alternating layout
-- **Interactive Particles** - Animated background effects with particles.js
-- **Smooth Animations** - CSS transitions and hover effects throughout
-- **Mobile-First Responsive** - Seamless experience across all devices
-- **Cool Green Theme** - Professional emerald color scheme
+### Advanced Template System
+- Auto-generated HTML from templates
+- Automatic SEO markup injection
+- Centralized content management
+- Single command HTML regeneration
 
-### 💻 **Technical Innovation**
-- **Component-Based Architecture** - Modular, maintainable code structure
-- **Class-Based Pages** - Object-oriented JavaScript for each page
-- **Utility Helpers** - Centralized DOM manipulation utilities
-- **Error Handling** - Robust error handling and fallbacks
+### Performance & Architecture
+- Direct JavaScript data loading (zero CORS issues)
+- Optimized 746-line JavaScript codebase
+- Component-based modular design
+- Robust error handling and fallbacks
 
-## 🏗️ Architecture
+### Modern Design
+- Interactive particle background effects
+- Zigzag timeline layout
+- Mobile-first responsive design
+- Professional green color scheme
 
-### **Revolutionary Data Loading System**
+## Architecture
+
+### Template Generation System
 ```
-Traditional Approach (Slow):
-HTML → JavaScript → Fetch JSON → Parse → Display
-⏱️  ~200ms+ loading time, CORS issues
-
-Our Approach (Fast):
-HTML → JavaScript → Direct Window Object → Display  
-⏱️  Instant loading, zero CORS issues
+Content Files → Template Engine → Generated HTML
+     ↓              ↓                   ↓
+  content/      generate-pages.js    index.html
+                     +                about.html
+               template-base.html      cv.html
+                     +               projects.html
+              SEO configuration       links.html
 ```
 
-### **File Structure**
+### File Structure
 ```
 portfolio/
-├── 📄 Core Pages
-│   ├── index.html          # Homepage with particle effects
-│   ├── about.html          # About page with zigzag timeline
-│   ├── cv.html             # CV with collapsible sections
-│   ├── projects.html       # Projects showcase
-│   └── links.html          # Social links & contact
-├── 🎨 Styling
-│   └── css/
-│       └── style.css       # Comprehensive CSS with design system
-├── ⚡ JavaScript Architecture
-│   ├── js/
-│   │   ├── pages/          # Page-specific classes
-│   │   │   ├── home.js     # HomePage class with particles
-│   │   │   ├── about.js    # AboutPage class with timeline
-│   │   │   ├── cv.js       # CVPage class with skills rendering
-│   │   │   ├── projects.js # ProjectsPage class
-│   │   │   └── links.js    # LinksPage class
-│   │   ├── utils/
-│   │   │   └── dom-helpers.js  # DOM manipulation utilities
-│   │   └── shared-data.js      # Base PageBase class
-├── 📊 Data (JavaScript Objects)
+├── Generated HTML Files
+│   ├── index.html          # Homepage with particles + SEO
+│   ├── about.html          # About page + structured data
+│   ├── cv.html             # CV + professional meta tags
+│   ├── projects.html       # Projects + OGP optimization
+│   └── links.html          # Contact + social optimization
+├── Template System
+│   ├── generate-pages.js   # HTML generation + SEO injection
+│   ├── template-base.html  # Base HTML template
+│   └── content/            # Page-specific content
+│       ├── index-content.html
+│       ├── about-content.html
+│       ├── cv-content.html
+│       ├── projects-content.html
+│       └── links-content.html
+├── Data Layer (742 lines)
 │   ├── data/
-│   │   ├── common.js       # window.commonData (navigation, social)
-│   │   ├── home.js         # window.homeData (hero content)
-│   │   ├── about.js        # window.aboutData (story, timeline, interests)
-│   │   ├── cv.js           # window.cvData (education, experience, skills)
-│   │   ├── projects.js     # window.projectsData (portfolio)
-│   │   └── links.js        # window.linksData (contact info)
-└── 🖼️ Assets
-    ├── favicon.ico
-    ├── profile.jpg
-    ├── about-photo.jpg
+│   │   ├── common.js       # Navigation, footer, social links
+│   │   ├── home.js         # Hero content, keywords
+│   │   ├── about.js        # Personal story, timeline, interests
+│   │   ├── cv.js           # Education, experience, skills
+│   │   ├── projects.js     # Portfolio projects
+│   │   ├── links.js        # Contact information
+│   │   └── seo-config.js   # SEO metadata configuration
+├── JavaScript (746 lines)
+│   ├── js/
+│   │   ├── pages-unified.js    # Main page initialization (322 lines)
+│   │   └── utils/
+│   │       ├── html-generator.js   # Template rendering (112 lines)
+│   │       ├── dom-helpers.js      # DOM utilities (137 lines)
+│   │       ├── page-manager.js     # Page management (98 lines)
+│   │       ├── data-populator.js   # Data population (51 lines)
+│   │       └── error-handler.js    # Error handling (26 lines)
+├── Styling
+│   └── css/
+│       └── style.css       # Complete design system (1,883 lines)
+└── Assets
+    ├── profile.jpg         # Main profile image
+    ├── about-photo.jpg     # About page photo
+    ├── og-image.jpg        # Social media preview
     └── projects/           # Project screenshots
 ```
 
-### **Component Architecture**
-```
-┌─────────────────────────────────┐
-│          HTML Pages             │ ← Static HTML structure
-├─────────────────────────────────┤
-│       Page Classes              │ ← HomePage, AboutPage, CVPage...
-│    (Object-Oriented JS)         │
-├─────────────────────────────────┤
-│       Data Objects              │ ← window.homeData, window.cvData...
-│   (Instant Access via JS)       │   
-├─────────────────────────────────┤
-│      Utility Helpers            │ ← DOMHelpers, animations, effects
-│   (Reusable Functions)          │
-└─────────────────────────────────┘
-```
+## Quick Start
 
-## 🚀 Quick Start
-
-### **1. Clone & Setup**
+### 1. Clone & Setup
 ```bash
 git clone https://github.com/username/portfolio.git
 cd portfolio
 ```
 
-### **2. Customize Your Data**
-Edit the JavaScript files in the `data/` directory:
-
-```javascript
-// data/home.js
-window.homeData = {
-  hero: {
-    name: "Your Name",
-    subtitle: "Your Professional Title",
-    keywords: ["Skill 1", "Skill 2", "Skill 3", "Skill 4"]
-  }
-};
-```
-
-```javascript
-// data/about.js
-window.aboutData = {
-  personal: {
-    name: "Your Name",
-    position: "Your Position", 
-    description: "Your bio..."
-  },
-  timeline: [
-    {
-      date: "2024",
-      title: "Current Position",
-      subtitle: "Company Name",
-      description: "What you're doing now..."
-    }
-  ]
-};
-```
-
-### **3. Add Your Images**
-Replace images in the `assets/` folder:
-- `profile.jpg` - Homepage profile photo  
-- `about-photo.jpg` - About page photo
-- `projects/project-name.jpg` - Project screenshots
-
-### **4. Launch Development Server**
+### 2. Generate HTML Pages
 ```bash
-# Python (recommended)
-python -m http.server 8000
-
-# Node.js alternative
-npx http-server .
-
-# Or any local server
+# Generate all HTML files with SEO optimization
+node generate-pages.js
 ```
 
-Visit `http://localhost:8000`
-
-### **5. Deploy**
-**GitHub Pages:**
-1. Push to GitHub
-2. Settings → Pages → Deploy from main branch
-3. Live at `https://username.github.io/repository-name`
-
-**Other Platforms:**
-- Netlify: Drag & drop the folder
-- Vercel: Connect GitHub repository
-- Any static hosting service
-
-## 🛠️ Customization Guide
-
-### **📝 Content Updates**
+### 3. Customize Your Data
 
 #### **Personal Information**
 ```javascript
@@ -175,238 +112,270 @@ Visit `http://localhost:8000`
 window.aboutData = {
   personal: {
     name: "Your Name",
-    position: "Your Current Position",
-    description: "Your detailed bio description..."
+    position: "Your Professional Title",
+    description: "Your professional bio..."
   }
 };
 ```
 
-#### **CV Sections**
+#### **SEO Configuration**
 ```javascript
-// data/cv.js  
+// data/seo-config.js - Auto-generated, customize as needed
+window.seoConfig = {
+  person: {
+    "@type": "Person",
+    "name": "Your Name",
+    "jobTitle": "Your Job Title",
+    "url": "https://yoursite.com",
+    // Structured data for search engines
+  }
+};
+```
+
+### 4. Launch Development Server
+```bash
+# Python (recommended)
+python -m http.server 8000
+
+# Node.js alternative  
+npx http-server .
+
+# Or any local server
+```
+
+Visit `http://localhost:8000`
+
+### 5. Deploy
+```bash
+# All HTML files are pre-generated and ready to deploy
+# No build process needed - just upload to any static host
+
+# GitHub Pages: Push to main branch
+# Netlify/Vercel: Drag & drop the folder
+```
+
+## Customization Guide
+
+### Content Management
+
+#### Update Template Content
+```html
+<!-- content/about-content.html -->
+<section class="about-section">
+    <h1>Your Custom About Content</h1>
+    <!-- Your HTML content -->
+</section>
+```
+
+#### Regenerate Pages
+```bash
+# After making changes, regenerate HTML
+node generate-pages.js
+```
+
+#### CV Data Structure
+```javascript
+// data/cv.js
 window.cvData = {
   education: [
     {
       institution: "University Name",
       degree: "Your Degree",
       period: "2020-2024",
-      description: "Details about your education"
+      description: "Education details",
+      achievements: ["Award 1", "Award 2"]
     }
   ],
   experience: [
     {
-      company: "Company Name", 
-      position: "Job Title",
+      company: "Company Name",
+      position: "Job Title", 
       period: "2020-Present",
-      description: "Job description",
-      url: "https://company-website.com" // Optional link
+      description: "Job responsibilities",
+      url: "https://company.com"
     }
-  ]
+  ],
+  skills: {
+    technical: ["Python", "JavaScript", "React"],
+    languages: ["English", "Japanese"]
+  }
 };
 ```
 
-#### **Projects**
+### SEO Optimization
+
+#### Meta Tags Configuration
 ```javascript
-// data/projects.js
-window.projectsData = {
-  projects: [
-    {
-      name: "Project Name",
-      description: "Brief description", 
-      image: "assets/projects/project1.jpg",
-      technologies: ["React", "Node.js", "MongoDB"],
-      githubUrl: "https://github.com/username/project",
-      liveUrl: "https://project-demo.com"
-    }
+// generate-pages.js - Page configurations
+const pageConfigs = {
+  'index': {
+    title: "Your Name | Professional Title",
+    metaDescription: "Your compelling 150-character description for search engines",
+    metaKeywords: "your, relevant, keywords",
+    // OGP and Twitter Card settings auto-generated
+  }
+};
+```
+
+#### Structured Data Customization
+```javascript
+// generate-pages.js - generateStructuredData()
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Your Name",
+  "jobTitle": "Your Position",
+  "affiliation": {
+    "@type": "Organization", 
+    "name": "Your Company/University"
+  },
+  "knowsAbout": ["Your", "Key", "Skills"],
+  "sameAs": [
+    "https://linkedin.com/in/yourusername",
+    "https://github.com/yourusername"
   ]
 };
 ```
 
-### **🎨 Visual Customization**
+### Visual Customization
 
-#### **Color Scheme**
+#### Color Scheme
 ```css
 /* css/style.css */
 :root {
-  /* Primary Colors - Customize your brand */
-  --primary-color: #059669;     /* Main brand color */
-  --primary-light: #34d399;     /* Lighter variant */
-  --primary-dark: #047857;      /* Darker variant */
+  --primary-color: #059669;     /* Customize main color */
+  --primary-light: #34d399;     /* Light variant */
+  --primary-dark: #047857;      /* Dark variant */
   --secondary-color: #0d9488;   /* Accent color */
-  
-  /* Backgrounds */
-  --bg-primary: #ffffff;        /* Main background */
-  --bg-secondary: #f0fdf4;      /* Section backgrounds */
-  --bg-card: #ffffff;           /* Card backgrounds */
 }
 ```
 
-#### **Typography**
-```css  
-:root {
-  --font-heading: 'Poppins', sans-serif;
-  --font-primary: 'Inter', sans-serif;
-  --fs-xs: 0.75rem;
-  --fs-sm: 0.875rem;
-  --fs-base: 1rem;
-  /* Customize font sizes as needed */
+#### Social Media Images
+- `assets/og-image.jpg` - Main social preview (1200x630px)
+- `assets/about-photo.jpg` - About page preview
+- `assets/profile.jpg` - Profile sections
+
+## Technical Specifications
+
+### Performance Metrics
+- **Total Lines**: 4,433 (HTML: 1,062, JS: 746, Data: 742, CSS: 1,883)
+- **JavaScript Optimization**: 57% reduction from original
+- **Load Time**: < 1 second
+- **SEO Score**: Optimized for search engines
+- **Mobile Performance**: Fully responsive
+
+### SEO Features
+```html
+<!-- Auto-generated in each page -->
+<meta name="description" content="Optimized description">
+<meta property="og:title" content="Social media title">
+<meta property="og:image" content="Preview image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Your Name"
 }
+</script>
 ```
 
-#### **Animations & Effects**
-```css
-/* Customize transition speeds */
-:root {
-  --transition-fast: 0.25s ease-in-out;
-  --transition-normal: 0.5s ease-in-out;
-  --transition-slow: 0.8s ease-in-out;
-}
+### Browser Compatibility
+- Modern browsers (Chrome, Firefox, Safari, Edge)
+- Mobile browsers (iOS Safari, Chrome Mobile)
+- No external dependencies required
+- Progressive enhancement approach
+
+## Development Workflow
+
+### Adding New Pages
+1. Create content file in `content/`
+2. Add page config in `generate-pages.js`
+3. Run `node generate-pages.js`
+4. Add navigation links in `data/common.js`
+
+### Updating SEO
+1. Modify metadata in `generate-pages.js`
+2. Update structured data schemas
+3. Regenerate HTML files
+4. Test with SEO tools
+
+### Performance Optimization
+```bash
+# Check current stats
+find . -name "*.js" -path "*/js/*" -exec wc -l {} + | tail -1
+# JavaScript: 746 lines total
+
+find . -name "*.html" -exec wc -l {} + | tail -1  
+# HTML: 1,062 lines total
 ```
 
-## 🔧 Technical Highlights
+## Advanced Features
 
-### **🚀 Performance Innovations**
-
-#### **1. JS-Based Data Architecture**
-```javascript
-// Instead of slow async JSON loading:
-const data = await fetch('data.json').then(r => r.json());
-
-// We use instant window objects:
-const data = window.homeData;  // Instant access!
-```
-
-#### **2. Class-Based Page System**
-```javascript
-class HomePage extends PageBase {
-  constructor() {
-    super('Home');
-  }
-  
-  async initializePageContent() {
-    await this.populateHeroContent();
-    this.initializeParticles();
-  }
-}
-```
-
-#### **3. Smart DOM Helpers**  
-```javascript
-// Centralized DOM manipulation
-class DOMHelpers {
-  static async getElement(id) { /* ... */ }
-  static setHTML(element, html) { /* ... */ }
-  static addLoadedClass(element, delay) { /* ... */ }
-}
-```
-
-#### **4. Advanced CSS Features**
-- **CSS Custom Properties** for consistent theming
-- **CSS Grid & Flexbox** for responsive layouts  
-- **Transform animations** for smooth interactions
-- **Backdrop filters** for modern glass effects
-
-### **🎪 Interactive Features**
-
-#### **Zigzag Timeline**
-- Alternating left-right layout
-- Connecting lines and arrows
-- Smooth hover animations
-- Mobile-responsive fallback
-
-#### **Particle Background**
-```javascript
-// Customizable particle system
-particlesJS('particles-js', {
-  particles: {
-    number: { value: 80 },
-    color: { value: ['#059669', '#14b8a6', '#06b6d4'] },
-    // Interactive mouse effects
-  }
-});
-```
-
-#### **Skills Visualization**
-- Compact grid for basic skills
-- Detailed cards for specialized skills  
-- Star ratings and descriptions
-- Consistent hover effects
-
-### **📱 Responsive Design**
-```css
-/* Mobile-first approach */
-.timeline-item {
-  width: 49%;  /* Desktop: side-by-side */
-}
-
-@media (max-width: 768px) {
-  .timeline-item {
-    width: 100% !important;  /* Mobile: stacked */
-    left: 0 !important;
-  }
-}
-```
-
-## 🌟 Advanced Features
-
-### **🎯 SEO & Performance**
+### SEO Optimization
+- Search engine friendly URLs
 - Semantic HTML structure
-- Meta tags for social sharing
-- Optimized images and assets
-- Fast loading times
-- Accessibility-friendly
+- Rich snippets support
+- Social media optimization
+- Performance optimization
 
-### **🔧 Developer Experience** 
-- Modular, maintainable code
-- Clear separation of concerns
-- Consistent naming conventions
-- Comprehensive error handling
-- Easy to extend and customize
+### Progressive Enhancement
+- Mobile-first responsive design
+- Touch-friendly interactions
+- Fast loading on all devices
+- Accessibility considerations
 
-### **🎨 Design System**
-- Consistent color palette
-- Standardized spacing scale
-- Reusable component patterns
-- Professional typography
-- Modern visual effects
+### Interactive Elements
+- Particle.js background animation
+- Smooth CSS transitions
+- Hover effects and animations
+- Collapsible CV sections
+- Interactive timeline
 
-## 📊 Performance Metrics
+## Deployment Options
 
-- **Page Load**: < 1 second (on decent connection)
-- **Zero CORS Issues**: Runs perfectly on file:// protocol
-- **Mobile Optimized**: Smooth performance on all devices  
-- **Lightweight**: ~50KB total (excluding images)
-- **No Dependencies**: Pure vanilla JavaScript
+### Static Hosting
+- **GitHub Pages**: Zero configuration
+- **Netlify**: Drag & drop deployment
+- **Vercel**: Git-based deployment
+- **Surge.sh**: Command-line deployment
 
-## 🤝 Contributing
+### Custom Domain Setup
+1. Add `CNAME` file with your domain
+2. Configure DNS settings
+3. Enable HTTPS in hosting platform
+4. Update URLs in SEO configuration
+
+## Contributing
 
 1. **Fork** the repository
-2. **Create** feature branch (`git checkout -b feature/amazing-feature`)
-3. **Make** your changes
-4. **Test** locally
-5. **Commit** (`git commit -m 'Add amazing feature'`)
-6. **Push** (`git push origin feature/amazing-feature`)
+2. **Create** feature branch (`git checkout -b feature/seo-enhancement`)
+3. **Modify** templates or data
+4. **Regenerate** HTML (`node generate-pages.js`)
+5. **Test** locally
+6. **Commit** changes
 7. **Create** Pull Request
 
-## 📄 License
+## License
 
 MIT License - see [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
-- **Particles.js** - Interactive particle backgrounds
-- **Font Awesome** - Professional iconography  
-- **Google Fonts** - Beautiful typography (Poppins, Inter)
-- **CSS Grid & Flexbox** - Modern layout capabilities
+- **Schema.org** - Structured data standards
+- **Open Graph Protocol** - Social media optimization
+- **Particles.js** - Interactive backgrounds
+- **Font Awesome** - Professional icons
+- **Google Fonts** - Typography (Poppins, Inter)
 
-## 💬 Support
+## Support & Resources
 
-- **Issues**: Report bugs via GitHub Issues
-- **Documentation**: See inline code comments
-- **Updates**: Check releases for new features
+- **SEO Testing**: Google Search Console, PageSpeed Insights
+- **Social Media Testing**: Facebook Debugger, Twitter Card Validator
+- **Performance**: Lighthouse, GTmetrix
+- **Documentation**: Inline code comments
 
 ---
 
-**⭐ Star this repository if it helped you build something awesome!**
+**⭐ Star this repository if it helped you build your professional portfolio!**
 
-*Built with ❤️ and modern web technologies.*
+*Built with modern web standards, SEO best practices, and performance optimization in mind.*

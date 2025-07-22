@@ -10,7 +10,7 @@ window.projectsData = [
     ],
     githubUrl: "https://github.com/ll-0013py/portfolio",
     liveUrl: "index.html",
-    image: "assets/projects/portfolio.jpg"
+    image: "assets/og-image.jpg"
   },
   {
     name: "KoeLink",
