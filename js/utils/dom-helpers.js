@@ -1,6 +1,14 @@
-// DOM操作とページ初期化の共通ユーティリティ
+/**
+ * DOM manipulation utilities and page initialization framework
+ * Provides safe DOM operations and base class for page-specific functionality
+ */
 class DOMHelpers {
-    // 要素を安全に取得
+    /**
+     * Safely retrieves DOM element by ID with retry mechanism
+     * @param {string} id - Element ID to find
+     * @param {number} retryCount - Number of retry attempts
+     * @returns {Promise<HTMLElement>} Resolved element or rejection
+     */
     static getElement(id, retryCount = 3) {
         return new Promise((resolve, reject) => {
             const attempt = (count) => {
@@ -17,49 +25,62 @@ class DOMHelpers {
         });
     }
 
-    // HTMLを安全に設定
+    /**
+     * Safely sets innerHTML with null checking
+     */
     static setHTML(element, html) {
         if (!element) return false;
         element.innerHTML = html;
         return true;
     }
 
-    // テキストを安全に設定
+    /**
+     * Safely sets textContent with null checking
+     */
     static setText(element, text) {
         if (!element) return false;
         element.textContent = text;
         return true;
     }
 
-    // クラスを追加してトランジション効果
+    /**
+     * Adds 'loaded' class with delay for transition effects
+     */
     static addLoadedClass(element, delay = 100) {
         if (!element) return;
         setTimeout(() => element.classList.add('loaded'), delay);
     }
 
-    // セクション全体にloaded クラスを追加
+    /**
+     * Convenience method to add loaded class to section by selector
+     */
     static loadSection(sectionSelector, delay = 100) {
         const section = document.querySelector(sectionSelector);
         this.addLoadedClass(section, delay);
     }
 }
 
-// ページ初期化の基底クラス
+/**
+ * Base class for page initialization and common functionality
+ * Handles component loading, navigation, and scroll effects
+ */
 class PageBase {
     constructor(pageName) {
         this.pageName = pageName;
         this.isInitialized = false;
     }
 
-    // 共通初期化処理
+    /**
+     * Main initialization method called by page instances
+     */
     async init() {
         if (this.isInitialized) return;
         
         try {
-            // 共通コンポーネントの読み込み
+            // Load common components and initialize base functionality
             await this.loadCommonComponents();
             
-            // ページ特有の初期化
+            // Initialize page-specific content
             await this.initializePageContent();
             
             this.isInitialized = true;
@@ -68,24 +89,31 @@ class PageBase {
         }
     }
 
-    // 共通コンポーネント読み込み
+    /**
+     * Loads common components and initializes base functionality
+     */
     async loadCommonComponents() {
         this.loadComponents();
         this.initializeNavigation();
         this.initializeScrollEffects();
+        await this.populateFooterSocial();
         
-        // CV style見出しがある場合、トグル機能を初期化
+        // Initialize CV toggle functionality if CV-style sections exist
         if (this.pageName === 'CV' || this.pageName === 'About' || document.querySelector('.cv-section-title')) {
             this.initializeCVToggle();
         }
     }
 
-    // ページ固有コンテンツ初期化 (継承先で実装)
+    /**
+     * Override in child classes for page-specific initialization
+     */
     async initializePageContent() {
-        // オーバーライド用
+        // Override in child classes
     }
 
-    // エラーハンドリング
+    /**
+     * Centralized error handling with optional DOM fallback
+     */
     handleError(error, elementId = null) {
         console.error(`${this.pageName} page error:`, error);
         if (elementId) {
@@ -96,7 +124,9 @@ class PageBase {
         }
     }
 
-    // ヘッダーとフッターの読み込み
+    /**
+     * Injects header and footer HTML templates into placeholders
+     */
     loadComponents() {
         const ComponentTemplates = {
             header: `
@@ -136,22 +166,24 @@ class PageBase {
             `
         };
 
-        // ヘッダーの注入
+        // Inject header template
         const headerPlaceholder = document.getElementById('header-placeholder');
         if (headerPlaceholder) {
             headerPlaceholder.innerHTML = ComponentTemplates.header;
         }
         
-        // フッターの注入
+        // Inject footer template
         const footerPlaceholder = document.getElementById('footer-placeholder');
         if (footerPlaceholder) {
             footerPlaceholder.innerHTML = ComponentTemplates.footer;
         }
     }
 
-    // ナビゲーション機能を統合初期化
+    /**
+     * Initialize navigation: active links and mobile menu
+     */
     initializeNavigation() {
-        // アクティブリンク設定
+        // Set active navigation link based on current page
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
         document.querySelectorAll('.nav-link').forEach(link => {
             if (link.getAttribute('href') === currentPage) {
@@ -159,7 +191,7 @@ class PageBase {
             }
         });
 
-        // モバイルメニュー
+        // Initialize mobile menu toggle
         const navToggle = document.getElementById('nav-toggle');
         const navMenu = document.getElementById('nav-menu');
         if (navToggle && navMenu) {
@@ -170,7 +202,9 @@ class PageBase {
         }
     }
 
-    // スクロール関連機能を統合初期化
+    /**
+     * Initialize scroll-based effects: navbar and back-to-top button
+     */
     initializeScrollEffects() {
         const navbar = document.getElementById('navbar');
         const backToTop = document.getElementById('back-to-top');
@@ -178,18 +212,18 @@ class PageBase {
         window.addEventListener('scroll', () => {
             const scrollY = window.scrollY;
             
-            // ナビバー効果
+            // Navbar scroll effect
             if (navbar) {
                 navbar.classList.toggle('scrolled', scrollY > 50);
             }
             
-            // トップへ戻るボタン表示
+            // Back-to-top button visibility
             if (backToTop) {
                 backToTop.classList.toggle('visible', scrollY > 300);
             }
         });
         
-        // トップへ戻るボタンクリック
+        // Back-to-top button click handler
         if (backToTop) {
             backToTop.addEventListener('click', () => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -197,7 +231,9 @@ class PageBase {
         }
     }
 
-    // CV セクショントグル機能の初期化
+    /**
+     * Initialize collapsible CV sections with toggle icons
+     */
     initializeCVToggle() {
         document.querySelectorAll('.cv-section-title').forEach(title => {
             title.addEventListener('click', function() {
@@ -212,5 +248,25 @@ class PageBase {
                 }
             });
         });
+    }
+
+    /**
+     * Common footer social links population
+     */
+    async populateFooterSocial() {
+        try {
+            const footerSocial = document.getElementById('footer-social');
+            if (footerSocial && window.commonData?.socialLinks) {
+                const socialHTML = window.commonData.socialLinks
+                    .map(social => `
+                        <a href="${social.url}" target="_blank" title="${social.title}">
+                            <i class="${social.icon}"></i>
+                        </a>
+                    `)
+                    .join('');
+                
+                DOMHelpers.setHTML(footerSocial, socialHTML);
+            }
+        } catch (error) {}
     }
 }

@@ -1,10 +1,8 @@
-// CV ページ専用 JavaScript
 class CVPage extends PageBase {
     constructor() {
         super('CV');
     }
 
-    // ページ固有の初期化
     async initializePageContent() {
         
         await this.populateEducationContent();
@@ -13,10 +11,8 @@ class CVPage extends PageBase {
         await this.populateCertificationsContent();
         await this.populateAwardsContent();
         await this.populateGrantsContent();
-        await this.populateFooterSocial();
     }
 
-    // Education コンテンツ
     async populateEducationContent() {
         try {
             const educationData = window.cvData.education;
@@ -42,7 +38,6 @@ class CVPage extends PageBase {
 
             DOMHelpers.setHTML(educationContainer, educationHTML);
             
-            // セクション全体にロード効果を適用
             const educationSection = educationContainer.closest('.cv-section');
             if (educationSection) {
                 DOMHelpers.addLoadedClass(educationSection, 200);
@@ -53,19 +48,16 @@ class CVPage extends PageBase {
         }
     }
 
-    // Skills コンテンツ
     async populateSkillsContent() {
         try {
             const skillsData = window.cvData.skills;
             const skillsContainer = await DOMHelpers.getElement('skills-container');
             
-            // Specialized Skillsとそれ以外を分ける
             const specializedSkills = skillsData.find(cat => cat.category === 'Specialized Skills');
             const basicSkillsCategories = skillsData.filter(cat => cat.category !== 'Specialized Skills');
             
             let skillsHTML = '';
             
-            // 基本スキルカテゴリをコンパクトに表示
             if (basicSkillsCategories.length > 0) {
                 skillsHTML += basicSkillsCategories.map(skillCategory => `
                     <div class="skills-category compact">
@@ -86,7 +78,6 @@ class CVPage extends PageBase {
                 `).join('');
             }
             
-            // Specialized Skills を詳細表示
             if (specializedSkills) {
                 skillsHTML += `
                     <div class="skills-category specialized">
@@ -118,7 +109,6 @@ class CVPage extends PageBase {
 
             DOMHelpers.setHTML(skillsContainer, skillsHTML);
             
-            // セクション全体にロード効果を適用
             const skillsSection = skillsContainer.closest('.cv-section');
             if (skillsSection) {
                 DOMHelpers.addLoadedClass(skillsSection, 400);
@@ -129,7 +119,6 @@ class CVPage extends PageBase {
         }
     }
 
-    // Experience コンテンツ
     async populateExperienceContent() {
         try {
             const experienceData = window.cvData.experience || [];
@@ -170,11 +159,9 @@ class CVPage extends PageBase {
                 DOMHelpers.addLoadedClass(experienceSection, 300);
             }
 
-        } catch (error) {
-        }
+        } catch (error) {}
     }
 
-    // Certifications コンテンツ
     async populateCertificationsContent() {
         try {
             const certificationsData = window.cvData.certifications || [];
@@ -202,23 +189,19 @@ class CVPage extends PageBase {
                 DOMHelpers.addLoadedClass(certificationsSection, 500);
             }
 
-        } catch (error) {
-        }
+        } catch (error) {}
     }
 
-    // Awards コンテンツ
     async populateAwardsContent() {
         try {
             const awardsData = window.cvData.awards;
             const awardsContainer = await DOMHelpers.getElement('awards-container');
             
             if (awardsData && typeof awardsData === 'object') {
-                // 年度別のデータを統合して表示
                 let awardsHTML = '';
                 
-                // 年度順にソート (降順)
                 const years = Object.keys(awardsData).sort((a, b) => {
-                    if (a === '~2023') return 1; // ~2023は最後に
+                    if (a === '~2023') return 1;
                     if (b === '~2023') return -1;
                     return parseInt(b) - parseInt(a);
                 });
@@ -269,11 +252,9 @@ class CVPage extends PageBase {
                 DOMHelpers.addLoadedClass(awardsSection, 600);
             }
 
-        } catch (error) {
-        }
+        } catch (error) {}
     }
 
-    // Grants コンテンツ
     async populateGrantsContent() {
         try {
             const grantsData = window.cvData.grants || [];
@@ -306,11 +287,9 @@ class CVPage extends PageBase {
                 DOMHelpers.addLoadedClass(grantsSection, 700);
             }
 
-        } catch (error) {
-        }
+        } catch (error) {}
     }
 
-    // 星評価を生成するヘルパーメソッド
     generateStars(level) {
         const maxStars = 5;
         let starsHTML = '';
@@ -326,27 +305,8 @@ class CVPage extends PageBase {
         return starsHTML;
     }
 
-    // フッターソーシャルリンク
-    async populateFooterSocial() {
-        try {
-            const footerSocial = document.getElementById('footer-social');
-            if (footerSocial && window.commonData.socialLinks) {
-                const socialHTML = window.commonData.socialLinks
-                    .map(social => `
-                        <a href="${social.url}" target="_blank" title="${social.title}">
-                            <i class="${social.icon}"></i>
-                        </a>
-                    `)
-                    .join('');
-                
-                DOMHelpers.setHTML(footerSocial, socialHTML);
-            }
-        } catch (error) {
-        }
-    }
 }
 
-// ページ初期化
 document.addEventListener('DOMContentLoaded', async () => {
     const cvPage = new CVPage();
     await cvPage.init();
