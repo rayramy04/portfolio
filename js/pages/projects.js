@@ -48,7 +48,6 @@ class ProjectsPage extends PageBase {
             DOMHelpers.setHTML(projectsContainer, projectsHTML);
             DOMHelpers.loadSection('.projects-section', 200);
 
-            console.log('Projects: Content populated successfully');
         } catch (error) {
             this.handleError(error, 'projects-container');
         }
@@ -68,7 +67,6 @@ class ProjectsPage extends PageBase {
                     .join('');
                 
                 DOMHelpers.setHTML(footerSocial, socialHTML);
-                console.log('Projects: Footer social links populated');
             }
         } catch (error) {
             console.error('Failed to populate footer social links:', error);

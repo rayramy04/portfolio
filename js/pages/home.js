@@ -14,18 +14,19 @@ class HomePage extends PageBase {
     // Hero コンテンツの生成
     async populateHeroContent() {
         try {
-            const heroData = window.homeData.hero;
+            const { name, subtitle, keywords } = window.homeData.hero;
             
-            const heroName = await DOMHelpers.getElement('hero-name');
-            const heroTitle = await DOMHelpers.getElement('hero-title'); 
-            const keywordsList = await DOMHelpers.getElement('keywords-list');
+            const [heroName, heroTitle, keywordsList] = await Promise.all([
+                DOMHelpers.getElement('hero-name'),
+                DOMHelpers.getElement('hero-title'),
+                DOMHelpers.getElement('keywords-list')
+            ]);
 
-            // コンテンツ設定
-            DOMHelpers.setText(heroName, heroData.name);
-            DOMHelpers.setText(heroTitle, heroData.subtitle);
+            DOMHelpers.setText(heroName, name);
+            DOMHelpers.setText(heroTitle, subtitle);
 
             // Keywords リスト生成
-            const keywordsHTML = heroData.keywords
+            const keywordsHTML = keywords
                 .map(keyword => `<li class="keyword-item">${keyword}</li>`)
                 .join('');
             DOMHelpers.setHTML(keywordsList, keywordsHTML);
@@ -34,7 +35,6 @@ class HomePage extends PageBase {
             const heroContent = document.querySelector('.hero-content');
             DOMHelpers.addLoadedClass(heroContent, 100);
 
-            console.log('Home: Hero content populated successfully');
 
         } catch (error) {
             this.handleError(error, 'hero-content');
@@ -55,7 +55,6 @@ class HomePage extends PageBase {
                     .join('');
                 
                 DOMHelpers.setHTML(footerSocial, socialHTML);
-                console.log('Home: Footer social links populated');
             }
         } catch (error) {
             console.error('Failed to populate footer social links:', error);
@@ -82,7 +81,6 @@ class HomePage extends PageBase {
                 },
                 retina_detect: true
             });
-            console.log('Home: Particles initialized successfully');
         }
     }
 }

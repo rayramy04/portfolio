@@ -101,7 +101,6 @@ class LinksPage extends PageBase {
                 DOMHelpers.addLoadedClass(section, 200 + (index * 200));
             });
 
-            console.log('Links: Content populated successfully');
         } catch (error) {
             this.handleError(error, 'links-content');
         }
@@ -121,7 +120,6 @@ class LinksPage extends PageBase {
                     .join('');
                 
                 DOMHelpers.setHTML(footerSocial, socialHTML);
-                console.log('Links: Footer social links populated');
             }
         } catch (error) {
             console.error('Failed to populate footer social links:', error);
