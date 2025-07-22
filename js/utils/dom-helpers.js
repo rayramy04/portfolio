@@ -93,10 +93,8 @@ class PageBase {
      * Loads common components and initializes base functionality
      */
     async loadCommonComponents() {
-        this.loadComponents();
         this.initializeNavigation();
         this.initializeScrollEffects();
-        this.initializeSectionTitle();
         await this.populateFooterSocial();
         
         // Initialize CV toggle functionality if CV-style sections exist
@@ -125,60 +123,6 @@ class PageBase {
         }
     }
 
-    /**
-     * Injects header and footer HTML templates into placeholders
-     */
-    loadComponents() {
-        const ComponentTemplates = {
-            header: `
-                <nav class="navbar" id="navbar">
-                    <div class="nav-container">
-                        <div class="nav-logo">
-                            <a href="index.html">Ray's Portfolio</a>
-                        </div>
-                        <div class="nav-menu" id="nav-menu">
-                            <a href="index.html" class="nav-link">Home</a>
-                            <a href="about.html" class="nav-link">About</a>
-                            <a href="cv.html" class="nav-link">CV</a>
-                            <a href="projects.html" class="nav-link">Projects</a>
-                            <a href="links.html" class="nav-link">Links</a>
-                        </div>
-                        <div class="nav-toggle" id="nav-toggle">
-                            <span class="bar"></span>
-                            <span class="bar"></span>
-                            <span class="bar"></span>
-                        </div>
-                    </div>
-                </nav>
-            `,
-            
-            footer: `
-                <footer class="footer">
-                    <div class="footer-content">
-                        <p class="copyright">&copy; Ray. All rights reserved.</p>
-                        <div class="footer-social" id="footer-social">
-                            <!-- Social media links populated dynamically -->
-                        </div>
-                    </div>
-                    <div class="back-to-top" id="back-to-top">
-                        <i class="fas fa-chevron-up"></i>
-                    </div>
-                </footer>
-            `
-        };
-
-        // Inject header template
-        const headerPlaceholder = document.getElementById('header-placeholder');
-        if (headerPlaceholder) {
-            headerPlaceholder.innerHTML = ComponentTemplates.header;
-        }
-        
-        // Inject footer template
-        const footerPlaceholder = document.getElementById('footer-placeholder');
-        if (footerPlaceholder) {
-            footerPlaceholder.innerHTML = ComponentTemplates.footer;
-        }
-    }
 
     /**
      * Initialize navigation: active links and mobile menu
@@ -251,18 +195,6 @@ class PageBase {
         });
     }
 
-    /**
-     * Initialize section title transition effect
-     */
-    initializeSectionTitle() {
-        const sectionTitle = document.querySelector('.section-title');
-        if (sectionTitle) {
-            // Add loaded class with delay for transition effect (same timing as hero content)
-            setTimeout(() => {
-                sectionTitle.classList.add('loaded');
-            }, 100);
-        }
-    }
 
     /**
      * Common footer social links population
