@@ -3,11 +3,7 @@ name: Deploy to GitHub Pages
 on:
   # プッシュ時にトリガー
   push:
-    branches: [ main, master ]
-  
-  # 2週間に1度の自動デプロイ（毎月1日と15日の午前9時JST）
-  schedule:
-    - cron: '0 0 1,15 * *'  # UTC 0:00 = JST 9:00
+    branches: [ main ]
   
   # 手動実行も可能
   workflow_dispatch:
@@ -24,8 +20,11 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # ビルドジョブ
-  build:
+  # ビルドとデプロイを統合
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -34,25 +33,11 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
         
-      - name: Build site
-        run: |
-          # 必要に応じてビルドコマンドを追加
-          echo "Building portfolio site..."
-          # 現在は静的サイトなのでビルド不要
-          
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
-
-  # デプロイジョブ
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
+          path: '.'
+          
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
