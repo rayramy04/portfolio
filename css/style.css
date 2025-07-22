@@ -225,9 +225,32 @@ h6 {
   position: relative;
 }
 
-.nav-link:hover {
-  color: var(--primary-color);
-  background: var(--bg-tertiary);
+/* 基本状態を強制的に定義 */
+.nav-link {
+  color: var(--text-primary) !important;
+  background: transparent !important;
+}
+
+/* ホバー状態（activeクラスがない場合のみ） */
+.nav-link:hover:not(.active) {
+  color: var(--primary-color) !important;
+  background: var(--bg-tertiary) !important;
+}
+
+/* フォーカス状態の制御 */
+.nav-link:focus {
+  outline: none;
+}
+
+.nav-link:focus-visible:not(.active) {
+  color: var(--primary-color) !important;
+  background: var(--bg-tertiary) !important;
+}
+
+/* アクティブ状態（実際のクリック中） */
+.nav-link:active:not(.active) {
+  color: var(--primary-color) !important;
+  background: var(--bg-tertiary) !important;
 }
 
 .nav-link.active {
@@ -1054,20 +1077,23 @@ h6 {
   align-content: center;
 }
 
+.projects-section .projects-grid {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 2s ease, transform 2s ease;
+}
+
+.projects-section.loaded .projects-grid {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .project-card {
   background: var(--bg-card);
   border-radius: var(--radius-xl);
   overflow: hidden;
   box-shadow: var(--shadow-md);
-  transition: var(--transition-normal);
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 2s ease, transform 2s ease, box-shadow var(--transition-normal);
-}
-
-.project-card.loaded {
-  opacity: 1;
-  transform: translateY(0);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
 }
 
 .project-card:hover {
