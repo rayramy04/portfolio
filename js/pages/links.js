@@ -22,19 +22,9 @@ class LinksPage extends PageBase {
                         Website & Contact
                     </h2>
                     <div class="links-grid">
-                        ${contactLinksData.map(link => `
-                            <a href="${link.url}" target="_blank" class="link-card website-card" style="padding: 20px;">
-                                <div class="link-card-content">
-                                    <div class="link-icon">
-                                        <i class="${link.icon}"></i>
-                                    </div>
-                                    <h3>${link.title}</h3>
-                                </div>
-                                <div class="link-arrow">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </div>
-                            </a>
-                        `).join('')}
+                        ${HTMLGenerator.renderList(contactLinksData, (link) => 
+                            HTMLGenerator.linkCard(link, { cardClass: 'link-card website-card', external: true })
+                        )}
                     </div>
                 </section>
 
@@ -45,22 +35,9 @@ class LinksPage extends PageBase {
                         Social Media
                     </h2>
                     <div class="links-grid">
-                        ${socialLinksData.map(link => `
-                            <a href="${link.url}" target="_blank" class="link-card social-card" style="padding: 20px;">
-                                <div class="link-card-content">
-                                    <div class="link-icon">
-                                        <i class="${link.icon}"></i>
-                                    </div>
-                                    <div>
-                                        <h3>${link.title}</h3>
-                                        ${link.username ? `<p style="margin: 4px 0 0 0; color: var(--text-light); font-size: 14px;">${link.username}</p>` : ''}
-                                    </div>
-                                </div>
-                                <div class="link-arrow">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </div>
-                            </a>
-                        `).join('')}
+                        ${HTMLGenerator.renderList(socialLinksData, (link) => 
+                            HTMLGenerator.linkCard(link, { cardClass: 'link-card social-card', external: true })
+                        )}
                     </div>
                 </section>
 
@@ -71,19 +48,13 @@ class LinksPage extends PageBase {
                         Portfolio
                     </h2>
                     <div class="links-grid">
-                        ${window.linksData.portfolio.map(link => `
-                            <a href="${link.url}" ${link.url.startsWith('http') ? 'target="_blank"' : ''} class="link-card portfolio-card" style="padding: 20px;">
-                                <div class="link-card-content">
-                                    <div class="link-icon">
-                                        <i class="${link.icon}"></i>
-                                    </div>
-                                    <h3>${link.title}</h3>
-                                </div>
-                                <div class="link-arrow">
-                                    <i class="fas fa-arrow-right"></i>
-                                </div>
-                            </a>
-                        `).join('')}
+                        ${HTMLGenerator.renderList(window.linksData.portfolio, (link) => 
+                            HTMLGenerator.linkCard(link, { 
+                                cardClass: 'link-card portfolio-card', 
+                                external: link.url.startsWith('http'),
+                                showArrow: true 
+                            })
+                        )}
                     </div>
                 </section>
             `;

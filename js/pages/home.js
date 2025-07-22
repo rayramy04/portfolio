@@ -21,9 +21,9 @@ class HomePage extends PageBase {
             DOMHelpers.setText(heroName, name);
             DOMHelpers.setText(heroTitle, subtitle);
 
-            const keywordsHTML = keywords
-                .map(keyword => `<li class="keyword-item">${keyword}</li>`)
-                .join('');
+            const keywordsHTML = HTMLGenerator.renderList(keywords, (keyword) => 
+                `<li class="keyword-item">${keyword}</li>`
+            );
             DOMHelpers.setHTML(keywordsList, keywordsHTML);
 
             const heroContent = document.querySelector('.hero-content');

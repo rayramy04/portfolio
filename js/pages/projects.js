@@ -12,37 +12,44 @@ class ProjectsPage extends PageBase {
             const projectsData = window.projectsData;
             const projectsContainer = await DOMHelpers.getElement('projects-container');
             
-            const projectsHTML = projectsData.map(project => `
+            const projectsHTML = HTMLGenerator.renderList(projectsData, (project) => `
                 <div class="project-card">
-                    ${project.image ? `
+                    ${HTMLGenerator.renderIf(project.image, `
                         <div class="project-image">
                             <img src="${project.image}" alt="${project.name || project.title}" loading="lazy">
                         </div>
-                    ` : ''}
+                    `)}
                     <div class="project-content">
                         <h3>${project.name || project.title}</h3>
-                        ${project.description ? `<p class="project-description">${project.description}</p>` : ''}
-                        ${project.technologies && project.technologies.length > 0 ? `
+                        ${HTMLGenerator.renderIf(project.description, `<p class="project-description">${project.description}</p>`)}
+                        ${HTMLGenerator.renderIf(project.technologies?.length, `
                             <div class="project-technologies">
-                                ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                                ${HTMLGenerator.renderList(project.technologies, (tech) => `<span class="tech-tag">${tech}</span>`)}
                             </div>
-                        ` : ''}
-                        ${project.links && project.links.length > 0 ? `
+                        `)}
+                        ${HTMLGenerator.renderIf(project.links?.length, `
                             <div class="project-links">
-                                ${project.links.map(link => `
+                                ${HTMLGenerator.renderList(project.links, (link) => `
                                     <a href="${link.url}" target="_blank" class="project-link" title="${link.title}">
                                         <i class="${link.icon}"></i>
                                         ${link.title}
                                     </a>
-                                `).join('')}
+                                `)}
                             </div>
-                        ` : ''}
+                        `)}
                     </div>
                 </div>
-            `).join('');
+            `);
 
             DOMHelpers.setHTML(projectsContainer, projectsHTML);
-            DOMHelpers.loadSection('.projects-section', 200);
+            
+            // Add loading animation to project cards (all at once, not sequentially)
+            const projectCards = document.querySelectorAll('.project-card');
+            setTimeout(() => {
+                projectCards.forEach(card => {
+                    card.classList.add('loaded');
+                });
+            }, 400);
 
         } catch (error) {
             this.handleError(error, 'projects-container');

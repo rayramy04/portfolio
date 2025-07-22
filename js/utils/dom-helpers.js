@@ -96,6 +96,7 @@ class PageBase {
         this.loadComponents();
         this.initializeNavigation();
         this.initializeScrollEffects();
+        this.initializeSectionTitle();
         await this.populateFooterSocial();
         
         // Initialize CV toggle functionality if CV-style sections exist
@@ -248,6 +249,19 @@ class PageBase {
                 }
             });
         });
+    }
+
+    /**
+     * Initialize section title transition effect
+     */
+    initializeSectionTitle() {
+        const sectionTitle = document.querySelector('.section-title');
+        if (sectionTitle) {
+            // Add loaded class with delay for transition effect (same timing as hero content)
+            setTimeout(() => {
+                sectionTitle.classList.add('loaded');
+            }, 100);
+        }
     }
 
     /**
