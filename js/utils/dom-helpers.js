@@ -1,14 +1,5 @@
-/**
- * DOM manipulation utilities and page initialization framework
- * Provides safe DOM operations and base class for page-specific functionality
- */
+// DOM utilities and page framework
 class DOMHelpers {
-    /**
-     * Safely retrieves DOM element by ID with retry mechanism
-     * @param {string} id - Element ID to find
-     * @param {number} retryCount - Number of retry attempts
-     * @returns {Promise<HTMLElement>} Resolved element or rejection
-     */
     static getElement(id, retryCount = 3) {
         return new Promise((resolve, reject) => {
             const attempt = (count) => {
@@ -25,13 +16,6 @@ class DOMHelpers {
         });
     }
 
-    /**
-     * Safely sets element content with null checking
-     * @param {HTMLElement} element - Element to modify
-     * @param {string} content - Content to set
-     * @param {string} type - Content type: 'html' or 'text'
-     * @returns {boolean} Success status
-     */
     static setContent(element, content, type = 'html') {
         if (!element) return false;
         if (type === 'text') {
@@ -42,25 +26,14 @@ class DOMHelpers {
         return true;
     }
 
-    /**
-     * Safely sets innerHTML with null checking
-     */
     static setHTML(element, html) {
         return this.setContent(element, html, 'html');
     }
 
-    /**
-     * Safely sets textContent with null checking
-     */
     static setText(element, text) {
         return this.setContent(element, text, 'text');
     }
 
-    /**
-     * Adds 'loaded' class with delay for transition effects
-     * @param {HTMLElement|string} elementOrSelector - Element or CSS selector
-     * @param {number} delay - Delay in milliseconds
-     */
     static addLoadedClass(elementOrSelector, delay = 100) {
         const element = typeof elementOrSelector === 'string' 
             ? document.querySelector(elementOrSelector)
@@ -69,67 +42,44 @@ class DOMHelpers {
         setTimeout(() => element.classList.add('loaded'), delay);
     }
 
-    /**
-     * Convenience method to add loaded class to section by selector
-     */
     static loadSection(sectionSelector, delay = 100) {
         this.addLoadedClass(sectionSelector, delay);
     }
 }
 
-/**
- * Base class for page initialization and common functionality
- * Handles component loading, navigation, and scroll effects
- */
+// Base class for page initialization
 class PageBase {
     constructor(pageName) {
         this.pageName = pageName;
         this.isInitialized = false;
     }
 
-    /**
-     * Main initialization method called by page instances
-     */
     async init() {
         if (this.isInitialized) return;
         
         try {
-            // Load common components and initialize base functionality
             await this.loadCommonComponents();
-            
-            // Initialize page-specific content
             await this.initializePageContent();
-            
             this.isInitialized = true;
         } catch (error) {
             console.error(`Failed to initialize ${this.pageName} page:`, error);
         }
     }
 
-    /**
-     * Loads common components and initializes base functionality
-     */
     async loadCommonComponents() {
         this.initializeNavigation();
         this.initializeScrollEffects();
         await this.populateFooterSocial();
         
-        // Initialize CV toggle functionality if CV-style sections exist
         if (this.pageName === 'CV' || this.pageName === 'About' || document.querySelector('.cv-section-title')) {
             this.initializeCVToggle();
         }
     }
 
-    /**
-     * Override in child classes for page-specific initialization
-     */
     async initializePageContent() {
         // Override in child classes
     }
 
-    /**
-     * Centralized error handling with optional DOM fallback
-     */
     handleError(error, elementId = null) {
         console.error(`${this.pageName} page error:`, error);
         if (elementId) {
@@ -140,26 +90,17 @@ class PageBase {
         }
     }
 
-
-    /**
-     * 全ナビゲーション状態を完全リセット
-     */
     resetAllNavigationStates() {
-        // フォーカスされている要素をクリア
         if (document.activeElement && document.activeElement !== document.body) {
             document.activeElement.blur();
         }
         
         document.querySelectorAll('.nav-link').forEach(link => {
-            // 全クラスを削除
             link.classList.remove('active', 'clicked');
-            // フォーカスをクリア
             link.blur();
-            // インラインスタイルをクリア
             link.style.cssText = '';
         });
         
-        // 短い遅延後に再度実行（確実性のため）
         setTimeout(() => {
             if (document.activeElement && document.activeElement !== document.body) {
                 document.activeElement.blur();
@@ -167,14 +108,9 @@ class PageBase {
         }, 10);
     }
 
-    /**
-     * Initialize navigation: active links and mobile menu
-     */
     initializeNavigation() {
-        // 完全な状態リセット
         this.resetAllNavigationStates();
         
-        // Set active navigation link based on current page
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
         document.querySelectorAll('.nav-link').forEach(link => {
             if (link.getAttribute('href') === currentPage) {
@@ -182,7 +118,6 @@ class PageBase {
             }
         });
 
-        // Initialize mobile menu toggle
         const navToggle = document.getElementById('nav-toggle');
         const navMenu = document.getElementById('nav-menu');
         if (navToggle && navMenu) {
@@ -193,9 +128,6 @@ class PageBase {
         }
     }
 
-    /**
-     * Initialize scroll-based effects: navbar and back-to-top button
-     */
     initializeScrollEffects() {
         const navbar = document.getElementById('navbar');
         const backToTop = document.getElementById('back-to-top');
@@ -203,18 +135,15 @@ class PageBase {
         window.addEventListener('scroll', () => {
             const scrollY = window.scrollY;
             
-            // Navbar scroll effect
             if (navbar) {
                 navbar.classList.toggle('scrolled', scrollY > 50);
             }
             
-            // Back-to-top button visibility
             if (backToTop) {
                 backToTop.classList.toggle('visible', scrollY > 300);
             }
         });
         
-        // Back-to-top button click handler
         if (backToTop) {
             backToTop.addEventListener('click', () => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -222,9 +151,6 @@ class PageBase {
         }
     }
 
-    /**
-     * Initialize collapsible CV sections with toggle icons
-     */
     initializeCVToggle() {
         document.querySelectorAll('.cv-section-title').forEach(title => {
             title.addEventListener('click', function() {
@@ -241,10 +167,6 @@ class PageBase {
         });
     }
 
-
-    /**
-     * Common footer social links population
-     */
     async populateFooterSocial() {
         try {
             const footerSocial = document.getElementById('footer-social');
@@ -262,3 +184,4 @@ class PageBase {
         } catch (error) {}
     }
 }
+
