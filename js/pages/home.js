@@ -1,17 +1,13 @@
-// Home ページ専用 JavaScript
 class HomePage extends PageBase {
     constructor() {
         super('Home');
     }
 
-    // ページ固有の初期化
     async initializePageContent() {
         await this.populateHeroContent();
-        await this.populateFooterSocial();
         this.initializeParticles();
     }
 
-    // Hero コンテンツの生成
     async populateHeroContent() {
         try {
             const { name, subtitle, keywords } = window.homeData.hero;
@@ -25,13 +21,11 @@ class HomePage extends PageBase {
             DOMHelpers.setText(heroName, name);
             DOMHelpers.setText(heroTitle, subtitle);
 
-            // Keywords リスト生成
             const keywordsHTML = keywords
                 .map(keyword => `<li class="keyword-item">${keyword}</li>`)
                 .join('');
             DOMHelpers.setHTML(keywordsList, keywordsHTML);
 
-            // トランジション効果
             const heroContent = document.querySelector('.hero-content');
             DOMHelpers.addLoadedClass(heroContent, 100);
 
@@ -41,27 +35,7 @@ class HomePage extends PageBase {
         }
     }
 
-    // フッターソーシャルリンク
-    async populateFooterSocial() {
-        try {
-            const footerSocial = document.getElementById('footer-social');
-            if (footerSocial && window.commonData.socialLinks) {
-                const socialHTML = window.commonData.socialLinks
-                    .map(social => `
-                        <a href="${social.url}" target="_blank" title="${social.title}">
-                            <i class="${social.icon}"></i>
-                        </a>
-                    `)
-                    .join('');
-                
-                DOMHelpers.setHTML(footerSocial, socialHTML);
-            }
-        } catch (error) {
-            console.error('Failed to populate footer social links:', error);
-        }
-    }
 
-    // Particles.js 初期化
     initializeParticles() {
         if (typeof particlesJS !== 'undefined' && document.getElementById('particles-js')) {
             particlesJS('particles-js', {
@@ -85,7 +59,6 @@ class HomePage extends PageBase {
     }
 }
 
-// ページ初期化
 document.addEventListener('DOMContentLoaded', async () => {
     const homePage = new HomePage();
     await homePage.init();

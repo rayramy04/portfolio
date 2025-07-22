@@ -1,19 +1,15 @@
-// About ページ専用 JavaScript
 class AboutPage extends PageBase {
     constructor() {
         super('About');
     }
 
-    // ページ固有の初期化
     async initializePageContent() {
         await this.populatePersonalInfo();
         await this.populateStoryContent();
         await this.populateTimelineContent();
         await this.populateInterestsContent();
-        await this.populateFooterSocial();
     }
 
-    // 個人情報の設定
     async populatePersonalInfo() {
         try {
             const personalData = window.aboutData.personal;
@@ -24,12 +20,10 @@ class AboutPage extends PageBase {
 
             DOMHelpers.setText(aboutName, personalData.name);
             DOMHelpers.setText(aboutPosition, personalData.position);
-            // HTMLとして設定することで<br>タグが有効になる
             if (aboutDescription) {
                 aboutDescription.innerHTML = personalData.description;
             }
 
-            // Personal section にトランジション効果を適用
             const aboutSection = aboutName.closest('.about-section');
             if (aboutSection) {
                 DOMHelpers.addLoadedClass(aboutSection, 100);
@@ -40,7 +34,6 @@ class AboutPage extends PageBase {
         }
     }
 
-    // Story コンテンツ
     async populateStoryContent() {
         try {
             const storyData = window.aboutData.story;
@@ -51,7 +44,6 @@ class AboutPage extends PageBase {
 
             DOMHelpers.setHTML(storyContent, storyHTML);
             
-            // Story section にトランジション効果を適用
             const storySection = storyContent.closest('.about-section');
             if (storySection) {
                 DOMHelpers.addLoadedClass(storySection, 200);
@@ -64,7 +56,6 @@ class AboutPage extends PageBase {
         }
     }
 
-    // Timeline コンテンツ
     async populateTimelineContent() {
         try {
             const timelineData = window.aboutData.timeline;
@@ -89,7 +80,6 @@ class AboutPage extends PageBase {
         }
     }
 
-    // Interests コンテンツ
     async populateInterestsContent() {
         try {
             const interestsData = window.aboutData.interests;
@@ -112,28 +102,8 @@ class AboutPage extends PageBase {
         }
     }
 
-    // フッターソーシャルリンク
-    async populateFooterSocial() {
-        try {
-            const footerSocial = document.getElementById('footer-social');
-            if (footerSocial && window.commonData.socialLinks) {
-                const socialHTML = window.commonData.socialLinks
-                    .map(social => `
-                        <a href="${social.url}" target="_blank" title="${social.title}">
-                            <i class="${social.icon}"></i>
-                        </a>
-                    `)
-                    .join('');
-
-                DOMHelpers.setHTML(footerSocial, socialHTML);
-            }
-        } catch (error) {
-            console.error('Failed to populate footer social links:', error);
-        }
-    }
 }
 
-// ページ初期化
 document.addEventListener('DOMContentLoaded', async () => {
     const aboutPage = new AboutPage();
     await aboutPage.init();
