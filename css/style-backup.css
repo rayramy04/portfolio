@@ -1,47 +1,41 @@
 /* ===== DESIGN SYSTEM - COOL GREEN THEME ===== */
 :root {
-  /* ===== SIMPLIFIED COLOR PALETTE ===== */
-  /* Green (3 colors) */
-  --color-primary: #059669;      /* Main green */
-  --color-primary-light: #34d399; /* Light green */
-  --color-primary-dark: #047857;  /* Dark green */
-  
-  /* Neutral (4 colors) */
-  --color-white: #ffffff;
-  --color-gray-light: #f0fdf4;   /* Light gray/off-white */
-  --color-gray: #6b7280;          /* Medium gray */
-  --color-black: #1f2937;         /* Dark gray/black */
-  
-  /* Accent (1 color) */
-  --color-accent: #dc2626;        /* Red for errors */
+  /* ===== COLOR SYSTEM ===== */
+  --emerald-500: #10b981;
+  --emerald-600: #059669;
+  --emerald-700: #047857;
+  --emerald-400: #34d399;
+  --emerald-300: #6ee7b7;
+  --teal-500: #14b8a6;
+  --teal-600: #0d9488;
+  --cyan-500: #06b6d4;
 
-  /* ===== SEMANTIC MAPPINGS ===== */
-  /* Primary Colors - for backward compatibility */
-  --primary-color: var(--color-primary);
-  --primary-light: var(--color-primary-light);
-  --primary-dark: var(--color-primary-dark);
-  --secondary-color: var(--color-primary);
-  --accent-color: var(--color-primary-light);
+  /* Primary Colors */
+  --primary-color: var(--emerald-600);
+  --primary-light: var(--emerald-400);
+  --primary-dark: var(--emerald-700);
+  --secondary-color: var(--teal-600);
+  --accent-color: var(--cyan-500);
 
   /* Background Colors */
-  --bg-primary: var(--color-white);
-  --bg-secondary: var(--color-gray-light);
-  --bg-tertiary: var(--color-gray-light);
-  --bg-dark: var(--color-primary-dark);
-  --bg-card: var(--color-white);
-  --bg-card-hover: var(--color-gray-light);
-  --bg-overlay: rgba(5, 150, 105, 0.8); /* Using primary color RGB */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f0fdf4;
+  --bg-tertiary: #ecfdf5;
+  --bg-dark: #064e3b;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f0fdf4;
+  --bg-overlay: rgba(6, 78, 59, 0.8);
 
   /* Text Colors */
-  --text-primary: var(--color-black);
-  --text-secondary: var(--color-primary-dark);
-  --text-tertiary: var(--color-primary);
-  --text-light: var(--color-gray);
-  --text-white: var(--color-white);
+  --text-primary: #1f2937;
+  --text-secondary: #047857;
+  --text-tertiary: #059669;
+  --text-light: #6b7280;
+  --text-white: #ffffff;
 
   /* Gradients */
-  --gradient-hero: linear-gradient(135deg, #10b981 0%, #14b8a6 30%, #06b6d4 60%, #34d399 100%); /* Special gradient for home */
-  --gradient-card: linear-gradient(135deg, var(--color-white) 0%, var(--color-gray-light) 100%);
+  --gradient-hero: linear-gradient(135deg, #10b981 0%, #14b8a6 30%, #06b6d4 60%, #34d399 100%);
+  --gradient-card: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
   --gradient-button: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
 
   /* Shadows */
@@ -49,8 +43,8 @@
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  --shadow-green: 0 4px 12px rgba(5, 150, 105, 0.2); /* Primary color shadow */
-  --shadow-green-lg: 0 8px 25px rgba(5, 150, 105, 0.25); /* Primary color shadow large */
+  --shadow-green: 0 4px 12px rgba(5, 150, 105, 0.2);
+  --shadow-green-lg: 0 8px 25px rgba(5, 150, 105, 0.25);
 
   /* Typography */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -108,14 +102,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-/* Error Messages */
-.error {
-  color: var(--color-accent);
-  padding: var(--space-4);
-  text-align: center;
-  font-size: var(--fs-sm);
 }
 
 html {
@@ -192,7 +178,7 @@ h6 {
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.95); /* White with opacity */
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   box-shadow: var(--shadow-md);
   z-index: var(--z-fixed);
@@ -396,7 +382,7 @@ h6 {
   margin: 0 auto var(--space-8);
   border-radius: var(--radius-full);
   overflow: hidden;
-  border: 4px solid rgba(255, 255, 255, 0.3); /* White with opacity */
+  border: 4px solid rgba(255, 255, 255, 0.3);
   box-shadow: var(--shadow-xl);
 }
 
@@ -412,7 +398,7 @@ h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.1); /* White with opacity */
+  background: rgba(255, 255, 255, 0.1);
   font-size: var(--fs-4xl);
 }
 
@@ -447,12 +433,12 @@ h6 {
 
 .keyword-item {
   padding: var(--space-2) var(--space-6);
-  background: rgba(5, 150, 105, 0.8); /* Primary color with opacity */
+  background: rgba(5, 150, 105, 0.8);
   color: var(--text-white);
   border-radius: var(--radius-full);
   font-weight: var(--fw-medium);
   font-size: var(--fs-sm);
-  border: 1px solid rgba(255, 255, 255, 0.2); /* White with opacity */
+  border: 1px solid rgba(255, 255, 255, 0.2);
   transition: var(--transition-normal);
   cursor: default;
   text-align: center;
@@ -462,8 +448,8 @@ h6 {
 }
 
 .keyword-item:hover {
-  background: rgba(4, 120, 87, 0.9); /* Primary dark with opacity */
-  border-color: rgba(255, 255, 255, 0.3); /* White with opacity */
+  background: rgba(4, 120, 87, 0.9);
+  border-color: rgba(255, 255, 255, 0.3);
   box-shadow: var(--shadow-green);
   transform: translateY(-2px);
 }
@@ -676,7 +662,7 @@ h6 {
   justify-content: center;
   width: 60px;
   height: 60px;
-  background: rgba(255, 255, 255, 0.2); /* White with opacity */
+  background: rgba(255, 255, 255, 0.2);
   color: var(--text-white);
   border-radius: var(--radius-full);
   font-size: var(--fs-2xl);
@@ -685,7 +671,7 @@ h6 {
 }
 
 .cv-item-link-icon:hover {
-  background: rgba(255, 255, 255, 0.3); /* White with opacity */
+  background: rgba(255, 255, 255, 0.3);
   transform: scale(1.1);
 }
 
@@ -991,7 +977,7 @@ h6 {
   color: var(--primary-color);
   font-size: var(--fs-lg);
   transition: var(--transition-fast);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Black with opacity */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .skill-stars .far {
@@ -1161,7 +1147,7 @@ h6 {
   justify-content: center;
   width: 50px;
   height: 50px;
-  background: rgba(255, 255, 255, 0.2); /* White with opacity */
+  background: rgba(255, 255, 255, 0.2);
   color: var(--text-white);
   border-radius: var(--radius-full);
   text-decoration: none;
@@ -1171,7 +1157,7 @@ h6 {
 }
 
 .project-link:hover {
-  background: rgba(255, 255, 255, 0.3); /* White with opacity */
+  background: rgba(255, 255, 255, 0.3);
   transform: scale(1.1);
 }
 
@@ -1376,7 +1362,7 @@ h6 {
   background: var(--primary-color);
   transform: translateX(-50%);
   border-radius: var(--radius-full);
-  box-shadow: 0 0 10px rgba(5, 150, 105, 0.3); /* Primary color glow */
+  box-shadow: 0 0 10px rgba(5, 150, 105, 0.3);
 }
 
 .timeline-item {
