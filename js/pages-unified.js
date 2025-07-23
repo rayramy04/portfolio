@@ -58,7 +58,7 @@ async function initHome() {
         particlesJS('particles-js', {
             particles: {
                 number: { value: 80, density: { enable: true, value_area: 800 } },
-                color: { value: ['#059669', '#14b8a6', '#06b6d4', '#34d399'] },
+                color: { value: ['#059669', '#14b8a6', '#06b6d4', '#34d399'] }, /* Original vibrant colors for home */
                 shape: { type: ['circle', 'triangle'], stroke: { width: 1, color: '#059669' } },
                 opacity: { value: 0.4, random: true, anim: { enable: true, speed: 1.5, opacity_min: 0.1, sync: false } },
                 size: { value: 4, random: true, anim: { enable: true, speed: 2, size_min: 1, sync: false } },
