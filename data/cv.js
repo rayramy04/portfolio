@@ -1,4 +1,4 @@
-// CV ページのデータ
+// CV page data
 window.cvData = {
   education: [
     {

@@ -17,9 +17,10 @@ class HTMLGenerator {
         const subtitle = item.degree || item.position || item.organization;
         const date = item.period || item.date || item.year;
         const description = item.description || '';
+        const hasLink = config.showLink && (item.url || item.link);
         
         return `
-            <div class="cv-item">
+            <div class="cv-item ${hasLink ? 'cv-item-linkable hover-shadow' : 'hover-lift'}">
                 <div class="cv-item-header">
                     <div>
                         <h3>${title}</h3>
@@ -40,7 +41,7 @@ class HTMLGenerator {
         const cardClass = config.cardClass || 'link-card';
         
         return `
-            <a href="${link.url}" ${external} class="${cardClass}">
+            <a href="${link.url}" ${external} class="${cardClass} hover-lift">
                 <div class="link-card-content">
                     <div class="link-icon">
                         <i class="${link.icon}"></i>
@@ -65,7 +66,7 @@ class HTMLGenerator {
     // Grant item (simplified)
     static grantItem(grant) {
         return `
-            <div class="cv-item">
+            <div class="cv-item hover-lift">
                 <div class="cv-item-header">
                     <div>
                         <h3>${grant.title}</h3>
@@ -88,7 +89,7 @@ class HTMLGenerator {
                 <h3>${category.category}</h3>
                 <div class="skills-grid">
                     ${category.skills.map(skill => `
-                        <div class="skill-item">
+                        <div class="skill-item hover-glow">
                             <div class="skill-name">${skill.name}</div>
                             ${skill.level ? `<div class="skill-stars">${generateStars(skill.level)}</div>` : ''}
                             ${skill.description ? `<p>${skill.description.join(', ')}</p>` : ''}

@@ -1,4 +1,4 @@
-// 共通データ
+// Common data
 window.commonData = {
   profile: {
     name: "Ray",

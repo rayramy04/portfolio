@@ -49,7 +49,7 @@ async function initHome() {
     if (heroTitle) heroTitle.textContent = subtitle;
     if (keywordsList) {
         keywordsList.innerHTML = keywords.map(keyword => 
-            `<li class="keyword-item">${keyword}</li>`
+            `<li class="keyword-item hover-glow">${keyword}</li>`
         ).join('');
     }
     
@@ -104,7 +104,7 @@ async function initAbout() {
     const timelineContainer = document.getElementById('timeline-container');
     if (timelineContainer) {
         timelineContainer.innerHTML = window.aboutData.timeline.map(item => `
-            <div class="timeline-item">
+            <div class="timeline-item hover-glow">
                 <div class="timeline-content">
                     <div class="timeline-header">
                         <h3>${item.period}</h3>
@@ -120,7 +120,7 @@ async function initAbout() {
     const interestsContainer = document.getElementById('interests-container');
     if (interestsContainer) {
         interestsContainer.innerHTML = window.aboutData.interests.map(interest => `
-            <div class="interest-card">
+            <div class="interest-card hover-shadow">
                 <div class="interest-icon">
                     <i class="${interest.icon}"></i>
                 </div>
@@ -160,6 +160,13 @@ async function initCV() {
     const skillsContainer = document.getElementById('skills-container');
     if (skillsContainer) {
         skillsContainer.innerHTML = HTMLGenerator.skillsSection(window.cvData.skills, generateStars);
+        // Add hover-glow class to skills categories
+        skillsContainer.querySelectorAll('.skills-category').forEach(cat => {
+            cat.classList.add('hover-glow');
+        });
+        skillsContainer.querySelectorAll('.skill-item').forEach(item => {
+            item.classList.add('hover-glow');
+        });
     }
     
     // Certifications
@@ -197,7 +204,7 @@ async function initProjects() {
     const projectsContainer = document.getElementById('projects-container');
     if (projectsContainer) {
         projectsContainer.innerHTML = window.projectsData.map(project => `
-            <div class="project-card">
+            <div class="project-card hover-shadow">
                 ${project.image ? `
                     <div class="project-image">
                         <img src="${project.image}" alt="${project.name || project.title}">

@@ -6,6 +6,12 @@
   --color-primary-light: #34d399; /* Light green */
   --color-primary-dark: #047857;  /* Dark green */
   
+  /* RGB values for transparency */
+  --color-primary-rgb: 5, 150, 105;
+  --color-primary-light-rgb: 52, 211, 153;
+  --color-white-rgb: 255, 255, 255;
+  --color-black-rgb: 31, 41, 55;
+  
   /* Neutral (4 colors) */
   --color-white: #ffffff;
   --color-gray-light: #f0fdf4;   /* Light gray/off-white */
@@ -30,7 +36,7 @@
   --bg-dark: var(--color-primary-dark);
   --bg-card: var(--color-white);
   --bg-card-hover: var(--color-gray-light);
-  --bg-overlay: rgba(5, 150, 105, 0.8); /* Using primary color RGB */
+  --bg-overlay: rgba(var(--color-primary-rgb), 0.8); /* Using primary color RGB */
 
   /* Text Colors */
   --text-primary: var(--color-black);
@@ -49,8 +55,8 @@
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  --shadow-green: 0 4px 12px rgba(5, 150, 105, 0.2); /* Primary color shadow */
-  --shadow-green-lg: 0 8px 25px rgba(5, 150, 105, 0.25); /* Primary color shadow large */
+  --shadow-green: 0 4px 12px rgba(var(--color-primary-rgb), 0.2); /* Primary color shadow */
+  --shadow-green-lg: 0 8px 25px rgba(var(--color-primary-rgb), 0.25); /* Primary color shadow large */
 
   /* Typography */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -116,6 +122,25 @@
   padding: var(--space-4);
   text-align: center;
   font-size: var(--fs-sm);
+}
+
+/* ===== UNIFIED HOVER SYSTEM ===== */
+/* Single unified hover effect class - green border glow */
+.hover-glow,
+.hover-bg,
+.hover-lift,
+.hover-shadow {
+  transition: all 0.3s ease;
+  border: 1px solid var(--bg-secondary);
+}
+
+.hover-glow:hover,
+.hover-bg:hover,
+.hover-lift:hover,
+.hover-shadow:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-green);
+  border-color: var(--primary-color);
 }
 
 html {
@@ -192,7 +217,7 @@ h6 {
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.95); /* White with opacity */
+  background: rgba(var(--color-white-rgb), 0.95); /* White with opacity */
   backdrop-filter: blur(10px);
   box-shadow: var(--shadow-md);
   z-index: var(--z-fixed);
@@ -216,11 +241,15 @@ h6 {
   color: var(--primary-color);
   text-decoration: none;
   transition: var(--transition-normal);
+  position: relative;
+  display: inline-block;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  overflow: hidden;
 }
 
-.nav-logo a:hover {
-  color: var(--primary-dark);
-}
+/* Hover effect handled by .hover-glow class */
 
 .nav-menu {
   display: flex;
@@ -237,21 +266,19 @@ h6 {
   border-radius: var(--radius-md);
   transition: var(--transition-normal);
   position: relative;
+  overflow: hidden;
+  border: 1px solid transparent;
 }
 
-/* 基本状態を強制的に定義 */
+/* Forcefully define the base state */
 .nav-link {
   color: var(--text-primary) !important;
   background: transparent !important;
 }
 
-/* ホバー状態（activeクラスがない場合のみ） */
-.nav-link:hover:not(.active) {
-  color: var(--primary-color) !important;
-  background: var(--bg-tertiary) !important;
-}
+/* Hover effect handled by .hover-glow class */
 
-/* フォーカス状態の制御 */
+/* Controlling the focus state */
 .nav-link:focus {
   outline: none;
 }
@@ -261,7 +288,7 @@ h6 {
   background: var(--bg-tertiary) !important;
 }
 
-/* アクティブ状態（実際のクリック中） */
+/* Active state (during actual click) */
 .nav-link:active:not(.active) {
   color: var(--primary-color) !important;
   background: var(--bg-tertiary) !important;
@@ -343,14 +370,10 @@ h6 {
   text-decoration: none;
   border-radius: var(--radius-lg);
   font-weight: var(--fw-medium);
-  transition: var(--transition-normal);
   box-shadow: var(--shadow-green);
 }
 
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-green-lg);
-}
+/* Hover effect handled by .hover-lift class */
 
 /* ===== MAIN CONTENT ===== */
 
@@ -396,7 +419,7 @@ h6 {
   margin: 0 auto var(--space-8);
   border-radius: var(--radius-full);
   overflow: hidden;
-  border: 4px solid rgba(255, 255, 255, 0.3); /* White with opacity */
+  border: 4px solid rgba(var(--color-white-rgb), 0.3); /* White with opacity */
   box-shadow: var(--shadow-xl);
 }
 
@@ -412,7 +435,7 @@ h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.1); /* White with opacity */
+  background: rgba(var(--color-white-rgb), 0.1); /* White with opacity */
   font-size: var(--fs-4xl);
 }
 
@@ -447,26 +470,26 @@ h6 {
 
 .keyword-item {
   padding: var(--space-2) var(--space-6);
-  background: rgba(5, 150, 105, 0.8); /* Primary color with opacity */
+  background: rgba(var(--color-primary-rgb), 0.8); /* Primary color with opacity */
   color: var(--text-white);
   border-radius: var(--radius-full);
   font-weight: var(--fw-medium);
   font-size: var(--fs-sm);
-  border: 1px solid rgba(255, 255, 255, 0.2); /* White with opacity */
+  border: 1px solid rgba(var(--color-white-rgb), 0.2); /* White with opacity */
   transition: var(--transition-normal);
   cursor: default;
   text-align: center;
   box-shadow: var(--shadow-md);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
 }
 
-.keyword-item:hover {
-  background: rgba(4, 120, 87, 0.9); /* Primary dark with opacity */
-  border-color: rgba(255, 255, 255, 0.3); /* White with opacity */
-  box-shadow: var(--shadow-green);
-  transform: translateY(-2px);
-}
+/* Keyword items with green glow effect */
+/* Hover effect handled by .hover-glow class */
+
+/* Hover effect handled by .hover-glow class */
 
 /* ===== INTERESTS STYLES ===== */
 .interests-grid {
@@ -482,15 +505,10 @@ h6 {
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-md);
   text-align: center;
-  transition: var(--transition-normal);
   border: 1px solid var(--bg-secondary);
 }
 
-.interest-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--primary-light);
-}
+/* Hover effect handled by .hover-shadow class */
 
 .interest-icon {
   display: flex;
@@ -571,15 +589,11 @@ h6 {
   transition: all var(--transition-normal);
   user-select: none;
   background: transparent;
+  position: relative;
+  overflow: hidden;
 }
 
-.cv-section-title:hover {
-  color: var(--secondary-color);
-  background: var(--bg-secondary);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-sm);
-  border-bottom-color: var(--secondary-color);
-}
+/* Hover effect handled by .hover-glow class */
 
 .cv-section-title .toggle-icon {
   margin-left: auto;
@@ -591,7 +605,7 @@ h6 {
 }
 
 .cv-section-title:hover .toggle-icon {
-  background: var(--secondary-color);
+  background: var(--primary-color);
   color: white;
   transform: scale(1.1);
 }
@@ -624,13 +638,9 @@ h6 {
   padding: var(--space-8);
   margin-bottom: var(--space-12);
   box-shadow: var(--shadow-md);
-  transition: var(--transition-normal);
 }
 
-.cv-item:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-}
+/* Hover effect handled by .hover-lift class */
 
 /* Experience card links - Projects-style overlay */
 .cv-item-linkable {
@@ -639,10 +649,7 @@ h6 {
   cursor: pointer;
 }
 
-.cv-item-linkable:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-xl);
-}
+/* Hover effect handled by .hover-shadow class for linkable items */
 
 .cv-item-overlay {
   position: absolute;
@@ -676,7 +683,7 @@ h6 {
   justify-content: center;
   width: 60px;
   height: 60px;
-  background: rgba(255, 255, 255, 0.2); /* White with opacity */
+  background: rgba(var(--color-white-rgb), 0.2); /* White with opacity */
   color: var(--text-white);
   border-radius: var(--radius-full);
   font-size: var(--fs-2xl);
@@ -684,10 +691,7 @@ h6 {
   backdrop-filter: blur(10px);
 }
 
-.cv-item-link-icon:hover {
-  background: rgba(255, 255, 255, 0.3); /* White with opacity */
-  transform: scale(1.1);
-}
+/* Hover effect handled by .hover-glow class */
 
 .cv-item-header {
   display: flex;
@@ -767,7 +771,11 @@ h6 {
   box-shadow: var(--shadow-md);
   border: 1px solid var(--bg-secondary);
   transition: var(--transition-normal);
+  position: relative;
+  overflow: hidden;
 }
+
+/* Hover effect handled by .hover-glow class */
 
 .skills-category:last-child {
   margin-bottom: var(--space-16);
@@ -778,11 +786,7 @@ h6 {
   margin-top: var(--space-16);
 }
 
-.skills-category:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--primary-light);
-}
+/* Hover effect handled by .hover-glow class */
 
 .skills-category h3 {
   color: var(--primary-color);
@@ -834,17 +838,7 @@ h6 {
   overflow: hidden;
 }
 
-.skill-item-compact::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: var(--gradient-button);
-  transform: scaleX(0);
-  transition: var(--transition-normal);
-}
+/* Hover effect handled by .hover-glow class */
 
 .skill-item-compact:hover {
   transform: translateY(-3px);
@@ -899,10 +893,7 @@ h6 {
   transition: var(--transition-normal);
 }
 
-.specialized-skill-item:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-}
+/* Hover effect handled by .hover-glow class */
 
 .skill-header {
   display: flex;
@@ -944,27 +935,9 @@ h6 {
   overflow: hidden;
 }
 
-.skill-item::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: var(--gradient-button);
-  transform: scaleX(0);
-  transition: var(--transition-normal);
-}
+/* Hover effect handled by .hover-glow class */
 
-.skill-item:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-green);
-  border-color: var(--primary-color);
-}
-
-.skill-item:hover::before {
-  transform: scaleX(1);
-}
+/* Hover effect handled by .hover-glow class */
 
 .skill-info {
   display: flex;
@@ -999,6 +972,7 @@ h6 {
   opacity: 0.4;
 }
 
+/* Keep star animation */
 .skill-item:hover .skill-stars i {
   transform: scale(1.15);
   filter: brightness(1.2);
@@ -1107,13 +1081,9 @@ h6 {
   border-radius: var(--radius-xl);
   overflow: hidden;
   box-shadow: var(--shadow-md);
-  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
 }
 
-.project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-xl);
-}
+/* Hover effect handled by .hover-shadow class */
 
 .project-image {
   position: relative;
@@ -1161,7 +1131,7 @@ h6 {
   justify-content: center;
   width: 50px;
   height: 50px;
-  background: rgba(255, 255, 255, 0.2); /* White with opacity */
+  background: rgba(var(--color-white-rgb), 0.2); /* White with opacity */
   color: var(--text-white);
   border-radius: var(--radius-full);
   text-decoration: none;
@@ -1170,10 +1140,7 @@ h6 {
   backdrop-filter: blur(10px);
 }
 
-.project-link:hover {
-  background: rgba(255, 255, 255, 0.3); /* White with opacity */
-  transform: scale(1.1);
-}
+/* Hover effect handled by .hover-glow class */
 
 .project-content {
   padding: var(--space-6);
@@ -1237,7 +1204,15 @@ h6 {
   padding: var(--space-8) var(--space-8) var(--space-6);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-md);
+  transition: var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid transparent;
 }
+
+/* Hover effect handled by .hover-glow class */
+
+/* Hover effect handled by .hover-glow class */
 
 .about-image-external img {
   width: 100%;
@@ -1248,10 +1223,7 @@ h6 {
   transition: var(--transition-normal);
 }
 
-.about-image-external img:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-xl);
-}
+/* Hover effect handled by .hover-glow class */
 
 @media (max-width: 768px) {
   .who-i-am {
@@ -1330,7 +1302,15 @@ h6 {
   padding: var(--space-8) var(--space-8) var(--space-4);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-md);
+  transition: var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid transparent;
 }
+
+/* Hover effect handled by .hover-glow class */
+
+/* Hover effect handled by .hover-glow class */
 
 .story-content p {
   line-height: 1.8;
@@ -1376,7 +1356,7 @@ h6 {
   background: var(--primary-color);
   transform: translateX(-50%);
   border-radius: var(--radius-full);
-  box-shadow: 0 0 10px rgba(5, 150, 105, 0.3); /* Primary color glow */
+  box-shadow: 0 0 10px rgba(var(--color-primary-rgb), 0.3); /* Primary color glow */
 }
 
 .timeline-item {
@@ -1388,7 +1368,11 @@ h6 {
   box-shadow: var(--shadow-lg);
   width: 49%;
   transition: all var(--transition-normal);
+  border: 1px solid transparent;
+  overflow: hidden;
 }
+
+/* Hover effect handled by .hover-glow class */
 
 .timeline-item::before {
   content: '';
@@ -1400,10 +1384,7 @@ h6 {
   transform: translateY(-50%);
 }
 
-.timeline-item:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-green-lg);
-}
+/* Hover effect handled by .hover-glow class */
 
 .timeline-item:nth-child(odd) {
   margin-right: auto;
@@ -1523,15 +1504,10 @@ h6 {
   text-decoration: none;
   color: inherit;
   box-shadow: var(--shadow-md);
-  transition: var(--transition-normal);
   border: 1px solid var(--bg-secondary);
 }
 
-.link-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--primary-light);
-}
+/* Hover effect handled by .hover-lift class */
 
 .link-card h3 {
   color: var(--primary-color);
@@ -1546,7 +1522,8 @@ h6 {
   transition: var(--transition-normal);
 }
 
-.link-card:hover .link-arrow {
+.hover-lift:hover .link-arrow,
+.hover-bg:hover .link-arrow {
   color: var(--primary-color);
   transform: translateX(3px);
 }
@@ -1845,13 +1822,17 @@ h3.awards-year {
   font-size: var(--fs-lg);
   opacity: 0.8;
   transition: var(--transition-normal);
+  position: relative;
+  display: inline-block;
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  overflow: hidden;
 }
 
-.footer-social a:hover {
-  opacity: 1;
-  color: var(--primary-light);
-  transform: translateY(-2px);
-}
+/* Hover effect handled by .hover-glow class */
+
+/* Hover effect handled by .hover-glow class */
 
 .back-to-top {
   position: fixed;
@@ -1878,10 +1859,7 @@ h3.awards-year {
   visibility: visible;
 }
 
-.back-to-top:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-green-lg);
-}
+/* Hover effect handled by .hover-glow class */
 
 @media (max-width: 768px) {
   .footer-content {
