@@ -4,7 +4,7 @@ async function initializePage() {
     await initializeBase();
     
     switch (pageName) {
-        case 'home':
+        case 'index':
             await initHome();
             break;
         case 'about':
@@ -26,11 +26,41 @@ async function initializeBase() {
     const pageBase = new PageBase('current');
     await pageBase.loadCommonComponents();
     
+    // Initialize SEO structured data
+    initializeSEO();
+    
     // Animate page title
     setTimeout(() => {
         const pageTitle = document.querySelector('.page-title');
         if (pageTitle) pageTitle.classList.add('loaded');
     }, 200);
+}
+
+function initializeSEO() {
+    if (!window.seoConfig) return;
+    
+    const pageName = getCurrentPageName();
+    const head = document.head;
+    
+    // Add person data (common to all pages)
+    const personScript = document.createElement('script');
+    personScript.type = 'application/ld+json';
+    personScript.textContent = JSON.stringify(window.seoConfig.person);
+    head.appendChild(personScript);
+    
+    // Add website data (common to all pages)
+    const websiteScript = document.createElement('script');
+    websiteScript.type = 'application/ld+json';
+    websiteScript.textContent = JSON.stringify(window.seoConfig.website);
+    head.appendChild(websiteScript);
+    
+    // Add page-specific data
+    if (window.seoConfig.pages[pageName]) {
+        const pageScript = document.createElement('script');
+        pageScript.type = 'application/ld+json';
+        pageScript.textContent = JSON.stringify(window.seoConfig.pages[pageName]);
+        head.appendChild(pageScript);
+    }
 }
 
 async function initHome() {
@@ -206,9 +236,7 @@ async function initCV() {
         skillsContainer.querySelectorAll('.skills-category').forEach(cat => {
             cat.classList.add('hover-lift');
         });
-        skillsContainer.querySelectorAll('.skill-item').forEach(item => {
-            item.classList.add('hover-lift');
-        });
+        // skill-item class doesn't exist, items already have hover-lift from HTML generator
     }
     
     // Certifications
@@ -329,13 +357,13 @@ function getCurrentPageName() {
     const path = window.location.pathname;
     const fileName = path.split('/').pop();
     
-    if (fileName === 'index.html' || fileName === '') return 'home';
+    if (fileName === 'index.html' || fileName === '') return 'index';
     if (fileName === 'about.html') return 'about';
     if (fileName === 'cv.html') return 'cv';
     if (fileName === 'projects.html') return 'projects';
     if (fileName === 'links.html') return 'links';
     
-    return 'home';
+    return 'index';
 }
 
 function generateStars(level) {

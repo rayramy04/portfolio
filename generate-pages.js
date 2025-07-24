@@ -1,86 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-// Generate structured data
-function generateStructuredData(pageName) {
-    const personSchema = {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Ray",
-        "jobTitle": "Computer Science & Data Science Student",
-        "description": "Computer Science & Data Science student at Monash University Malaysia with expertise in AI/ML, full-stack development, and research.",
-        "url": "https://yoursite.com",
-        "image": "https://yoursite.com/assets/profile.jpg",
-        "sameAs": [
-            "https://github.com/yourusername",
-            "https://linkedin.com/in/yourusername"
-        ],
-        "affiliation": {
-            "@type": "Organization",
-            "name": "Monash University Malaysia"
-        },
-        "knowsAbout": [
-            "Artificial Intelligence",
-            "Machine Learning",
-            "Full-stack Development",
-            "Python Programming",
-            "JavaScript",
-            "Data Science"
-        ],
-        "alumniOf": {
-            "@type": "Organization",
-            "name": "Monash University Malaysia"
-        }
-    };
-
-    const websiteSchema = {
-        "@context": "https://schema.org",
-        "@type": "Website",
-        "name": "Ray's Portfolio",
-        "description": "Portfolio website showcasing computer science and data science projects, AI/ML applications, and professional experience.",
-        "url": "https://yoursite.com",
-        "author": {
-            "@type": "Person",
-            "name": "Ray"
-        },
-        "inLanguage": "ja"
-    };
-
-    // Page-specific schemas
-    const pageSchemas = {
-        index: {
-            "@context": "https://schema.org",
-            "@type": "ProfilePage",
-            "mainEntity": {
-                "@type": "Person",
-                "name": "Ray"
-            }
-        },
-        about: {
-            "@context": "https://schema.org",
-            "@type": "AboutPage",
-            "mainEntity": {
-                "@type": "Person",
-                "name": "Ray"
-            }
-        },
-        projects: {
-            "@context": "https://schema.org",
-            "@type": "CollectionPage",
-            "name": "Ray's Projects",
-            "description": "Collection of AI/ML and web development projects"
-        }
-    };
-
-    const schemas = [personSchema, websiteSchema];
-    if (pageSchemas[pageName]) {
-        schemas.push(pageSchemas[pageName]);
-    }
-
-    return schemas.map(schema => 
-        `    <script type="application/ld+json">\n${JSON.stringify(schema, null, 8)}\n    </script>`
-    ).join('\n');
-}
+// Structured data is now handled dynamically by seo-config.js and pages-unified.js
 
 // Page configurations
 const pageConfigs = {
@@ -102,15 +23,12 @@ const pageConfigs = {
     <meta property="twitter:description" content="Ray - Computer Science & Data Science student at Monash University Malaysia. AI/ML projects, full-stack development, award-winning research experience.">
     <meta property="twitter:image" content="https://yoursite.com/assets/og-image.jpg">
     
-    <!-- Structured Data -->
-${generateStructuredData('index')}`,
+`,
         scripts: `    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="js/utils/dom-helpers.js"></script>
     <script src="js/utils/html-generator.js"></script>
-    <script src="js/utils/error-handler.js"></script>
     <script src="js/utils/data-populator.js"></script>
-    <script src="js/utils/page-manager.js"></script>
     <script src="data/common.js"></script>
     <script src="data/home.js"></script>
     <script src="js/pages-unified.js"></script>`
@@ -133,13 +51,10 @@ ${generateStructuredData('index')}`,
     <meta property="twitter:description" content="Meet Ray - CS & Data Science student with awards in AI research, music production, and international competitions.">
     <meta property="twitter:image" content="https://yoursite.com/assets/about-photo.jpg">
     
-    <!-- Structured Data -->
-${generateStructuredData('about')}`,
+`,
         scripts: `    <script src="js/utils/dom-helpers.js"></script>
     <script src="js/utils/html-generator.js"></script>
-    <script src="js/utils/error-handler.js"></script>
     <script src="js/utils/data-populator.js"></script>
-    <script src="js/utils/page-manager.js"></script>
     <script src="data/common.js"></script>
     <script src="data/about.js"></script>
     <script src="js/pages-unified.js"></script>`
@@ -162,13 +77,10 @@ ${generateStructuredData('about')}`,
     <meta property="twitter:description" content="Ray's CV - Monash University student with scholarships, AI research awards, full-stack development skills.">
     <meta property="twitter:image" content="https://yoursite.com/assets/profile.jpg">
     
-    <!-- Structured Data -->
-${generateStructuredData('cv')}`,
+`,
         scripts: `    <script src="js/utils/dom-helpers.js"></script>
     <script src="js/utils/html-generator.js"></script>
-    <script src="js/utils/error-handler.js"></script>
     <script src="js/utils/data-populator.js"></script>
-    <script src="js/utils/page-manager.js"></script>
     <script src="data/common.js"></script>
     <script src="data/cv.js"></script>
     <script src="js/pages-unified.js"></script>`
@@ -191,13 +103,10 @@ ${generateStructuredData('cv')}`,
     <meta property="twitter:description" content="Ray's Tech Projects - AI/ML applications, full-stack web development, data analysis tools. Innovative solutions with Python & JavaScript.">
     <meta property="twitter:image" content="https://yoursite.com/assets/projects/portfolio.jpg">
     
-    <!-- Structured Data -->
-${generateStructuredData('projects')}`,
+`,
         scripts: `    <script src="js/utils/dom-helpers.js"></script>
     <script src="js/utils/html-generator.js"></script>
-    <script src="js/utils/error-handler.js"></script>
     <script src="js/utils/data-populator.js"></script>
-    <script src="js/utils/page-manager.js"></script>
     <script src="data/common.js"></script>
     <script src="data/projects.js"></script>
     <script src="js/pages-unified.js"></script>`
@@ -220,13 +129,10 @@ ${generateStructuredData('projects')}`,
     <meta property="twitter:description" content="Connect with Ray - GitHub projects, LinkedIn profile, social media, and contact information. Let's collaborate on tech solutions.">
     <meta property="twitter:image" content="https://yoursite.com/assets/profile.jpg">
     
-    <!-- Structured Data -->
-${generateStructuredData('links')}`,
+`,
         scripts: `    <script src="js/utils/dom-helpers.js"></script>
     <script src="js/utils/html-generator.js"></script>
-    <script src="js/utils/error-handler.js"></script>
     <script src="js/utils/data-populator.js"></script>
-    <script src="js/utils/page-manager.js"></script>
     <script src="data/common.js"></script>
     <script src="data/links.js"></script>
     <script src="js/pages-unified.js"></script>`
