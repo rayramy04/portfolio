@@ -1,4 +1,4 @@
-// Projects ページのデータ
+// Projects page data
 window.projectsData = [
   {
     name: "Ray's Portfolio",

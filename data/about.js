@@ -1,4 +1,4 @@
-// About ページのデータ
+// About page data
 window.aboutData = {
   personal: {
     name: "Ray",
