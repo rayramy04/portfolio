@@ -135,6 +135,7 @@ async function initAbout() {
                 <p>${interest.description}</p>
             </div>
         `).join('');
+        interestsContainer.className = 'interests-grid grid-auto-fit';
     }
     
     // Animate sections
@@ -221,6 +222,7 @@ async function initProjects() {
                 ${project.liveUrl ? `<p><a href="${project.liveUrl}" target="_blank">Live Demo</a></p>` : ''}
             </div>
         `).join('');
+        projectsContainer.className = 'projects-grid grid-auto-fit';
     }
     
     // Animate projects section
