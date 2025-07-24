@@ -117,9 +117,9 @@ async function initAbout() {
     if (timelineContainer) {
         timelineContainer.innerHTML = window.aboutData.timeline.map(item => `
             <div class="card hover-lift">
-                <div class="card-header" style="display: flex; justify-content: space-between; align-items: flex-start;">
-                    <h3 style="flex: 1;">${item.title}</h3>
-                    <p class="text-meta" style="white-space: nowrap;">${item.period}</p>
+                <div class="card-header">
+                    <h3>${item.title}</h3>
+                    <p class="text-meta">${item.period}</p>
                 </div>
                 <p>${item.description}</p>
             </div>
@@ -241,7 +241,7 @@ async function initLinks() {
                     <i class="fas fa-globe"></i>
                     Website & Contact
                 </h2>
-                <div class="links-grid">
+                <div class="links-grid grid-auto-fit">
                     ${contactLinksData.map(link => HTMLGenerator.linkCard(link, { cardClass: 'link-card website-card', external: true })).join('')}
                 </div>
             </section>
@@ -251,7 +251,7 @@ async function initLinks() {
                     <i class="fas fa-share-alt"></i>
                     Social Media
                 </h2>
-                <div class="links-grid">
+                <div class="links-grid grid-auto-fit">
                     ${socialLinksData.map(link => HTMLGenerator.linkCard(link, { cardClass: 'link-card social-card', external: true })).join('')}
                 </div>
             </section>
@@ -261,7 +261,7 @@ async function initLinks() {
                     <i class="fas fa-briefcase"></i>
                     Portfolio
                 </h2>
-                <div class="links-grid">
+                <div class="links-grid grid-auto-fit">
                     ${window.linksData.portfolio.map(link => HTMLGenerator.linkCard(link, { 
                         cardClass: 'link-card portfolio-card', 
                         external: link.url.startsWith('http'),

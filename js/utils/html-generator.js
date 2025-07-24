@@ -16,11 +16,13 @@ class HTMLGenerator {
         const link = item.url || item.link;
         
         const itemContent = `
-            <div class="card-header" style="display: flex; justify-content: space-between; align-items: flex-start;">
-                <h3 style="flex: 1;">${title}</h3>
-                <p class="text-meta" style="white-space: nowrap;">${date}</p>
+            <div class="card-header">
+                <h3>${title}</h3>
+                <p class="text-meta">${date}</p>
             </div>
-            <p class="text-meta">${subtitle}</p>
+            <div class="card-meta-row">
+                <p class="text-meta">${subtitle}</p>
+            </div>
             ${description ? `<p>${description}</p>` : ''}
         `;
         
@@ -58,13 +60,13 @@ class HTMLGenerator {
     static grantItem(grant) {
         return `
             <div class="card hover-lift">
-                <div class="card-header" style="display: flex; justify-content: space-between; align-items: flex-start;">
-                    <h3 style="flex: 1;">${grant.title}</h3>
-                    <p class="text-meta" style="white-space: nowrap;">${grant.date || grant.year}</p>
+                <div class="card-header">
+                    <h3>${grant.title}</h3>
+                    <p class="text-meta">${grant.date || grant.year}</p>
                 </div>
-                <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div class="card-meta-row">
                     <p class="text-meta">${grant.organization || grant.funder}</p>
-                    ${grant.amount ? `<p class="text-meta" style="font-weight: var(--fw-semibold);">${grant.amount}</p>` : ''}
+                    ${grant.amount ? `<p class="text-meta grant-amount">${grant.amount}</p>` : ''}
                 </div>
                 ${grant.description ? `<p>${grant.description}</p>` : ''}
             </div>
@@ -74,11 +76,11 @@ class HTMLGenerator {
     static skillsSection(skillsData, generateStars) {
         return skillsData.map(category => {
             const isSpecialized = category.category === "Specialized Skills";
-            const gridClass = isSpecialized ? "specialized-skills-grid" : "skills-grid";
-            const itemClass = isSpecialized ? "specialized-skill-item" : "card hover-lift";
+            const gridClass = isSpecialized ? "specialized-skills-grid" : "skills-grid grid-auto-fit-compact";
+            const itemClass = isSpecialized ? "specialized-skill-item card hover-lift" : "card hover-lift";
             
             return `
-            <div class="skills-category">
+            <div class="skills-category card">
                 <h3>${category.category}</h3>
                 <div class="${gridClass}">
                     ${category.skills.map(skill => `
