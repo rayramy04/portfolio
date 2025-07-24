@@ -117,7 +117,7 @@ async function initAbout() {
     if (timelineContainer) {
         timelineContainer.innerHTML = window.aboutData.timeline.map(item => `
             <div class="card hover-lift">
-                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div class="card-header" style="display: flex; justify-content: space-between; align-items: flex-start;">
                     <h3 style="flex: 1;">${item.title}</h3>
                     <p class="text-meta" style="white-space: nowrap;">${item.period}</p>
                 </div>
