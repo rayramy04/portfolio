@@ -140,6 +140,53 @@
   padding: var(--space-6);
 }
 
+/* ===== UNIFIED GRID SYSTEM ===== */
+.grid-auto-fit {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-4);
+}
+
+.grid-auto-fit-compact {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-4);
+}
+
+/* Unified card header layout */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-2);
+}
+
+.card-header h3 {
+  flex: 1;
+  margin: 0;
+}
+
+.card-header .text-meta {
+  white-space: nowrap;
+  margin: 0 0 0 var(--space-4); /* Override default text-meta margins but keep left margin */
+}
+
+/* Secondary meta row for additional info */
+.card-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-2);
+}
+
+.card-meta-row .text-meta {
+  margin: 0; /* Override default text-meta margins */
+}
+
+.grant-amount {
+  font-weight: var(--fw-semibold);
+}
+
 a.card {
   text-decoration: none;
   color: inherit;
@@ -555,9 +602,6 @@ h4 {
 
 /* ===== INTERESTS STYLES ===== */
 .interests-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--space-4);
   margin-top: var(--space-8);
 }
 
@@ -640,21 +684,12 @@ h4 {
 /* ===== SKILLS STYLES ===== */
 .skills-category {
   margin-bottom: var(--space-8);
-  background: var(--bg-card);
   padding: var(--space-6);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-md);
-  border: 1px solid var(--bg-secondary);
-  transition: var(--transition-normal);
-  position: relative;
   overflow: hidden;
 }
 
 /* Skills grid layout */
 .skills-grid {
-  display: grid;
-  gap: var(--space-4);
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   margin-bottom: var(--space-2);
 }
 
@@ -724,27 +759,7 @@ h4 {
   margin-bottom: var(--space-6);
 }
 
-.skill-item-compact {
-  background: var(--bg-card);
-  padding: var(--space-4) var(--space-6);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-md);
-  border: 1px solid var(--bg-secondary);
-  transition: var(--transition-normal);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-}
 
-.skill-item-compact .text-meta {
-  flex: 1;
-  margin-right: var(--space-2);
-  line-height: 1.4;
-  word-break: break-word;
-  hyphens: auto;
-}
 
 .skill-stars-small {
   display: flex;
@@ -766,10 +781,8 @@ h4 {
 }
 
 .specialized-skill-item {
-  background: var(--bg-card);
   padding: var(--space-4) var(--space-6);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
   border: 1px solid var(--bg-secondary);
   transition: var(--transition-normal);
 }
@@ -921,9 +934,6 @@ h4 {
 }
 
 .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--space-4);
   margin-top: var(--space-8);
   flex: 1;
   align-content: center;
@@ -1140,11 +1150,6 @@ h4 {
   margin-bottom: var(--space-8);
 }
 
-.links-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--space-4);
-}
 
 
 /* ===== AWARDS STYLES ===== */
@@ -1247,14 +1252,20 @@ h3.awards-year {
 
   /* Mobile: Vertical layout for card headers */
   .card-header {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-  }
-  .card-header h3 {
-    margin-bottom: var(--space-1) !important;
+    flex-direction: column;
+    align-items: flex-start;
   }
   .card-header .text-meta {
-    white-space: normal !important;
+    margin: var(--space-1) 0 0 0; /* Override default margins, add top margin for mobile spacing */
+    white-space: normal;
+  }
+  .card-meta-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-1);
+  }
+  .card-meta-row .text-meta {
+    margin: 0; /* Override default text-meta margins in mobile */
   }
 
   /* Mobile: Better spacing for card titles and metadata */
@@ -1282,13 +1293,7 @@ h3.awards-year {
     margin-bottom: 0; /* Relies on main-content padding-bottom for consistent spacing */
   }
 
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
 
-  .links-grid {
-    grid-template-columns: 1fr;
-  }
 
   .keywords {
     justify-content: center;
