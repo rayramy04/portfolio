@@ -293,6 +293,11 @@ body {
 /* All pages use consistent bottom spacing via main-content padding.
    Last sections of each page should have margin-bottom: 0 to rely on this unified system.
    This ensures consistency and maintainability across all pages. */
+
+/* Unified class for last sections that rely on main-content padding-bottom */
+.section-last {
+  margin-bottom: 0 !important; /* Relies on main-content padding-bottom for consistent spacing */
+}
 .main-content {
   padding-top: calc(85px + var(--space-8));
   padding-bottom: var(--space-4); /* Compact bottom spacing to match title-card gap */
@@ -655,9 +660,6 @@ h4 {
   margin-top: var(--space-8);
 }
 
-.interests-section {
-  margin-bottom: 0; /* Relies on main-content padding-bottom for consistent spacing */
-}
 
 .interests-grid h3 i {
   color: var(--primary-color);
@@ -679,9 +681,6 @@ h4 {
   opacity: 0;
   transform: translateY(30px);
   transition: var(--transition-fade);
-}
-.cv-section:last-child {
-  margin-bottom: 0; /* Last CV section relies on main-content padding-bottom */
 }
 
 .cv-section.loaded {
@@ -782,9 +781,6 @@ h4 {
 }
 
 /* Last sections follow unified bottom spacing system */
-.skills-category:last-child {
-  margin-bottom: 0; /* Relies on main-content padding-bottom for consistent spacing */
-}
 
 /* Fix spacing between skills and next category */
 .skills-category+.skills-category {
@@ -963,7 +959,6 @@ h4 {
 }
 
 .projects-section {
-  margin-bottom: 0; /* Relies on main-content padding-bottom for consistent spacing */
   height: auto;
   display: flex;
   flex-direction: column;
@@ -1193,9 +1188,6 @@ h4 {
   transform: translateY(30px);
   transition: var(--transition-fade);
 }
-.links-section:last-child {
-  margin-bottom: 0; /* Last section relies on main-content padding-bottom */
-}
 
 .links-section.loaded {
   opacity: 1;
@@ -1220,9 +1212,6 @@ h4 {
   margin-bottom: var(--space-8);
 }
 
-.awards-year:last-child {
-  margin-bottom: 0; /* Relies on main-content padding-bottom for consistent spacing */
-}
 
 h3.awards-year {
   color: var(--primary-color);
@@ -1325,13 +1314,6 @@ h3.awards-year {
     margin-bottom: var(--space-8);
   }
 
-  .skills-category:last-child {
-    margin-bottom: 0; /* Relies on main-content padding-bottom for consistent spacing */
-  }
-
-  .awards-year:last-child {
-    margin-bottom: 0; /* Relies on main-content padding-bottom for consistent spacing */
-  }
 
 
 
