@@ -123,8 +123,25 @@
   font-size: var(--fs-sm);
 }
 
+/* ===== UNIFIED CARD SYSTEM ===== */
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: var(--space-12);
+  padding: var(--space-8);
+}
+
+a.card {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
 /* ===== UNIFIED HOVER SYSTEM ===== */
-/* Single unified hover effect class - lift with green shadow */
 .hover-lift {
   transition: var(--transition-fast);
   border: 1px solid var(--bg-secondary);
@@ -519,41 +536,6 @@ h6 {
   margin-top: var(--space-8);
 }
 
-.interest-card {
-  background: var(--bg-card);
-  padding: var(--space-8);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-md);
-  text-align: center;
-  border: 1px solid var(--bg-secondary);
-}
-
-.interest-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: var(--size-icon-lg);
-  height: var(--size-icon-lg);
-  margin: 0 auto var(--space-6);
-  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
-  border-radius: 50%;
-  color: var(--text-white);
-  font-size: var(--fs-2xl);
-  box-shadow: var(--shadow-md);
-}
-
-.interest-card h3 {
-  color: var(--primary-color);
-  margin-bottom: var(--space-4);
-  font-size: var(--fs-xl);
-  font-weight: var(--fw-semibold);
-}
-
-.interest-card p {
-  color: var(--text-light);
-  line-height: 1.6;
-  margin: 0;
-}
 
 .interests-section {
   margin-bottom: var(--space-6);
@@ -563,12 +545,6 @@ h6 {
   .interests-grid {
     grid-template-columns: 1fr;
     gap: var(--space-4);
-  }
-
-  .interest-icon {
-    width: var(--size-icon-md);
-    height: var(--size-icon-md);
-    font-size: var(--fs-xl);
   }
 }
 
@@ -643,99 +619,7 @@ h6 {
   overflow: hidden;
 }
 
-.cv-item {
-  background: var(--bg-card);
-  border-radius: var(--radius-lg);
-  padding: var(--space-8);
-  margin-bottom: var(--space-12);
-  box-shadow: var(--shadow-md);
-}
 
-a.cv-item-linkable {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
-
-.cv-item-linkable h3 {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-}
-
-.cv-item-linkable .link-arrow {
-  font-size: var(--fs-sm);
-  color: var(--text-light);
-  transition: var(--transition-fast);
-  display: inline-flex;
-}
-
-.cv-item-linkable:hover .link-arrow {
-  color: var(--primary-color);
-  transform: translateX(3px);
-}
-
-.cv-item-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: var(--space-8);
-}
-
-.cv-item-header h3,
-.cv-item-header h4 {
-  color: var(--primary-color);
-  margin-bottom: var(--space-4);
-}
-
-/* Removed - using .text-date instead */
-
-.cv-item-content p {
-  margin-bottom: var(--space-4);
-  line-height: 1.7;
-}
-
-.cv-item-content ul {
-  margin-left: var(--space-4);
-}
-
-/* Education and Experience specific spacing */
-.cv-degree,
-/* Removed - using .text-org instead */
-
-.cv-responsibilities {
-  padding-left: var(--space-4);
-  margin-top: var(--space-4);
-}
-
-.cv-responsibilities li {
-  margin-bottom: var(--space-2);
-  line-height: 1.6;
-}
-
-/* Compact education and experience cards */
-#education-container .cv-item,
-#experience-container .cv-item {
-  padding: var(--space-6);
-  margin-bottom: var(--space-6);
-}
-
-#education-container .cv-item-header,
-#experience-container .cv-item-header {
-  margin-bottom: var(--space-4);
-}
-
-#education-container .cv-item-content,
-#experience-container .cv-item-content {
-  margin-top: var(--space-2);
-}
-
-#education-container .text-date,
-#experience-container .text-date {
-  font-size: var(--fs-lg);
-  font-weight: var(--fw-semibold);
-}
 
 /* ===== SKILLS STYLES ===== */
 .skills-category {
@@ -1004,25 +888,6 @@ a.cv-item-linkable {
   transform: translateY(0);
 }
 
-.project-card {
-  background: var(--bg-card);
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  box-shadow: var(--shadow-md);
-}
-
-.project-image {
-  position: relative;
-  height: var(--size-project-thumb);
-  overflow: hidden;
-}
-
-.project-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: var(--transition-normal);
-}
 
 
 .project-links {
@@ -1363,65 +1228,6 @@ a.cv-item-linkable {
   gap: var(--space-6);
 }
 
-.link-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-4);
-  padding: var(--space-8);
-  background: var(--bg-card);
-  border-radius: var(--radius-xl);
-  text-decoration: none;
-  color: inherit;
-  box-shadow: var(--shadow-md);
-  border: 1px solid var(--bg-secondary);
-}
-
-.link-card h3 {
-  color: var(--primary-color);
-  margin: 0;
-  font-size: var(--fs-xl);
-  font-weight: var(--fw-semibold);
-}
-
-.link-arrow {
-  color: var(--text-light);
-  font-size: var(--fs-lg);
-  transition: var(--transition-normal);
-}
-
-.hover-lift:hover .link-arrow {
-  color: var(--primary-color);
-  transform: translateX(3px);
-}
-
-.link-card-content {
-  display: flex;
-  align-items: center;
-  gap: var(--space-4);
-}
-
-.link-icon {
-  width: var(--size-icon-md);
-  height: var(--size-icon-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--gradient-button);
-  color: var(--text-white);
-  border-radius: var(--radius-lg);
-  font-size: var(--fs-2xl);
-}
-
-.link-content h3 {
-  color: var(--primary-color);
-  margin-bottom: var(--space-2);
-}
-
-.link-content p {
-  color: var(--text-light);
-  font-size: var(--fs-sm);
-}
 
 /* ===== AWARDS STYLES ===== */
 .awards-year {
@@ -1470,30 +1276,6 @@ h3.awards-year {
   margin-bottom: var(--space-4) !important;
 }
 
-/* Compact certification and award cards */
-#certifications-container .cv-item {
-  padding: var(--space-4) var(--space-6);
-  margin-bottom: var(--space-6);
-}
-
-#awards-container .cv-item {
-  padding: var(--space-6) var(--space-6) var(--space-6);
-  margin-bottom: var(--space-6);
-}
-
-#certifications-container .cv-item-header {
-  margin-bottom: var(--space-2);
-}
-
-#awards-container .cv-item-header {
-  margin-bottom: var(--space-4);
-}
-
-#certifications-container h3,
-#awards-container h3 {
-  font-size: var(--fs-lg);
-  margin-bottom: var(--space-2);
-}
 
 .award-org {
   color: var(--text-secondary);
@@ -1523,21 +1305,6 @@ h3.awards-year {
   margin: var(--space-2) 0;
 }
 
-/* Ensure grants section is visible and compact */
-#grants-container {
-  display: block !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-#grants-container .cv-item {
-  padding: var(--space-6);
-  margin-bottom: var(--space-6);
-}
-
-#grants-container .cv-item-header {
-  margin-bottom: var(--space-4);
-}
 
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
@@ -1562,10 +1329,6 @@ h3.awards-year {
     text-align: center;
   }
 
-  .cv-item-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
 
   .main-content {
     padding-bottom: var(--space-16);
