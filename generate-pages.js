@@ -253,12 +253,9 @@ function generatePage(pageName, config) {
     const outputPath = path.join(__dirname, `${pageName}.html`);
     fs.writeFileSync(outputPath, template);
     
-    console.log(`Generated ${pageName}.html`);
 }
 
 // Generate all pages
-console.log('Generating optimized HTML pages...');
 Object.keys(pageConfigs).forEach(pageName => {
     generatePage(pageName, pageConfigs[pageName]);
 });
-console.log('All pages generated successfully!');

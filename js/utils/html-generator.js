@@ -1,41 +1,48 @@
-// Simplified HTML utilities
 class HTMLGenerator {
-    // Basic list rendering
     static renderList(data, template) {
         if (!Array.isArray(data) || data.length === 0) return '';
         return data.map(template).join('');
     }
 
-    // Conditional rendering
     static renderIf(condition, template) {
         return condition ? template : '';
     }
 
-    // CV item (simplified)
     static cvItem(item, config = {}) {
         const title = item.institution || item.company || item.title;
         const subtitle = item.degree || item.position || item.organization;
         const date = item.period || item.date || item.year;
         const description = item.description || '';
-        const hasLink = config.showLink && (item.url || item.link);
+        const link = item.url || item.link;
+        
+        const itemContent = `
+            <div class="cv-item-header">
+                <div>
+                    <h3>${title}${link ? ' <span class="link-arrow"><i class="fas fa-external-link-alt"></i></span>' : ''}</h3>
+                    <p class="cv-company">${subtitle}</p>
+                </div>
+                <div>
+                    <p class="cv-date">${date}</p>
+                </div>
+            </div>
+            ${description ? `<div class="cv-item-content"><p>${description}</p></div>` : ''}
+        `;
+        
+        if (link) {
+            return `
+                <a href="${link}" target="_blank" class="cv-item cv-item-linkable hover-lift">
+                    ${itemContent}
+                </a>
+            `;
+        }
         
         return `
-            <div class="cv-item ${hasLink ? 'cv-item-linkable hover-shadow' : 'hover-lift'}">
-                <div class="cv-item-header">
-                    <div>
-                        <h3>${title}</h3>
-                        <p class="cv-company">${subtitle}</p>
-                    </div>
-                    <div>
-                        <p class="cv-date">${date}</p>
-                    </div>
-                </div>
-                ${description ? `<div class="cv-item-content"><p>${description}</p></div>` : ''}
+            <div class="cv-item hover-lift">
+                ${itemContent}
             </div>
         `;
     }
 
-    // Link card (simplified)
     static linkCard(link, config = {}) {
         const external = config.external ? 'target="_blank"' : '';
         const cardClass = config.cardClass || 'link-card';
@@ -58,22 +65,20 @@ class HTMLGenerator {
         `;
     }
 
-    // Certification item (simplified)
     static certificationItem(cert) {
         return this.cvItem(cert);
     }
 
-    // Grant item (simplified)
     static grantItem(grant) {
         return `
             <div class="cv-item hover-lift">
                 <div class="cv-item-header">
                     <div>
                         <h3>${grant.title}</h3>
-                        <h4>${grant.funder}</h4>
+                        <h4>${grant.organization || grant.funder}</h4>
                     </div>
                     <div>
-                        <p class="cv-date">${grant.year}</p>
+                        <p class="cv-date">${grant.date || grant.year}</p>
                         ${grant.amount ? `<p class="cv-amount">${grant.amount}</p>` : ''}
                     </div>
                 </div>
@@ -82,14 +87,13 @@ class HTMLGenerator {
         `;
     }
 
-    // Skills section (simplified)
     static skillsSection(skillsData, generateStars) {
         return skillsData.map(category => `
             <div class="skills-category">
                 <h3>${category.category}</h3>
                 <div class="skills-grid">
                     ${category.skills.map(skill => `
-                        <div class="skill-item hover-glow">
+                        <div class="skill-item hover-lift">
                             <div class="skill-name">${skill.name}</div>
                             ${skill.level ? `<div class="skill-stars">${generateStars(skill.level)}</div>` : ''}
                             ${skill.description ? `<p>${skill.description.join(', ')}</p>` : ''}
@@ -100,7 +104,6 @@ class HTMLGenerator {
         `).join('');
     }
 
-    // Awards section (simplified)
     static awardsSection(awardsData) {
         const years = Object.keys(awardsData).sort((a, b) => parseInt(b) - parseInt(a));
         

@@ -1,4 +1,3 @@
-// About page data
 window.aboutData = {
   personal: {
     name: "Ray",

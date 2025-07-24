@@ -1,11 +1,8 @@
-// Simplified direct page implementation
 async function initializePage() {
     const pageName = getCurrentPageName();
     
-    // Initialize base functionality
     await initializeBase();
     
-    // Initialize page-specific content
     switch (pageName) {
         case 'home':
             await initHome();
@@ -25,7 +22,6 @@ async function initializePage() {
     }
 }
 
-// Base functionality
 async function initializeBase() {
     const pageBase = new PageBase('current');
     await pageBase.loadCommonComponents();
@@ -37,7 +33,6 @@ async function initializeBase() {
     }, 200);
 }
 
-// Home page initialization
 async function initHome() {
     const { name, subtitle, keywords } = window.homeData.hero;
     
@@ -49,20 +44,26 @@ async function initHome() {
     if (heroTitle) heroTitle.textContent = subtitle;
     if (keywordsList) {
         keywordsList.innerHTML = keywords.map(keyword => 
-            `<li class="keyword-item hover-glow">${keyword}</li>`
+            `<li class="keyword-item hover-lift">${keyword}</li>`
         ).join('');
     }
     
     // Initialize particles
     if (typeof particlesJS !== 'undefined' && document.getElementById('particles-js')) {
+        // Get colors from CSS variables
+        const rootStyles = getComputedStyle(document.documentElement);
+        const primaryColor = rootStyles.getPropertyValue('--color-primary').trim();
+        const primaryLight = rootStyles.getPropertyValue('--color-primary-light').trim();
+        const accentColors = [primaryColor, '#14b8a6', '#06b6d4', primaryLight]; // Keep some variety for particles
+        
         particlesJS('particles-js', {
             particles: {
                 number: { value: 80, density: { enable: true, value_area: 800 } },
-                color: { value: ['#059669', '#14b8a6', '#06b6d4', '#34d399'] }, /* Original vibrant colors for home */
-                shape: { type: ['circle', 'triangle'], stroke: { width: 1, color: '#059669' } },
+                color: { value: accentColors }, /* Dynamic colors from CSS variables */
+                shape: { type: ['circle', 'triangle'], stroke: { width: 1, color: primaryColor } },
                 opacity: { value: 0.4, random: true, anim: { enable: true, speed: 1.5, opacity_min: 0.1, sync: false } },
                 size: { value: 4, random: true, anim: { enable: true, speed: 2, size_min: 1, sync: false } },
-                line_linked: { enable: true, distance: 120, color: '#059669', opacity: 0.3, width: 1.5 },
+                line_linked: { enable: true, distance: 120, color: primaryColor, opacity: 0.3, width: 1.5 },
                 move: { enable: true, speed: 2, direction: 'none', random: true, straight: false, out_mode: 'out', bounce: false, attract: { enable: true, rotateX: 600, rotateY: 1200 } }
             },
             interactivity: {
@@ -81,7 +82,6 @@ async function initHome() {
     }, 100);
 }
 
-// About page initialization
 async function initAbout() {
     const personalData = window.aboutData.personal;
     
@@ -104,7 +104,7 @@ async function initAbout() {
     const timelineContainer = document.getElementById('timeline-container');
     if (timelineContainer) {
         timelineContainer.innerHTML = window.aboutData.timeline.map(item => `
-            <div class="timeline-item hover-glow">
+            <div class="timeline-item hover-lift">
                 <div class="timeline-content">
                     <div class="timeline-header">
                         <h3>${item.period}</h3>
@@ -120,7 +120,7 @@ async function initAbout() {
     const interestsContainer = document.getElementById('interests-container');
     if (interestsContainer) {
         interestsContainer.innerHTML = window.aboutData.interests.map(interest => `
-            <div class="interest-card hover-shadow">
+            <div class="interest-card hover-lift">
                 <div class="interest-icon">
                     <i class="${interest.icon}"></i>
                 </div>
@@ -138,7 +138,6 @@ async function initAbout() {
     setTimeout(() => document.querySelector('.interests-section')?.classList.add('loaded'), 300);
 }
 
-// CV page initialization
 async function initCV() {
     // Education
     const educationContainer = document.getElementById('education-container');
@@ -160,12 +159,12 @@ async function initCV() {
     const skillsContainer = document.getElementById('skills-container');
     if (skillsContainer) {
         skillsContainer.innerHTML = HTMLGenerator.skillsSection(window.cvData.skills, generateStars);
-        // Add hover-glow class to skills categories
+        // Add hover-lift class to skills categories
         skillsContainer.querySelectorAll('.skills-category').forEach(cat => {
-            cat.classList.add('hover-glow');
+            cat.classList.add('hover-lift');
         });
         skillsContainer.querySelectorAll('.skill-item').forEach(item => {
-            item.classList.add('hover-glow');
+            item.classList.add('hover-lift');
         });
     }
     
@@ -199,12 +198,11 @@ async function initCV() {
     }, 400);
 }
 
-// Projects page initialization
 async function initProjects() {
     const projectsContainer = document.getElementById('projects-container');
     if (projectsContainer) {
         projectsContainer.innerHTML = window.projectsData.map(project => `
-            <div class="project-card hover-shadow">
+            <div class="project-card hover-lift">
                 ${project.image ? `
                     <div class="project-image">
                         <img src="${project.image}" alt="${project.name || project.title}">
@@ -245,7 +243,6 @@ async function initProjects() {
     }, 400);
 }
 
-// Links page initialization
 async function initLinks() {
     const linksContainer = document.getElementById('links-content');
     if (linksContainer) {
@@ -297,7 +294,6 @@ async function initLinks() {
     }, 200);
 }
 
-// Helper functions
 function getCurrentPageName() {
     const path = window.location.pathname;
     const fileName = path.split('/').pop();
@@ -326,5 +322,4 @@ function generateStars(level) {
     return starsHTML;
 }
 
-// Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', initializePage);

@@ -8,9 +8,7 @@
   
   /* RGB values for transparency */
   --color-primary-rgb: 5, 150, 105;
-  --color-primary-light-rgb: 52, 211, 153;
   --color-white-rgb: 255, 255, 255;
-  --color-black-rgb: 31, 41, 55;
   
   /* Neutral (4 colors) */
   --color-white: #ffffff;
@@ -26,8 +24,6 @@
   --primary-color: var(--color-primary);
   --primary-light: var(--color-primary-light);
   --primary-dark: var(--color-primary-dark);
-  --secondary-color: var(--color-primary);
-  --accent-color: var(--color-primary-light);
 
   /* Background Colors */
   --bg-primary: var(--color-white);
@@ -35,35 +31,33 @@
   --bg-tertiary: var(--color-gray-light);
   --bg-dark: var(--color-primary-dark);
   --bg-card: var(--color-white);
-  --bg-card-hover: var(--color-gray-light);
-  --bg-overlay: rgba(var(--color-primary-rgb), 0.8); /* Using primary color RGB */
 
   /* Text Colors */
   --text-primary: var(--color-black);
   --text-secondary: var(--color-primary-dark);
-  --text-tertiary: var(--color-primary);
   --text-light: var(--color-gray);
   --text-white: var(--color-white);
 
   /* Gradients */
-  --gradient-hero: linear-gradient(135deg, #10b981 0%, #14b8a6 30%, #06b6d4 60%, #34d399 100%); /* Special gradient for home */
-  --gradient-card: linear-gradient(135deg, var(--color-white) 0%, var(--color-gray-light) 100%);
+  --gradient-hero: linear-gradient(135deg, 
+    #10b981 0%,     /* Emerald-500 */
+    #14b8a6 30%,    /* Teal-500 */
+    #06b6d4 60%,    /* Cyan-500 */
+    var(--color-primary-light) 100%  /* Using CSS variable for the final color */
+  ); /* Special gradient for home - keeping vibrant colors for visual appeal */
   --gradient-button: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
 
   /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   --shadow-green: 0 4px 12px rgba(var(--color-primary-rgb), 0.2); /* Primary color shadow */
-  --shadow-green-lg: 0 8px 25px rgba(var(--color-primary-rgb), 0.25); /* Primary color shadow large */
 
   /* Typography */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-heading: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   /* Font Weights */
-  --fw-regular: 400;
   --fw-medium: 500;
   --fw-semibold: 600;
   --fw-bold: 700;
@@ -94,19 +88,17 @@
   --radius-md: 0.375rem;
   --radius-lg: 0.5rem;
   --radius-xl: 0.75rem;
-  --radius-2xl: 1rem;
   --radius-full: 9999px;
 
   /* Transitions */
   --transition-fast: 0.25s ease-in-out;
   --transition-normal: 0.5s ease-in-out;
   --transition-slow: 0.8s ease-in-out;
+  --transition-fade: opacity 2s ease, transform 2s ease;
 
   /* Z-index */
-  --z-dropdown: 1000;
   --z-sticky: 1020;
   --z-fixed: 1030;
-  --z-modal: 1040;
 }
 
 /* ===== BASE STYLES ===== */
@@ -125,23 +117,21 @@
 }
 
 /* ===== UNIFIED HOVER SYSTEM ===== */
-/* Single unified hover effect class - green border glow */
-.hover-glow,
-.hover-bg,
-.hover-lift,
-.hover-shadow {
-  transition: all 0.3s ease;
+/* Single unified hover effect class - lift with green shadow */
+.hover-lift {
+  transition: var(--transition-fast);
   border: 1px solid var(--bg-secondary);
 }
 
-.hover-glow:hover,
-.hover-bg:hover,
-.hover-lift:hover,
-.hover-shadow:hover {
+.hover-lift:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-green);
   border-color: var(--primary-color);
 }
+
+/* Removed unused hover effect classes - only .hover-lift is used */
+
+/* Removed unused transition classes - transitions are defined inline */
 
 html {
   scroll-behavior: smooth;
@@ -196,7 +186,7 @@ h6 {
   margin-bottom: var(--space-8);
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 2s ease, transform 2s ease;
+  transition: var(--transition-fade);
 }
 
 .section-title.loaded {
@@ -249,8 +239,6 @@ h6 {
   overflow: hidden;
 }
 
-/* Hover effect handled by .hover-glow class */
-
 .nav-menu {
   display: flex;
   align-items: center;
@@ -275,8 +263,6 @@ h6 {
   color: var(--text-primary) !important;
   background: transparent !important;
 }
-
-/* Hover effect handled by .hover-glow class */
 
 /* Controlling the focus state */
 .nav-link:focus {
@@ -373,8 +359,6 @@ h6 {
   box-shadow: var(--shadow-green);
 }
 
-/* Hover effect handled by .hover-lift class */
-
 /* ===== MAIN CONTENT ===== */
 
 /* ===== HERO SECTION ===== */
@@ -405,7 +389,7 @@ h6 {
   color: var(--text-white);
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 2s ease, transform 2s ease;
+  transition: var(--transition-fade);
 }
 
 .hero-content.loaded {
@@ -487,9 +471,6 @@ h6 {
 }
 
 /* Keyword items with green glow effect */
-/* Hover effect handled by .hover-glow class */
-
-/* Hover effect handled by .hover-glow class */
 
 /* ===== INTERESTS STYLES ===== */
 .interests-grid {
@@ -507,8 +488,6 @@ h6 {
   text-align: center;
   border: 1px solid var(--bg-secondary);
 }
-
-/* Hover effect handled by .hover-shadow class */
 
 .interest-icon {
   display: flex;
@@ -567,7 +546,7 @@ h6 {
   margin-bottom: var(--space-16);
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 2s ease, transform 2s ease;
+  transition: var(--transition-fade);
 }
 
 .cv-section.loaded {
@@ -586,18 +565,16 @@ h6 {
   border-bottom: 2px solid var(--bg-secondary);
   border-radius: var(--radius-md);
   cursor: pointer;
-  transition: all var(--transition-normal);
+  transition: var(--transition-normal);
   user-select: none;
   background: transparent;
   position: relative;
   overflow: hidden;
 }
 
-/* Hover effect handled by .hover-glow class */
-
 .cv-section-title .toggle-icon {
   margin-left: auto;
-  transition: all var(--transition-normal);
+  transition: var(--transition-normal);
   font-size: var(--fs-lg);
   padding: var(--space-2);
   border-radius: var(--radius-sm);
@@ -607,7 +584,6 @@ h6 {
 .cv-section-title:hover .toggle-icon {
   background: var(--primary-color);
   color: white;
-  transform: scale(1.1);
 }
 
 .cv-section-title.collapsed .toggle-icon {
@@ -640,58 +616,30 @@ h6 {
   box-shadow: var(--shadow-md);
 }
 
-/* Hover effect handled by .hover-lift class */
-
-/* Experience card links - Projects-style overlay */
-.cv-item-linkable {
-  position: relative;
-  overflow: visible;
-  cursor: pointer;
-}
-
-/* Hover effect handled by .hover-shadow class for linkable items */
-
-.cv-item-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--bg-overlay);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: var(--transition-normal);
+a.cv-item-linkable {
   text-decoration: none;
-  z-index: 2;
+  color: inherit;
+  display: block;
 }
 
-.cv-item-linkable:hover .cv-item-overlay {
-  opacity: 1;
-}
-
-.cv-item-overlay-content {
-  display: flex;
+.cv-item-linkable h3 {
+  position: relative;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
+  gap: var(--space-2);
 }
 
-.cv-item-link-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 60px;
-  height: 60px;
-  background: rgba(var(--color-white-rgb), 0.2); /* White with opacity */
-  color: var(--text-white);
-  border-radius: var(--radius-full);
-  font-size: var(--fs-2xl);
+.cv-item-linkable .link-arrow {
+  font-size: var(--fs-sm);
+  color: var(--text-light);
   transition: var(--transition-fast);
-  backdrop-filter: blur(10px);
+  display: inline-flex;
 }
 
-/* Hover effect handled by .hover-glow class */
+.cv-item-linkable:hover .link-arrow {
+  color: var(--primary-color);
+  transform: translateX(3px);
+}
 
 .cv-item-header {
   display: flex;
@@ -775,8 +723,6 @@ h6 {
   overflow: hidden;
 }
 
-/* Hover effect handled by .hover-glow class */
-
 .skills-category:last-child {
   margin-bottom: var(--space-16);
 }
@@ -785,8 +731,6 @@ h6 {
 .skills-category+.skills-category {
   margin-top: var(--space-16);
 }
-
-/* Hover effect handled by .hover-glow class */
 
 .skills-category h3 {
   color: var(--primary-color);
@@ -838,18 +782,6 @@ h6 {
   overflow: hidden;
 }
 
-/* Hover effect handled by .hover-glow class */
-
-.skill-item-compact:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-green);
-  border-color: var(--primary-color);
-}
-
-.skill-item-compact:hover::before {
-  transform: scaleX(1);
-}
-
 .skill-item-compact .skill-name {
   font-weight: var(--fw-semibold);
   color: var(--text-primary);
@@ -872,11 +804,6 @@ h6 {
   transition: var(--transition-fast);
 }
 
-.skill-item-compact:hover .skill-stars-small i {
-  transform: scale(1.1);
-  filter: brightness(1.2);
-}
-
 /* Specialized skills grid */
 .specialized-skills-grid {
   display: grid;
@@ -892,8 +819,6 @@ h6 {
   border: 1px solid var(--bg-secondary);
   transition: var(--transition-normal);
 }
-
-/* Hover effect handled by .hover-glow class */
 
 .skill-header {
   display: flex;
@@ -920,10 +845,6 @@ h6 {
   transition: var(--transition-fast);
 }
 
-.skill-stars i:hover {
-  transform: scale(1.1);
-}
-
 .skill-item {
   background: var(--bg-primary);
   padding: var(--space-4);
@@ -934,10 +855,6 @@ h6 {
   position: relative;
   overflow: hidden;
 }
-
-/* Hover effect handled by .hover-glow class */
-
-/* Hover effect handled by .hover-glow class */
 
 .skill-info {
   display: flex;
@@ -970,12 +887,6 @@ h6 {
 .skill-stars .far {
   color: var(--text-light);
   opacity: 0.4;
-}
-
-/* Keep star animation */
-.skill-item:hover .skill-stars i {
-  transform: scale(1.15);
-  filter: brightness(1.2);
 }
 
 /* Skill description styles */
@@ -1068,7 +979,7 @@ h6 {
 .projects-section .projects-grid {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 2s ease, transform 2s ease;
+  transition: var(--transition-fade);
 }
 
 .projects-section.loaded .projects-grid {
@@ -1083,8 +994,6 @@ h6 {
   box-shadow: var(--shadow-md);
 }
 
-/* Hover effect handled by .hover-shadow class */
-
 .project-image {
   position: relative;
   height: 200px;
@@ -1098,49 +1007,32 @@ h6 {
   transition: var(--transition-slow);
 }
 
-.project-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--bg-overlay);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: var(--transition-normal);
-}
-
-.project-card:hover .project-overlay {
-  opacity: 1;
-}
-
-.project-card:hover .project-image img {
-  transform: scale(1.1);
-}
 
 .project-links {
   display: flex;
   gap: var(--space-4);
+  margin-top: var(--space-4);
 }
 
 .project-link {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px;
-  background: rgba(var(--color-white-rgb), 0.2); /* White with opacity */
-  color: var(--text-white);
-  border-radius: var(--radius-full);
+  gap: var(--space-2);
+  color: var(--text-light);
   text-decoration: none;
-  font-size: var(--fs-xl);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
   transition: var(--transition-fast);
-  backdrop-filter: blur(10px);
 }
 
-/* Hover effect handled by .hover-glow class */
+.project-link:hover {
+  color: var(--primary-color);
+  transform: translateY(-1px);
+}
+
+.project-link i {
+  font-size: var(--fs-base);
+}
 
 .project-content {
   padding: var(--space-6);
@@ -1161,11 +1053,12 @@ h6 {
   font-size: var(--fs-sm);
 }
 
-.project-tech {
+.project-technologies {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
   margin-top: var(--space-3);
+  margin-bottom: var(--space-4);
 }
 
 .tech-tag {
@@ -1183,7 +1076,7 @@ h6 {
   margin-bottom: var(--space-16);
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 2s ease, transform 2s ease;
+  transition: var(--transition-fade);
 }
 
 .about-section.loaded {
@@ -1210,10 +1103,6 @@ h6 {
   border: 1px solid transparent;
 }
 
-/* Hover effect handled by .hover-glow class */
-
-/* Hover effect handled by .hover-glow class */
-
 .about-image-external img {
   width: 100%;
   height: 350px;
@@ -1222,8 +1111,6 @@ h6 {
   box-shadow: var(--shadow-lg);
   transition: var(--transition-normal);
 }
-
-/* Hover effect handled by .hover-glow class */
 
 @media (max-width: 768px) {
   .who-i-am {
@@ -1285,7 +1172,7 @@ h6 {
   margin-bottom: var(--space-16);
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 2s ease, transform 2s ease;
+  transition: var(--transition-fade);
 }
 
 .story-section.loaded {
@@ -1308,10 +1195,6 @@ h6 {
   border: 1px solid transparent;
 }
 
-/* Hover effect handled by .hover-glow class */
-
-/* Hover effect handled by .hover-glow class */
-
 .story-content p {
   line-height: 1.8;
   margin-bottom: var(--space-6);
@@ -1330,7 +1213,7 @@ h6 {
 .interests-section {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 2s ease, transform 2s ease;
+  transition: var(--transition-fade);
 }
 
 .timeline-section.loaded,
@@ -1367,12 +1250,10 @@ h6 {
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-lg);
   width: 49%;
-  transition: all var(--transition-normal);
+  transition: var(--transition-normal);
   border: 1px solid transparent;
   overflow: hidden;
 }
-
-/* Hover effect handled by .hover-glow class */
 
 .timeline-item::before {
   content: '';
@@ -1383,8 +1264,6 @@ h6 {
   background: var(--primary-color);
   transform: translateY(-50%);
 }
-
-/* Hover effect handled by .hover-glow class */
 
 .timeline-item:nth-child(odd) {
   margin-right: auto;
@@ -1472,7 +1351,7 @@ h6 {
   margin-bottom: var(--space-16);
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 2s ease, transform 2s ease;
+  transition: var(--transition-fade);
 }
 
 .links-section.loaded {
@@ -1507,8 +1386,6 @@ h6 {
   border: 1px solid var(--bg-secondary);
 }
 
-/* Hover effect handled by .hover-lift class */
-
 .link-card h3 {
   color: var(--primary-color);
   margin: 0;
@@ -1522,8 +1399,7 @@ h6 {
   transition: var(--transition-normal);
 }
 
-.hover-lift:hover .link-arrow,
-.hover-bg:hover .link-arrow {
+.hover-lift:hover .link-arrow {
   color: var(--primary-color);
   transform: translateX(3px);
 }
@@ -1830,10 +1706,6 @@ h3.awards-year {
   overflow: hidden;
 }
 
-/* Hover effect handled by .hover-glow class */
-
-/* Hover effect handled by .hover-glow class */
-
 .back-to-top {
   position: fixed;
   bottom: 20px;
@@ -1858,8 +1730,6 @@ h3.awards-year {
   opacity: 1;
   visibility: visible;
 }
-
-/* Hover effect handled by .hover-glow class */
 
 @media (max-width: 768px) {
   .footer-content {
