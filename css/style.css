@@ -153,6 +153,17 @@
   gap: var(--space-4);
 }
 
+/* Mobile: Force single column for cleaner layout */
+@media (max-width: 768px) {
+  .grid-auto-fit {
+    grid-template-columns: 1fr;
+  }
+  
+  .grid-auto-fit-compact {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}
+
 /* Unified card header layout */
 .card-header {
   display: flex;
@@ -609,12 +620,6 @@ h4 {
   margin-bottom: 0; /* Relies on main-content padding-bottom for consistent spacing */
 }
 
-@media (max-width: 768px) {
-  .interests-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-4);
-  }
-}
 
 /* ===== CV STYLES ===== */
 .cv-header {
@@ -781,10 +786,7 @@ h4 {
 }
 
 .specialized-skill-item {
-  padding: var(--space-4) var(--space-6);
-  border-radius: var(--radius-lg);
   border: 1px solid var(--bg-secondary);
-  transition: var(--transition-normal);
 }
 
 .specialized-skill-item .skill-header {
@@ -820,8 +822,6 @@ h4 {
 
 .skill-item {
   background: var(--bg-primary);
-  padding: var(--space-4);
-  border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--bg-tertiary);
   transition: var(--transition-normal);
@@ -978,9 +978,6 @@ h4 {
   font-size: var(--fs-base);
 }
 
-.project-content {
-  padding: var(--space-6);
-}
 
 .project-content h3 {
   color: var(--primary-color);
