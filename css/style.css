@@ -62,27 +62,21 @@
   --fw-semibold: 600;
   --fw-bold: 700;
 
-  /* Font Sizes */
-  --fs-sm: 0.875rem;
-  --fs-base: 1rem;
-  --fs-lg: 1.125rem;
-  --fs-xl: 1.25rem;
-  --fs-2xl: 1.5rem;
-  --fs-3xl: 1.875rem;
-  --fs-4xl: 2.25rem;
-  --fs-5xl: 3rem;
+  /* Font Sizes - 必要最小限 */
+  --fs-sm: 0.875rem;    /* 小さいテキスト */
+  --fs-base: 1rem;      /* 基本テキスト */
+  --fs-lg: 1.125rem;    /* 大きめテキスト */
+  --fs-xl: 1.25rem;     /* サブタイトル */
+  --fs-2xl: 1.5rem;     /* セクションタイトル */
+  --fs-4xl: 2.25rem;    /* ページタイトル */
+  --fs-5xl: 3rem;       /* ヒーロータイトル */
 
-  /* Spacing */
-  --space-2: 0.5rem;
-  --space-4: 1rem;
-  --space-6: 1.5rem;
-  --space-8: 2rem;
-  --space-10: 2.5rem;
-  --space-12: 3rem;
-  --space-16: 4rem;
-  --space-20: 5rem;
-  --space-24: 6rem;
-  --space-32: 8rem;
+  /* Spacing - 必要最小限 */
+  --space-2: 0.5rem;    /* 最小間隔 */
+  --space-4: 1rem;      /* 基本間隔 */
+  --space-6: 1.5rem;    /* 中間隔 */
+  --space-8: 2rem;      /* 大間隔 */
+  --space-16: 4rem;     /* セクション間隔 */
 
   /* Border Radius */
   --radius-md: 0.375rem;
@@ -93,7 +87,6 @@
   /* Transitions */
   --transition-fast: 0.25s ease-in-out;
   --transition-normal: 0.5s ease-in-out;
-  --transition-slow: 0.8s ease-in-out;
   --transition-fade: opacity 2s ease, transform 2s ease;
 
   /* Z-index */
@@ -464,10 +457,17 @@ h6 {
 }
 
 .keywords-section {
-  margin-top: var(--space-10);
+  margin-top: var(--space-8);
 }
 
-/* Removed - using .subsection-title instead */
+/* Hero section - all text elements should be white on dark background */
+.hero h1,
+.hero h2,
+.hero h3,
+.hero p,
+.hero .subsection-title {
+  color: var(--text-white);
+}
 
 .keywords {
   display: flex;
@@ -542,6 +542,7 @@ h6 {
 }
 
 .interests-section {
+  margin-top: var(--space-20);
   margin-bottom: var(--space-8);
 }
 
@@ -568,7 +569,7 @@ h6 {
 
 
 .cv-section {
-  margin-bottom: var(--space-16);
+  margin-bottom: var(--space-20);
   opacity: 0;
   transform: translateY(30px);
   transition: var(--transition-fade);
@@ -586,7 +587,7 @@ h6 {
   gap: var(--space-4);
   font-size: var(--fs-2xl);
   color: var(--primary-color);
-  margin-bottom: var(--space-12);
+  margin-bottom: var(--space-8);
   padding: var(--space-4) var(--space-6) var(--space-6) var(--space-6);
   border-bottom: 2px solid var(--bg-secondary);
   border-radius: var(--radius-md);
@@ -607,27 +608,22 @@ h6 {
   background: var(--bg-tertiary);
 }
 
-.section-title-collapsible:hover .toggle-icon {
-  background: var(--primary-color);
-  color: white;
-}
-
 .section-title-collapsible.collapsed .toggle-icon {
   transform: rotate(-90deg);
 }
 
-.section-title-collapsible.collapsed:hover .toggle-icon {
-  transform: rotate(-90deg) scale(1.1);
-}
 
-.cv-section-content {
+.cv-section-content,
+.about-section-content {
   max-height: 10000px;
   overflow: visible;
-  transition: max-height var(--transition-slow), opacity var(--transition-normal);
+  transition: max-height var(--transition-normal), opacity var(--transition-normal);
   opacity: 1;
+  padding-bottom: var(--space-8);
 }
 
-.cv-section-content.collapsed {
+.cv-section-content.collapsed,
+.about-section-content.collapsed {
   max-height: 0;
   opacity: 0;
   margin-top: 0;
@@ -1012,7 +1008,7 @@ a.cv-item-linkable {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: var(--transition-slow);
+  transition: var(--transition-normal);
 }
 
 
@@ -1081,7 +1077,7 @@ a.cv-item-linkable {
 
 /* ===== ABOUT STYLES ===== */
 .about-section {
-  margin-bottom: var(--space-16);
+  margin-bottom: var(--space-20);
   opacity: 0;
   transform: translateY(30px);
   transition: var(--transition-fade);
@@ -1167,6 +1163,7 @@ a.cv-item-linkable {
 }
 
 .timeline-section {
+  margin-top: var(--space-20);
   margin-bottom: var(--space-16);
 }
 
@@ -1545,7 +1542,7 @@ h3.awards-year {
   }
 
   .page-title {
-    font-size: var(--fs-3xl);
+    font-size: var(--fs-4xl);
   }
 
   .who-i-am {
@@ -1619,7 +1616,7 @@ h3.awards-year {
   }
 
   .hero-name {
-    font-size: var(--fs-3xl);
+    font-size: var(--fs-5xl);
   }
 
   .subsection-title {

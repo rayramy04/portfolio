@@ -25,6 +25,14 @@ desktop.ini
 .sublime-*
 .atom/
 
+# Kiro IDE
+# --------
+.kiro/
+*.kiro
+.kiro-*
+kiro.log
+kiro-debug.log
+
 # Development Tools
 # -----------------
 *.log
@@ -97,7 +105,7 @@ node_modules/
 npm-debug.log
 yarn-error.log
 .pnpm-debug.log*
-.yarn/
+# .yarn/ - Keep for GitHub Pages deployment
 .pnp.*
 
 # Deployment
@@ -160,7 +168,7 @@ assets/raw/
 
 # Deploy and CI/CD
 # ----------------
-.github/workflows/
+# .github/workflows/ - Keep for GitHub Pages deployment
 deploy.sh
 build.sh
 *.deploy
