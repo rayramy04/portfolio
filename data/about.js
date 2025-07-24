@@ -27,12 +27,12 @@ window.aboutData = {
     {
       period: "2023.07",
       title: "マレーシア留学開始",
-      description: "海外での新生活をスタート。Monash University Foundation Year (MUFY)に奨学金付きで入学。この頃からインターンシップなども開始。"
+      description: "海外での新生活をスタート。Monash University Foundation Year (MUFY)に奨学金付きで入学。この頃から各種インターンシップなども開始。"
     },
     {
       period: "2023.03",
       title: "高校卒業",
-      description: "地元の公立高校（国際バカロレア認定校）を卒業。大学受験の結果を踏まえ、海外進学を決意。"
+      description: "地元の公立高校（国際バカロレア認定校）を卒業。渡航まで約4か月半のギャップタームに突入。"
     },
     {
       period: "2004.04",
