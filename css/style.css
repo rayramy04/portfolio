@@ -133,6 +133,7 @@
   background: var(--bg-card);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-md);
+  border: 1px solid var(--bg-secondary);
   transition: var(--transition-normal);
   position: relative;
   overflow: hidden;
@@ -163,6 +164,7 @@
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
 }
+
 
 /* Unified card header layout */
 .card-header {
@@ -202,18 +204,36 @@ a.card {
   text-decoration: none;
   color: inherit;
   display: block;
+  cursor: pointer;
+}
+
+a.card:hover {
+  text-decoration: none;
 }
 
 /* ===== UNIFIED HOVER SYSTEM ===== */
 .hover-lift {
-  transition: var(--transition-fast);
-  border: 1px solid var(--bg-secondary);
+  transition: all var(--transition-fast);
 }
 
-.hover-lift:hover {
-  transform: translateY(-3px);
+/* 通常のリンク（テキストリンク）: 色変更のみ */
+.hover-lift:not(.card):hover {
+  color: var(--primary-color);
+}
+
+/* カード（非リンク）: 軽い浮上効果のみ */
+.card.hover-lift:not(a):hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* リンク付きカード: より明確なクリック可能エフェクト */
+a.card.hover-lift:hover {
+  transform: translateY(-4px);
   box-shadow: var(--shadow-green);
   border-color: var(--primary-color);
+  background: var(--bg-tertiary);
+  cursor: pointer;
 }
 
 /* Removed unused hover effect classes - only .hover-lift is used */
@@ -387,37 +407,13 @@ h4 {
   font-weight: var(--fw-medium);
   padding: var(--space-2) var(--space-4);
   border-radius: var(--radius-md);
-  transition: var(--transition-normal);
   position: relative;
-  overflow: hidden;
-  border: 1px solid transparent;
+  transition: color var(--transition-fast);
 }
 
-/* Forcefully define the base state */
-.nav-link {
-  color: var(--text-primary) !important;
-  background: transparent !important;
-}
-
-/* Controlling the focus state */
-.nav-link:focus {
-  outline: none;
-}
-
-.nav-link:focus-visible:not(.active) {
-  color: var(--primary-color) !important;
-  background: var(--bg-tertiary) !important;
-}
-
-/* Active state (during actual click) */
-.nav-link:active:not(.active) {
-  color: var(--primary-color) !important;
-  background: var(--bg-tertiary) !important;
-}
 
 .nav-link.active {
   color: var(--primary-color);
-  background: var(--bg-tertiary);
 }
 
 .nav-toggle {
@@ -472,12 +468,6 @@ h4 {
     transform: rotate(45deg) translate(-5px, -6px);
   }
 
-  .nav-link {
-    padding: var(--space-4) var(--space-6);
-    margin: var(--space-2) 0;
-    width: 200px;
-    text-align: center;
-  }
 }
 
 /* ===== BUTTONS ===== */
@@ -599,7 +589,7 @@ h4 {
   font-weight: var(--fw-medium);
   font-size: var(--fs-sm);
   border: 1px solid rgba(var(--color-white-rgb), 0.2); /* White with opacity */
-  transition: var(--transition-normal);
+  transition: var(--transition-fast);
   cursor: default;
   text-align: center;
   box-shadow: var(--shadow-md);
@@ -607,6 +597,11 @@ h4 {
   -webkit-backdrop-filter: blur(10px);
   position: relative;
   overflow: hidden;
+}
+
+.keyword-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
 }
 
 /* Keyword items with green glow effect */
@@ -954,29 +949,28 @@ h4 {
 
 .project-links {
   display: flex;
-  gap: var(--space-4);
+  align-items: center;
+  gap: var(--space-6);
   margin-top: var(--space-4);
+  flex-wrap: wrap;
 }
 
 .project-link {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
+  font-size: var(--fs-sm);
   color: var(--text-light);
   text-decoration: none;
-  font-size: var(--fs-sm);
   font-weight: var(--fw-medium);
-  transition: var(--transition-fast);
+  transition: color var(--transition-fast);
 }
 
 .project-link:hover {
   color: var(--primary-color);
-  transform: translateY(-1px);
 }
 
-.project-link i {
-  font-size: var(--fs-base);
-}
+
 
 
 .project-content h3 {
@@ -1145,6 +1139,10 @@ h4 {
   color: var(--primary-color);
   text-align: center;
   margin-bottom: var(--space-8);
+}
+
+.section-title-centered {
+  text-align: center;
 }
 
 
@@ -1377,15 +1375,20 @@ h3.awards-year {
 
 .footer-social a {
   color: var(--text-white);
+  text-decoration: none;
   font-size: var(--fs-lg);
   opacity: 0.8;
-  transition: var(--transition-normal);
-  position: relative;
-  display: inline-block;
-  padding: var(--space-2);
+  padding: var(--space-1);
   border-radius: var(--radius-md);
-  border: 1px solid transparent;
-  overflow: hidden;
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-social a:hover {
+  color: var(--primary-color);
+  opacity: 1;
 }
 
 .back-to-top {
