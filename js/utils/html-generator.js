@@ -17,7 +17,7 @@ class HTMLGenerator {
         
         const itemContent = `
             <div class="card-header">
-                <h3>${title}</h3>
+                <h3>${title}${link ? ' <i class="fas fa-external-link-alt card-external-icon"></i>' : ''}</h3>
                 <p class="text-meta">${date}</p>
             </div>
             <div class="card-meta-row">
@@ -44,10 +44,15 @@ class HTMLGenerator {
     static linkCard(link, config = {}) {
         const external = config.external ? 'target="_blank"' : '';
         const cardClass = config.cardClass || 'link-card';
+        // デフォルトは外部リンクアイコン、rightIconで上書き可能
+        const rightIcon = link.rightIcon || 'fas fa-external-link-alt';
         
         return `
             <a href="${link.url}" ${external} class="card hover-lift">
-                <h3>${link.title}</h3>
+                <div class="card-header">
+                    <h3>${link.icon ? `<i class="${link.icon}"></i> ` : ''}${link.title}</h3>
+                    ${rightIcon ? `<i class="${rightIcon} card-external-icon"></i>` : ''}
+                </div>
                 ${link.username ? `<p class="text-meta">${link.username}</p>` : ''}
             </a>
         `;
@@ -66,7 +71,7 @@ class HTMLGenerator {
                 </div>
                 <div class="card-meta-row">
                     <p class="text-meta">${grant.organization || grant.funder}</p>
-                    ${grant.amount ? `<p class="text-meta grant-amount">${grant.amount}</p>` : ''}
+                    ${grant.amount ? `<p class="text-meta">${grant.amount}</p>` : ''}
                 </div>
                 ${grant.description ? `<p>${grant.description}</p>` : ''}
             </div>
