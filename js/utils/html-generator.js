@@ -16,7 +16,7 @@ class HTMLGenerator {
         const link = item.url || item.link;
         
         const itemContent = `
-            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div class="card-header" style="display: flex; justify-content: space-between; align-items: flex-start;">
                 <h3 style="flex: 1;">${title}</h3>
                 <p class="text-meta" style="white-space: nowrap;">${date}</p>
             </div>
@@ -58,7 +58,7 @@ class HTMLGenerator {
     static grantItem(grant) {
         return `
             <div class="card hover-lift">
-                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div class="card-header" style="display: flex; justify-content: space-between; align-items: flex-start;">
                     <h3 style="flex: 1;">${grant.title}</h3>
                     <p class="text-meta" style="white-space: nowrap;">${grant.date || grant.year}</p>
                 </div>
