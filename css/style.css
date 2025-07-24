@@ -76,8 +76,22 @@
   --space-4: 1rem;      /* 基本間隔 */
   --space-6: 1.5rem;    /* 中間隔 */
   --space-8: 2rem;      /* 大間隔 */
+  --space-12: 3rem;     /* 項目間隔 */
   --space-16: 4rem;     /* セクション間隔 */
+  --space-20: 5rem;     /* 大セクション間隔 */
+  --space-24: 6rem;     /* 特大セクション間隔 */
+  --space-32: 8rem;     /* 最大セクション間隔 */
 
+  /* Sizes */
+  --size-icon-sm: 50px;     /* 小アイコン */
+  --size-icon-md: 60px;     /* 中アイコン */
+  --size-icon-lg: 80px;     /* 大アイコン */
+  --size-avatar-sm: 150px;  /* 小アバター */
+  --size-avatar-md: 200px;  /* 中アバター */
+  --size-image-height: 350px; /* 画像高さ */
+  --size-project-thumb: 200px; /* プロジェクトサムネイル */
+  --max-width-container: 1200px; /* コンテナ最大幅 */
+  
   /* Border Radius */
   --radius-md: 0.375rem;
   --radius-lg: 0.5rem;
@@ -147,7 +161,7 @@ body {
 
 /* ===== LAYOUT ===== */
 .container {
-  max-width: 1200px;
+  max-width: var(--max-width-container);
   margin: 0 auto;
   padding: 0 var(--space-4);
 }
@@ -236,7 +250,7 @@ h6 {
 }
 
 .nav-container {
-  max-width: 1200px;
+  max-width: var(--max-width-container);
   margin: 0 auto;
   padding: 0 var(--space-4);
   display: flex;
@@ -386,12 +400,12 @@ h6 {
 .hero {
   position: relative;
   min-height: calc(100vh - 85px);
-  height: calc(95vh - 85px);
   display: flex;
   align-items: center;
   justify-content: center;
   background: var(--gradient-hero);
   overflow: hidden;
+  flex: 1;
 }
 
 .hero-background {
@@ -419,8 +433,8 @@ h6 {
 }
 
 .profile-photo {
-  width: 200px;
-  height: 200px;
+  width: var(--size-avatar-md);
+  height: var(--size-avatar-md);
   margin: 0 auto var(--space-8);
   border-radius: var(--radius-full);
   overflow: hidden;
@@ -518,8 +532,8 @@ h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80px;
-  height: 80px;
+  width: var(--size-icon-lg);
+  height: var(--size-icon-lg);
   margin: 0 auto var(--space-6);
   background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
   border-radius: 50%;
@@ -542,8 +556,7 @@ h6 {
 }
 
 .interests-section {
-  margin-top: var(--space-20);
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-6);
 }
 
 @media (max-width: 768px) {
@@ -553,8 +566,8 @@ h6 {
   }
 
   .interest-icon {
-    width: 60px;
-    height: 60px;
+    width: var(--size-icon-md);
+    height: var(--size-icon-md);
     font-size: var(--fs-xl);
   }
 }
@@ -569,7 +582,7 @@ h6 {
 
 
 .cv-section {
-  margin-bottom: var(--space-20);
+  margin-bottom: var(--space-6);
   opacity: 0;
   transform: translateY(30px);
   transition: var(--transition-fade);
@@ -587,7 +600,7 @@ h6 {
   gap: var(--space-4);
   font-size: var(--fs-2xl);
   color: var(--primary-color);
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-6);
   padding: var(--space-4) var(--space-6) var(--space-6) var(--space-6);
   border-bottom: 2px solid var(--bg-secondary);
   border-radius: var(--radius-md);
@@ -619,7 +632,7 @@ h6 {
   overflow: visible;
   transition: max-height var(--transition-normal), opacity var(--transition-normal);
   opacity: 1;
-  padding-bottom: var(--space-8);
+  padding-bottom: var(--space-4);
 }
 
 .cv-section-content.collapsed,
@@ -1000,7 +1013,7 @@ a.cv-item-linkable {
 
 .project-image {
   position: relative;
-  height: 200px;
+  height: var(--size-project-thumb);
   overflow: hidden;
 }
 
@@ -1077,7 +1090,7 @@ a.cv-item-linkable {
 
 /* ===== ABOUT STYLES ===== */
 .about-section {
-  margin-bottom: var(--space-20);
+  margin-bottom: var(--space-6);
   opacity: 0;
   transform: translateY(30px);
   transition: var(--transition-fade);
@@ -1093,7 +1106,7 @@ a.cv-item-linkable {
   grid-template-columns: 2fr 1fr;
   gap: var(--space-8);
   align-items: start;
-  margin-bottom: var(--space-16);
+  margin-bottom: var(--space-6);
 }
 
 .about-content {
@@ -1109,7 +1122,7 @@ a.cv-item-linkable {
 
 .about-image-external img {
   width: 100%;
-  height: 350px;
+  height: var(--size-image-height);
   object-fit: cover;
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-lg);
@@ -1151,7 +1164,7 @@ a.cv-item-linkable {
 }
 
 .story-section {
-  margin-bottom: var(--space-16);
+  margin-bottom: var(--space-6);
   opacity: 0;
   transform: translateY(30px);
   transition: var(--transition-fade);
@@ -1163,8 +1176,7 @@ a.cv-item-linkable {
 }
 
 .timeline-section {
-  margin-top: var(--space-20);
-  margin-bottom: var(--space-16);
+  margin-bottom: var(--space-6);
 }
 
 .story-content {
@@ -1390,8 +1402,8 @@ a.cv-item-linkable {
 }
 
 .link-icon {
-  width: 60px;
-  height: 60px;
+  width: var(--size-icon-md);
+  height: var(--size-icon-md);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1560,7 +1572,7 @@ h3.awards-year {
   }
 
   .cv-section {
-    margin-bottom: var(--space-20);
+    margin-bottom: var(--space-6);
   }
 
   .skills-category:last-child {
@@ -1611,8 +1623,8 @@ h3.awards-year {
 
 @media (max-width: 480px) {
   .profile-photo {
-    width: 150px;
-    height: 150px;
+    width: var(--size-avatar-sm);
+    height: var(--size-avatar-sm);
   }
 
   .hero-name {
@@ -1639,16 +1651,16 @@ h3.awards-year {
 .footer {
   background: var(--bg-dark);
   color: var(--text-white);
-  padding: calc((85px - 24px) / 2) 0;
+  padding: var(--space-4) 0;
   margin-top: auto;
   margin-bottom: 0;
   position: relative;
   flex-shrink: 0;
-  min-height: 85px;
+  min-height: 60px;
 }
 
 .footer-content {
-  max-width: 1200px;
+  max-width: var(--max-width-container);
   margin: 0 auto;
   padding: 0 var(--space-4);
   display: flex;
@@ -1686,8 +1698,8 @@ h3.awards-year {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 50px;
-  height: 50px;
+  width: var(--size-icon-sm);
+  height: var(--size-icon-sm);
   background: var(--gradient-button);
   color: var(--text-white);
   border-radius: var(--radius-full);
