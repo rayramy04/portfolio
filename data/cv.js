@@ -160,12 +160,6 @@ window.cvData = {
         description: "イベント後、市役所にて一定期間の経歴掲載"
       },
       {
-        title: "旅行: 日本全国制覇",
-        organization: "NA",
-        date: "2025.02",
-        description: "趣味の旅行で日本全47都道府県制覇を達成"
-      },
-      {
         title: "2025年日本言語学オリンピック: 敢闘賞",
         organization: "国際言語学オリンピック日本委員会",
         date: "2025.02",
@@ -269,7 +263,7 @@ window.cvData = {
       url: "https://malaysia-ryugaku.jp/"
     },
     {
-      company: "個人事業",
+      company: "Self-Employed",
       period: "2024",
       position: "家庭教師",
       description: "中学数学の個別指導など"
@@ -331,21 +325,21 @@ window.cvData = {
       organization: "Monash University Malaysia",
       amount: "MYR 10,000",
       date: "2025",
-      description: "成績優秀者として授与された奨学金。1セメスター（半年）ごとにMYR5000が支給。"
+      description: "成績優秀者として授与された奨学金。1セメスター（半年）ごとにMYR5000が支給"
     },
     {
       title: "Monash High Achiever Award", 
       organization: "Monash University Malaysia",
       amount: "MYR 10,000",
       date: "2024",
-      description: "成績優秀者として授与された奨学金。1セメスター（半年）ごとにMYR5000が支給。"
+      description: "成績優秀者として授与された奨学金。1セメスター（半年）ごとにMYR5000が支給"
     },
     {
       title: "Pre-U Bursary for Overseas Qualification",
       organization: "Educational Institution",
       amount: "MYR 5,000",
       date: "2023",
-      description: "成績優秀者として授与された奨学金。1セメスター（半年）ごとにMYR5000が支給。"
+      description: "成績優秀者として授与された奨学金。1セメスター（半年）ごとにMYR5000が支給"
     }
   ]
 };

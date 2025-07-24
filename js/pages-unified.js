@@ -28,8 +28,8 @@ async function initializeBase() {
     
     // Animate page title
     setTimeout(() => {
-        const sectionTitle = document.querySelector('.section-title');
-        if (sectionTitle) sectionTitle.classList.add('loaded');
+        const pageTitle = document.querySelector('.page-title');
+        if (pageTitle) pageTitle.classList.add('loaded');
     }, 200);
 }
 
@@ -251,7 +251,7 @@ async function initLinks() {
         
         linksContainer.innerHTML = `
             <section class="links-section">
-                <h2 class="links-section-title" style="text-align: center;">
+                <h2 class="section-title" style="text-align: center;">
                     <i class="fas fa-globe"></i>
                     Website & Contact
                 </h2>
@@ -261,7 +261,7 @@ async function initLinks() {
             </section>
             
             <section class="links-section">
-                <h2 class="links-section-title" style="text-align: center;">
+                <h2 class="section-title" style="text-align: center;">
                     <i class="fas fa-share-alt"></i>
                     Social Media
                 </h2>
@@ -271,7 +271,7 @@ async function initLinks() {
             </section>
             
             <section class="links-section">
-                <h2 class="links-section-title" style="text-align: center;">
+                <h2 class="section-title" style="text-align: center;">
                     <i class="fas fa-briefcase"></i>
                     Portfolio
                 </h2>

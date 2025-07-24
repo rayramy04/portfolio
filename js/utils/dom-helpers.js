@@ -46,7 +46,7 @@ class PageBase {
         this.initializeScrollEffects();
         await this.populateFooterSocial();
         
-        if (this.pageName === 'CV' || this.pageName === 'About' || document.querySelector('.cv-section-title')) {
+        if (this.pageName === 'CV' || this.pageName === 'About' || document.querySelector('.section-title-collapsible')) {
             this.initializeCVToggle();
         }
     }
@@ -104,7 +104,7 @@ class PageBase {
     }
 
     initializeCVToggle() {
-        document.querySelectorAll('.cv-section-title').forEach(title => {
+        document.querySelectorAll('.section-title-collapsible').forEach(title => {
             title.addEventListener('click', function() {
                 const content = document.getElementById(this.dataset.section + '-content');
                 const toggleIcon = this.querySelector('.toggle-icon');

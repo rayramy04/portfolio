@@ -19,10 +19,10 @@ class HTMLGenerator {
             <div class="cv-item-header">
                 <div>
                     <h3>${title}${link ? ' <span class="link-arrow"><i class="fas fa-external-link-alt"></i></span>' : ''}</h3>
-                    <p class="cv-company">${subtitle}</p>
+                    <p class="text-org">${subtitle}</p>
                 </div>
                 <div>
-                    <p class="cv-date">${date}</p>
+                    <p class="text-date">${date}</p>
                 </div>
             </div>
             ${description ? `<div class="cv-item-content"><p>${description}</p></div>` : ''}
@@ -78,7 +78,7 @@ class HTMLGenerator {
                         <h4>${grant.organization || grant.funder}</h4>
                     </div>
                     <div>
-                        <p class="cv-date">${grant.date || grant.year}</p>
+                        <p class="text-date">${grant.date || grant.year}</p>
                         ${grant.amount ? `<p class="cv-amount">${grant.amount}</p>` : ''}
                     </div>
                 </div>
@@ -94,7 +94,7 @@ class HTMLGenerator {
                 <div class="skills-grid">
                     ${category.skills.map(skill => `
                         <div class="skill-item hover-lift">
-                            <div class="skill-name">${skill.name}</div>
+                            <div class="text-name">${skill.name}</div>
                             ${skill.level ? `<div class="skill-stars">${generateStars(skill.level)}</div>` : ''}
                             ${skill.description ? `<p>${skill.description.join(', ')}</p>` : ''}
                         </div>

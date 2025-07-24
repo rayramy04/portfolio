@@ -179,7 +179,9 @@ h6 {
   margin-bottom: var(--space-4);
 }
 
-.section-title {
+/* ===== UNIFIED TEXT SYSTEM ===== */
+/* H1: Main page titles */
+.page-title {
   font-size: var(--fs-4xl);
   color: var(--text-primary);
   text-align: center;
@@ -189,16 +191,42 @@ h6 {
   transition: var(--transition-fade);
 }
 
-.section-title.loaded {
+.page-title.loaded {
   opacity: 1;
   transform: translateY(0);
 }
 
-.section-subtitle {
-  font-size: var(--fs-lg);
+/* H2: Section titles */
+.section-title {
+  font-size: var(--fs-2xl);
+  color: var(--primary-color);
+  margin-bottom: var(--space-6);
+}
+
+/* H3: Subsection titles */
+.subsection-title {
+  font-size: var(--fs-xl);
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+}
+
+/* Unified text utilities */
+.text-date {
   color: var(--text-light);
-  text-align: center;
-  margin-bottom: var(--space-12);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-base);
+}
+
+.text-org {
+  color: var(--text-secondary);
+  font-weight: var(--fw-medium);
+  margin: var(--space-2) 0;
+}
+
+.text-name {
+  font-weight: var(--fw-semibold);
+  color: var(--text-primary);
+  font-size: var(--fs-base);
 }
 
 /* ===== NAVIGATION ===== */
@@ -439,10 +467,7 @@ h6 {
   margin-top: var(--space-10);
 }
 
-.keywords-title {
-  font-size: var(--fs-2xl);
-  margin-bottom: var(--space-8);
-}
+/* Removed - using .subsection-title instead */
 
 .keywords {
   display: flex;
@@ -554,7 +579,8 @@ h6 {
   transform: translateY(0);
 }
 
-.cv-section-title {
+/* Collapsible section titles (CV/About pages) */
+.section-title-collapsible {
   display: flex;
   align-items: center;
   gap: var(--space-4);
@@ -572,25 +598,25 @@ h6 {
   overflow: hidden;
 }
 
-.cv-section-title .toggle-icon {
+.section-title-collapsible .toggle-icon {
   margin-left: auto;
   transition: var(--transition-normal);
   font-size: var(--fs-lg);
   padding: var(--space-2);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   background: var(--bg-tertiary);
 }
 
-.cv-section-title:hover .toggle-icon {
+.section-title-collapsible:hover .toggle-icon {
   background: var(--primary-color);
   color: white;
 }
 
-.cv-section-title.collapsed .toggle-icon {
+.section-title-collapsible.collapsed .toggle-icon {
   transform: rotate(-90deg);
 }
 
-.cv-section-title.collapsed:hover .toggle-icon {
+.section-title-collapsible.collapsed:hover .toggle-icon {
   transform: rotate(-90deg) scale(1.1);
 }
 
@@ -654,11 +680,7 @@ a.cv-item-linkable {
   margin-bottom: var(--space-4);
 }
 
-.cv-date {
-  color: var(--text-light);
-  font-weight: var(--fw-medium);
-  font-size: var(--fs-base);
-}
+/* Removed - using .text-date instead */
 
 .cv-item-content p {
   margin-bottom: var(--space-4);
@@ -671,11 +693,7 @@ a.cv-item-linkable {
 
 /* Education and Experience specific spacing */
 .cv-degree,
-.cv-company {
-  color: var(--text-secondary);
-  font-weight: var(--fw-medium);
-  margin: var(--space-2) 0;
-}
+/* Removed - using .text-org instead */
 
 .cv-responsibilities {
   padding-left: var(--space-4);
@@ -704,8 +722,8 @@ a.cv-item-linkable {
   margin-top: var(--space-2);
 }
 
-#education-container .cv-date,
-#experience-container .cv-date {
+#education-container .text-date,
+#experience-container .text-date {
   font-size: var(--fs-lg);
   font-weight: var(--fw-semibold);
 }
@@ -782,15 +800,12 @@ a.cv-item-linkable {
   overflow: hidden;
 }
 
-.skill-item-compact .skill-name {
-  font-weight: var(--fw-semibold);
-  color: var(--text-primary);
-  font-size: var(--fs-base);
+.skill-item-compact .text-name {
+  flex: 1;
+  margin-right: var(--space-2);
   line-height: 1.4;
   word-break: break-word;
   hyphens: auto;
-  flex: 1;
-  margin-right: var(--space-2);
 }
 
 .skill-stars-small {
@@ -836,7 +851,7 @@ a.cv-item-linkable {
 
 .skill-stars {
   display: flex;
-  gap: var(--space-1);
+  gap: var(--space-2);
 }
 
 .skill-stars i {
@@ -862,14 +877,7 @@ a.cv-item-linkable {
   gap: var(--space-2);
 }
 
-.skill-name {
-  font-weight: var(--fw-medium);
-  color: var(--text-primary);
-  font-size: var(--fs-base);
-  line-height: 1.4;
-  word-break: break-word;
-  hyphens: auto;
-}
+/* Removed - using .text-name instead */
 
 .skill-stars {
   display: flex;
@@ -891,8 +899,8 @@ a.cv-item-linkable {
 
 /* Skill description styles */
 .skill-description {
-  margin-top: var(--space-3);
-  padding: var(--space-3);
+  margin-top: var(--space-4);
+  padding: var(--space-4);
   background: var(--bg-primary);
   border-radius: var(--radius-md);
   border-left: 2px solid var(--bg-secondary);
@@ -916,7 +924,7 @@ a.cv-item-linkable {
 .skill-description ul li::before {
   content: '•';
   color: var(--text-light);
-  font-weight: var(--fw-normal);
+  font-weight: var(--fw-medium);
   position: absolute;
   left: 0;
 }
@@ -1057,7 +1065,7 @@ a.cv-item-linkable {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
-  margin-top: var(--space-3);
+  margin-top: var(--space-4);
   margin-bottom: var(--space-4);
 }
 
@@ -1127,29 +1135,7 @@ a.cv-item-linkable {
   }
 }
 
-.about-text h2 {
-  color: var(--primary-color);
-  margin-bottom: var(--space-6);
-  font-size: var(--fs-3xl);
-}
-
-.about-text h3 {
-  color: var(--text-primary);
-  margin-bottom: var(--space-4);
-  font-size: var(--fs-2xl);
-  font-weight: var(--fw-semibold);
-}
-
-.about-text p {
-  line-height: 1.7;
-  margin-bottom: var(--space-6);
-  color: var(--text-primary);
-}
-
-.about-text p:last-child {
-  margin-bottom: 0;
-}
-
+/* About page uses standard text classes */
 .current-position {
   font-weight: var(--fw-medium);
   color: var(--primary-color);
@@ -1294,11 +1280,7 @@ a.cv-item-linkable {
 
 
 
-.timeline-date {
-  color: var(--primary-color);
-  font-weight: var(--fw-semibold);
-  margin-bottom: var(--space-2);
-}
+/* Removed - using .text-date instead */
 
 .timeline-header {
   display: flex;
@@ -1442,15 +1424,12 @@ a.cv-item-linkable {
 }
 
 h3.awards-year {
-  color: var(--primary-color) !important;
-  background: none !important;
-  font-size: var(--fs-2xl) !important;
-  font-weight: var(--fw-bold) !important;
-  margin: var(--space-16) 0 var(--space-8) 0 !important;
-  padding: 0 !important;
-  border: none !important;
-  text-align: center !important;
-  display: block !important;
+  color: var(--primary-color);
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-bold);
+  margin: var(--space-16) 0 var(--space-8) 0;
+  text-align: center;
+  display: block;
 }
 
 
@@ -1468,7 +1447,7 @@ h3.awards-year {
   color: var(--primary-color);
   font-weight: var(--fw-semibold);
   font-size: var(--fs-sm);
-  margin: var(--space-1) 0 0 0;
+  margin: var(--space-2) 0 0 0;
   text-align: right;
 }
 
@@ -1565,7 +1544,7 @@ h3.awards-year {
     font-size: var(--fs-lg);
   }
 
-  .section-title {
+  .page-title {
     font-size: var(--fs-3xl);
   }
 
@@ -1643,11 +1622,11 @@ h3.awards-year {
     font-size: var(--fs-3xl);
   }
 
-  .keywords-title {
+  .subsection-title {
     font-size: var(--fs-xl);
   }
 
-  .cv-section-title {
+  .section-title-collapsible {
     font-size: var(--fs-xl);
   }
 
