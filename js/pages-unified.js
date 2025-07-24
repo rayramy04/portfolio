@@ -53,7 +53,7 @@ async function initHome() {
         // Get colors from CSS variables
         const rootStyles = getComputedStyle(document.documentElement);
         const primaryColor = rootStyles.getPropertyValue('--primary-color').trim();
-        const primaryLight = rootStyles.getPropertyValue('--primary-light').trim();
+        const primaryLight = rootStyles.getPropertyValue('--color-primary-light').trim();
         const accentColors = [primaryColor, '#14b8a6', '#06b6d4', primaryLight]; // Keep some variety for particles
         
         particlesJS('particles-js', {
@@ -105,7 +105,7 @@ async function initAbout() {
         }
     }
     
-    // 画像を右側に追加
+    // Add image to the right
     const whoIAmContent = document.getElementById('who-i-am-content');
     if (whoIAmContent) {
         whoIAmContent.innerHTML = `
@@ -121,7 +121,7 @@ async function initAbout() {
             </div>
         `;
         
-        // 再度名前と役職を設定
+        // Set name and title again
         const newAboutName = document.getElementById('about-name');
         const newAboutPosition = document.getElementById('about-position');
         const newAboutContentInner = document.getElementById('who-i-am-content-inner');
