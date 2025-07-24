@@ -52,8 +52,8 @@ async function initHome() {
     if (typeof particlesJS !== 'undefined' && document.getElementById('particles-js')) {
         // Get colors from CSS variables
         const rootStyles = getComputedStyle(document.documentElement);
-        const primaryColor = rootStyles.getPropertyValue('--color-primary').trim();
-        const primaryLight = rootStyles.getPropertyValue('--color-primary-light').trim();
+        const primaryColor = rootStyles.getPropertyValue('--primary-color').trim();
+        const primaryLight = rootStyles.getPropertyValue('--primary-light').trim();
         const accentColors = [primaryColor, '#14b8a6', '#06b6d4', primaryLight]; // Keep some variety for particles
         
         particlesJS('particles-js', {
@@ -120,10 +120,7 @@ async function initAbout() {
     const interestsContainer = document.getElementById('interests-container');
     if (interestsContainer) {
         interestsContainer.innerHTML = window.aboutData.interests.map(interest => `
-            <div class="interest-card hover-lift">
-                <div class="interest-icon">
-                    <i class="${interest.icon}"></i>
-                </div>
+            <div class="card hover-lift">
                 <h3>${interest.title}</h3>
                 <p>${interest.description}</p>
             </div>
@@ -202,37 +199,14 @@ async function initProjects() {
     const projectsContainer = document.getElementById('projects-container');
     if (projectsContainer) {
         projectsContainer.innerHTML = window.projectsData.map(project => `
-            <div class="project-card hover-lift">
-                ${project.image ? `
-                    <div class="project-image">
-                        <img src="${project.image}" alt="${project.name || project.title}">
-                    </div>
+            <div class="card hover-lift">
+                <h3>${project.name || project.title}</h3>
+                ${project.description ? `<p>${project.description}</p>` : ''}
+                ${project.technologies?.length ? `
+                    <p>Technologies: ${project.technologies.join(', ')}</p>
                 ` : ''}
-                <div class="project-content">
-                    <h3>${project.name || project.title}</h3>
-                    ${project.description ? `<p class="project-description">${project.description}</p>` : ''}
-                    ${project.technologies?.length ? `
-                        <div class="project-technologies">
-                            ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
-                        </div>
-                    ` : ''}
-                    ${project.githubUrl || project.liveUrl ? `
-                        <div class="project-links">
-                            ${project.githubUrl ? `
-                                <a href="${project.githubUrl}" target="_blank" class="project-link" title="GitHub">
-                                    <i class="fab fa-github"></i>
-                                    GitHub
-                                </a>
-                            ` : ''}
-                            ${project.liveUrl ? `
-                                <a href="${project.liveUrl}" target="_blank" class="project-link" title="Live Demo">
-                                    <i class="fas fa-external-link-alt"></i>
-                                    Live Demo
-                                </a>
-                            ` : ''}
-                        </div>
-                    ` : ''}
-                </div>
+                ${project.githubUrl ? `<p><a href="${project.githubUrl}" target="_blank">GitHub</a></p>` : ''}
+                ${project.liveUrl ? `<p><a href="${project.liveUrl}" target="_blank">Live Demo</a></p>` : ''}
             </div>
         `).join('');
     }

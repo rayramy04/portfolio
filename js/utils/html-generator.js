@@ -16,28 +16,22 @@ class HTMLGenerator {
         const link = item.url || item.link;
         
         const itemContent = `
-            <div class="cv-item-header">
-                <div>
-                    <h3>${title}${link ? ' <span class="link-arrow"><i class="fas fa-external-link-alt"></i></span>' : ''}</h3>
-                    <p class="text-org">${subtitle}</p>
-                </div>
-                <div>
-                    <p class="text-date">${date}</p>
-                </div>
-            </div>
-            ${description ? `<div class="cv-item-content"><p>${description}</p></div>` : ''}
+            <h3>${title}</h3>
+            <p>${subtitle}</p>
+            <p>${date}</p>
+            ${description ? `<p>${description}</p>` : ''}
         `;
         
         if (link) {
             return `
-                <a href="${link}" target="_blank" class="cv-item cv-item-linkable hover-lift">
+                <a href="${link}" target="_blank" class="card hover-lift">
                     ${itemContent}
                 </a>
             `;
         }
         
         return `
-            <div class="cv-item hover-lift">
+            <div class="card hover-lift">
                 ${itemContent}
             </div>
         `;
@@ -48,19 +42,9 @@ class HTMLGenerator {
         const cardClass = config.cardClass || 'link-card';
         
         return `
-            <a href="${link.url}" ${external} class="${cardClass} hover-lift">
-                <div class="link-card-content">
-                    <div class="link-icon">
-                        <i class="${link.icon}"></i>
-                    </div>
-                    <div>
-                        <h3>${link.title}</h3>
-                        ${link.username ? `<p style="margin: 4px 0 0 0; color: var(--text-light); font-size: 14px;">${link.username}</p>` : ''}
-                    </div>
-                </div>
-                <div class="link-arrow">
-                    <i class="fas fa-external-link-alt"></i>
-                </div>
+            <a href="${link.url}" ${external} class="card hover-lift">
+                <h3>${link.title}</h3>
+                ${link.username ? `<p>${link.username}</p>` : ''}
             </a>
         `;
     }
@@ -71,18 +55,12 @@ class HTMLGenerator {
 
     static grantItem(grant) {
         return `
-            <div class="cv-item hover-lift">
-                <div class="cv-item-header">
-                    <div>
-                        <h3>${grant.title}</h3>
-                        <h4>${grant.organization || grant.funder}</h4>
-                    </div>
-                    <div>
-                        <p class="text-date">${grant.date || grant.year}</p>
-                        ${grant.amount ? `<p class="cv-amount">${grant.amount}</p>` : ''}
-                    </div>
-                </div>
-                ${grant.description ? `<div class="cv-item-content"><p>${grant.description}</p></div>` : ''}
+            <div class="card hover-lift">
+                <h3>${grant.title}</h3>
+                <h4>${grant.organization || grant.funder}</h4>
+                <p>${grant.date || grant.year}</p>
+                ${grant.amount ? `<p>${grant.amount}</p>` : ''}
+                ${grant.description ? `<p>${grant.description}</p>` : ''}
             </div>
         `;
     }
@@ -93,9 +71,9 @@ class HTMLGenerator {
                 <h3>${category.category}</h3>
                 <div class="skills-grid">
                     ${category.skills.map(skill => `
-                        <div class="skill-item hover-lift">
-                            <div class="text-name">${skill.name}</div>
-                            ${skill.level ? `<div class="skill-stars">${generateStars(skill.level)}</div>` : ''}
+                        <div class="card hover-lift">
+                            <div>${skill.name}</div>
+                            ${skill.level ? `<div>${generateStars(skill.level)}</div>` : ''}
                             ${skill.description ? `<p>${skill.description.join(', ')}</p>` : ''}
                         </div>
                     `).join('')}
