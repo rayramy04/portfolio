@@ -1,4 +1,4 @@
-// Home ページのデータ
+// Home page data
 window.homeData = {
   hero: {
     name: "Ray",
