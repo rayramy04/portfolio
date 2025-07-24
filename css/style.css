@@ -196,9 +196,43 @@
   margin: 0; /* Override default text-meta margins */
 }
 
-.grant-amount {
-  font-weight: var(--fw-semibold);
+.card-external-icon {
+  color: var(--text-light);
+  font-size: var(--fs-base);
+  opacity: 0.7;
+  transition: all var(--transition-fast);
 }
+
+a.card:hover .card-external-icon {
+  color: var(--primary-color);
+  opacity: 1;
+}
+
+/* リンク付きカード（a.card）に自動的に外部リンクアイコンを追加 */
+a.card::after {
+  content: '\f35d';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: var(--text-light);
+  font-size: var(--fs-lg);
+  opacity: 0.7;
+  transition: all var(--transition-fast);
+  position: absolute;
+  bottom: var(--space-4);
+  right: var(--space-4);
+  z-index: 10;
+}
+
+a.card:hover::after {
+  color: var(--primary-color);
+  opacity: 1;
+}
+
+/* card-external-iconがある場合は::afterを無効化（二重表示防止） */
+a.card:has(.card-external-icon)::after {
+  display: none;
+}
+
 
 a.card {
   text-decoration: none;
@@ -614,6 +648,11 @@ h4 {
 .interests-section {
   margin-bottom: 0; /* Relies on main-content padding-bottom for consistent spacing */
 }
+
+.interests-grid h3 i {
+  color: var(--primary-color);
+}
+
 
 
 /* ===== CV STYLES ===== */
@@ -1104,6 +1143,10 @@ h4 {
   z-index: 10;
 }
 
+.timeline h3 i {
+  color: var(--primary-color);
+}
+
 
 
 
@@ -1209,12 +1252,6 @@ h3.awards-year {
   font-size: var(--fs-sm);
 }
 
-.grant-amount {
-  color: var(--primary-color);
-  font-weight: var(--fw-semibold);
-  font-size: var(--fs-xl);
-  margin: var(--space-2) 0;
-}
 
 
 /* ===== RESPONSIVE DESIGN ===== */
@@ -1334,6 +1371,20 @@ h3.awards-year {
   .link-card {
     flex-direction: column;
     text-align: center;
+  }
+  
+  /* モバイル: Linksページのアイコンを横並びに */
+  .links-section a.card::after {
+    display: none; /* モバイルでは::after非表示 */
+  }
+  
+  .links-section .card-header {
+    flex-direction: row; /* Linksページのみ横並び維持 */
+  }
+  
+  .links-section .card-external-icon {
+    position: static;
+    margin-left: var(--space-2);
   }
 }
 

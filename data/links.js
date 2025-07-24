@@ -48,7 +48,8 @@ window.linksData = {
       name: "Portfolio",
       url: "index.html",
       title: "Portfolio",
-      icon: "fas fa-home"
+      icon: "fas fa-home",
+      rightIcon: "fas fa-arrow-right"
     }
   ]
 };
