@@ -49,7 +49,7 @@ window.aboutData = {
     },
     {
       title: "Music",
-      description: "ピアノ演奏、耳コピでの楽譜制作。セッションができる友達募集中です！",
+      description: "ピアノ演奏、耳コピでの楽譜制作。セッションも好き。",
       icon: "fas fa-music"
     },
     {
