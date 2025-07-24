@@ -1,4 +1,3 @@
-// Links page data
 window.linksData = {
   contact: [
     {

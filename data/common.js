@@ -1,4 +1,3 @@
-// Common data
 window.commonData = {
   profile: {
     name: "Ray",
