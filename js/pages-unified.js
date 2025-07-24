@@ -44,7 +44,7 @@ async function initHome() {
     if (heroTitle) heroTitle.textContent = subtitle;
     if (keywordsList) {
         keywordsList.innerHTML = keywords.map(keyword => 
-            `<li class="keyword-item hover-lift">${keyword}</li>`
+            `<li class="keyword-item">${keyword}</li>`
         ).join('');
     }
     
@@ -218,8 +218,12 @@ async function initProjects() {
                 ${project.technologies?.length ? `
                     <p class="text-meta">${project.technologies.join(', ')}</p>
                 ` : ''}
-                ${project.githubUrl ? `<p><a href="${project.githubUrl}" target="_blank">GitHub</a></p>` : ''}
-                ${project.liveUrl ? `<p><a href="${project.liveUrl}" target="_blank">Live Demo</a></p>` : ''}
+                ${project.githubUrl || project.liveUrl ? `
+                    <div class="project-links">
+                        ${project.githubUrl ? `<a href="${project.githubUrl}" target="_blank" class="project-link hover-lift"><i class="fab fa-github"></i> GitHub</a>` : ''}
+                        ${project.liveUrl ? `<a href="${project.liveUrl}" target="_blank" class="project-link hover-lift"><i class="fas fa-external-link-alt"></i> Live Demo</a>` : ''}
+                    </div>
+                ` : ''}
             </div>
         `).join('');
         projectsContainer.className = 'projects-grid grid-auto-fit';
@@ -239,7 +243,7 @@ async function initLinks() {
         
         linksContainer.innerHTML = `
             <section class="links-section">
-                <h2 class="section-title" style="text-align: center;">
+                <h2 class="section-title section-title-centered">
                     <i class="fas fa-globe"></i>
                     Website & Contact
                 </h2>
@@ -249,7 +253,7 @@ async function initLinks() {
             </section>
             
             <section class="links-section">
-                <h2 class="section-title" style="text-align: center;">
+                <h2 class="section-title section-title-centered">
                     <i class="fas fa-share-alt"></i>
                     Social Media
                 </h2>
@@ -259,7 +263,7 @@ async function initLinks() {
             </section>
             
             <section class="links-section">
-                <h2 class="section-title" style="text-align: center;">
+                <h2 class="section-title section-title-centered">
                     <i class="fas fa-briefcase"></i>
                     Portfolio
                 </h2>
