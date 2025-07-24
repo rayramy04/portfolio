@@ -105,6 +105,39 @@ async function initAbout() {
         }
     }
     
+    // 画像を右側に追加
+    const whoIAmContent = document.getElementById('who-i-am-content');
+    if (whoIAmContent) {
+        whoIAmContent.innerHTML = `
+            <div class="about-profile-layout">
+                <div class="card hover-lift" id="who-i-am-content-inner">
+                    <h3 id="about-name"></h3>
+                    <p id="about-position" class="text-meta"></p>
+                </div>
+                <div class="about-image-content">
+                    <img src="assets/about-photo.jpg" alt="About Ray" class="about-photo"
+                        onerror="this.style.display='none';">
+                </div>
+            </div>
+        `;
+        
+        // 再度名前と役職を設定
+        const newAboutName = document.getElementById('about-name');
+        const newAboutPosition = document.getElementById('about-position');
+        const newAboutContentInner = document.getElementById('who-i-am-content-inner');
+        
+        if (newAboutName) newAboutName.textContent = personalData.name;
+        if (newAboutPosition) newAboutPosition.textContent = personalData.position;
+        if (newAboutContentInner && personalData.description) {
+            const existingContent = newAboutContentInner.innerHTML;
+            if (Array.isArray(personalData.description)) {
+                newAboutContentInner.innerHTML = existingContent + personalData.description.map(p => `<p>${p}</p>`).join('');
+            } else {
+                newAboutContentInner.innerHTML = existingContent + `<p>${personalData.description}</p>`;
+            }
+        }
+    }
+    
     // Story content
     const storyContent = document.getElementById('story-content-inner');
     if (storyContent && window.aboutData?.story?.paragraphs) {
@@ -212,18 +245,25 @@ async function initProjects() {
     const projectsContainer = document.getElementById('projects-container');
     if (projectsContainer) {
         projectsContainer.innerHTML = window.projectsData.map(project => `
-            <div class="card hover-lift">
-                <h3>${project.name || project.title}</h3>
-                ${project.description ? `<p>${project.description}</p>` : ''}
-                ${project.technologies?.length ? `
-                    <p class="text-meta">${project.technologies.join(', ')}</p>
-                ` : ''}
-                ${project.githubUrl || project.liveUrl ? `
-                    <div class="project-links">
-                        ${project.githubUrl ? `<a href="${project.githubUrl}" target="_blank" class="project-link hover-lift"><i class="fab fa-github"></i> GitHub</a>` : ''}
-                        ${project.liveUrl ? `<a href="${project.liveUrl}" target="_blank" class="project-link hover-lift"><i class="fas fa-external-link-alt"></i> Live Demo</a>` : ''}
+            <div class="card hover-lift project-card">
+                ${project.image ? `
+                    <div class="project-image">
+                        <img src="${project.image}" alt="${project.name || project.title}" loading="lazy">
                     </div>
                 ` : ''}
+                <div class="project-content">
+                    <h3>${project.name || project.title}</h3>
+                    ${project.description ? `<p>${project.description}</p>` : ''}
+                    ${project.technologies?.length ? `
+                        <p class="text-meta">${project.technologies.join(', ')}</p>
+                    ` : ''}
+                    ${project.githubUrl || project.liveUrl ? `
+                        <div class="project-links">
+                            ${project.githubUrl ? `<a href="${project.githubUrl}" target="_blank" class="project-link hover-lift"><i class="fab fa-github"></i> GitHub</a>` : ''}
+                            ${project.liveUrl ? `<a href="${project.liveUrl}" target="_blank" class="project-link hover-lift"><i class="fas fa-external-link-alt"></i> Live Demo</a>` : ''}
+                        </div>
+                    ` : ''}
+                </div>
             </div>
         `).join('');
         projectsContainer.className = 'projects-grid grid-auto-fit';
