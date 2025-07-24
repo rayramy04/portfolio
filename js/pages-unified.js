@@ -118,7 +118,7 @@ async function initAbout() {
         timelineContainer.innerHTML = window.aboutData.timeline.map(item => `
             <div class="card hover-lift">
                 <div class="card-header">
-                    <h3>${item.title}</h3>
+                    <h3>${item.icon ? `<i class="${item.icon}"></i> ` : ''}${item.title}</h3>
                     <p class="text-meta">${item.period}</p>
                 </div>
                 <p>${item.description}</p>
@@ -131,7 +131,7 @@ async function initAbout() {
     if (interestsContainer) {
         interestsContainer.innerHTML = window.aboutData.interests.map(interest => `
             <div class="card hover-lift">
-                <h3>${interest.title}</h3>
+                <h3>${interest.icon ? `<i class="${interest.icon}"></i> ` : ''}${interest.title}</h3>
                 <p>${interest.description}</p>
             </div>
         `).join('');
@@ -270,8 +270,7 @@ async function initLinks() {
                 <div class="links-grid grid-auto-fit">
                     ${window.linksData.portfolio.map(link => HTMLGenerator.linkCard(link, { 
                         cardClass: 'link-card portfolio-card', 
-                        external: link.url.startsWith('http'),
-                        showArrow: true 
+                        external: link.url.startsWith('http')
                     })).join('')}
                 </div>
             </section>

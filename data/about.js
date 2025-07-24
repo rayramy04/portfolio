@@ -21,27 +21,32 @@ window.aboutData = {
     {
       period: "Present",
       title: "現在",
-      description: "2025年現在、学部2年生として、より専門的なプログラミングやデータ解析の分野を学んでいる。学業の傍ら、音楽活動、ウェブサイト運営などにも取り組む。"
+      description: "2025年現在、学部2年生として、より専門的なプログラミングやデータ解析の分野を学んでいる。学業の傍ら、音楽活動、ウェブサイト運営などにも取り組む。",
+      icon: "fas fa-laptop-code"
     },
     {
       period: "2024.07",
       title: "モナッシュ大学の学部課程に進学",
-      description: "MUFY修了後、モナッシュ大学マレーシア校の学部課程（Bachelor of Computer Science in Data Science）に奨学金付きで進学。"
+      description: "MUFY修了後、モナッシュ大学マレーシア校の学部課程（Bachelor of Computer Science in Data Science）に奨学金付きで進学。",
+      icon: "fas fa-university"
     },
     {
       period: "2023.07",
       title: "マレーシア留学開始",
-      description: "海外での新生活をスタート。Monash University Foundation Year (MUFY)に奨学金付きで入学。この頃から各種インターンシップなども開始。"
+      description: "海外での新生活をスタート。Monash University Foundation Year (MUFY)に奨学金付きで入学。この頃から各種インターンシップなども開始。",
+      icon: "fas fa-plane-departure"
     },
     {
       period: "2023.03",
       title: "高校卒業",
-      description: "地元の公立高校（国際バカロレア認定校）を卒業。渡航まで約4か月半のギャップタームに突入。"
+      description: "地元の公立高校（国際バカロレア認定校）を卒業。渡航まで約4か月半のギャップタームに突入。",
+      icon: "fas fa-graduation-cap"
     },
     {
       period: "2004.04",
       title: "誕生",
-      description: "神奈川県で生まれ、千葉県で幼少期を過ごす。小学4年生で地方に転校。"
+      description: "神奈川県で生まれ、千葉県で幼少期を過ごす。小学4年生で地方に転校。",
+      icon: "fas fa-baby"
     }
   ],
 
