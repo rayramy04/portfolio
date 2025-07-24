@@ -57,7 +57,7 @@ window.cvData = {
     {
       category: "Other Tools",
       skills: [
-        { name: "楽譜作成ソフト (MuseScore, Sibelius, Dorico Pro5)", level: 5 },
+        { name: "Sheet Music Software (MuseScore, Sibelius, Dorico Pro)", level: 5 },
         { name: "Logic Pro", level: 4 },
         { name: "OBS Studio", level: 4 },
         { name: "Final Cut Pro", level: 2 }
@@ -66,16 +66,16 @@ window.cvData = {
     {
       category: "Languages",
       skills: [
-        { name: "日本語: ネイティブ", level: 5 },
-        { name: "英語: ビジネスレベル", level: 4 },
-        { name: "マレー語: 基礎レベル", level: 1 }
+        { name: "Japanese: Native", level: 5 },
+        { name: "English: Business", level: 4 },
+        { name: "Malay / Indonesian: Basic", level: 1 }
       ]
     },
     {
       category: "Specialized Skills",
       skills: [
         {
-          name: "データサイエンス",
+          name: "Data Science",
           level: 4,
           description: [
             "学部課程でコンピュータサイエンスとデータサイエンスを専攻",
@@ -85,7 +85,7 @@ window.cvData = {
           ]
         },
         {
-          name: "ライティング・リサーチ",
+          name: "Research / Writing",
           level: 5,
           description: [
             "ライターとして1ヶ月でGoogle AdSense審査合格、5か月で月1万PVを達成、700記事以上執筆",
@@ -95,7 +95,7 @@ window.cvData = {
           ]
         },
         {
-          name: "プロジェクト管理・ビジネス",
+          name: "Project Management / Business",
           level: 4,
           description: [
             "複数の業界でのインターンシップ経験",
@@ -105,7 +105,7 @@ window.cvData = {
           ]
         },
         {
-          name: "音楽",
+          name: "Music",
           level: 5,
           description: [
             "6音程度まで聴音（耳コピ）が可能",
