@@ -336,7 +336,7 @@ window.cvData = {
     },
     {
       title: "Pre-U Bursary for Overseas Qualification",
-      organization: "Educational Institution",
+      organization: "Sunway College",
       amount: "MYR 5,000",
       date: "2023",
       description: "成績優秀者として授与された奨学金。1セメスター（半年）ごとにMYR5000が支給"

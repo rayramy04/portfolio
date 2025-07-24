@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills Test - Ray's Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container" style="padding-top: 2rem;">
+        <h1>Skills Section Test</h1>
+        
+        <div id="skills-container">
+            <!-- Skills will be populated here -->
+        </div>
+    </div>
+
+    <script src="js/utils/dom-helpers.js"></script>
+    <script src="js/utils/html-generator.js"></script>
+    <script src="js/utils/error-handler.js"></script>
+    <script src="js/utils/data-populator.js"></script>
+    <script src="js/utils/page-manager.js"></script>
+    <script src="data/cv.js"></script>
+    <script>
+        function generateStars(level) {
+            const maxStars = 5;
+            let starsHTML = '';
+            
+            for (let i = 1; i <= maxStars; i++) {
+                if (i <= level) {
+                    starsHTML += '<i class="fas fa-star"></i>';
+                } else {
+                    starsHTML += '<i class="far fa-star"></i>';
+                }
+            }
+            
+            return starsHTML;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const skillsContainer = document.getElementById('skills-container');
+            if (skillsContainer && window.cvData) {
+                skillsContainer.innerHTML = HTMLGenerator.skillsSection(window.cvData.skills, generateStars);
+            }
+        });
+    </script>
+</body>
+</html>
