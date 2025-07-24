@@ -83,15 +83,27 @@ async function initHome() {
 }
 
 async function initAbout() {
+    if (!window.aboutData) {
+        console.error('aboutData not loaded');
+        return;
+    }
+    
     const personalData = window.aboutData.personal;
     
     const aboutName = document.getElementById('about-name');
     const aboutPosition = document.getElementById('about-position');
-    const aboutDescription = document.getElementById('about-description');
+    const aboutContentInner = document.getElementById('who-i-am-content-inner');
     
     if (aboutName) aboutName.textContent = personalData.name;
     if (aboutPosition) aboutPosition.textContent = personalData.position;
-    if (aboutDescription) aboutDescription.innerHTML = personalData.description;
+    if (aboutContentInner && personalData.description) {
+        const existingContent = aboutContentInner.innerHTML;
+        if (Array.isArray(personalData.description)) {
+            aboutContentInner.innerHTML = existingContent + personalData.description.map(p => `<p>${p}</p>`).join('');
+        } else {
+            aboutContentInner.innerHTML = existingContent + `<p>${personalData.description}</p>`;
+        }
+    }
     
     // Story content
     const storyContent = document.getElementById('story-content-inner');
@@ -105,8 +117,10 @@ async function initAbout() {
     if (timelineContainer) {
         timelineContainer.innerHTML = window.aboutData.timeline.map(item => `
             <div class="card hover-lift">
-                <p class="text-meta">${item.period}</p>
-                <h3>${item.title}</h3>
+                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <h3 style="flex: 1;">${item.title}</h3>
+                    <p class="text-meta" style="white-space: nowrap;">${item.period}</p>
+                </div>
                 <p>${item.description}</p>
             </div>
         `).join('');
@@ -201,7 +215,7 @@ async function initProjects() {
                 <h3>${project.name || project.title}</h3>
                 ${project.description ? `<p>${project.description}</p>` : ''}
                 ${project.technologies?.length ? `
-                    <p class="text-meta">Technologies: ${project.technologies.join(', ')}</p>
+                    <p class="text-meta">${project.technologies.join(', ')}</p>
                 ` : ''}
                 ${project.githubUrl ? `<p><a href="${project.githubUrl}" target="_blank">GitHub</a></p>` : ''}
                 ${project.liveUrl ? `<p><a href="${project.liveUrl}" target="_blank">Live Demo</a></p>` : ''}
