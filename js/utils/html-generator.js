@@ -44,7 +44,7 @@ class HTMLGenerator {
     static linkCard(link, config = {}) {
         const external = config.external ? 'target="_blank"' : '';
         const cardClass = config.cardClass || 'link-card';
-        // デフォルトは外部リンクアイコン、rightIconで上書き可能
+        // Default external link icon, can be overridden
         const rightIcon = link.rightIcon || 'fas fa-external-link-alt';
         
         return `

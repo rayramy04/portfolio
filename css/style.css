@@ -22,7 +22,6 @@
   /* ===== SEMANTIC MAPPINGS ===== */
   /* Primary Colors - for backward compatibility */
   --primary-color: var(--color-primary);
-  --primary-light: var(--color-primary-light);
   --primary-dark: var(--color-primary-dark);
 
   /* Background Colors */
@@ -62,40 +61,34 @@
   --fw-semibold: 600;
   --fw-bold: 700;
 
-  /* Font Sizes - 必要最小限 */
-  --fs-sm: 0.875rem;    /* 小さいテキスト */
-  --fs-base: 1rem;      /* 基本テキスト */
-  --fs-lg: 1.125rem;    /* 大きめテキスト */
-  --fs-xl: 1.25rem;     /* サブタイトル */
-  --fs-2xl: 1.5rem;     /* セクションタイトル */
-  --fs-4xl: 2.25rem;    /* ページタイトル */
-  --fs-5xl: 3rem;       /* ヒーロータイトル */
+  /* Font Sizes - Minimal set */
+  --fs-sm: 0.875rem;    /* Small text */
+  --fs-base: 1rem;      /* Base text */
+  --fs-lg: 1.125rem;    /* Large text */
+  --fs-xl: 1.25rem;     /* Subtitle */
+  --fs-2xl: 1.5rem;     /* Section title */
+  --fs-4xl: 2.25rem;    /* Page title */
+  --fs-5xl: 3rem;       /* Hero title */
 
   /* Line Heights */
-  --lh-normal: 1.6;     /* 標準行間 */
-  --lh-relaxed: 1.8;    /* ゆったり行間 */
+  --lh-normal: 1.6;     /* Normal line height */
+  --lh-relaxed: 1.8;    /* Relaxed line height */
 
-  /* Spacing - 必要最小限 */
-  --space-1: 0.25rem;   /* 極小間隔 */
-  --space-2: 0.5rem;    /* 最小間隔 */
-  --space-4: 1rem;      /* 基本間隔 */
-  --space-6: 1.5rem;    /* 中間隔 */
-  --space-8: 2rem;      /* 大間隔 */
-  --space-12: 3rem;     /* 項目間隔 */
-  --space-16: 4rem;     /* セクション間隔 */
-  --space-20: 5rem;     /* 大セクション間隔 */
-  --space-24: 6rem;     /* 特大セクション間隔 */
-  --space-32: 8rem;     /* 最大セクション間隔 */
+  /* Spacing - Minimal set */
+  --space-1: 0.25rem;   /* Extra small */
+  --space-2: 0.5rem;    /* Small */
+  --space-4: 1rem;      /* Base */
+  --space-6: 1.5rem;    /* Medium */
+  --space-8: 2rem;      /* Large */
+  --space-12: 3rem;     /* Item spacing */
+  --space-16: 4rem;     /* Section spacing */
 
   /* Sizes */
-  --size-icon-sm: 50px;     /* 小アイコン */
-  --size-icon-md: 60px;     /* 中アイコン */
-  --size-icon-lg: 80px;     /* 大アイコン */
-  --size-avatar-sm: 150px;  /* 小アバター */
-  --size-avatar-md: 200px;  /* 中アバター */
-  --size-image-height: 350px; /* 画像高さ */
-  --size-project-thumb: 200px; /* プロジェクトサムネイル */
-  --max-width-container: 1200px; /* コンテナ最大幅 */
+  --size-icon-sm: 50px;     /* Small icon */
+  --size-avatar-sm: 150px;  /* Small avatar */
+  --size-avatar-md: 200px;  /* Medium avatar */
+  --size-project-thumb: 200px; /* Project thumbnail */
+  --max-width-container: 1200px; /* Container max width */
   
   /* Border Radius */
   --radius-md: 0.375rem;
@@ -165,7 +158,6 @@
   }
 }
 
-
 /* Unified card header layout */
 .card-header {
   display: flex;
@@ -208,7 +200,7 @@ a.card:hover .card-external-icon {
   opacity: 1;
 }
 
-/* リンク付きカード（a.card）に自動的に外部リンクアイコンを追加 */
+/* External link icon for linked cards (a.card) */
 a.card::after {
   content: '\f35d';
   font-family: 'Font Awesome 5 Free';
@@ -228,7 +220,7 @@ a.card:hover::after {
   opacity: 1;
 }
 
-/* card-external-iconがある場合は::afterを無効化（二重表示防止） */
+/* Disable ::after when card-external-icon exists (prevent double icons) */
 a.card:has(.card-external-icon)::after {
   display: none;
 }
@@ -250,18 +242,18 @@ a.card:hover {
   transition: all var(--transition-fast);
 }
 
-/* 通常のリンク（テキストリンク）: 色変更のみ */
+/* Regular links (text links): color change only */
 .hover-lift:not(.card):hover {
   color: var(--primary-color);
 }
 
-/* カード（非リンク）: 軽い浮上効果のみ */
+/* Cards (non-link): light lift effect only */
 .card.hover-lift:not(a):hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
 
-/* リンク付きカード: より明確なクリック可能エフェクト */
+/* Linked cards: more distinct clickable effect */
 a.card.hover-lift:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-green);
@@ -269,10 +261,6 @@ a.card.hover-lift:hover {
   background: var(--bg-tertiary);
   cursor: pointer;
 }
-
-/* Removed unused hover effect classes - only .hover-lift is used */
-
-/* Removed unused transition classes - transitions are defined inline */
 
 html {
   scroll-behavior: smooth;
@@ -394,7 +382,7 @@ h4 {
 .about-profile-layout {
   display: flex;
   gap: var(--space-8);
-  align-items: stretch; /* カードと画像の高さを揃える */
+  align-items: stretch; /* Align card and image heights */
 }
 
 .about-text-content {
@@ -409,7 +397,7 @@ h4 {
   flex: 1;
   display: flex;
   justify-content: center;
-  align-items: stretch; /* 画像をコンテナの高さに合わせる */
+  align-items: stretch; /* Fit image to container height */
 }
 
 .about-photo {
@@ -541,18 +529,6 @@ h4 {
 }
 
 /* ===== BUTTONS ===== */
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-4) var(--space-8);
-  background: var(--gradient-button);
-  color: var(--text-white);
-  text-decoration: none;
-  border-radius: var(--radius-lg);
-  font-weight: var(--fw-medium);
-  box-shadow: var(--shadow-green);
-}
 
 /* ===== MAIN CONTENT ===== */
 
@@ -728,10 +704,23 @@ h4 {
   position: relative;
 }
 
+.section-title-collapsible:hover {
+  background: rgba(var(--color-primary-rgb), 0.05);
+}
+
+.section-title-collapsible:hover .toggle-icon {
+  transform: translateX(-4px);
+}
+
+.section-title-collapsible.collapsed:hover .toggle-icon {
+  transform: translateX(-4px) rotate(-90deg);
+}
+
 .section-title-collapsible .toggle-icon {
   margin-left: auto;
   transition: var(--transition-normal);
   font-size: var(--fs-lg);
+  color: var(--text-light);
 }
 
 .section-title-collapsible.collapsed .toggle-icon {
@@ -892,7 +881,7 @@ h4 {
 
 .skill-item {
   background: var(--bg-primary);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md);
   border: 1px solid var(--bg-tertiary);
   transition: var(--transition-normal);
   position: relative;
@@ -1410,7 +1399,7 @@ h3.awards-year {
     padding: 0 var(--space-6);
   }
 
-  /* モバイルではタイムライン線とマーカーを非表示 */
+  /* Hide timeline line and markers on mobile */
   .timeline::before {
     display: none;
   }
@@ -1448,13 +1437,13 @@ h3.awards-year {
     text-align: center;
   }
   
-  /* モバイル: Linksページのアイコンを横並びに */
+  /* Mobile: Links page icons side by side */
   .links-section a.card::after {
-    display: none; /* モバイルでは::after非表示 */
+    display: none; /* Hide ::after on mobile */
   }
   
   .links-section .card-header {
-    flex-direction: row; /* Linksページのみ横並び維持 */
+    flex-direction: row; /* Keep horizontal layout for Links page only */
   }
   
   .links-section .card-external-icon {
