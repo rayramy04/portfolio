@@ -17,8 +17,8 @@ class HTMLGenerator {
         
         const itemContent = `
             <h3>${title}</h3>
-            <p>${subtitle}</p>
-            <p>${date}</p>
+            <p class="text-meta">${subtitle}</p>
+            <p class="text-meta">${date}</p>
             ${description ? `<p>${description}</p>` : ''}
         `;
         
@@ -44,7 +44,7 @@ class HTMLGenerator {
         return `
             <a href="${link.url}" ${external} class="card hover-lift">
                 <h3>${link.title}</h3>
-                ${link.username ? `<p>${link.username}</p>` : ''}
+                ${link.username ? `<p class="text-meta">${link.username}</p>` : ''}
             </a>
         `;
     }
@@ -57,9 +57,9 @@ class HTMLGenerator {
         return `
             <div class="card hover-lift">
                 <h3>${grant.title}</h3>
-                <h4>${grant.organization || grant.funder}</h4>
-                <p>${grant.date || grant.year}</p>
-                ${grant.amount ? `<p>${grant.amount}</p>` : ''}
+                <p class="text-meta">${grant.organization || grant.funder}</p>
+                <p class="text-meta">${grant.date || grant.year}</p>
+                ${grant.amount ? `<p class="grant-amount">${grant.amount}</p>` : ''}
                 ${grant.description ? `<p>${grant.description}</p>` : ''}
             </div>
         `;

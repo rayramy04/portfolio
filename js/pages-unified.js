@@ -104,14 +104,10 @@ async function initAbout() {
     const timelineContainer = document.getElementById('timeline-container');
     if (timelineContainer) {
         timelineContainer.innerHTML = window.aboutData.timeline.map(item => `
-            <div class="timeline-item hover-lift">
-                <div class="timeline-content">
-                    <div class="timeline-header">
-                        <h3>${item.period}</h3>
-                        <h4>${item.title}</h4>
-                    </div>
-                    <p>${item.description}</p>
-                </div>
+            <div class="card hover-lift">
+                <p class="text-meta">${item.period}</p>
+                <h3>${item.title}</h3>
+                <p>${item.description}</p>
             </div>
         `).join('');
     }
@@ -129,10 +125,12 @@ async function initAbout() {
     
     // Animate sections
     setTimeout(() => {
-        document.querySelectorAll('.about-section').forEach(section => section.classList.add('loaded'));
-    }, 100);
-    setTimeout(() => document.querySelector('.timeline-section')?.classList.add('loaded'), 200);
-    setTimeout(() => document.querySelector('.interests-section')?.classList.add('loaded'), 300);
+        document.querySelectorAll('.about-section').forEach((section, index) => {
+            setTimeout(() => section.classList.add('loaded'), index * 100);
+        });
+    }, 400);
+    setTimeout(() => document.querySelector('.timeline-section')?.classList.add('loaded'), 400);
+    setTimeout(() => document.querySelector('.interests-section')?.classList.add('loaded'), 400);
 }
 
 async function initCV() {
@@ -203,7 +201,7 @@ async function initProjects() {
                 <h3>${project.name || project.title}</h3>
                 ${project.description ? `<p>${project.description}</p>` : ''}
                 ${project.technologies?.length ? `
-                    <p>Technologies: ${project.technologies.join(', ')}</p>
+                    <p class="text-meta">Technologies: ${project.technologies.join(', ')}</p>
                 ` : ''}
                 ${project.githubUrl ? `<p><a href="${project.githubUrl}" target="_blank">GitHub</a></p>` : ''}
                 ${project.liveUrl ? `<p><a href="${project.liveUrl}" target="_blank">Live Demo</a></p>` : ''}
