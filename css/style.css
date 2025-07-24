@@ -76,6 +76,7 @@
   --lh-relaxed: 1.8;    /* ゆったり行間 */
 
   /* Spacing - 必要最小限 */
+  --space-1: 0.25rem;   /* 極小間隔 */
   --space-2: 0.5rem;    /* 最小間隔 */
   --space-4: 1rem;      /* 基本間隔 */
   --space-6: 1.5rem;    /* 中間隔 */
@@ -559,7 +560,6 @@ h4 {
   gap: var(--space-4);
   margin-top: var(--space-8);
 }
-
 
 .interests-section {
   margin-bottom: 0; /* Relies on main-content padding-bottom for consistent spacing */
@@ -1119,10 +1119,13 @@ h4 {
 }
 
 .links-section {
-  margin-bottom: 0; /* Relies on main-content padding-bottom for consistent spacing */
+  margin-bottom: var(--space-16); /* Space between link sections */
   opacity: 0;
   transform: translateY(30px);
   transition: var(--transition-fade);
+}
+.links-section:last-child {
+  margin-bottom: 0; /* Last section relies on main-content padding-bottom */
 }
 
 .links-section.loaded {
@@ -1232,7 +1235,36 @@ h3.awards-year {
     font-size: var(--fs-4xl);
   }
 
+  /* Mobile: Specialized skills vertical layout */
+  .specialized-skill-item .skill-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+  .specialized-skill-item .skill-header .skill-stars {
+    margin-left: 0;
+  }
 
+  /* Mobile: Vertical layout for card headers */
+  .card-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  .card-header h3 {
+    margin-bottom: var(--space-1) !important;
+  }
+  .card-header .text-meta {
+    white-space: normal !important;
+  }
+
+  /* Mobile: Better spacing for card titles and metadata */
+  .card h3 {
+    margin-bottom: var(--space-2);
+  }
+
+  .card .text-meta {
+    margin-bottom: var(--space-4);
+  }
 
   .main-content {
     padding-bottom: var(--space-16);
