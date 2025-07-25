@@ -1,8 +1,6 @@
 async function initializePage() {
     const pageName = getCurrentPageName();
-    
     await initializeBase();
-    
     switch (pageName) {
         case 'index':
             await initHome();
@@ -25,11 +23,7 @@ async function initializePage() {
 async function initializeBase() {
     const pageBase = new PageBase('current');
     await pageBase.loadCommonComponents();
-    
-    // Initialize SEO structured data
     initializeSEO();
-    
-    // Animate page title
     setTimeout(() => {
         const pageTitle = document.querySelector('.page-title');
         if (pageTitle) pageTitle.classList.add('loaded');
@@ -38,23 +32,16 @@ async function initializeBase() {
 
 function initializeSEO() {
     if (!window.seoConfig) return;
-    
     const pageName = getCurrentPageName();
     const head = document.head;
-    
-    // Add person data (common to all pages)
     const personScript = document.createElement('script');
     personScript.type = 'application/ld+json';
     personScript.textContent = JSON.stringify(window.seoConfig.person);
     head.appendChild(personScript);
-    
-    // Add website data (common to all pages)
     const websiteScript = document.createElement('script');
     websiteScript.type = 'application/ld+json';
     websiteScript.textContent = JSON.stringify(window.seoConfig.website);
     head.appendChild(websiteScript);
-    
-    // Add page-specific data
     if (window.seoConfig.pages[pageName]) {
         const pageScript = document.createElement('script');
         pageScript.type = 'application/ld+json';
@@ -65,11 +52,9 @@ function initializeSEO() {
 
 async function initHome() {
     const { name, subtitle, keywords } = window.homeData.hero;
-    
     const heroName = document.getElementById('hero-name');
     const heroTitle = document.getElementById('hero-title');
     const keywordsList = document.getElementById('keywords-list');
-    
     if (heroName) heroName.textContent = name;
     if (heroTitle) heroTitle.textContent = subtitle;
     if (keywordsList) {
@@ -77,19 +62,15 @@ async function initHome() {
             `<li class="keyword-item">${keyword}</li>`
         ).join('');
     }
-    
-    // Initialize particles
     if (typeof particlesJS !== 'undefined' && document.getElementById('particles-js')) {
-        // Get colors from CSS variables
         const rootStyles = getComputedStyle(document.documentElement);
         const primaryColor = rootStyles.getPropertyValue('--primary-color').trim();
         const primaryLight = rootStyles.getPropertyValue('--color-primary-light').trim();
-        const accentColors = [primaryColor, '#14b8a6', '#06b6d4', primaryLight]; // Keep some variety for particles
-        
+        const accentColors = [primaryColor, '#14b8a6', '#06b6d4', primaryLight];
         particlesJS('particles-js', {
             particles: {
                 number: { value: 80, density: { enable: true, value_area: 800 } },
-                color: { value: accentColors }, /* Dynamic colors from CSS variables */
+                color: { value: accentColors },
                 shape: { type: ['circle', 'triangle'], stroke: { width: 1, color: primaryColor } },
                 opacity: { value: 0.4, random: true, anim: { enable: true, speed: 1.5, opacity_min: 0.1, sync: false } },
                 size: { value: 4, random: true, anim: { enable: true, speed: 2, size_min: 1, sync: false } },
@@ -104,8 +85,6 @@ async function initHome() {
             retina_detect: true
         });
     }
-    
-    // Animate hero content
     setTimeout(() => {
         const heroContent = document.querySelector('.hero-content');
         if (heroContent) heroContent.classList.add('loaded');
@@ -117,13 +96,10 @@ async function initAbout() {
         console.error('aboutData not loaded');
         return;
     }
-    
     const personalData = window.aboutData.personal;
-    
     const aboutName = document.getElementById('about-name');
     const aboutPosition = document.getElementById('about-position');
     const aboutContentInner = document.getElementById('who-i-am-content-inner');
-    
     if (aboutName) aboutName.textContent = personalData.name;
     if (aboutPosition) aboutPosition.textContent = personalData.position;
     if (aboutContentInner && personalData.description) {
@@ -134,8 +110,6 @@ async function initAbout() {
             aboutContentInner.innerHTML = existingContent + `<p>${personalData.description}</p>`;
         }
     }
-    
-    // Add image to the right
     const whoIAmContent = document.getElementById('who-i-am-content');
     if (whoIAmContent) {
         whoIAmContent.innerHTML = `
@@ -150,12 +124,9 @@ async function initAbout() {
                 </div>
             </div>
         `;
-        
-        // Set name and title again
         const newAboutName = document.getElementById('about-name');
         const newAboutPosition = document.getElementById('about-position');
         const newAboutContentInner = document.getElementById('who-i-am-content-inner');
-        
         if (newAboutName) newAboutName.textContent = personalData.name;
         if (newAboutPosition) newAboutPosition.textContent = personalData.position;
         if (newAboutContentInner && personalData.description) {
@@ -167,107 +138,44 @@ async function initAbout() {
             }
         }
     }
-    
-    // Story content
     const storyContent = document.getElementById('story-content-inner');
     if (storyContent && window.aboutData?.story?.paragraphs) {
         storyContent.innerHTML = window.aboutData.story.paragraphs
             .map(p => `<p>${p}</p>`).join('');
     }
-    
-    // Timeline
-    const timelineContainer = document.getElementById('timeline-container');
-    if (timelineContainer) {
-        timelineContainer.innerHTML = window.aboutData.timeline.map(item => `
-            <div class="card hover-lift">
-                <div class="card-header">
-                    <h3>${item.icon ? `<i class="${item.icon}"></i> ` : ''}${item.title}</h3>
-                    <p class="text-meta">${item.period}</p>
-                </div>
-                <p>${item.description}</p>
-            </div>
-        `).join('');
-    }
-    
-    // Interests
-    const interestsContainer = document.getElementById('interests-container');
-    if (interestsContainer) {
-        interestsContainer.innerHTML = window.aboutData.interests.map(interest => `
-            <div class="card hover-lift">
-                <h3>${interest.icon ? `<i class="${interest.icon}"></i> ` : ''}${interest.title}</h3>
-                <p>${interest.description}</p>
-            </div>
-        `).join('');
-        interestsContainer.className = 'interests-grid grid-auto-fit gap-sm';
-    }
-    
-    // Animate sections
-    setTimeout(() => {
-        document.querySelectorAll('.about-section').forEach((section, index) => {
-            setTimeout(() => section.classList.add('loaded'), index * 100);
-        });
-    }, 400);
-    setTimeout(() => document.querySelector('.story-section')?.classList.add('loaded'), 500);
-    setTimeout(() => document.querySelector('.timeline-section')?.classList.add('loaded'), 600);
-    setTimeout(() => document.querySelector('.interests-section')?.classList.add('loaded'), 700);
+    initContainer('timeline-container', window.aboutData.timeline, HTMLGenerator.unifiedCardTemplate);
+    initContainer('interests-container', window.aboutData.interests, HTMLGenerator.unifiedCardTemplate, {
+        className: 'interests-grid grid-auto-fit gap-sm'
+    });
+    animateElements([
+        { selector: '.about-section', delay: 400 },
+        { selector: '.story-section', delay: 500 },
+        { selector: '.timeline-section', delay: 600 },
+        { selector: '.interests-section', delay: 700 }
+    ]);
 }
 
 async function initCV() {
-    // Education
-    const educationContainer = document.getElementById('education-container');
-    if (educationContainer) {
-        educationContainer.innerHTML = window.cvData.education.map(item => 
-            HTMLGenerator.cvItem(item)
-        ).join('');
-    }
-    
-    // Experience
-    const experienceContainer = document.getElementById('experience-container');
-    if (experienceContainer) {
-        experienceContainer.innerHTML = window.cvData.experience.map(item => 
-            HTMLGenerator.cvItem(item)
-        ).join('');
-    }
-    
-    // Skills
+    initContainer('education-container', window.cvData.education, HTMLGenerator.cvItem);
+    initContainer('experience-container', window.cvData.experience, HTMLGenerator.cvItem);
+    // Skills section needs special handling since it processes the entire array
     const skillsContainer = document.getElementById('skills-container');
-    if (skillsContainer) {
+    if (skillsContainer && window.cvData.skills) {
         skillsContainer.innerHTML = HTMLGenerator.skillsSection(window.cvData.skills, generateStars);
-        // Add hover-lift class to skills categories
         skillsContainer.querySelectorAll('.skills-category').forEach(cat => {
             cat.classList.add('hover-lift');
         });
-        // skill-item class doesn't exist, items already have hover-lift from HTML generator
     }
-    
-    // Certifications
-    const certificationsContainer = document.getElementById('certifications-container');
-    if (certificationsContainer) {
-        certificationsContainer.innerHTML = window.cvData.certifications.map(cert => 
-            HTMLGenerator.certificationItem(cert)
-        ).join('');
-    }
-    
-    // Awards
+    initContainer('certifications-container', window.cvData.certifications, HTMLGenerator.certificationItem);
+    // Awards section needs special handling since it processes the entire object
     const awardsContainer = document.getElementById('awards-container');
-    if (awardsContainer) {
+    if (awardsContainer && window.cvData.awards) {
         awardsContainer.innerHTML = HTMLGenerator.awardsSection(window.cvData.awards);
     }
-    
-    // Grants
-    const grantsContainer = document.getElementById('grants-container');
-    if (grantsContainer) {
-        grantsContainer.innerHTML = window.cvData.grants.map(grant => 
-            HTMLGenerator.grantItem(grant)
-        ).join('');
-    }
-    
-    // Animate sections
-    setTimeout(() => {
-        document.querySelectorAll('.cv-section').forEach((section, index) => {
-            setTimeout(() => section.classList.add('loaded'), index * 100);
-        });
-    }, 400);
+    initContainer('grants-container', window.cvData.grants, HTMLGenerator.grantItem);
+    animateElements([
+        { selector: '.cv-section', delay: 400 }
+    ]);
 }
 
 async function initProjects() {
@@ -297,11 +205,9 @@ async function initProjects() {
         `).join('');
         projectsContainer.className = 'projects-grid grid-auto-fit gap-sm fade-in-up mb-section';
     }
-    
-    // Animate projects grid
-    setTimeout(() => {
-        document.querySelector('.projects-grid')?.classList.add('loaded');
-    }, 400);
+    animateElements([
+        { selector: '.projects-grid', delay: 400 }
+    ]);
 }
 
 async function initLinks() {
@@ -309,7 +215,6 @@ async function initLinks() {
     if (linksContainer) {
         const contactLinksData = window.linksData.contact;
         const socialLinksData = window.linksData.social;
-        
         linksContainer.innerHTML = `
             <section class="links-section fade-in-up mb-section">
                 <h2 class="section-title section-title-centered">
@@ -345,32 +250,58 @@ async function initLinks() {
             </section>
         `;
     }
+    animateElements([
+        { selector: '.links-section', delay: 200 }
+    ]);
+}
+
+function initContainer(containerId, data, generator, options = {}) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    if (!data) return;
     
-    // Animate links sections
-    setTimeout(() => {
-        document.querySelectorAll('.links-section').forEach((section, index) => {
-            setTimeout(() => section.classList.add('loaded'), index * 200);
-        });
-    }, 200);
+    if (Array.isArray(data)) {
+        container.innerHTML = data.map(item => generator(item)).join('');
+    } else {
+        container.innerHTML = generator(data);
+    }
+    if (options.className) {
+        container.className = options.className;
+    }
+    if (options.postProcess) {
+        options.postProcess(container);
+    }
+}
+
+function animateElements(animations) {
+    animations.forEach(({ selector, delay }) => {
+        setTimeout(() => {
+            const elements = document.querySelectorAll(selector);
+            elements.forEach((element, index) => {
+                if (selector.includes('.cv-section') || selector.includes('.about-section') || selector.includes('.links-section')) {
+                    setTimeout(() => element.classList.add('loaded'), index * 100);
+                } else {
+                    element.classList.add('loaded');
+                }
+            });
+        }, delay);
+    });
 }
 
 function getCurrentPageName() {
     const path = window.location.pathname;
     const fileName = path.split('/').pop();
-    
     if (fileName === 'index.html' || fileName === '') return 'index';
     if (fileName === 'about.html') return 'about';
     if (fileName === 'cv.html') return 'cv';
     if (fileName === 'projects.html') return 'projects';
     if (fileName === 'links.html') return 'links';
-    
     return 'index';
 }
 
 function generateStars(level) {
     const maxStars = 5;
     let starsHTML = '';
-    
     for (let i = 1; i <= maxStars; i++) {
         if (i <= level) {
             starsHTML += '<i class="fas fa-star"></i>';
@@ -378,7 +309,6 @@ function generateStars(level) {
             starsHTML += '<i class="far fa-star"></i>';
         }
     }
-    
     return starsHTML;
 }
 

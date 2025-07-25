@@ -89,7 +89,6 @@
   box-sizing: border-box;
 }
 
-
 /* ===== UNIFIED CARD SYSTEM ===== */
 .card {
   background: var(--bg-card);
@@ -145,7 +144,6 @@
   margin: 0 0 0 var(--space-4);
 }
 
-
 .card-meta-row .text-meta {
   margin: 0;
 }
@@ -185,7 +183,6 @@ a.card:has(.card-external-icon)::after {
   display: none;
 }
 
-
 a.card {
   text-decoration: none;
   color: inherit;
@@ -210,7 +207,6 @@ a.card:hover {
 .card.fade-in-up.loaded {
   transition: all var(--transition-fast);
 }
-
 
 .hover-lift:not(.card):hover {
   color: var(--primary-color);
@@ -348,7 +344,6 @@ h4 {
   color: var(--text-secondary);
 }
 
-
 #story-content-inner p,
 .card p {
   line-height: var(--lh-relaxed);
@@ -358,7 +353,6 @@ h4 {
   gap: var(--space-8);
   align-items: stretch;
 }
-
 
 .about-profile-layout .card {
   flex: 2;
@@ -440,7 +434,6 @@ h4 {
   transition: color var(--transition-fast);
 }
 
-
 .nav-link.active {
   color: var(--primary-color);
 }
@@ -497,7 +490,6 @@ h4 {
   }
 
 }
-
 
 /* ===== MAIN CONTENT ===== */
 
@@ -614,7 +606,6 @@ h4 {
   margin-top: var(--space-4);
 }
 
-
 .interests-grid h3 i {
   color: var(--primary-color);
 }
@@ -662,7 +653,6 @@ h4 {
   transform: rotate(-90deg);
 }
 
-
 .cv-section-content,
 .about-section-content {
   max-height: 10000px;
@@ -678,15 +668,12 @@ h4 {
   overflow: hidden;
 }
 
-
-
 /* ===== SKILLS STYLES ===== */
 .skills-category {
   margin-bottom: var(--space-4);
   padding: var(--space-4);
   overflow: hidden;
 }
-
 
 .skills-grid .skill-header {
   margin-bottom: var(--space-2);
@@ -713,7 +700,6 @@ h4 {
   line-height: 1.5;
 }
 
-
 .skills-category+.skills-category {
   margin-top: var(--space-4);
 }
@@ -738,7 +724,6 @@ h4 {
   background: var(--gradient-button);
   border-radius: var(--radius-full);
 }
-
 
 .specialized-skills-grid {
   display: grid;
@@ -817,8 +802,6 @@ h4 {
   left: 0;
 }
 
-
-
 /* ===== PROJECTS STYLES ===== */
 .projects-section {
   height: auto;
@@ -891,7 +874,6 @@ h4 {
   line-height: 1.6;
   font-size: var(--fs-sm);
 }
-
 
 /* ===== ABOUT STYLES ===== */
 
@@ -971,7 +953,6 @@ h4 {
 .awards-year {
   margin-bottom: var(--space-8);
 }
-
 
 h3.awards-year {
   color: var(--primary-color);
