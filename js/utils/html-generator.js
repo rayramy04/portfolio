@@ -105,7 +105,9 @@ class HTMLGenerator {
                     <h3>${project.name || project.title}</h3>
                     ${project.description ? `<p>${project.description}</p>` : ''}
                     ${project.technologies?.length ? `
-                        <p class="text-meta">${project.technologies.join(', ')}</p>
+                        <div class="project-technologies">
+                            ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                        </div>
                     ` : ''}
                     ${project.githubUrl || project.liveUrl ? `
                         <div class="project-links">
