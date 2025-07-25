@@ -207,8 +207,9 @@ async function initAbout() {
             setTimeout(() => section.classList.add('loaded'), index * 100);
         });
     }, 400);
-    setTimeout(() => document.querySelector('.timeline-section')?.classList.add('loaded'), 400);
-    setTimeout(() => document.querySelector('.interests-section')?.classList.add('loaded'), 400);
+    setTimeout(() => document.querySelector('.story-section')?.classList.add('loaded'), 500);
+    setTimeout(() => document.querySelector('.timeline-section')?.classList.add('loaded'), 600);
+    setTimeout(() => document.querySelector('.interests-section')?.classList.add('loaded'), 700);
 }
 
 async function initCV() {
@@ -294,12 +295,12 @@ async function initProjects() {
                 </div>
             </div>
         `).join('');
-        projectsContainer.className = 'projects-grid grid-auto-fit';
+        projectsContainer.className = 'projects-grid grid-auto-fit fade-in-up';
     }
     
-    // Animate projects section
+    // Animate projects grid
     setTimeout(() => {
-        document.querySelector('.projects-section')?.classList.add('loaded');
+        document.querySelector('.projects-grid')?.classList.add('loaded');
     }, 400);
 }
 
@@ -310,7 +311,7 @@ async function initLinks() {
         const socialLinksData = window.linksData.social;
         
         linksContainer.innerHTML = `
-            <section class="links-section">
+            <section class="links-section fade-in-up">
                 <h2 class="section-title section-title-centered">
                     <i class="fas fa-globe"></i>
                     Website & Contact
@@ -320,7 +321,7 @@ async function initLinks() {
                 </div>
             </section>
             
-            <section class="links-section">
+            <section class="links-section fade-in-up">
                 <h2 class="section-title section-title-centered">
                     <i class="fas fa-share-alt"></i>
                     Social Media
@@ -330,7 +331,7 @@ async function initLinks() {
                 </div>
             </section>
             
-            <section class="links-section">
+            <section class="links-section fade-in-up">
                 <h2 class="section-title section-title-centered">
                     <i class="fas fa-briefcase"></i>
                     Portfolio
