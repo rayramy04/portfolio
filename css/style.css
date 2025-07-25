@@ -135,12 +135,14 @@
 }
 
 /* ===== UNIFIED GRID SYSTEM ===== */
+/* Standard grid for content-rich cards (projects, interests, links) */
 .grid-auto-fit {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--space-2);
 }
 
+/* Compact grid for minimal content cards (basic skills) */
 .grid-auto-fit-compact {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -815,17 +817,6 @@ h4 {
   border-radius: var(--radius-full);
 }
 
-
-/* Compact skills grid for basic skills */
-.skills-grid-compact {
-  display: grid;
-  gap: var(--space-2); /* Compact spacing like other grids */
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  margin-bottom: var(--space-4); /* Reduced margin */
-}
-
-
-
 .skill-stars-small {
   display: flex;
   gap: var(--space-2);
@@ -837,10 +828,10 @@ h4 {
   transition: var(--transition-fast);
 }
 
-/* Specialized skills grid */
+/* Medium grid for specialized skills with detailed descriptions */
 .specialized-skills-grid {
   display: grid;
-  gap: var(--space-2); /* Compact spacing like other grids */
+  gap: var(--space-2);
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   width: 100%;
 }
