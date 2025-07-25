@@ -94,6 +94,65 @@ class HTMLGenerator {
         }).join('');
     }
 
+    static projectCard(project) {
+        return `
+            <div class="card hover-lift project-card">
+                ${project.image ? `
+                    <div class="project-image">
+                        <img src="${project.image}" alt="${project.name || project.title}" loading="lazy">
+                    </div>
+                ` : ''}
+                <div class="project-content">
+                    <h3>${project.name || project.title}</h3>
+                    ${project.description ? `<p>${project.description}</p>` : ''}
+                    ${project.technologies?.length ? `
+                        <p class="text-meta">${project.technologies.join(', ')}</p>
+                    ` : ''}
+                    ${project.githubUrl || project.liveUrl ? `
+                        <div class="project-links">
+                            ${project.githubUrl ? `<a href="${project.githubUrl}" target="_blank" class="project-link hover-lift"><i class="fab fa-github"></i> GitHub</a>` : ''}
+                            ${project.liveUrl ? `<a href="${project.liveUrl}" target="_blank" class="project-link hover-lift"><i class="fas fa-external-link-alt"></i> Live Demo</a>` : ''}
+                        </div>
+                    ` : ''}
+                </div>
+            </div>
+        `;
+    }
+
+    static profileCard(personalData) {
+        const description = Array.isArray(personalData.description) 
+            ? personalData.description.map(p => `<p>${p}</p>`).join('')
+            : `<p>${personalData.description}</p>`;
+        
+        return `
+            <div class="about-profile-layout">
+                <div class="card hover-lift">
+                    <h3>${personalData.name}</h3>
+                    <p class="text-meta">${personalData.position}</p>
+                    ${description}
+                </div>
+                <div class="about-image-content">
+                    <img src="assets/about-photo.jpg" alt="About ${personalData.name}" class="about-photo"
+                        onerror="this.style.display='none';">
+                </div>
+            </div>
+        `;
+    }
+
+    static linksSection(title, icon, data, config) {
+        return `
+            <section class="links-section fade-in-up mb-section">
+                <h2 class="section-title section-title-centered">
+                    <i class="${icon}"></i>
+                    ${title}
+                </h2>
+                <div class="links-grid grid-auto-fit gap-sm">
+                    ${data.map(link => HTMLGenerator.linkCard(link, config)).join('')}
+                </div>
+            </section>
+        `;
+    }
+
     static awardsSection(awardsData) {
         const years = Object.keys(awardsData).sort((a, b) => parseInt(b) - parseInt(a));
         return years.map(year => `
