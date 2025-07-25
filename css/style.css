@@ -298,6 +298,11 @@ body {
 .section-last {
   margin-bottom: 0 !important; /* Relies on main-content padding-bottom for consistent spacing */
 }
+
+/* Utility class for removing bottom margin from last child elements */
+.no-bottom-margin {
+  margin-bottom: 0;
+}
 .main-content {
   padding-top: calc(85px + var(--space-8));
   padding-bottom: var(--space-4); /* Compact bottom spacing to match title-card gap */
@@ -374,7 +379,6 @@ h4 {
 }
 
 .card p:last-child {
-  margin-bottom: 0;
 }
 
 /* Story and About paragraph line height */
@@ -749,9 +753,7 @@ h4 {
   overflow: hidden;
 }
 
-/* Skills grid layout */
 .skills-grid {
-  margin-bottom: 0; /* Remove bottom margin */
 }
 
 /* Skills vertical layout - for main skills grid */
@@ -920,7 +922,6 @@ h4 {
 }
 
 .skill-description ul li:last-child {
-  margin-bottom: 0;
 }
 
 .skill-description-list {
@@ -947,7 +948,6 @@ h4 {
 }
 
 .skill-description-list li:last-child {
-  margin-bottom: 0;
 }
 
 /* ===== PROJECTS STYLES ===== */
