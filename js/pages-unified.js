@@ -2,21 +2,11 @@ async function initializePage() {
     const pageName = getCurrentPageName();
     await initializeBase();
     switch (pageName) {
-        case 'index':
-            await initHome();
-            break;
-        case 'about':
-            await initAbout();
-            break;
-        case 'cv':
-            await initCV();
-            break;
-        case 'projects':
-            await initProjects();
-            break;
-        case 'links':
-            await initLinks();
-            break;
+        case 'index': await initHome(); break;
+        case 'about': await initAbout(); break;
+        case 'cv': await initCV(); break;
+        case 'projects': await initProjects(); break;
+        case 'links': await initLinks(); break;
     }
 }
 
@@ -120,7 +110,6 @@ async function initAbout() {
 async function initCV() {
     initContainer('education-container', window.cvData.education, HTMLGenerator.cvItem);
     initContainer('experience-container', window.cvData.experience, HTMLGenerator.cvItem);
-    // Skills section needs special handling since it processes the entire array
     const skillsContainer = document.getElementById('skills-container');
     if (skillsContainer && window.cvData.skills) {
         skillsContainer.innerHTML = HTMLGenerator.skillsSection(window.cvData.skills, generateStars);
@@ -129,24 +118,19 @@ async function initCV() {
         });
     }
     initContainer('certifications-container', window.cvData.certifications, HTMLGenerator.certificationItem);
-    // Awards section needs special handling since it processes the entire object
     const awardsContainer = document.getElementById('awards-container');
     if (awardsContainer && window.cvData.awards) {
         awardsContainer.innerHTML = HTMLGenerator.awardsSection(window.cvData.awards);
     }
     initContainer('grants-container', window.cvData.grants, HTMLGenerator.grantItem);
-    animateElements([
-        { selector: '.cv-section', delay: 400 }
-    ]);
+    animateElements([{ selector: '.cv-section', delay: 400 }]);
 }
 
 async function initProjects() {
     initContainer('projects-container', window.projectsData, HTMLGenerator.projectCard, {
         containerClass: 'projects-grid grid-auto-fit gap-sm fade-in-up mb-section'
     });
-    animateElements([
-        { selector: '.projects-grid', delay: 400 }
-    ]);
+    animateElements([{ selector: '.projects-grid', delay: 400 }]);
 }
 
 async function initLinks() {
@@ -160,9 +144,7 @@ async function initLinks() {
                 external: false
             });
     }
-    animateElements([
-        { selector: '.links-section', delay: 200 }
-    ]);
+    animateElements([{ selector: '.links-section', delay: 200 }]);
 }
 
 function initContainer(containerId, data, generator, options = {}) {

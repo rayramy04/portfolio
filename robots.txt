@@ -8,8 +8,6 @@ Allow: /
 Disallow: /.git/
 Disallow: /node_modules/
 Disallow: /.vscode/
-Disallow: /temp/
-Disallow: /draft/
 
 # Allow specific important files
 Allow: /assets/
@@ -20,5 +18,5 @@ Allow: /data/
 # Crawl delay (optional - prevents aggressive crawling)
 Crawl-delay: 1
 
-# Sitemap location (when available)
-# Sitemap: https://ll-0013py.github.io/portfolio/sitemap.xml
+# Sitemap location
+Sitemap: https://ll-0013py.github.io/portfolio/sitemap.xml

@@ -1,6 +1,6 @@
-/* ===== DESIGN SYSTEM - COOL GREEN THEME ===== */
+/* Design system - green theme */
 :root {
-  /* ===== COLOR PALETTE ===== */
+  /* Colors */
   --color-primary: #059669;
   --color-primary-light: #34d399;
   --color-primary-dark: #047857;
@@ -12,7 +12,7 @@
   --color-black: #1f2937;
   --color-accent: #dc2626;
 
-  /* ===== SEMANTIC MAPPINGS ===== */
+  /* Semantic mappings */
   --primary-color: var(--color-primary);
   --primary-dark: var(--color-primary-dark);
   --bg-primary: var(--color-white);
@@ -25,7 +25,7 @@
   --text-light: var(--color-gray);
   --text-white: var(--color-white);
 
-  /* ===== GRADIENTS ===== */
+  /* Gradients */
   --gradient-hero: linear-gradient(135deg, 
     #10b981 0%,
     #14b8a6 30%,
@@ -34,13 +34,13 @@
   );
   --gradient-button: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
 
-  /* ===== SHADOWS ===== */
+  /* Shadows */
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   --shadow-green: 0 4px 12px rgba(var(--color-primary-rgb), 0.2);
 
-  /* ===== TYPOGRAPHY ===== */
+  /* Typography */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-heading: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --fw-medium: 500;
@@ -56,7 +56,7 @@
   --lh-normal: 1.6;
   --lh-relaxed: 1.8;
 
-  /* ===== SPACING ===== */
+  /* Spacing */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-4: 1rem;
@@ -65,7 +65,7 @@
   --space-12: 3rem;
   --space-16: 4rem;
 
-  /* ===== SIZES ===== */
+  /* Sizes */
   --size-icon-sm: 50px;
   --size-avatar-sm: 150px;
   --size-avatar-md: 200px;
@@ -82,14 +82,14 @@
   --z-fixed: 1030;
 }
 
-/* ===== BASE STYLES ===== */
+/* Base styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ===== UNIFIED CARD SYSTEM ===== */
+/* Card system */
 .card {
   background: var(--bg-card);
   border-radius: var(--radius-xl);
@@ -102,11 +102,19 @@
   margin-bottom: var(--space-2);
 }
 
+/* Grid cards - ensure equal height in grid layouts */
+.grid-auto-fit .card,
+.grid-auto-fit-compact .card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 .card:last-child {
   margin-bottom: 0;
 }
 
-/* ===== UNIFIED GRID SYSTEM ===== */
+/* Grid system */
 .grid-auto-fit {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -116,6 +124,7 @@
 .grid-auto-fit-compact {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  align-items: stretch;
 }
 
 @media (max-width: 768px) {
@@ -125,6 +134,7 @@
   
   .grid-auto-fit-compact {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    align-items: stretch;
   }
 }
 
@@ -945,9 +955,6 @@ h4 {
   margin-bottom: var(--space-8);
 }
 
-.section-title-centered {
-  text-align: center;
-}
 
 /* ===== AWARDS STYLES ===== */
 .awards-year {

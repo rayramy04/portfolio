@@ -3,7 +3,6 @@ class HTMLGenerator {
         if (!Array.isArray(data) || data.length === 0) return '';
         return data.map(template).join('');
     }
-
     static renderIf(condition, template) {
         return condition ? template : '';
     }
@@ -123,7 +122,6 @@ class HTMLGenerator {
         const description = Array.isArray(personalData.description) 
             ? personalData.description.map(p => `<p>${p}</p>`).join('')
             : `<p>${personalData.description}</p>`;
-        
         return `
             <div class="about-profile-layout">
                 <div class="card hover-lift">
@@ -142,7 +140,7 @@ class HTMLGenerator {
     static linksSection(title, icon, data, config) {
         return `
             <section class="links-section fade-in-up mb-section">
-                <h2 class="section-title section-title-centered">
+                <h2 class="section-title">
                     <i class="${icon}"></i>
                     ${title}
                 </h2>
