@@ -295,7 +295,7 @@ async function initProjects() {
                 </div>
             </div>
         `).join('');
-        projectsContainer.className = 'projects-grid grid-auto-fit gap-sm fade-in-up';
+        projectsContainer.className = 'projects-grid grid-auto-fit gap-sm fade-in-up mb-section';
     }
     
     // Animate projects grid

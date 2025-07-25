@@ -20,7 +20,7 @@ class HTMLGenerator {
                 <h3>${title}${link ? ' <i class="fas fa-external-link-alt card-external-icon"></i>' : ''}</h3>
                 <p class="text-meta">${date}</p>
             </div>
-            <div class="card-meta-row">
+            <div class="card-meta-row flex-between">
                 <p class="text-meta">${subtitle}</p>
             </div>
             ${description ? `<p>${description}</p>` : ''}
@@ -69,7 +69,7 @@ class HTMLGenerator {
                     <h3>${grant.title}</h3>
                     <p class="text-meta">${grant.date || grant.year}</p>
                 </div>
-                <div class="card-meta-row">
+                <div class="card-meta-row flex-between">
                     <p class="text-meta">${grant.organization || grant.funder}</p>
                     ${grant.amount ? `<p class="text-meta">${grant.amount}</p>` : ''}
                 </div>
@@ -90,7 +90,7 @@ class HTMLGenerator {
                 <div class="${gridClass}">
                     ${category.skills.map(skill => `
                         <div class="${itemClass}">
-                            <div class="skill-header">
+                            <div class="skill-header mb-2">
                                 <p class="skill-name">${skill.name}</p>
                                 ${skill.level ? `<div class="skill-stars">${generateStars(skill.level)}</div>` : ''}
                             </div>
