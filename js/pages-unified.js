@@ -96,47 +96,9 @@ async function initAbout() {
         console.error('aboutData not loaded');
         return;
     }
-    const personalData = window.aboutData.personal;
-    const aboutName = document.getElementById('about-name');
-    const aboutPosition = document.getElementById('about-position');
-    const aboutContentInner = document.getElementById('who-i-am-content-inner');
-    if (aboutName) aboutName.textContent = personalData.name;
-    if (aboutPosition) aboutPosition.textContent = personalData.position;
-    if (aboutContentInner && personalData.description) {
-        const existingContent = aboutContentInner.innerHTML;
-        if (Array.isArray(personalData.description)) {
-            aboutContentInner.innerHTML = existingContent + personalData.description.map(p => `<p>${p}</p>`).join('');
-        } else {
-            aboutContentInner.innerHTML = existingContent + `<p>${personalData.description}</p>`;
-        }
-    }
     const whoIAmContent = document.getElementById('who-i-am-content');
     if (whoIAmContent) {
-        whoIAmContent.innerHTML = `
-            <div class="about-profile-layout">
-                <div class="card hover-lift" id="who-i-am-content-inner">
-                    <h3 id="about-name"></h3>
-                    <p id="about-position" class="text-meta"></p>
-                </div>
-                <div class="about-image-content">
-                    <img src="assets/about-photo.jpg" alt="About Ray" class="about-photo"
-                        onerror="this.style.display='none';">
-                </div>
-            </div>
-        `;
-        const newAboutName = document.getElementById('about-name');
-        const newAboutPosition = document.getElementById('about-position');
-        const newAboutContentInner = document.getElementById('who-i-am-content-inner');
-        if (newAboutName) newAboutName.textContent = personalData.name;
-        if (newAboutPosition) newAboutPosition.textContent = personalData.position;
-        if (newAboutContentInner && personalData.description) {
-            const existingContent = newAboutContentInner.innerHTML;
-            if (Array.isArray(personalData.description)) {
-                newAboutContentInner.innerHTML = existingContent + personalData.description.map(p => `<p>${p}</p>`).join('');
-            } else {
-                newAboutContentInner.innerHTML = existingContent + `<p>${personalData.description}</p>`;
-            }
-        }
+        whoIAmContent.innerHTML = HTMLGenerator.profileCard(window.aboutData.personal);
     }
     const storyContent = document.getElementById('story-content-inner');
     if (storyContent && window.aboutData?.story?.paragraphs) {
@@ -179,32 +141,9 @@ async function initCV() {
 }
 
 async function initProjects() {
-    const projectsContainer = document.getElementById('projects-container');
-    if (projectsContainer) {
-        projectsContainer.innerHTML = window.projectsData.map(project => `
-            <div class="card hover-lift project-card">
-                ${project.image ? `
-                    <div class="project-image">
-                        <img src="${project.image}" alt="${project.name || project.title}" loading="lazy">
-                    </div>
-                ` : ''}
-                <div class="project-content">
-                    <h3>${project.name || project.title}</h3>
-                    ${project.description ? `<p>${project.description}</p>` : ''}
-                    ${project.technologies?.length ? `
-                        <p class="text-meta">${project.technologies.join(', ')}</p>
-                    ` : ''}
-                    ${project.githubUrl || project.liveUrl ? `
-                        <div class="project-links">
-                            ${project.githubUrl ? `<a href="${project.githubUrl}" target="_blank" class="project-link hover-lift"><i class="fab fa-github"></i> GitHub</a>` : ''}
-                            ${project.liveUrl ? `<a href="${project.liveUrl}" target="_blank" class="project-link hover-lift"><i class="fas fa-external-link-alt"></i> Live Demo</a>` : ''}
-                        </div>
-                    ` : ''}
-                </div>
-            </div>
-        `).join('');
-        projectsContainer.className = 'projects-grid grid-auto-fit gap-sm fade-in-up mb-section';
-    }
+    initContainer('projects-container', window.projectsData, HTMLGenerator.projectCard, {
+        containerClass: 'projects-grid grid-auto-fit gap-sm fade-in-up mb-section'
+    });
     animateElements([
         { selector: '.projects-grid', delay: 400 }
     ]);
@@ -213,42 +152,13 @@ async function initProjects() {
 async function initLinks() {
     const linksContainer = document.getElementById('links-content');
     if (linksContainer) {
-        const contactLinksData = window.linksData.contact;
-        const socialLinksData = window.linksData.social;
-        linksContainer.innerHTML = `
-            <section class="links-section fade-in-up mb-section">
-                <h2 class="section-title section-title-centered">
-                    <i class="fas fa-globe"></i>
-                    Website & Contact
-                </h2>
-                <div class="links-grid grid-auto-fit gap-sm">
-                    ${contactLinksData.map(link => HTMLGenerator.linkCard(link, { cardClass: 'link-card website-card', external: true })).join('')}
-                </div>
-            </section>
-            
-            <section class="links-section fade-in-up mb-section">
-                <h2 class="section-title section-title-centered">
-                    <i class="fas fa-share-alt"></i>
-                    Social Media
-                </h2>
-                <div class="links-grid grid-auto-fit gap-sm">
-                    ${socialLinksData.map(link => HTMLGenerator.linkCard(link, { cardClass: 'link-card social-card', external: true })).join('')}
-                </div>
-            </section>
-            
-            <section class="links-section fade-in-up mb-section">
-                <h2 class="section-title section-title-centered">
-                    <i class="fas fa-briefcase"></i>
-                    Portfolio
-                </h2>
-                <div class="links-grid grid-auto-fit gap-sm">
-                    ${window.linksData.portfolio.map(link => HTMLGenerator.linkCard(link, { 
-                        cardClass: 'link-card portfolio-card', 
-                        external: link.url.startsWith('http')
-                    })).join('')}
-                </div>
-            </section>
-        `;
+        linksContainer.innerHTML = 
+            HTMLGenerator.linksSection('Website & Contact', 'fas fa-globe', window.linksData.contact, { cardClass: 'link-card website-card', external: true }) +
+            HTMLGenerator.linksSection('Social Media', 'fas fa-share-alt', window.linksData.social, { cardClass: 'link-card social-card', external: true }) +
+            HTMLGenerator.linksSection('Portfolio', 'fas fa-briefcase', window.linksData.portfolio, { 
+                cardClass: 'link-card portfolio-card', 
+                external: false
+            });
     }
     animateElements([
         { selector: '.links-section', delay: 200 }
@@ -265,8 +175,8 @@ function initContainer(containerId, data, generator, options = {}) {
     } else {
         container.innerHTML = generator(data);
     }
-    if (options.className) {
-        container.className = options.className;
+    if (options.className || options.containerClass) {
+        container.className = options.className || options.containerClass;
     }
     if (options.postProcess) {
         options.postProcess(container);
