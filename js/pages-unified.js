@@ -198,7 +198,7 @@ async function initAbout() {
                 <p>${interest.description}</p>
             </div>
         `).join('');
-        interestsContainer.className = 'interests-grid grid-auto-fit';
+        interestsContainer.className = 'interests-grid grid-auto-fit gap-sm';
     }
     
     // Animate sections
@@ -295,7 +295,7 @@ async function initProjects() {
                 </div>
             </div>
         `).join('');
-        projectsContainer.className = 'projects-grid grid-auto-fit fade-in-up';
+        projectsContainer.className = 'projects-grid grid-auto-fit gap-sm fade-in-up';
     }
     
     // Animate projects grid
@@ -311,32 +311,32 @@ async function initLinks() {
         const socialLinksData = window.linksData.social;
         
         linksContainer.innerHTML = `
-            <section class="links-section fade-in-up">
+            <section class="links-section fade-in-up mb-section">
                 <h2 class="section-title section-title-centered">
                     <i class="fas fa-globe"></i>
                     Website & Contact
                 </h2>
-                <div class="links-grid grid-auto-fit">
+                <div class="links-grid grid-auto-fit gap-sm">
                     ${contactLinksData.map(link => HTMLGenerator.linkCard(link, { cardClass: 'link-card website-card', external: true })).join('')}
                 </div>
             </section>
             
-            <section class="links-section fade-in-up">
+            <section class="links-section fade-in-up mb-section">
                 <h2 class="section-title section-title-centered">
                     <i class="fas fa-share-alt"></i>
                     Social Media
                 </h2>
-                <div class="links-grid grid-auto-fit">
+                <div class="links-grid grid-auto-fit gap-sm">
                     ${socialLinksData.map(link => HTMLGenerator.linkCard(link, { cardClass: 'link-card social-card', external: true })).join('')}
                 </div>
             </section>
             
-            <section class="links-section fade-in-up">
+            <section class="links-section fade-in-up mb-section">
                 <h2 class="section-title section-title-centered">
                     <i class="fas fa-briefcase"></i>
                     Portfolio
                 </h2>
-                <div class="links-grid grid-auto-fit">
+                <div class="links-grid grid-auto-fit gap-sm">
                     ${window.linksData.portfolio.map(link => HTMLGenerator.linkCard(link, { 
                         cardClass: 'link-card portfolio-card', 
                         external: link.url.startsWith('http')
