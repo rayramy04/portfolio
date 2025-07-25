@@ -1,16 +1,6 @@
 class DOMHelpers {
-    static async getElement(id) {
-        return document.getElementById(id);
-    }
     static setHTML(element, html) {
         if (element) element.innerHTML = html;
-    }
-    static setText(element, text) {
-        if (element) element.textContent = text;
-    }
-    static addLoadedClass(element, delay = 100) {
-        if (!element) return;
-        setTimeout(() => element.classList.add('loaded'), delay);
     }
 }
 
