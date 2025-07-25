@@ -11,17 +11,17 @@ const pageConfigs = {
         metaKeywords: "Ray, portfolio, computer science, data science, AI, machine learning, web development, Monash University Malaysia",
         additionalHead: `    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://yoursite.com/">
+    <meta property="og:url" content="https://ll-0013py.github.io/portfolio/">
     <meta property="og:title" content="Ray's Portfolio | Computer Science & Data Science">
     <meta property="og:description" content="Ray - Computer Science & Data Science student at Monash University Malaysia. AI/ML projects, full-stack development, award-winning research experience.">
-    <meta property="og:image" content="https://yoursite.com/assets/og-image.jpg">
+    <meta property="og:image" content="https://ll-0013py.github.io/portfolio/assets/og-image.jpg">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://yoursite.com/">
+    <meta property="twitter:url" content="https://ll-0013py.github.io/portfolio/">
     <meta property="twitter:title" content="Ray's Portfolio | Computer Science & Data Science">
     <meta property="twitter:description" content="Ray - Computer Science & Data Science student at Monash University Malaysia. AI/ML projects, full-stack development, award-winning research experience.">
-    <meta property="twitter:image" content="https://yoursite.com/assets/og-image.jpg">
+    <meta property="twitter:image" content="https://ll-0013py.github.io/portfolio/assets/og-image.jpg">
     
 `,
         scripts: `    <!-- Scripts -->
@@ -39,17 +39,17 @@ const pageConfigs = {
         metaKeywords: "Ray, about, computer science, data science, Monash University Malaysia, AI research, international student",
         additionalHead: `    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://yoursite.com/about.html">
+    <meta property="og:url" content="https://ll-0013py.github.io/portfolio/about.html">
     <meta property="og:title" content="About Ray - Computer Science & Data Science Student">
     <meta property="og:description" content="Meet Ray - CS & Data Science student with awards in AI research, music production, and international competitions. From Japan to Malaysia, discover my journey in tech innovation.">
-    <meta property="og:image" content="https://yoursite.com/assets/about-photo.jpg">
+    <meta property="og:image" content="https://ll-0013py.github.io/portfolio/assets/about-photo.jpg">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://yoursite.com/about.html">
+    <meta property="twitter:url" content="https://ll-0013py.github.io/portfolio/about.html">
     <meta property="twitter:title" content="About Ray - Computer Science & Data Science Student">
     <meta property="twitter:description" content="Meet Ray - CS & Data Science student with awards in AI research, music production, and international competitions.">
-    <meta property="twitter:image" content="https://yoursite.com/assets/about-photo.jpg">
+    <meta property="twitter:image" content="https://ll-0013py.github.io/portfolio/assets/about-photo.jpg">
     
 `,
         scripts: `    <script src="js/utils/dom-helpers.js"></script>
@@ -65,17 +65,17 @@ const pageConfigs = {
         metaKeywords: "Ray, CV, curriculum vitae, computer science, data science, scholarship, AI research, full-stack developer",
         additionalHead: `    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://yoursite.com/cv.html">
+    <meta property="og:url" content="https://ll-0013py.github.io/portfolio/cv.html">
     <meta property="og:title" content="Ray's CV - CS & Data Science Student">
     <meta property="og:description" content="Ray's CV - Monash University CS/Data Science student with scholarships, AI research awards, full-stack development skills. Python, JavaScript, Machine Learning expertise.">
-    <meta property="og:image" content="https://yoursite.com/assets/profile.jpg">
+    <meta property="og:image" content="https://ll-0013py.github.io/portfolio/assets/profile.jpg">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://yoursite.com/cv.html">
+    <meta property="twitter:url" content="https://ll-0013py.github.io/portfolio/cv.html">
     <meta property="twitter:title" content="Ray's CV - CS & Data Science Student">
     <meta property="twitter:description" content="Ray's CV - Monash University student with scholarships, AI research awards, full-stack development skills.">
-    <meta property="twitter:image" content="https://yoursite.com/assets/profile.jpg">
+    <meta property="twitter:image" content="https://ll-0013py.github.io/portfolio/assets/profile.jpg">
     
 `,
         scripts: `    <script src="js/utils/dom-helpers.js"></script>
@@ -91,17 +91,17 @@ const pageConfigs = {
         metaKeywords: "Ray, projects, AI, machine learning, web development, Python, JavaScript, full-stack development, data analysis",
         additionalHead: `    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://yoursite.com/projects.html">
+    <meta property="og:url" content="https://ll-0013py.github.io/portfolio/projects.html">
     <meta property="og:title" content="Ray's Tech Projects - AI/ML & Web Development">
     <meta property="og:description" content="Ray's Tech Projects - AI/ML applications, full-stack web development, data analysis tools. Explore innovative solutions built with Python, JavaScript, and modern frameworks.">
-    <meta property="og:image" content="https://yoursite.com/assets/projects/portfolio.jpg">
+    <meta property="og:image" content="https://ll-0013py.github.io/portfolio/assets/projects/portfolio.jpg">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://yoursite.com/projects.html">
+    <meta property="twitter:url" content="https://ll-0013py.github.io/portfolio/projects.html">
     <meta property="twitter:title" content="Ray's Tech Projects - AI/ML & Web Development">
     <meta property="twitter:description" content="Ray's Tech Projects - AI/ML applications, full-stack web development, data analysis tools. Innovative solutions with Python & JavaScript.">
-    <meta property="twitter:image" content="https://yoursite.com/assets/projects/portfolio.jpg">
+    <meta property="twitter:image" content="https://ll-0013py.github.io/portfolio/assets/projects/portfolio.jpg">
     
 `,
         scripts: `    <script src="js/utils/dom-helpers.js"></script>
@@ -117,17 +117,17 @@ const pageConfigs = {
         metaKeywords: "Ray, contact, GitHub, LinkedIn, social media, collaboration, networking, tech professional",
         additionalHead: `    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://yoursite.com/links.html">
+    <meta property="og:url" content="https://ll-0013py.github.io/portfolio/links.html">
     <meta property="og:title" content="Connect with Ray - Social & Professional Links">
     <meta property="og:description" content="Connect with Ray - Find my GitHub projects, LinkedIn profile, social media, and contact information. Let's collaborate on innovative tech solutions and AI research.">
-    <meta property="og:image" content="https://yoursite.com/assets/profile.jpg">
+    <meta property="og:image" content="https://ll-0013py.github.io/portfolio/assets/profile.jpg">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://yoursite.com/links.html">
+    <meta property="twitter:url" content="https://ll-0013py.github.io/portfolio/links.html">
     <meta property="twitter:title" content="Connect with Ray - Social & Professional Links">
     <meta property="twitter:description" content="Connect with Ray - GitHub projects, LinkedIn profile, social media, and contact information. Let's collaborate on tech solutions.">
-    <meta property="twitter:image" content="https://yoursite.com/assets/profile.jpg">
+    <meta property="twitter:image" content="https://ll-0013py.github.io/portfolio/assets/profile.jpg">
     
 `,
         scripts: `    <script src="js/utils/dom-helpers.js"></script>
