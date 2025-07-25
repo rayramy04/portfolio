@@ -3,7 +3,6 @@ class DOMHelpers {
         if (element) element.innerHTML = html;
     }
 }
-
 class PageBase {
     constructor(pageName) {
         this.pageName = pageName;
@@ -27,8 +26,7 @@ class PageBase {
             this.initializeCVToggle();
         }
     }
-    async initializePageContent() {
-    }
+    async initializePageContent() {}
     initializeNavigation() {
         document.querySelectorAll('.nav-link').forEach(link => {
             link.classList.remove('active', 'clicked');

@@ -1,174 +1,49 @@
-# ==============================================
-# Professional Portfolio - Git Ignore Rules
-# ==============================================
+# ================================
+# Portfolio Site - Git Ignore
+# ================================
 
 # Operating System Files
-# -----------------------
 .DS_Store
-.DS_Store?
 ._*
-.Spotlight-V100
-.Trashes
-Icon?
-ehthumbs.db
-ehthumbs_vista.db
 Thumbs.db
 desktop.ini
 
-# Editor & IDE Files
-# ------------------
+# Editor & IDE Files (for collaboration)
 .vscode/
 .idea/
 *.swp
-*.swo
 *~
-.sublime-*
-.atom/
 
-# Kiro IDE
-# --------
-.kiro/
-*.kiro
-.kiro-*
-kiro.log
-kiro-debug.log
+# AI Assistant Files (for collaboration)
+.claude/
+.cursor/
 
-# Development Tools
-# -----------------
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-lerna-debug.log*
-.eslintcache
-.stylelintcache
-
-# Local Development Servers
-# -------------------------
-server.py
-local-server.*
-*.local
-.vercel
-.netlify/
-
-# Build & Distribution
-# -------------------
-dist/
-build/
-out/
-coverage/
-*.tgz
-*.tar.gz
-
-# Environment & Sensitive Data
-# ----------------------------
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-config.local.js
-secrets.json
-
-# Backup & Temporary Files
-# ------------------------
+# Backup & Temporary Files  
 *.bak
 *.backup
 *.orig
 *.tmp
-*.temp
-*.swp
-*.swo
-*.pid
-*.seed
-*.pid.lock
+*.log
 
-# Documentation Drafts
-# --------------------
-docs/drafts/
-*.draft.md
-NOTES.md
-TODO.md
+# Environment & Secrets
+.env*
+config.local.js
+secrets.json
 
-# Testing & Coverage
-# ------------------
-.nyc_output
-lib-cov
-coverage/
-*.lcov
-.coverage
-.pytest_cache/
-
-# Package Managers
-# ----------------
-node_modules/
-npm-debug.log
-yarn-error.log
-.pnpm-debug.log*
-# .yarn/ - Keep for GitHub Pages deployment
-.pnp.*
-
-# Deployment
-# ----------
-.firebase/
-.surge/
-now.json
-.now
-
-# Analytics & Monitoring
-# ----------------------
-.sentry/
-newrelic_agent.log
-
-# Personal Development Files
-# --------------------------
+# Development Files
+server.py
+local-server.*
 scratch/
-playground/
 experiments/
-.personal/
 
-# Generated HTML files (auto-generated from templates)
-# ---------------------------------------------------
-# Uncomment if using template system
-# index.html
-# about.html
-# cv.html
-# projects.html
-# links.html
-
-# Template generation tools
-# -------------------------
-generate-pages.js
-template-base.html
-content/
-
-# SEO and Meta Configuration
-# --------------------------
-data/seo-config.js
-
-# Development Scripts
-# -------------------
-css-combiner.js
-build-tools/
-scripts/dev/
-
-# IDE and Editor Specific
-# -----------------------
-*.code-workspace
-.history/
-.vscode/settings.json
-.vscode/launch.json
+# Build & Deploy (future use)
+dist/
+build/
+node_modules/
+.vercel
+.netlify/
 
 # Temporary Assets
-# ----------------
 assets/temp/
 assets/backup/
 assets/*.tmp
-assets/raw/
-
-# Deploy and CI/CD
-# ----------------
-# .github/workflows/ - Keep for GitHub Pages deployment
-deploy.sh
-build.sh
-*.deploy
