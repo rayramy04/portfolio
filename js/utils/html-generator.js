@@ -19,7 +19,7 @@ class HTMLGenerator {
         const cardHeader = `
             <div class="card-header">
                 <h3>${icon ? `<i class="${icon}"></i> ` : ''}${title}${link ? ' <i class="fas fa-external-link-alt card-external-icon"></i>' : ''}</h3>
-                <p class="text-meta">${date}</p>
+                ${date ? `<p class="text-meta">${date}</p>` : ''}
             </div>
         `;
         const cardMeta = subtitle || amount ? `
