@@ -85,7 +85,7 @@ class HTMLGenerator {
             const itemClass = isSpecialized ? "specialized-skill-item card hover-lift" : "card hover-lift";
             
             return `
-            <div class="skills-category card">
+            <div class="skills-category card hover-lift">
                 <h3>${category.category}</h3>
                 <div class="${gridClass}">
                     ${category.skills.map(skill => `

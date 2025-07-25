@@ -242,6 +242,15 @@ a.card:hover {
   transition: all var(--transition-fast);
 }
 
+/* Ensure cards with fade-in-up maintain proper transition timing */
+.card.fade-in-up {
+  transition: var(--transition-fade);
+}
+.card.fade-in-up.loaded {
+  transition: all var(--transition-fast);
+}
+
+
 /* Regular links (text links): color change only */
 .hover-lift:not(.card):hover {
   color: var(--primary-color);
@@ -260,6 +269,14 @@ a.card.hover-lift:hover {
   border-color: var(--primary-color);
   background: var(--bg-tertiary);
   cursor: pointer;
+}
+
+/* Loaded cards with hover: combine transforms */
+.card.hover-lift.fade-in-up.loaded:hover {
+  transform: translateY(-2px);
+}
+a.card.hover-lift.fade-in-up.loaded:hover {
+  transform: translateY(-4px);
 }
 
 html {
@@ -303,6 +320,18 @@ body {
 .no-bottom-margin {
   margin-bottom: 0;
 }
+
+/* Unified fade-in animation class */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: var(--transition-fade);
+}
+
+.fade-in-up.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
 .main-content {
   padding-top: calc(85px + var(--space-8));
   padding-bottom: var(--space-4); /* Compact bottom spacing to match title-card gap */
@@ -328,14 +357,6 @@ h4 {
   color: var(--text-primary);
   text-align: center;
   margin-bottom: var(--space-8);
-  opacity: 0;
-  transform: translateY(30px);
-  transition: var(--transition-fade);
-}
-
-.page-title.loaded {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 /* H2: Section titles */
@@ -565,14 +586,6 @@ h4 {
   z-index: 2;
   text-align: center;
   color: var(--text-white);
-  opacity: 0;
-  transform: translateY(30px);
-  transition: var(--transition-fade);
-}
-
-.hero-content.loaded {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .profile-photo {
@@ -661,7 +674,7 @@ h4 {
 
 /* ===== INTERESTS STYLES ===== */
 .interests-grid {
-  margin-top: var(--space-8);
+  margin-top: var(--space-4);
 }
 
 
@@ -682,14 +695,6 @@ h4 {
 
 .cv-section {
   margin-bottom: var(--space-8);
-  opacity: 0;
-  transform: translateY(30px);
-  transition: var(--transition-fade);
-}
-
-.cv-section.loaded {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 /* Collapsible section titles (CV/About pages) */
@@ -970,16 +975,6 @@ h4 {
   align-content: center;
 }
 
-.projects-section .projects-grid {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: var(--transition-fade);
-}
-
-.projects-section.loaded .projects-grid {
-  opacity: 1;
-  transform: translateY(0);
-}
 
 
 
@@ -1068,14 +1063,6 @@ h4 {
 /* ===== ABOUT STYLES ===== */
 .about-section {
   margin-bottom: var(--space-8);
-  opacity: 0;
-  transform: translateY(30px);
-  transition: var(--transition-fade);
-}
-
-.about-section.loaded {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 
@@ -1083,14 +1070,6 @@ h4 {
 
 .story-section {
   margin-bottom: var(--space-8);
-  opacity: 0;
-  transform: translateY(30px);
-  transition: var(--transition-fade);
-}
-
-.story-section.loaded {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .timeline-section {
@@ -1101,18 +1080,6 @@ h4 {
 
 
 /* ===== TIMELINE STYLES ===== */
-.timeline-section,
-.interests-section {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: var(--transition-fade);
-}
-
-.timeline-section.loaded,
-.interests-section.loaded {
-  opacity: 1;
-  transform: translateY(0);
-}
 
 .timeline {
   position: relative;
@@ -1183,15 +1150,7 @@ h4 {
 }
 
 .links-section {
-  margin-bottom: var(--space-8); /* Space between link sections */
-  opacity: 0;
-  transform: translateY(30px);
-  transition: var(--transition-fade);
-}
-
-.links-section.loaded {
-  opacity: 1;
-  transform: translateY(0);
+  margin-bottom: var(--space-8);
 }
 
 
