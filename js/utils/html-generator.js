@@ -8,45 +8,42 @@ class HTMLGenerator {
         return condition ? template : '';
     }
 
-    static cvItem(item, config = {}) {
+    static unifiedCardTemplate(item, config = {}) {
         const title = item.institution || item.company || item.title;
-        const subtitle = item.degree || item.position || item.organization;
+        const subtitle = item.degree || item.position || item.organization || item.funder;
         const date = item.period || item.date || item.year;
         const description = item.description || '';
         const link = item.url || item.link;
-        
-        const itemContent = `
+        const amount = item.amount;
+        const icon = item.icon;
+        const cardHeader = `
             <div class="card-header">
-                <h3>${title}${link ? ' <i class="fas fa-external-link-alt card-external-icon"></i>' : ''}</h3>
+                <h3>${icon ? `<i class="${icon}"></i> ` : ''}${title}${link ? ' <i class="fas fa-external-link-alt card-external-icon"></i>' : ''}</h3>
                 <p class="text-meta">${date}</p>
             </div>
+        `;
+        const cardMeta = subtitle || amount ? `
             <div class="card-meta-row flex-between">
-                <p class="text-meta">${subtitle}</p>
+                ${subtitle ? `<p class="text-meta">${subtitle}</p>` : ''}
+                ${amount ? `<p class="text-meta">${amount}</p>` : ''}
             </div>
-            ${description ? `<p>${description}</p>` : ''}
-        `;
-        
+        ` : '';
+        const cardDescription = description ? `<p>${description}</p>` : '';
+        const itemContent = cardHeader + cardMeta + cardDescription;
         if (link) {
-            return `
-                <a href="${link}" target="_blank" class="card hover-lift">
-                    ${itemContent}
-                </a>
-            `;
+            return `<a href="${link}" target="_blank" class="card hover-lift">${itemContent}</a>`;
         }
-        
-        return `
-            <div class="card hover-lift">
-                ${itemContent}
-            </div>
-        `;
+        return `<div class="card hover-lift">${itemContent}</div>`;
+    }
+
+    static cvItem(item, config = {}) {
+        return HTMLGenerator.unifiedCardTemplate(item, config);
     }
 
     static linkCard(link, config = {}) {
         const external = config.external ? 'target="_blank"' : '';
         const cardClass = config.cardClass || 'link-card';
-        // Default external link icon, can be overridden
         const rightIcon = link.rightIcon || 'fas fa-external-link-alt';
-        
         return `
             <a href="${link.url}" ${external} class="card hover-lift">
                 <div class="card-header">
@@ -59,31 +56,19 @@ class HTMLGenerator {
     }
 
     static certificationItem(cert) {
-        return this.cvItem(cert);
+        return HTMLGenerator.unifiedCardTemplate(cert);
     }
 
     static grantItem(grant) {
-        return `
-            <div class="card hover-lift">
-                <div class="card-header">
-                    <h3>${grant.title}</h3>
-                    <p class="text-meta">${grant.date || grant.year}</p>
-                </div>
-                <div class="card-meta-row flex-between">
-                    <p class="text-meta">${grant.organization || grant.funder}</p>
-                    ${grant.amount ? `<p class="text-meta">${grant.amount}</p>` : ''}
-                </div>
-                ${grant.description ? `<p>${grant.description}</p>` : ''}
-            </div>
-        `;
+        return HTMLGenerator.unifiedCardTemplate(grant);
     }
+
 
     static skillsSection(skillsData, generateStars) {
         return skillsData.map(category => {
             const isSpecialized = category.category === "Specialized Skills";
             const gridClass = isSpecialized ? "specialized-skills-grid gap-sm" : "skills-grid grid-auto-fit-compact gap-sm";
             const itemClass = isSpecialized ? "specialized-skill-item card hover-lift" : "card hover-lift";
-            
             return `
             <div class="skills-category card hover-lift">
                 <h3>${category.category}</h3>
@@ -111,11 +96,10 @@ class HTMLGenerator {
 
     static awardsSection(awardsData) {
         const years = Object.keys(awardsData).sort((a, b) => parseInt(b) - parseInt(a));
-        
         return years.map(year => `
             <div class="awards-year-group">
                 <h3 class="awards-year">${year}</h3>
-                ${awardsData[year].map(award => this.cvItem(award)).join('')}
+                ${awardsData[year].map(award => HTMLGenerator.unifiedCardTemplate(award)).join('')}
             </div>
         `).join('');
     }
