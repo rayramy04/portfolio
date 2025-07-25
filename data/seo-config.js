@@ -8,11 +8,13 @@ window.seoConfig = {
         "name": "Ray", // Full name as it appears in search results
         "jobTitle": "Computer Science & Data Science Student",
         "description": "Computer Science & Data Science student at Monash University Malaysia with expertise in AI/ML, full-stack development, and research.",
-        "url": "https://yoursite.com", // UPDATE: Your website URL
-        "image": "https://yoursite.com/assets/profile.jpg", // UPDATE: Profile photo URL
-        "sameAs": [ // Social media profiles for search engine linking
-            "https://github.com/yourusername", // UPDATE: Your GitHub URL
-            "https://linkedin.com/in/yourusername" // UPDATE: Your LinkedIn URL
+        "url": "https://ll-0013py.github.io/portfolio/",
+        "image": "https://ll-0013py.github.io/portfolio/assets/profile.jpg",
+        "sameAs": [
+            "https://github.com/ll-0013py",
+            "https://x.com/ll_0013py",
+            "https://note.com/ll_0013py",
+            "https://www.youtube.com/@ray_pianocover"
         ],
         "affiliation": {
             "@type": "Organization",
@@ -37,7 +39,7 @@ window.seoConfig = {
         "@type": "Website",
         "name": "Ray's Portfolio",
         "description": "Portfolio website showcasing computer science and data science projects, AI/ML applications, and professional experience.",
-        "url": "https://yoursite.com", // UPDATE: Your domain
+        "url": "https://ll-0013py.github.io/portfolio/",
         "author": {
             "@type": "Person",
             "name": "Ray"
@@ -62,11 +64,27 @@ window.seoConfig = {
                 "name": "Ray"
             }
         },
-        projects: { // Projects page schema
+        projects: {
             "@context": "https://schema.org",
             "@type": "CollectionPage",
             "name": "Ray's Projects",
             "description": "Collection of AI/ML and web development projects"
+        },
+        cv: {
+            "@context": "https://schema.org",
+            "@type": "ProfilePage",
+            "mainEntity": {
+                "@type": "Person",
+                "name": "Ray"
+            }
+        },
+        links: {
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "mainEntity": {
+                "@type": "Person",
+                "name": "Ray"
+            }
         }
     }
 };
