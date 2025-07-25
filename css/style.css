@@ -627,6 +627,9 @@ h4 {
 .interests-grid h3 i {
   color: var(--primary-color);
 }
+.interests-grid .card h3 {
+  margin-bottom: var(--space-2);
+}
 
 /* ===== CV STYLES ===== */
 .cv-header {
