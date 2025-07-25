@@ -45,30 +45,31 @@ npx http-server .
 
 ```
 portfolio/
-├── index.html              # Homepage
-├── about.html              # About page with timeline and interests
-├── cv.html                 # CV/Resume with collapsible sections
-├── projects.html           # Project showcase
-├── links.html              # Contact and social links
-├── template-base.html      # Template for new pages
+├── *.html                 # Pages (index, about, cv, projects, links)
+├── template-base.html     # Template for page generation (optional)
+├── generate-pages.js      # HTML generation script (optional)
 ├── css/
-│   └── style.css          # Complete stylesheet (1,191 lines)
+│   └── style.css         # Complete stylesheet with CSS custom properties
 ├── js/
-│   ├── pages-unified.js   # Central page initialization
-│   └── utils/             # Utility class library
-│       ├── dom-helpers.js    # DOM utilities + PageBase class
-│       ├── html-generator.js # Template rendering
-│       └── data-populator.js # Data-to-DOM population
-├── data/                   # Content configuration (edit these!)
-│   ├── common.js          # Site navigation, social links
-│   ├── home.js            # Homepage hero content
-│   ├── about.js           # Personal story, timeline, interests
-│   ├── cv.js              # Education, experience, skills, awards
-│   ├── projects.js        # Project portfolio
-│   ├── links.js           # Contact information
-│   └── seo-config.js      # SEO structured data
-├── assets/                # Images and media files
-└── content/               # Static HTML fragments
+│   ├── pages-unified.js  # Central page initialization and routing
+│   └── utils/            # Utility class library
+│       ├── dom-helpers.js   # DOM utilities + PageBase class
+│       ├── html-generator.js # Template rendering and card generation
+│       └── data-populator.js # Data-to-DOM population utilities
+├── data/                  # Content configuration (edit these!)
+│   ├── common.js         # Site navigation, social links, profile info
+│   ├── home.js           # Homepage hero content and keywords
+│   ├── about.js          # Personal story, timeline, interests
+│   ├── cv.js             # Education, experience, skills, awards, grants
+│   ├── projects.js       # Project portfolio with technologies and links
+│   ├── links.js          # Contact and social media information
+│   └── seo-config.js     # SEO structured data (Schema.org)
+├── assets/               # Images and media files
+│   ├── *.jpg            # Profile, about, and OG images
+│   └── projects/        # Project screenshots and thumbnails
+├── content/              # HTML fragments for template generation (optional)
+├── robots.txt            # Search engine crawling instructions
+└── sitemap.xml          # Site structure for search engines
 ```
 
 ## 🎨 Design System
@@ -158,11 +159,13 @@ The unified card template automatically handles:
 
 - **Education** - institution, degree, period, description, url
 - **Experience** - company, position, period, description, url  
-- **Projects** - name/title, description, technologies, githubUrl, liveUrl, image
+- **Projects** - name/title, description, technologies[], githubUrl, liveUrl, image
 - **Timeline Events** - period, title, description, icon
 - **Awards** - title, organization, date, description, link
 - **Certifications** - title, organization, date, url
 - **Grants** - title, organization, amount, date, description
+- **Interests** - title, description, icon (uses specialized template)
+- **Skills** - Complex nested structure with categories, levels, and descriptions
 
 ## 🔧 Architecture Overview
 
@@ -173,7 +176,7 @@ The codebase follows a utility-class architecture:
 - **HTMLGenerator** - Template rendering and HTML generation
 - **PageBase** - Common page functionality (navigation, scroll effects)
 - **DOMHelpers** - Safe DOM manipulation utilities
-- **DataPopulator** - Data-to-DOM population with error handling
+- **DataPopulator** - Data-to-DOM population utilities (available but not actively used)
 
 ### Page Initialization Flow
 
@@ -268,10 +271,17 @@ Update the primary color system in CSS:
 
 ### Adding New Pages
 
-1. **Create HTML file** (copy from `template-base.html`)
-2. **Add navigation** in `data/common.js`
+**Option 1: Manual Creation (Current Approach)**
+1. **Create HTML file** with proper structure and script tags
+2. **Add navigation** entry in `data/common.js`
 3. **Add page handler** in `js/pages-unified.js`
 4. **Create data file** in `data/` directory
+
+**Option 2: Template Generation (Alternative)**
+1. **Add content** to `content/` directory
+2. **Update page config** in `generate-pages.js`
+3. **Run generator** with `node generate-pages.js`
+4. **Update navigation** as needed
 
 ### Custom Animations
 

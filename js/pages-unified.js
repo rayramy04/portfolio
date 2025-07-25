@@ -1,3 +1,13 @@
+// Animation delays constants
+const ANIMATION_DELAYS = {
+    PAGE_TITLE: 200,
+    SECTION_BASE: 400,
+    SECTION_STORY: 500,
+    SECTION_TIMELINE: 600,
+    SECTION_INTERESTS: 700,
+    LINKS_SECTION: 200
+};
+
 async function initializePage() {
     const pageName = getCurrentPageName();
     await initializeBase();
@@ -17,7 +27,7 @@ async function initializeBase() {
     setTimeout(() => {
         const pageTitle = document.querySelector('.page-title');
         if (pageTitle) pageTitle.classList.add('loaded');
-    }, 200);
+    }, ANIMATION_DELAYS.PAGE_TITLE);
 }
 
 function initializeSEO() {
@@ -100,10 +110,10 @@ async function initAbout() {
         className: 'interests-grid grid-auto-fit gap-sm'
     });
     animateElements([
-        { selector: '.about-section', delay: 400 },
-        { selector: '.story-section', delay: 500 },
-        { selector: '.timeline-section', delay: 600 },
-        { selector: '.interests-section', delay: 700 }
+        { selector: '.about-section', delay: ANIMATION_DELAYS.SECTION_BASE },
+        { selector: '.story-section', delay: ANIMATION_DELAYS.SECTION_STORY },
+        { selector: '.timeline-section', delay: ANIMATION_DELAYS.SECTION_TIMELINE },
+        { selector: '.interests-section', delay: ANIMATION_DELAYS.SECTION_INTERESTS }
     ]);
 }
 
@@ -123,14 +133,14 @@ async function initCV() {
         awardsContainer.innerHTML = HTMLGenerator.awardsSection(window.cvData.awards);
     }
     initContainer('grants-container', window.cvData.grants, HTMLGenerator.grantItem);
-    animateElements([{ selector: '.cv-section', delay: 400 }]);
+    animateElements([{ selector: '.cv-section', delay: ANIMATION_DELAYS.SECTION_BASE }]);
 }
 
 async function initProjects() {
     initContainer('projects-container', window.projectsData, HTMLGenerator.projectCard, {
         containerClass: 'projects-grid grid-auto-fit gap-sm fade-in-up mb-section'
     });
-    animateElements([{ selector: '.projects-grid', delay: 400 }]);
+    animateElements([{ selector: '.projects-grid', delay: ANIMATION_DELAYS.SECTION_BASE }]);
 }
 
 async function initLinks() {
@@ -144,7 +154,7 @@ async function initLinks() {
                 external: false
             });
     }
-    animateElements([{ selector: '.links-section', delay: 200 }]);
+    animateElements([{ selector: '.links-section', delay: ANIMATION_DELAYS.LINKS_SECTION }]);
 }
 
 function initContainer(containerId, data, generator, options = {}) {
