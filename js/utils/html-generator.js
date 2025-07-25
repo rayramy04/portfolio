@@ -81,7 +81,7 @@ class HTMLGenerator {
     static skillsSection(skillsData, generateStars) {
         return skillsData.map(category => {
             const isSpecialized = category.category === "Specialized Skills";
-            const gridClass = isSpecialized ? "specialized-skills-grid" : "skills-grid grid-auto-fit-compact";
+            const gridClass = isSpecialized ? "specialized-skills-grid gap-sm" : "skills-grid grid-auto-fit-compact gap-sm";
             const itemClass = isSpecialized ? "specialized-skill-item card hover-lift" : "card hover-lift";
             
             return `
