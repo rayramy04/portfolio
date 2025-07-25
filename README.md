@@ -2,7 +2,7 @@
 
 A clean, responsive portfolio website built with vanilla HTML, CSS, and JavaScript. No build process, no dependencies - just edit data files and deploy.
 
-**🌟 [Live Demo](https://your-username.github.io/portfolio)** | **📖 [日本語版](README.ja.md)**
+**🌟 [Live Demo](https://ll-0013py.github.io/portfolio/index.html)** | **📖 [日本語版](README.ja.md)**
 
 ## ✨ Features
 
