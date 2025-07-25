@@ -2,7 +2,7 @@
 
 バニラHTML、CSS、JavaScriptで構築された、クリーンでレスポンシブなポートフォリオWebサイト。ビルドプロセス不要、依存関係なし - データファイルを編集してデプロイするだけ。
 
-**🌟 [ライブデモ](https://your-username.github.io/portfolio)** | **📖 [English Version](README.md)**
+**🌟 [ライブデモ](https://ll-0013py.github.io/portfolio/index.html)** | **📖 [English Version](README.md)**
 
 ## ✨ 機能
 
