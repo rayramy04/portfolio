@@ -276,6 +276,7 @@ body {
 
 .gap-sm {
   gap: var(--space-2);
+  row-gap: 0.75rem; /* Slightly more vertical spacing for grid cards */
 }
 
 /* High-frequency layout utility */
@@ -358,6 +359,13 @@ h4 {
 .card p {
   line-height: var(--lh-relaxed);
 }
+
+#story-content-inner p + p,
+#who-i-am-content-inner p + p,
+.card p + p {
+  margin-top: var(--space-2);
+}
+
 .about-profile-layout {
   display: flex;
   gap: var(--space-8);
@@ -1003,6 +1011,28 @@ h3.awards-year {
     font-size: var(--fs-4xl);
   }
 
+  /* Tighter spacing for card content on mobile */
+  .card h3 {
+    margin-bottom: 0.0625rem; /* 1px - much tighter than desktop 2px */
+  }
+
+  .card .text-meta {
+    margin-bottom: 0.125rem; /* 2px instead of default spacing */
+    margin-top: 0.0625rem;
+  }
+
+  .card p {
+    margin-bottom: 0.125rem; /* 2px for paragraphs */
+  }
+
+  .card .text-meta + p {
+    margin-top: 0.0625rem; /* 1px between meta and paragraph */
+  }
+
+  .card p + .text-meta {
+    margin-top: 0.0625rem; /* 1px between paragraph and meta */
+  }
+
   .specialized-skill-item .skill-header {
     flex-direction: column;
     align-items: flex-start;
@@ -1029,13 +1059,6 @@ h3.awards-year {
     margin: 0;
   }
 
-  .card h3 {
-    margin-bottom: var(--space-2);
-  }
-
-  .card .text-meta {
-    margin-bottom: var(--space-4);
-  }
 
   .main-content {
     padding-bottom: var(--space-4);
