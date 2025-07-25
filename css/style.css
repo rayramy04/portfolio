@@ -113,13 +113,6 @@
   box-sizing: border-box;
 }
 
-/* Error Messages */
-.error {
-  color: var(--color-accent);
-  padding: var(--space-4);
-  text-align: center;
-  font-size: var(--fs-sm);
-}
 
 /* ===== UNIFIED CARD SYSTEM ===== */
 .card {
@@ -323,6 +316,20 @@ body {
   margin-bottom: 0;
 }
 
+/* Section spacing utility */
+.mb-section {
+  margin-bottom: var(--space-8);
+}
+
+/* Gap utilities */
+.gap-sm {
+  gap: var(--space-2);
+}
+
+.gap-md {
+  gap: var(--space-4);
+}
+
 /* Unified fade-in animation class */
 .fade-in-up {
   opacity: 0;
@@ -401,8 +408,6 @@ h4 {
   color: var(--text-secondary);
 }
 
-.card p:last-child {
-}
 
 /* Story and About paragraph line height */
 #story-content-inner p,
@@ -417,9 +422,6 @@ h4 {
   align-items: stretch; /* Align card and image heights */
 }
 
-.about-text-content {
-  flex: 2;
-}
 
 .about-profile-layout .card {
   flex: 2;
@@ -662,7 +664,6 @@ h4 {
   text-align: center;
   box-shadow: var(--shadow-md);
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   position: relative;
   overflow: hidden;
 }
@@ -760,8 +761,6 @@ h4 {
   overflow: hidden;
 }
 
-.skills-grid {
-}
 
 /* Skills vertical layout - for main skills grid */
 .skills-grid .skill-header {
@@ -817,16 +816,6 @@ h4 {
   border-radius: var(--radius-full);
 }
 
-.skill-stars-small {
-  display: flex;
-  gap: var(--space-2);
-}
-
-.skill-stars-small i {
-  font-size: var(--fs-sm);
-  color: var(--primary-color);
-  transition: var(--transition-fast);
-}
 
 /* Medium grid for specialized skills with detailed descriptions */
 .specialized-skills-grid {
@@ -872,11 +861,6 @@ h4 {
 }
 
 
-.skill-info {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-}
 
 
 
@@ -917,42 +901,9 @@ h4 {
   left: 0;
 }
 
-.skill-description ul li:last-child {
-}
 
-.skill-description-list {
-  margin: 0;
-  padding: var(--space-2) 0;
-  color: var(--text-secondary);
-  font-size: var(--fs-sm);
-  line-height: 1.6;
-  list-style: none;
-}
-
-.skill-description-list li {
-  margin-bottom: var(--space-2);
-  padding-left: var(--space-4);
-  position: relative;
-}
-
-.skill-description-list li::before {
-  content: '•';
-  color: var(--primary-color);
-  font-weight: var(--fw-bold);
-  position: absolute;
-  left: 0;
-}
-
-.skill-description-list li:last-child {
-}
 
 /* ===== PROJECTS STYLES ===== */
-.projects-header {
-  text-align: center;
-  margin-bottom: var(--space-8);
-  opacity: 1;
-  transform: translateY(0);
-}
 
 .projects-section {
   height: auto;
@@ -1033,23 +984,6 @@ h4 {
   font-size: var(--fs-sm);
 }
 
-.project-technologies {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-  margin-top: var(--space-4);
-  margin-bottom: var(--space-4);
-}
-
-.tech-tag {
-  padding: var(--space-2) var(--space-4);
-  background: var(--bg-secondary);
-  color: var(--primary-color);
-  border-radius: var(--radius-full);
-  font-size: 0.75rem;
-  font-weight: var(--fw-medium);
-  line-height: 1.2;
-}
 
 /* ===== ABOUT STYLES ===== */
 .about-section {
@@ -1174,13 +1108,6 @@ h3.awards-year {
 
 
 
-/* ===== CERTIFICATION STYLES ===== */
-.cert-score {
-  color: var(--text-secondary);
-  font-weight: var(--fw-medium);
-  margin: var(--space-2) 0;
-  font-size: var(--fs-base);
-}
 
 
 
@@ -1402,7 +1329,7 @@ h3.awards-year {
   z-index: var(--z-sticky);
 }
 
-.back-to-top.show {
+.back-to-top.visible {
   opacity: 1;
   visibility: visible;
 }
