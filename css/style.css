@@ -1,107 +1,83 @@
 /* ===== DESIGN SYSTEM - COOL GREEN THEME ===== */
 :root {
-  /* ===== SIMPLIFIED COLOR PALETTE ===== */
-  /* Green (3 colors) */
-  --color-primary: #059669;      /* Main green */
-  --color-primary-light: #34d399; /* Light green */
-  --color-primary-dark: #047857;  /* Dark green */
-  
-  /* RGB values for transparency */
+  /* ===== COLOR PALETTE ===== */
+  --color-primary: #059669;
+  --color-primary-light: #34d399;
+  --color-primary-dark: #047857;
   --color-primary-rgb: 5, 150, 105;
   --color-white-rgb: 255, 255, 255;
-  
-  /* Neutral (4 colors) */
   --color-white: #ffffff;
-  --color-gray-light: #f0fdf4;   /* Light gray/off-white */
-  --color-gray: #6b7280;          /* Medium gray */
-  --color-black: #1f2937;         /* Dark gray/black */
-  
-  /* Accent (1 color) */
-  --color-accent: #dc2626;        /* Red for errors */
+  --color-gray-light: #f0fdf4;
+  --color-gray: #6b7280;
+  --color-black: #1f2937;
+  --color-accent: #dc2626;
 
   /* ===== SEMANTIC MAPPINGS ===== */
-  /* Primary Colors - for backward compatibility */
   --primary-color: var(--color-primary);
   --primary-dark: var(--color-primary-dark);
-
-  /* Background Colors */
   --bg-primary: var(--color-white);
   --bg-secondary: var(--color-gray-light);
   --bg-tertiary: var(--color-gray-light);
   --bg-dark: var(--color-primary-dark);
   --bg-card: var(--color-white);
-
-  /* Text Colors */
   --text-primary: var(--color-black);
   --text-secondary: var(--color-primary-dark);
   --text-light: var(--color-gray);
   --text-white: var(--color-white);
 
-  /* Gradients */
+  /* ===== GRADIENTS ===== */
   --gradient-hero: linear-gradient(135deg, 
-    #10b981 0%,     /* Emerald-500 */
-    #14b8a6 30%,    /* Teal-500 */
-    #06b6d4 60%,    /* Cyan-500 */
-    var(--color-primary-light) 100%  /* Using CSS variable for the final color */
-  ); /* Special gradient for home - keeping vibrant colors for visual appeal */
+    #10b981 0%,
+    #14b8a6 30%,
+    #06b6d4 60%,
+    var(--color-primary-light) 100%
+  );
   --gradient-button: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
 
-  /* Shadows */
+  /* ===== SHADOWS ===== */
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  --shadow-green: 0 4px 12px rgba(var(--color-primary-rgb), 0.2); /* Primary color shadow */
+  --shadow-green: 0 4px 12px rgba(var(--color-primary-rgb), 0.2);
 
-  /* Typography */
+  /* ===== TYPOGRAPHY ===== */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-heading: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-
-  /* Font Weights */
   --fw-medium: 500;
   --fw-semibold: 600;
   --fw-bold: 700;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.25rem;
+  --fs-2xl: 1.5rem;
+  --fs-4xl: 2.25rem;
+  --fs-5xl: 3rem;
+  --lh-normal: 1.6;
+  --lh-relaxed: 1.8;
 
-  /* Font Sizes - Minimal set */
-  --fs-sm: 0.875rem;    /* Small text */
-  --fs-base: 1rem;      /* Base text */
-  --fs-lg: 1.125rem;    /* Large text */
-  --fs-xl: 1.25rem;     /* Subtitle */
-  --fs-2xl: 1.5rem;     /* Section title */
-  --fs-4xl: 2.25rem;    /* Page title */
-  --fs-5xl: 3rem;       /* Hero title */
+  /* ===== SPACING ===== */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
 
-  /* Line Heights */
-  --lh-normal: 1.6;     /* Normal line height */
-  --lh-relaxed: 1.8;    /* Relaxed line height */
-
-  /* Spacing - Minimal set */
-  --space-1: 0.25rem;   /* Extra small */
-  --space-2: 0.5rem;    /* Small */
-  --space-4: 1rem;      /* Base */
-  --space-6: 1.5rem;    /* Medium */
-  --space-8: 2rem;      /* Large */
-  --space-12: 3rem;     /* Item spacing */
-  --space-16: 4rem;     /* Section spacing */
-
-  /* Sizes */
-  --size-icon-sm: 50px;     /* Small icon */
-  --size-avatar-sm: 150px;  /* Small avatar */
-  --size-avatar-md: 200px;  /* Medium avatar */
-  --size-project-thumb: 200px; /* Project thumbnail */
-  --max-width-container: 1200px; /* Container max width */
-  
-  /* Border Radius */
+  /* ===== SIZES ===== */
+  --size-icon-sm: 50px;
+  --size-avatar-sm: 150px;
+  --size-avatar-md: 200px;
+  --size-project-thumb: 200px;
+  --max-width-container: 1200px;
   --radius-md: 0.375rem;
-  --radius-lg: 0.5rem;
+  --radius-lg: 0.5rem;  
   --radius-xl: 0.75rem;
   --radius-full: 9999px;
-
-  /* Transitions */
   --transition-fast: 0.25s ease-in-out;
   --transition-normal: 0.5s ease-in-out;
   --transition-fade: opacity 2s ease, transform 2s ease;
-
-  /* Z-index */
   --z-sticky: 1020;
   --z-fixed: 1030;
 }
@@ -128,21 +104,16 @@
 }
 
 /* ===== UNIFIED GRID SYSTEM ===== */
-/* Standard grid for content-rich cards (projects, interests, links) */
 .grid-auto-fit {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--space-2);
 }
 
-/* Compact grid for minimal content cards (basic skills) */
 .grid-auto-fit-compact {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: var(--space-2);
 }
 
-/* Mobile: Force single column for cleaner layout */
 @media (max-width: 768px) {
   .grid-auto-fit {
     grid-template-columns: 1fr;
@@ -153,7 +124,6 @@
   }
 }
 
-/* Unified card header layout */
 .card-header {
   display: flex;
   justify-content: space-between;
@@ -168,10 +138,9 @@
 
 .card-header .text-meta {
   white-space: nowrap;
-  margin: 0 0 0 var(--space-4); /* Override default text-meta margins but keep left margin */
+  margin: 0 0 0 var(--space-4);
 }
 
-/* Secondary meta row for additional info */
 .card-meta-row {
   display: flex;
   justify-content: space-between;
@@ -180,7 +149,7 @@
 }
 
 .card-meta-row .text-meta {
-  margin: 0; /* Override default text-meta margins */
+  margin: 0;
 }
 
 .card-external-icon {
@@ -195,7 +164,6 @@ a.card:hover .card-external-icon {
   opacity: 1;
 }
 
-/* External link icon for linked cards (a.card) */
 a.card::after {
   content: '\f35d';
   font-family: 'Font Awesome 5 Free';
@@ -215,7 +183,6 @@ a.card:hover::after {
   opacity: 1;
 }
 
-/* Disable ::after when card-external-icon exists (prevent double icons) */
 a.card:has(.card-external-icon)::after {
   display: none;
 }
@@ -237,7 +204,6 @@ a.card:hover {
   transition: all var(--transition-fast);
 }
 
-/* Ensure cards with fade-in-up maintain proper transition timing */
 .card.fade-in-up {
   transition: var(--transition-fade);
 }
@@ -246,18 +212,15 @@ a.card:hover {
 }
 
 
-/* Regular links (text links): color change only */
 .hover-lift:not(.card):hover {
   color: var(--primary-color);
 }
 
-/* Cards (non-link): light lift effect only */
 .card.hover-lift:not(a):hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
 
-/* Linked cards: more distinct clickable effect */
 a.card.hover-lift:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-green);
@@ -265,8 +228,6 @@ a.card.hover-lift:hover {
   background: var(--bg-tertiary);
   cursor: pointer;
 }
-
-/* Loaded cards with hover: combine transforms */
 .card.hover-lift.fade-in-up.loaded:hover {
   transform: translateY(-2px);
 }
@@ -278,7 +239,7 @@ html {
   scroll-behavior: smooth;
   margin: 0;
   padding: 0;
-  overflow-y: scroll; /* Always show scrollbar to prevent layout shift */
+  overflow-y: scroll;
 }
 
 body {
@@ -302,26 +263,17 @@ body {
 }
 
 /* ===== UNIFIED BOTTOM SPACING SYSTEM ===== */
-/* All pages use consistent bottom spacing via main-content padding.
-   Last sections of each page should have margin-bottom: 0 to rely on this unified system.
-   This ensures consistency and maintainability across all pages. */
-
-/* Unified class for last sections that rely on main-content padding-bottom */
 .section-last {
-  margin-bottom: 0 !important; /* Relies on main-content padding-bottom for consistent spacing */
+  margin-bottom: 0 !important;
 }
-
-/* Utility class for removing bottom margin from last child elements */
 .no-bottom-margin {
   margin-bottom: 0;
 }
 
-/* Section spacing utility */
 .mb-section {
   margin-bottom: var(--space-8);
 }
 
-/* Gap utilities */
 .gap-sm {
   gap: var(--space-2);
 }
@@ -330,7 +282,6 @@ body {
   gap: var(--space-4);
 }
 
-/* Unified fade-in animation class */
 .fade-in-up {
   opacity: 0;
   transform: translateY(30px);
@@ -343,7 +294,7 @@ body {
 }
 .main-content {
   padding-top: calc(85px + var(--space-8));
-  padding-bottom: var(--space-4); /* Compact bottom spacing to match title-card gap */
+  padding-bottom: var(--space-4);
   flex: 1;
   min-height: calc(100vh - 140px);
 }
@@ -360,29 +311,23 @@ h4 {
 }
 
 /* ===== UNIFIED TEXT SYSTEM ===== */
-/* H1: Main page titles */
 .page-title {
   font-size: var(--fs-4xl);
   color: var(--text-primary);
   text-align: center;
-  margin-bottom: var(--space-8);
 }
 
-/* H2: Section titles */
 .section-title {
   font-size: var(--fs-2xl);
   color: var(--primary-color);
   margin-bottom: var(--space-8);
 }
 
-/* H3: Subsection titles */
 .subsection-title {
   font-size: var(--fs-xl);
   color: var(--text-primary);
   margin-bottom: var(--space-4);
 }
-
-/* Unified text utilities */
 .text-meta {
   color: var(--text-secondary);
   font-weight: var(--fw-medium);
@@ -390,17 +335,16 @@ h4 {
   font-size: var(--fs-lg);
 }
 .text-meta + .text-meta {
-  margin-top: var(--space-1); /* Reduce gap between consecutive text-meta elements */
+  margin-top: var(--space-1);
 }
 
-/* Card content spacing */
 .card h3 {
-  margin-bottom: 0.125rem; /* 2px - compact spacing */
+  margin-bottom: 0.125rem;
   color: var(--text-primary);
 }
 
 .card p {
-  margin-bottom: var(--space-1); /* 4px - compact spacing */
+  margin-bottom: var(--space-1);
   color: var(--text-primary);
 }
 
@@ -409,17 +353,14 @@ h4 {
 }
 
 
-/* Story and About paragraph line height */
 #story-content-inner p,
 .card p {
   line-height: var(--lh-relaxed);
 }
-
-/* About page profile layout */
 .about-profile-layout {
   display: flex;
   gap: var(--space-8);
-  align-items: stretch; /* Align card and image heights */
+  align-items: stretch;
 }
 
 
@@ -431,7 +372,7 @@ h4 {
   flex: 1;
   display: flex;
   justify-content: center;
-  align-items: stretch; /* Fit image to container height */
+  align-items: stretch;
 }
 
 .about-photo {
@@ -454,7 +395,7 @@ h4 {
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(var(--color-white-rgb), 0.95); /* White with opacity */
+  background: rgba(var(--color-white-rgb), 0.95);
   backdrop-filter: blur(10px);
   box-shadow: var(--shadow-md);
   z-index: var(--z-fixed);
@@ -523,7 +464,6 @@ h4 {
   border-radius: 2px;
 }
 
-/* Mobile Navigation */
 @media (max-width: 768px) {
   .nav-menu {
     position: fixed;
@@ -562,6 +502,7 @@ h4 {
 
 }
 
+
 /* ===== MAIN CONTENT ===== */
 
 /* ===== HERO SECTION ===== */
@@ -598,7 +539,7 @@ h4 {
   margin: 0 auto var(--space-8);
   border-radius: var(--radius-full);
   overflow: hidden;
-  border: 4px solid rgba(var(--color-white-rgb), 0.3); /* White with opacity */
+  border: 4px solid rgba(var(--color-white-rgb), 0.3);
   box-shadow: var(--shadow-xl);
 }
 
@@ -614,7 +555,7 @@ h4 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(var(--color-white-rgb), 0.1); /* White with opacity */
+  background: rgba(var(--color-white-rgb), 0.1);
   font-size: var(--fs-4xl);
 }
 
@@ -634,7 +575,6 @@ h4 {
   margin-top: var(--space-8);
 }
 
-/* Hero section - all text elements should be white on dark background */
 .hero h1,
 .hero h2,
 .hero h3,
@@ -653,12 +593,12 @@ h4 {
 
 .keyword-item {
   padding: var(--space-2) var(--space-6);
-  background: rgba(var(--color-primary-rgb), 0.8); /* Primary color with opacity */
+  background: rgba(var(--color-primary-rgb), 0.8);
   color: var(--text-white);
   border-radius: var(--radius-full);
   font-weight: var(--fw-medium);
   font-size: var(--fs-sm);
-  border: 1px solid rgba(var(--color-white-rgb), 0.2); /* White with opacity */
+  border: 1px solid rgba(var(--color-white-rgb), 0.2);
   transition: var(--transition-fast);
   cursor: default;
   text-align: center;
@@ -673,8 +613,6 @@ h4 {
   box-shadow: var(--shadow-lg);
 }
 
-/* Keyword items with green glow effect */
-
 /* ===== INTERESTS STYLES ===== */
 .interests-grid {
   margin-top: var(--space-4);
@@ -685,8 +623,6 @@ h4 {
   color: var(--primary-color);
 }
 
-
-
 /* ===== CV STYLES ===== */
 .cv-header {
   text-align: center;
@@ -695,12 +631,6 @@ h4 {
   transform: translateY(0);
 }
 
-
-.cv-section {
-  margin-bottom: var(--space-8);
-}
-
-/* Collapsible section titles (CV/About pages) */
 .section-title-collapsible {
   display: flex;
   align-items: center;
@@ -756,13 +686,12 @@ h4 {
 
 /* ===== SKILLS STYLES ===== */
 .skills-category {
-  margin-bottom: var(--space-4); /* Reduced from space-8 */
+  margin-bottom: var(--space-4);
   padding: var(--space-4);
   overflow: hidden;
 }
 
 
-/* Skills vertical layout - for main skills grid */
 .skills-grid .skill-header {
   margin-bottom: var(--space-2);
 }
@@ -788,19 +717,17 @@ h4 {
   line-height: 1.5;
 }
 
-/* Last sections follow unified bottom spacing system */
 
-/* Fix spacing between skills and next category */
 .skills-category+.skills-category {
-  margin-top: var(--space-4); /* Reduced from space-8 */
+  margin-top: var(--space-4);
 }
 
 .skills-category h3 {
   color: var(--primary-color);
-  margin-bottom: var(--space-4); /* Balanced spacing */
+  margin-bottom: var(--space-4);
   font-size: var(--fs-2xl);
   font-weight: var(--fw-bold);
-  padding-bottom: var(--space-2); /* Reduced from space-4 */
+  padding-bottom: var(--space-2);
   border-bottom: 2px solid var(--bg-secondary);
   position: relative;
 }
@@ -817,10 +744,8 @@ h4 {
 }
 
 
-/* Medium grid for specialized skills with detailed descriptions */
 .specialized-skills-grid {
   display: grid;
-  gap: var(--space-2);
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   width: 100%;
 }
@@ -860,16 +785,11 @@ h4 {
   transition: var(--transition-fast);
 }
 
-
-
-
-
 .skill-stars .far {
   color: var(--text-light);
   opacity: 0.4;
 }
 
-/* Skill description styles */
 .skill-description {
   margin-top: var(--space-4);
   padding: var(--space-4);
@@ -904,7 +824,6 @@ h4 {
 
 
 /* ===== PROJECTS STYLES ===== */
-
 .projects-section {
   height: auto;
   display: flex;
@@ -916,9 +835,6 @@ h4 {
   flex: 1;
   align-content: center;
 }
-
-
-
 
 .project-links {
   display: flex;
@@ -943,10 +859,6 @@ h4 {
   color: var(--primary-color);
 }
 
-
-
-
-/* Project card with image */
 .project-card {
   padding: 0;
   overflow: hidden;
@@ -986,26 +898,8 @@ h4 {
 
 
 /* ===== ABOUT STYLES ===== */
-.about-section {
-  margin-bottom: var(--space-8);
-}
-
-
-
-
-.story-section {
-  margin-bottom: var(--space-8);
-}
-
-.timeline-section {
-  margin-bottom: var(--space-8);
-}
-
-
-
 
 /* ===== TIMELINE STYLES ===== */
-
 .timeline {
   position: relative;
   padding: 0;
@@ -1059,13 +953,6 @@ h4 {
   color: var(--primary-color);
 }
 
-
-
-
-
-
-
-
 /* ===== LINKS STYLES ===== */
 .links-header {
   text-align: center;
@@ -1073,11 +960,6 @@ h4 {
   opacity: 1;
   transform: translateY(0);
 }
-
-.links-section {
-  margin-bottom: var(--space-8);
-}
-
 
 .links-section h2 {
   color: var(--primary-color);
@@ -1088,8 +970,6 @@ h4 {
 .section-title-centered {
   text-align: center;
 }
-
-
 
 /* ===== AWARDS STYLES ===== */
 .awards-year {
@@ -1106,26 +986,19 @@ h3.awards-year {
   display: block;
 }
 
-
-
-
-
-
-
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
   .container {
-    padding: 0 var(--space-2); /* More compact mobile margins */
+    padding: 0 var(--space-2);
   }
-  
-  /* About page mobile layout */
+
   .about-profile-layout {
     flex-direction: column;
     gap: var(--space-6);
   }
   
   .about-image-content {
-    order: -1; /* Show image first on mobile */
+    order: -1;
   }
   
   .about-photo {
@@ -1146,7 +1019,6 @@ h3.awards-year {
     font-size: var(--fs-4xl);
   }
 
-  /* Mobile: Specialized skills vertical layout */
   .specialized-skill-item .skill-header {
     flex-direction: column;
     align-items: flex-start;
@@ -1156,13 +1028,12 @@ h3.awards-year {
     margin-left: 0;
   }
 
-  /* Mobile: Vertical layout for card headers */
   .card-header {
     flex-direction: column;
     align-items: flex-start;
   }
   .card-header .text-meta {
-    margin: var(--space-1) 0 0 0; /* Override default margins, add top margin for mobile spacing */
+    margin: var(--space-1) 0 0 0;
     white-space: normal;
   }
   .card-meta-row {
@@ -1171,10 +1042,9 @@ h3.awards-year {
     gap: var(--space-1);
   }
   .card-meta-row .text-meta {
-    margin: 0; /* Override default text-meta margins in mobile */
+    margin: 0;
   }
 
-  /* Mobile: Better spacing for card titles and metadata */
   .card h3 {
     margin-bottom: var(--space-2);
   }
@@ -1184,15 +1054,12 @@ h3.awards-year {
   }
 
   .main-content {
-    padding-bottom: var(--space-4); /* Compact mobile bottom spacing */
+    padding-bottom: var(--space-4);
   }
 
   .cv-section {
     margin-bottom: var(--space-8);
   }
-
-
-
 
   .keywords {
     justify-content: center;
@@ -1202,7 +1069,6 @@ h3.awards-year {
     padding: 0 var(--space-6);
   }
 
-  /* Hide timeline line and markers on mobile */
   .timeline::before {
     display: none;
   }
@@ -1240,13 +1106,12 @@ h3.awards-year {
     text-align: center;
   }
   
-  /* Mobile: Links page icons side by side */
   .links-section a.card::after {
-    display: none; /* Hide ::after on mobile */
+    display: none;
   }
   
   .links-section .card-header {
-    flex-direction: row; /* Keep horizontal layout for Links page only */
+    flex-direction: row;
   }
   
   .links-section .card-external-icon {
@@ -1254,8 +1119,6 @@ h3.awards-year {
     margin-left: var(--space-2);
   }
 }
-
-/* ===== MAIN CONTENT WRAPPER ===== */
 
 /* ===== FOOTER ===== */
 .footer {
@@ -1347,3 +1210,4 @@ h3.awards-year {
     height: 45px;
   }
 }
+
