@@ -145,15 +145,34 @@ async function initProjects() {
 
 async function initLinks() {
     const linksContainer = document.getElementById('links-content');
-    if (linksContainer) {
-        linksContainer.innerHTML = 
-            HTMLGenerator.linksSection('Website & Contact', 'fas fa-globe', window.linksData.contact, { cardClass: 'link-card website-card', external: true }) +
-            HTMLGenerator.linksSection('Social Media', 'fas fa-share-alt', window.linksData.social, { cardClass: 'link-card social-card', external: true }) +
-            HTMLGenerator.linksSection('Portfolio', 'fas fa-briefcase', window.linksData.portfolio, { 
+    if (!linksContainer || !window.linksData) return;
+
+    const sections = [];
+
+    // Safe data access with optional chaining and length checks
+    if (window.linksData.contact?.length > 0) {
+        sections.push(HTMLGenerator.linksSection('Website & Contact', 'fas fa-globe', 
+            window.linksData.contact, { cardClass: 'link-card website-card', external: true }));
+    }
+
+    if (window.linksData.social?.length > 0) {
+        sections.push(HTMLGenerator.linksSection('Social Media', 'fas fa-share-alt', 
+            window.linksData.social, { cardClass: 'link-card social-card', external: true }));
+    }
+
+    if (window.linksData.portfolio?.length > 0) {
+        sections.push(HTMLGenerator.linksSection('Portfolio', 'fas fa-briefcase', 
+            window.linksData.portfolio, { 
                 cardClass: 'link-card portfolio-card', 
                 external: false
-            });
+            }));
     }
+
+    // Fallback for when no links are configured
+    linksContainer.innerHTML = sections.length > 0 
+        ? sections.join('') 
+        : '<div class="no-links"><p>No links configured. Edit <code>data/links.js</code> to add your links.</p></div>';
+    
     animateElements([{ selector: '.links-section', delay: ANIMATION_DELAYS.LINKS_SECTION }]);
 }
 
