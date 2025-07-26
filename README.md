@@ -116,6 +116,30 @@ Content is managed via JavaScript data files - no HTML editing required!
 }
 ```
 
+**Configure links safely** (in `data/links.js`):
+```javascript
+// ✅ Safe: Empty sections (sections will be automatically hidden)
+window.linksData = {
+    contact: [],           // Empty but safe
+    social: [],            // Add your social media links here
+    portfolio: []          // Add portfolio navigation links here
+};
+
+// ✅ Safe: Add your own links
+social: [
+    {
+        name: "github",
+        url: "https://github.com/YOUR-USERNAME",
+        username: "@YOUR-USERNAME",
+        title: "GitHub", 
+        icon: "fab fa-github"
+    }
+]
+
+// ❌ Dangerous: Never delete properties completely
+// delete window.linksData.contact;  // This will break the page!
+```
+
 **Update personal info** (in `data/about.js`):
 ```javascript
 window.aboutData = {
@@ -178,6 +202,11 @@ php -S localhost:8000
 - Check file paths in `data/` files
 - Ensure images exist in `assets/` directory
 - Use relative paths (e.g., `assets/projects/image.jpg`)
+
+**Links page showing errors?**
+- Ensure `data/links.js` exists and contains `window.linksData`
+- Don't delete properties, use empty arrays instead: `contact: []`
+- Check JavaScript console for detailed error messages
 
 ## 📄 License
 
