@@ -1,6 +1,6 @@
-# Portfolio Website Template
+# Portfolio Website
 
-A clean, responsive portfolio website built with vanilla HTML, CSS, and JavaScript. No build process, no dependencies - just edit data files and deploy.
+A clean, responsive portfolio website built with vanilla HTML, CSS, and JavaScript. Features a data-driven architecture for easy content management, responsive design, and SEO optimization. No build process or dependencies required.
 
 **🌟 [Live Demo](https://ll-0013py.github.io/portfolio/index.html)** | **📖 [日本語版](README.ja.md)**
 
@@ -11,6 +11,9 @@ A clean, responsive portfolio website built with vanilla HTML, CSS, and JavaScri
 - **Responsive Design** - Mobile-first approach with adaptive layouts
 - **SEO Optimized** - Structured data, meta tags, and technical SEO best practices
 - **Performance Focused** - Optimized loading, animations, and resource management
+- **Unified Animation System** - Consistent animation effects across all pages
+- **Modular Utility Classes** - Reusable DOM helpers, HTML generators, and data populators
+- **Tech Tags System** - Visual technology stack representation with styled tags
 - **Easy Deployment** - Works with any static hosting service
 
 ## 🚀 Quick Start
@@ -19,8 +22,8 @@ A clean, responsive portfolio website built with vanilla HTML, CSS, and JavaScri
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/portfolio-template.git
-cd portfolio-template
+git clone https://github.com/ll-0013py/portfolio.git
+cd portfolio
 
 # Start local development server (choose one)
 python -m http.server 8000
