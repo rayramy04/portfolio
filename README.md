@@ -2,7 +2,7 @@
 
 A clean, responsive portfolio website built with vanilla HTML, CSS, and JavaScript. Features a data-driven architecture for easy content management, responsive design, and SEO optimization. No build process or dependencies required.
 
-**🌟 [Live Demo](https://ll-0013py.github.io/portfolio/index.html)** | **📖 [日本語版](README.ja.md)**
+**🌟 [Live Demo](https://rayramy04.github.io/portfolio/index.html)** | **📖 [日本語版](README.ja.md)**
 
 ## ✨ Features
 
@@ -22,7 +22,7 @@ A clean, responsive portfolio website built with vanilla HTML, CSS, and JavaScri
 
 ```bash
 # Clone the repository
-git clone https://github.com/ll-0013py/portfolio.git
+git clone https://github.com/rayramy04/portfolio.git
 cd portfolio
 
 # Start local development server (choose one)
@@ -168,7 +168,7 @@ window.aboutData = {
 1. Push to GitHub repository
 2. Enable GitHub Pages in repository settings
 3. Set source to main branch / root directory
-4. Access at `https://username.github.io/repository-name`
+4. Access at `https://rayramy04.github.io/portfolio`
 
 ### Other Platforms
 

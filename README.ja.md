@@ -2,7 +2,7 @@
 
 バニラHTML、CSS、JavaScriptで構築された、クリーンでレスポンシブなポートフォリオWebサイト。コンテンツ管理が簡単なデータ駆動型アーキテクチャ、レスポンシブデザイン、SEO最適化を特徴としています。ビルドプロセスや依存関係は不要です。
 
-**🌟 [ライブデモ](https://ll-0013py.github.io/portfolio/index.html)** | **📖 [English Version](README.md)**
+**🌟 [ライブデモ](https://rayramy04.github.io/portfolio/index.html)** | **📖 [English Version](README.md)**
 
 ## ✨ 機能
 
@@ -22,7 +22,7 @@
 
 ```bash
 # リポジトリをクローン
-git clone https://github.com/ll-0013py/portfolio.git
+git clone https://github.com/rayramy04/portfolio.git
 cd portfolio
 
 # ローカル開発サーバーを開始（どちらか選択）
@@ -168,7 +168,7 @@ window.aboutData = {
 1. GitHubリポジトリにプッシュ
 2. リポジトリ設定でGitHub Pagesを有効化
 3. ソースをmainブランチ / ルートディレクトリに設定
-4. `https://username.github.io/repository-name`でアクセス
+4. `https://rayramy04.github.io/portfolio`でアクセス
 
 ### その他のプラットフォーム
 

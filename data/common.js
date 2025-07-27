@@ -15,15 +15,15 @@ window.commonData = {
     socialLinks: [
         {
             name: "github", // Internal identifier (used for CSS classes)
-            url: "https://github.com/ll-0013py",
-            username: "@ll-0013py", // Display username/handle
+            url: "https://github.com/rayramy04",
+            username: "@rayramy04", // Display username/handle
             title: "GitHub", // Human-readable platform name
             icon: "fab fa-github" // FontAwesome icon class
         },
         {
             name: "twitter",
-            url: "https://x.com/ll_0013py",
-            username: "@ll_0013py",
+            url: "https://x.com/rayramy04",
+            username: "@rayramy04",
             title: "X (Twitter)",
             icon: "fab fa-twitter"
         },
