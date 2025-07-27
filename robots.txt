@@ -19,4 +19,4 @@ Allow: /data/
 Crawl-delay: 1
 
 # Sitemap location
-Sitemap: https://ll-0013py.github.io/portfolio/sitemap.xml
+Sitemap: https://rayramy04.github.io/portfolio/sitemap.xml
