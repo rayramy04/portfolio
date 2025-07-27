@@ -64,6 +64,10 @@ class HTMLGenerator {
 
 
     static skillsSection(skillsData, generateStars) {
+        if (!skillsData || skillsData.length === 0) {
+            return HTMLGenerator.emptyStateMessage();
+        }
+        
         return skillsData.map(category => {
             const isSpecialized = category.category === "Specialized Skills";
             const gridClass = isSpecialized ? "specialized-skills-grid gap-sm" : "skills-grid grid-auto-fit-compact gap-sm";
@@ -127,6 +131,15 @@ class HTMLGenerator {
         const description = Array.isArray(personalData.description) 
             ? personalData.description.map(p => `<p>${p}</p>`).join('')
             : `<p>${personalData.description}</p>`;
+        
+        const imageContent = personalData.image 
+            ? `<img src="${personalData.image}" alt="${personalData.name}" class="about-photo">` 
+            : HTMLGenerator.emptyStateMessage({
+                icon: 'fas fa-image',
+                message: 'No image available',
+                className: 'no-image-message'
+            });
+            
         return `
             <div class="about-profile-layout">
                 <div class="card hover-lift">
@@ -135,14 +148,32 @@ class HTMLGenerator {
                     ${description}
                 </div>
                 <div class="about-image-content">
-                    <img src="assets/about-photo.jpg" alt="About ${personalData.name}" class="about-photo"
-                        onerror="this.style.display='none';">
+                    ${imageContent}
                 </div>
             </div>
         `;
     }
 
+    static emptyStateMessage(config = {}) {
+        const icon = config.icon || 'fas fa-inbox';
+        const message = config.message || 'No items found.';
+        const className = config.className || 'no-items-message';
+        
+        return `<div class="${className}">
+            <div class="card text-center">
+                <i class="${icon}" style="font-size: 3rem; color: var(--text-secondary); margin-bottom: var(--space-4);"></i>
+                <h3>${message}</h3>
+                ${config.description ? `<p class="text-meta">${config.description}</p>` : ''}
+            </div>
+        </div>`;
+    }
+
     static linksSection(title, icon, data, config) {
+        const hasData = data && data.length > 0;
+        const gridContent = hasData 
+            ? data.map(link => HTMLGenerator.linkCard(link, config)).join('')
+            : HTMLGenerator.emptyStateMessage();
+        
         return `
             <section class="links-section fade-in-up mb-section">
                 <h2 class="section-title">
@@ -150,13 +181,17 @@ class HTMLGenerator {
                     ${title}
                 </h2>
                 <div class="links-grid grid-auto-fit gap-sm">
-                    ${data.map(link => HTMLGenerator.linkCard(link, config)).join('')}
+                    ${gridContent}
                 </div>
             </section>
         `;
     }
 
     static awardsSection(awardsData) {
+        if (!awardsData || Object.keys(awardsData).length === 0) {
+            return HTMLGenerator.emptyStateMessage();
+        }
+        
         const years = Object.keys(awardsData).sort((a, b) => parseInt(b) - parseInt(a));
         return years.map(year => `
             <div class="awards-year-group">

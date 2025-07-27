@@ -3,6 +3,7 @@ window.aboutData = {
     personal: {
         name: "Ray",
         position: "Computer Science & Data Science Student at Monash University Malaysia",
+        image: "assets/about-photo.jpg",
         description: [
             "2004年生まれ。高校時代は音響音声学の研究、将棋、英語ディベートをはじめとした課外活動に励み、全国大会で最優秀賞・努力賞を受賞し、国際大会にも出場。",
             "マレーシアに渡航後は大学でトップレベルの成績を維持し、給付型奨学金を受給。人工知能オリンピックや言語学オリンピックなどでも入賞。",

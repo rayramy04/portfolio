@@ -1,6 +1,6 @@
 # Portfolio Website
 
-A clean, responsive portfolio website built with vanilla HTML, CSS, and JavaScript. Features a data-driven architecture for easy content management, responsive design, and SEO optimization. No build process or dependencies required.
+A clean, responsive portfolio website built with vanilla HTML, CSS, and JavaScript. Features a data-driven architecture for easy content management, responsive design, and SEO optimization. Includes an optional HTML generation script for development convenience. No dependencies or complex build process required.
 
 **🌟 [Live Demo](https://rayramy04.github.io/portfolio/index.html)** | **📖 [日本語版](README.ja.md)**
 
@@ -8,9 +8,11 @@ A clean, responsive portfolio website built with vanilla HTML, CSS, and JavaScri
 
 - **Zero Dependencies** - Pure HTML, CSS, JavaScript with no build process
 - **Data-driven Architecture** - Easy content updates via JavaScript data files
+- **Optional HTML Generation** - Development script for generating HTML files from templates
 - **Project Filtering System** - Dynamic category-based project filtering with smooth animations
 - **Multiple Category Support** - Projects can belong to multiple categories with flexible filtering
 - **Unified Empty State Handling** - Consistent "No items found" display across all sections and pages
+- **Profile Image Support** - Automatic image handling with fallback for missing images
 - **Responsive Design** - Mobile-first approach with adaptive layouts
 - **SEO Optimized** - Structured data, meta tags, and technical SEO best practices
 - **Performance Focused** - Optimized loading, animations, and resource management
@@ -27,6 +29,9 @@ A clean, responsive portfolio website built with vanilla HTML, CSS, and JavaScri
 # Clone the repository
 git clone https://github.com/rayramy04/portfolio.git
 cd portfolio
+
+# (Optional) Generate HTML pages from templates
+node generate-pages.js
 
 # Start local development server (choose one)
 python -m http.server 8000
@@ -57,6 +62,7 @@ portfolio/
 ├── cv.html                 # CV/Resume with collapsible sections
 ├── projects.html           # Project showcase
 ├── links.html              # Contact and social links
+├── generate-pages.js        # HTML generation script (optional)
 ├── template-base.html      # Base template for new pages
 ├── css/
 │   └── style.css          # Complete stylesheet
@@ -164,6 +170,7 @@ window.aboutData = {
     personal: {
         name: "Your Name",
         position: "Your Title",
+        image: "assets/about-photo.jpg",  // Profile image (optional)
         description: [
             "First paragraph about yourself",
             "Second paragraph with more details"
@@ -211,6 +218,14 @@ window.projectCategories = [
 
 ### Add New Pages
 
+**Option 1: Use HTML Generation Script**
+1. **Update page configuration** in `generate-pages.js`
+2. **Add navigation** in `data/common.js`  
+3. **Add page handler** in `js/pages-unified.js`
+4. **Create data file** in `data/` directory
+5. **Run generation script**: `node generate-pages.js`
+
+**Option 2: Manual Creation**
 1. **Create HTML file** (copy from `template-base.html`)
 2. **Add navigation** in `data/common.js`
 3. **Add page handler** in `js/pages-unified.js`
@@ -257,6 +272,7 @@ php -S localhost:8000
 - Check file paths in `data/` files
 - Ensure images exist in `assets/` directory
 - Use relative paths (e.g., `assets/projects/image.jpg`)
+- Profile images show "No image available" if path is incorrect or missing
 
 **Links page showing errors?**
 - Ensure `data/links.js` exists and contains `window.linksData`
@@ -296,6 +312,6 @@ Built with modern web standards and best practices:
 
 ---
 
-**Template Version**: 1.0  
+**Template Version**: 1.1  
 **Last Updated**: July 2025  
 **Supported Browsers**: Modern browsers with ES6+ and CSS Grid support
