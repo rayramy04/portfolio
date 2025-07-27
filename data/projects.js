@@ -24,13 +24,13 @@ window.projectsData = [
         image: "assets/projects/koelink.jpg"
     },
     {
-        name: "JOAI-2025",
+        name: "joai2025-solutions",
         description: "人工知能オリンピック金賞・全国5位を獲得した際の解法コード解説",
         technologies: [
             "Python",
             "Jupyter Notebook"
         ],
-        githubUrl: "https://github.com/rayramy04/JOAI-2025",
+        githubUrl: "https://github.com/rayramy04/joai2025-solutions",
         liveUrl: "https://ray-globallife.com/joai-2025/",
         image: "https://ray-globallife.com/wp-content/uploads/2025/05/7af774535ccbc012f22e592c5c928ec0.jpg"
     },
@@ -45,14 +45,14 @@ window.projectsData = [
         image: "https://university.go-for-it-malaysia.com/wp-content/uploads/2024/10/Top_Uni-top_12.webp"
     },
     {
-        name: "fft_study",
+        name: "fft-study",
         description: "フーリエ変換を初学者向けに解説した学習サイト",
         technologies: [
             "Python",
             "Jupyter Notebook"
         ],
-        githubUrl: "https://github.com/rayramy04/fft_study",
-        liveUrl: "https://rayramy04.github.io/fft_study/",
+        githubUrl: "https://github.com/rayramy04/fft-study",
+        liveUrl: "https://rayramy04.github.io/fft-study/",
         image: "assets/projects/fft-study.jpg"
     },
     {
