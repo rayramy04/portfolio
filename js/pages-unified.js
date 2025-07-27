@@ -1,11 +1,22 @@
-// Animation delays constants
+// Animation and configuration constants
 const ANIMATION_DELAYS = {
     PAGE_TITLE: 200,
     SECTION_BASE: 400,
     SECTION_STORY: 500,
     SECTION_TIMELINE: 600,
     SECTION_INTERESTS: 700,
-    LINKS_SECTION: 200
+    LINKS_SECTION: 200,
+    PROJECT_FILTER: 200
+};
+
+const FILTER_CONFIG = {
+    NO_RESULTS_THRESHOLD: 0,
+    REFLOW_DELAY: 10
+};
+
+const EMPTY_STATE_CONFIG = {
+    message: 'No items found.',
+    icon: 'fas fa-inbox'
 };
 
 async function initializePage() {
@@ -105,9 +116,12 @@ async function initAbout() {
         storyContent.innerHTML = window.aboutData.story.paragraphs
             .map(p => `<p>${p}</p>`).join('');
     }
-    initContainer('timeline-container', window.aboutData.timeline, HTMLGenerator.unifiedCardTemplate);
+    initContainer('timeline-container', window.aboutData.timeline, HTMLGenerator.unifiedCardTemplate, {
+        emptyState: { type: 'timeline', icon: EMPTY_STATE_CONFIG.icon, message: EMPTY_STATE_CONFIG.message }
+    });
     initContainer('interests-container', window.aboutData.interests, HTMLGenerator.unifiedCardTemplate, {
-        className: 'interests-grid grid-auto-fit gap-sm'
+        className: 'interests-grid grid-auto-fit gap-sm',
+        emptyState: { type: 'interests', icon: EMPTY_STATE_CONFIG.icon, message: EMPTY_STATE_CONFIG.message }
     });
     animateElements([
         { selector: '.about-section', delay: ANIMATION_DELAYS.SECTION_BASE },
@@ -118,29 +132,107 @@ async function initAbout() {
 }
 
 async function initCV() {
-    initContainer('education-container', window.cvData.education, HTMLGenerator.cvItem);
-    initContainer('experience-container', window.cvData.experience, HTMLGenerator.cvItem);
+    initContainer('education-container', window.cvData.education, HTMLGenerator.cvItem, {
+        emptyState: { type: 'education', icon: EMPTY_STATE_CONFIG.icon, message: EMPTY_STATE_CONFIG.message }
+    });
+    initContainer('experience-container', window.cvData.experience, HTMLGenerator.cvItem, {
+        emptyState: { type: 'experience', icon: EMPTY_STATE_CONFIG.icon, message: EMPTY_STATE_CONFIG.message }
+    });
+    
     const skillsContainer = document.getElementById('skills-container');
-    if (skillsContainer && window.cvData.skills) {
-        skillsContainer.innerHTML = HTMLGenerator.skillsSection(window.cvData.skills, generateStars);
-        skillsContainer.querySelectorAll('.skills-category').forEach(cat => {
-            cat.classList.add('hover-lift');
-        });
+    if (skillsContainer) {
+        if (window.cvData.skills && window.cvData.skills.length > 0) {
+            skillsContainer.innerHTML = HTMLGenerator.skillsSection(window.cvData.skills, generateStars);
+            skillsContainer.querySelectorAll('.skills-category').forEach(cat => {
+                cat.classList.add('hover-lift');
+            });
+        } else {
+            showEmptyStateMessage(skillsContainer, {
+                type: 'skills',
+                icon: EMPTY_STATE_CONFIG.icon,
+                message: EMPTY_STATE_CONFIG.message
+            });
+        }
     }
-    initContainer('certifications-container', window.cvData.certifications, HTMLGenerator.certificationItem);
+    
+    initContainer('certifications-container', window.cvData.certifications, HTMLGenerator.certificationItem, {
+        emptyState: { type: 'certifications', icon: EMPTY_STATE_CONFIG.icon, message: EMPTY_STATE_CONFIG.message }
+    });
+    
     const awardsContainer = document.getElementById('awards-container');
-    if (awardsContainer && window.cvData.awards) {
-        awardsContainer.innerHTML = HTMLGenerator.awardsSection(window.cvData.awards);
+    if (awardsContainer) {
+        if (window.cvData.awards && Object.keys(window.cvData.awards).length > 0) {
+            awardsContainer.innerHTML = HTMLGenerator.awardsSection(window.cvData.awards);
+        } else {
+            showEmptyStateMessage(awardsContainer, {
+                type: 'awards',
+                icon: EMPTY_STATE_CONFIG.icon,
+                message: EMPTY_STATE_CONFIG.message
+            });
+        }
     }
-    initContainer('grants-container', window.cvData.grants, HTMLGenerator.grantItem);
+    
+    initContainer('grants-container', window.cvData.grants, HTMLGenerator.grantItem, {
+        emptyState: { type: 'grants', icon: EMPTY_STATE_CONFIG.icon, message: EMPTY_STATE_CONFIG.message }
+    });
+    
     animateElements([{ selector: '.cv-section', delay: ANIMATION_DELAYS.SECTION_BASE }]);
 }
 
 async function initProjects() {
+    // Generate filter buttons dynamically
+    generateFilterButtons();
+    
     initContainer('projects-container', window.projectsData, HTMLGenerator.projectCard, {
-        containerClass: 'projects-grid grid-auto-fit gap-sm fade-in-up mb-section'
+        containerClass: 'projects-grid grid-fixed gap-sm fade-in-up mb-section'
     });
-    animateElements([{ selector: '.projects-grid', delay: ANIMATION_DELAYS.SECTION_BASE }]);
+    
+    initProjectFilters();
+    
+    animateElements([
+        { selector: '.project-filters', delay: ANIMATION_DELAYS.SECTION_BASE },
+        { selector: '.projects-grid', delay: ANIMATION_DELAYS.SECTION_BASE + 100 }
+    ]);
+}
+
+function generateFilterButtons() {
+    const filterContainer = document.querySelector('.project-filters');
+    if (!filterContainer || !window.projectCategories) return;
+    
+    const allButton = '<button class="filter-btn active" data-category="all">All</button>';
+    const categoryButtons = window.projectCategories.map(category => 
+        `<button class="filter-btn" data-category="${category}">${category}</button>`
+    ).join('');
+    
+    filterContainer.innerHTML = allButton + categoryButtons;
+}
+
+function initProjectFilters() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const category = button.dataset.category;
+            
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            const projectCards = document.querySelectorAll('.project-card');
+            const projectsContainer = document.getElementById('projects-container');
+            const visibleCount = resetAndShowCards(projectCards, category);
+            if (visibleCount === FILTER_CONFIG.NO_RESULTS_THRESHOLD) {
+                showNoProjectsMessage(projectsContainer, category);
+                animateElements([
+                    { selector: '.no-projects-message', delay: ANIMATION_DELAYS.PROJECT_FILTER }
+                ]);
+            } else {
+                hideNoProjectsMessage(projectsContainer);
+                animateElements([
+                    { selector: '.project-card[style*="display: block"]', delay: ANIMATION_DELAYS.PROJECT_FILTER }
+                ]);
+            }
+        });
+    });
 }
 
 async function initLinks() {
@@ -155,17 +247,53 @@ async function initLinks() {
             window.linksData.contact, { cardClass: 'link-card website-card', external: true }));
     }
 
+    // Social Media section with empty state
     if (window.linksData.social?.length > 0) {
         sections.push(HTMLGenerator.linksSection('Social Media', 'fas fa-share-alt', 
             window.linksData.social, { cardClass: 'link-card social-card', external: true }));
+    } else {
+        sections.push(`
+            <section class="links-section fade-in-up mb-section">
+                <h2 class="section-title">
+                    <i class="fas fa-share-alt"></i>
+                    Social Media
+                </h2>
+                <div class="links-grid grid-auto-fit gap-sm">
+                    <div class="no-social-message fade-in-up">
+                        <div class="card text-center">
+                            <i class="${EMPTY_STATE_CONFIG.icon}" style="font-size: 3rem; color: var(--text-secondary); margin-bottom: var(--space-4);"></i>
+                            <h3>${EMPTY_STATE_CONFIG.message}</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        `);
     }
 
+    // Portfolio section with empty state
     if (window.linksData.portfolio?.length > 0) {
         sections.push(HTMLGenerator.linksSection('Portfolio', 'fas fa-briefcase', 
             window.linksData.portfolio, { 
                 cardClass: 'link-card portfolio-card', 
                 external: false
             }));
+    } else {
+        sections.push(`
+            <section class="links-section fade-in-up mb-section">
+                <h2 class="section-title">
+                    <i class="fas fa-briefcase"></i>
+                    Portfolio
+                </h2>
+                <div class="links-grid grid-auto-fit gap-sm">
+                    <div class="no-portfolio-message fade-in-up">
+                        <div class="card text-center">
+                            <i class="${EMPTY_STATE_CONFIG.icon}" style="font-size: 3rem; color: var(--text-secondary); margin-bottom: var(--space-4);"></i>
+                            <h3>${EMPTY_STATE_CONFIG.message}</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        `);
     }
 
     // Fallback for when no links are configured
@@ -179,7 +307,13 @@ async function initLinks() {
 function initContainer(containerId, data, generator, options = {}) {
     const container = document.getElementById(containerId);
     if (!container) return;
-    if (!data) return;
+    
+    if (!data || (Array.isArray(data) && data.length === 0)) {
+        if (options.emptyState) {
+            showEmptyStateMessage(container, options.emptyState);
+        }
+        return;
+    }
     
     if (Array.isArray(data)) {
         container.innerHTML = data.map(item => generator(item)).join('');
@@ -207,6 +341,66 @@ function animateElements(animations) {
             });
         }, delay);
     });
+}
+
+function resetAndShowCards(projectCards, matchingFilter) {
+    projectCards.forEach(card => {
+        card.style.display = 'none';
+        card.classList.remove('loaded');
+        card.classList.add('fade-in-up');
+    });
+    
+    void document.body.offsetHeight;
+    
+    let visibleCount = 0;
+    projectCards.forEach(card => {
+        const categoryTags = card.querySelectorAll('.category-tag');
+        const projectCategories = Array.from(categoryTags).map(tag => tag.textContent);
+        
+        if (matchingFilter === 'all' || projectCategories.includes(matchingFilter)) {
+            card.style.display = 'block';
+            visibleCount++;
+        }
+    });
+    
+    return visibleCount;
+}
+
+function showEmptyStateMessage(container, config) {
+    const className = `no-${config.type}-message`;
+    if (container.querySelector(`.${className}`)) return;
+    
+    const messageElement = document.createElement('div');
+    messageElement.innerHTML = `
+        <div class="${className} fade-in-up">
+            <div class="card text-center">
+                <i class="${config.icon}" style="font-size: 3rem; color: var(--text-secondary); margin-bottom: var(--space-4);"></i>
+                <h3>${config.message}</h3>
+                ${config.description ? `<p class="text-meta">${config.description}</p>` : ''}
+            </div>
+        </div>
+    `;
+    
+    container.appendChild(messageElement.firstElementChild);
+}
+
+function hideEmptyStateMessage(container, type) {
+    const messageEl = container.querySelector(`.no-${type}-message`);
+    if (messageEl) {
+        messageEl.remove();
+    }
+}
+
+function showNoProjectsMessage(container, category) {
+    showEmptyStateMessage(container, {
+        type: 'projects',
+        icon: EMPTY_STATE_CONFIG.icon,
+        message: EMPTY_STATE_CONFIG.message
+    });
+}
+
+function hideNoProjectsMessage(container) {
+    hideEmptyStateMessage(container, 'projects');
 }
 
 function getCurrentPageName() {

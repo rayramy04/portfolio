@@ -8,12 +8,15 @@
 
 - **依存関係ゼロ** - ビルドプロセス不要のピュアHTML、CSS、JavaScript
 - **データ駆動型アーキテクチャ** - JavaScriptデータファイルによる簡単なコンテンツ更新
+- **プロジェクトフィルタリングシステム** - スムーズなアニメーション付きカテゴリベースのプロジェクト絞り込み
+- **複数カテゴリサポート** - プロジェクトが複数カテゴリに属することが可能で、柔軟なフィルタリング
+- **統一エンプティステート処理** - 全セクション・全ページ共通の「項目が見つかりません」表示
 - **レスポンシブデザイン** - モバイルファーストアプローチと適応レイアウト
 - **SEO最適化** - 構造化データ、メタタグ、技術的SEOベストプラクティス
 - **パフォーマンス重視** - 最適化された読み込み、アニメーション、リソース管理
 - **統一アニメーションシステム** - 全ページで一貫したアニメーション効果
 - **モジュラーユーティリティクラス** - 再利用可能なDOMヘルパー、HTMLジェネレーター、データポピュレーター
-- **技術タグシステム** - スタイル付きタグによる技術スタックの視覚的表現
+- **カテゴリ分類システム** - 視覚的フィルタリング付きプロジェクト分類整理
 - **簡単デプロイ** - 任意の静的ホスティングサービスで動作
 
 ## 🚀 クイックスタート
@@ -98,12 +101,23 @@ portfolio/
 {
     name: "私の新プロジェクト",
     description: "プロジェクトの説明",
-    technologies: ["React", "Node.js", "MongoDB"],
+    categories: ["Web Development", "Backend & API"], // 複数カテゴリ対応
     githubUrl: "https://github.com/username/project",
     liveUrl: "https://project-demo.com",
     image: "assets/projects/new-project.jpg"
 }
 ```
+
+**プロジェクト分類システム**：
+- **プロジェクト毎に複数カテゴリ** - プロジェクトは複数カテゴリに属することが可能
+- **自動カテゴリボタン生成** - フィルターボタンはプロジェクトデータから生成
+- **定義済みカテゴリ**（`data/projects.js`でカスタマイズ可能）：
+  - Web Development
+  - Backend & API
+  - Data Science & AI
+  - App Development
+  - Automation & Tools
+  - Research & Others
 
 **職歴を追加**（`data/cv.js` - experience配列内）：
 ```javascript
@@ -118,27 +132,31 @@ portfolio/
 
 **リンクを安全に設定**（`data/links.js`内）：
 ```javascript
-// ✅ 安全：空のセクション（セクションは自動的に非表示になります）
+// ✅ 空のセクションは自動的に「項目が見つかりません」メッセージを表示
 window.linksData = {
-    contact: [],           // 空でも安全
-    social: [],            // ソーシャルメディアリンクをここに追加
-    portfolio: []          // ポートフォリオナビゲーションリンクをここに追加
+    contact: [],           // 常に表示（ウェブサイト/連絡先情報）
+    social: [],            // 空の場合エンプティステート表示
+    portfolio: []          // 空の場合エンプティステート表示
 };
 
 // ✅ 安全：自分のリンクを追加
 social: [
     {
-        name: "github",
+        title: "GitHub",
         url: "https://github.com/YOUR-USERNAME",
         username: "@YOUR-USERNAME",
-        title: "GitHub", 
         icon: "fab fa-github"
     }
 ]
 
 // ❌ 危険：プロパティを完全に削除しない
-// delete window.linksData.contact;  // これはページを壊します！
+// delete window.linksData.social;  // これはページを壊します！
 ```
+
+**エンプティステート処理**：
+- Social MediaとPortfolioセクションは空の場合、自動的に「項目が見つかりません」を表示
+- Contactセクションは通常常にデータが入っている
+- テンプレート利用者は空でもセクションが利用可能であることを確認できる
 
 **個人情報を更新**（`data/about.js`内）：
 ```javascript
@@ -153,6 +171,43 @@ window.aboutData = {
     }
 }
 ```
+
+### プロジェクトフィルタリングシステム
+
+ポートフォリオには動的なプロジェクトフィルタリングシステムが含まれています：
+
+**機能**：
+- スムーズなアニメーション付きリアルタイムカテゴリフィルタリング
+- 複数カテゴリサポート - プロジェクトは複数カテゴリに属することが可能
+- プロジェクトデータからの自動ボタン生成
+- フィルターに一致するプロジェクトがない場合のエンプティステート処理
+- 全インタラクションでの統一アニメーションタイミング
+
+**設定**（`data/projects.js`内）：
+```javascript
+// 利用可能カテゴリを定義
+window.projectCategories = [
+    "Web Development",
+    "Backend & API", 
+    "Data Science & AI",
+    "App Development",
+    "Automation & Tools",
+    "Research & Others"
+];
+
+// プロジェクトに複数カテゴリを割り当て
+{
+    name: "フルスタックアプリ",
+    categories: ["Web Development", "Backend & API"], // 複数カテゴリ
+    // ... その他のプロジェクトデータ
+}
+```
+
+**カスタマイズ**：
+- `window.projectCategories`配列を変更してカテゴリを追加/削除
+- プロジェクトは自動的に複数カテゴリをサポート
+- フィルターボタンはプロジェクトデータから動的生成
+- エンプティステートメッセージを変更するには`js/pages-unified.js`の`EMPTY_STATE_CONFIG`を編集
 
 ### 新しいページの追加
 
@@ -206,7 +261,13 @@ php -S localhost:8000
 **リンクページでエラーが表示される場合：**
 - `data/links.js`が存在し、`window.linksData`が含まれていることを確認
 - プロパティを削除せず、空配列を使用：`contact: []`
+- 空のセクション（social、portfolio）は自動的に「項目が見つかりません」を表示
 - 詳細なエラーメッセージはJavaScriptコンソールで確認
+
+**エンプティステートメッセージが表示されない場合：**
+- `js/pages-unified.js`の`EMPTY_STATE_CONFIG`が正しく定義されていることを確認
+- データ配列が実際に空（未定義ではない）であることを確認
+- ページ初期化関数が正しく呼ばれていることを確認
 
 ## 📄 ライセンス
 

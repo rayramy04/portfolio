@@ -94,30 +94,33 @@ class HTMLGenerator {
     }
 
     static projectCard(project) {
-        return `
-            <div class="card hover-lift project-card">
-                ${project.image ? `
-                    <div class="project-image">
-                        <img src="${project.image}" alt="${project.name || project.title}" loading="lazy">
+        const hasLinks = project.githubUrl || project.liveUrl;
+        const cardContent = `
+            ${project.image ? `
+                <div class="project-image">
+                    <img src="${project.image}" alt="${project.name || project.title}" loading="lazy">
+                </div>
+            ` : ''}
+            <div class="project-content">
+                <div class="card-header">
+                    <h3>${project.name || project.title}</h3>
+                </div>
+                ${project.description ? `<p>${project.description}</p>` : ''}
+                ${project.categories?.length ? `
+                    <div class="project-categories">
+                        ${project.categories.map(category => `<span class="category-tag text-meta">${category}</span>`).join('')}
                     </div>
                 ` : ''}
-                <div class="project-content">
-                    <h3>${project.name || project.title}</h3>
-                    ${project.description ? `<p>${project.description}</p>` : ''}
-                    ${project.technologies?.length ? `
-                        <div class="project-technologies">
-                            ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
-                        </div>
-                    ` : ''}
-                    ${project.githubUrl || project.liveUrl ? `
-                        <div class="project-links">
-                            ${project.githubUrl ? `<a href="${project.githubUrl}" target="_blank" class="project-link hover-lift"><i class="fab fa-github"></i> GitHub</a>` : ''}
-                            ${project.liveUrl ? `<a href="${project.liveUrl}" target="_blank" class="project-link hover-lift"><i class="fas fa-external-link-alt"></i> Live Demo</a>` : ''}
-                        </div>
-                    ` : ''}
-                </div>
+                ${hasLinks ? `
+                    <div class="project-links">
+                        ${project.githubUrl ? `<a href="${project.githubUrl}" target="_blank" class="project-link hover-lift"><i class="fab fa-github"></i> GitHub</a>` : ''}
+                        ${project.liveUrl ? `<a href="${project.liveUrl}" target="_blank" class="project-link hover-lift"><i class="fas fa-external-link-alt"></i> Live Demo</a>` : ''}
+                    </div>
+                ` : ''}
             </div>
         `;
+        
+        return `<div class="card hover-lift project-card">${cardContent}</div>`;
     }
 
     static profileCard(personalData) {
