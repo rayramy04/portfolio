@@ -8,12 +8,15 @@ A clean, responsive portfolio website built with vanilla HTML, CSS, and JavaScri
 
 - **Zero Dependencies** - Pure HTML, CSS, JavaScript with no build process
 - **Data-driven Architecture** - Easy content updates via JavaScript data files
+- **Project Filtering System** - Dynamic category-based project filtering with smooth animations
+- **Multiple Category Support** - Projects can belong to multiple categories with flexible filtering
+- **Unified Empty State Handling** - Consistent "No items found" display across all sections and pages
 - **Responsive Design** - Mobile-first approach with adaptive layouts
 - **SEO Optimized** - Structured data, meta tags, and technical SEO best practices
 - **Performance Focused** - Optimized loading, animations, and resource management
 - **Unified Animation System** - Consistent animation effects across all pages
 - **Modular Utility Classes** - Reusable DOM helpers, HTML generators, and data populators
-- **Tech Tags System** - Visual technology stack representation with styled tags
+- **Category Classification** - Organized project categorization with visual filtering
 - **Easy Deployment** - Works with any static hosting service
 
 ## 🚀 Quick Start
@@ -98,12 +101,23 @@ Content is managed via JavaScript data files - no HTML editing required!
 {
     name: "My New Project",
     description: "Project description here",
-    technologies: ["React", "Node.js", "MongoDB"],
+    categories: ["Web Development", "Backend & API"], // Multiple categories supported
     githubUrl: "https://github.com/username/project",
     liveUrl: "https://project-demo.com",
     image: "assets/projects/new-project.jpg"
 }
 ```
+
+**Project categorization system**:
+- **Multiple categories per project** - Projects can belong to multiple categories
+- **Automatic category buttons** - Filter buttons are generated from project data
+- **Predefined categories** (customizable in `data/projects.js`):
+  - Web Development
+  - Backend & API
+  - Data Science & AI
+  - App Development
+  - Automation & Tools
+  - Research & Others
 
 **Add work experience** (in `data/cv.js` - experience array):
 ```javascript
@@ -118,27 +132,31 @@ Content is managed via JavaScript data files - no HTML editing required!
 
 **Configure links safely** (in `data/links.js`):
 ```javascript
-// ✅ Safe: Empty sections (sections will be automatically hidden)
+// ✅ Empty sections show "No items found" message automatically
 window.linksData = {
-    contact: [],           // Empty but safe
-    social: [],            // Add your social media links here
-    portfolio: []          // Add portfolio navigation links here
+    contact: [],           // Always shown (website/contact info)
+    social: [],            // Shows empty state if empty
+    portfolio: []          // Shows empty state if empty
 };
 
 // ✅ Safe: Add your own links
 social: [
     {
-        name: "github",
+        title: "GitHub",
         url: "https://github.com/YOUR-USERNAME",
         username: "@YOUR-USERNAME",
-        title: "GitHub", 
         icon: "fab fa-github"
     }
 ]
 
 // ❌ Dangerous: Never delete properties completely
-// delete window.linksData.contact;  // This will break the page!
+// delete window.linksData.social;  // This will break the page!
 ```
+
+**Empty state handling**:
+- Social Media and Portfolio sections automatically show "No items found" when empty
+- Contact section is typically always populated
+- Template users can see which sections are available even when empty
 
 **Update personal info** (in `data/about.js`):
 ```javascript
@@ -153,6 +171,43 @@ window.aboutData = {
     }
 }
 ```
+
+### Project Filtering System
+
+The portfolio includes a dynamic filtering system for projects:
+
+**Features:**
+- Real-time category filtering with smooth animations
+- Multiple category support - projects can belong to multiple categories
+- Automatic button generation from project data
+- Empty state handling when no projects match filter
+- Unified animation timing across all interactions
+
+**Configuration** (in `data/projects.js`):
+```javascript
+// Define available categories
+window.projectCategories = [
+    "Web Development",
+    "Backend & API", 
+    "Data Science & AI",
+    "App Development",
+    "Automation & Tools",
+    "Research & Others"
+];
+
+// Assign multiple categories to projects
+{
+    name: "Full-stack App",
+    categories: ["Web Development", "Backend & API"], // Multiple categories
+    // ... other project data
+}
+```
+
+**Customization:**
+- Modify `window.projectCategories` array to add/remove categories
+- Projects automatically support multiple categories
+- Filter buttons are dynamically generated from project data
+- Modify `EMPTY_STATE_CONFIG` in `js/pages-unified.js` to change empty state message
 
 ### Add New Pages
 
@@ -206,7 +261,13 @@ php -S localhost:8000
 **Links page showing errors?**
 - Ensure `data/links.js` exists and contains `window.linksData`
 - Don't delete properties, use empty arrays instead: `contact: []`
+- Empty sections (social, portfolio) will show "No items found" automatically
 - Check JavaScript console for detailed error messages
+
+**Empty state messages not appearing?**
+- Check that `EMPTY_STATE_CONFIG` is properly defined in `js/pages-unified.js`
+- Verify data arrays are truly empty (not undefined)
+- Ensure page initialization functions are called correctly
 
 ## 📄 License
 

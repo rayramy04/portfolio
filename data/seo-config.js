@@ -1,11 +1,9 @@
-// SEO structured data configuration for search engine optimization
-// Uses JSON-LD schema.org markup to help search engines understand content
+// SEO structured data configuration using JSON-LD schema.org markup
 window.seoConfig = {
-    // Person schema - defines you as a person entity for search engines
     person: {
         "@context": "https://schema.org",
         "@type": "Person",
-        "name": "Ray", // Full name as it appears in search results
+        "name": "Ray",
         "jobTitle": "Computer Science & Data Science Student",
         "description": "Computer Science & Data Science student at Monash University Malaysia with expertise in AI/ML, full-stack development, and research.",
         "url": "https://rayramy04.github.io/portfolio/",
@@ -20,7 +18,7 @@ window.seoConfig = {
             "@type": "Organization",
             "name": "Monash University Malaysia"
         },
-        "knowsAbout": [ // Areas of expertise for search relevance
+        "knowsAbout": [
             "Artificial Intelligence",
             "Machine Learning",
             "Full-stack Development",
@@ -33,7 +31,6 @@ window.seoConfig = {
             "name": "Monash University Malaysia"
         }
     },
-    // Website schema - defines site structure and metadata
     website: {
         "@context": "https://schema.org",
         "@type": "Website",
@@ -44,11 +41,11 @@ window.seoConfig = {
             "@type": "Person",
             "name": "Ray"
         },
-        "inLanguage": "ja" // Primary language (ja=Japanese, en=English)
+        "inLanguage": "ja"
     },
-    // Page-specific structured data for different page types
+    // Page-specific structured data
     pages: {
-        index: { // Homepage schema
+        index: {
             "@context": "https://schema.org",
             "@type": "ProfilePage",
             "mainEntity": {
@@ -56,7 +53,7 @@ window.seoConfig = {
                 "name": "Ray"
             }
         },
-        about: { // About page schema
+        about: {
             "@context": "https://schema.org",
             "@type": "AboutPage",
             "mainEntity": {
