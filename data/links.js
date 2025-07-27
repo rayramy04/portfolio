@@ -40,5 +40,12 @@ window.linksData = {
         }
     ],
 
-    portfolio: []
+    portfolio: [
+        {
+            title: "Portfolio",
+            url: "index.html",
+            icon: "fas fa-home",
+            rightIcon: "fas fa-arrow-right"
+        }
+    ]
 };
