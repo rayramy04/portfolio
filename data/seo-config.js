@@ -8,10 +8,10 @@ window.seoConfig = {
         "name": "Ray", // Full name as it appears in search results
         "jobTitle": "Computer Science & Data Science Student",
         "description": "Computer Science & Data Science student at Monash University Malaysia with expertise in AI/ML, full-stack development, and research.",
-        "url": "https://ll-0013py.github.io/portfolio/",
-        "image": "https://ll-0013py.github.io/portfolio/assets/profile.jpg",
+        "url": "https://rayramy04.github.io/portfolio/",
+        "image": "https://rayramy04.github.io/portfolio/assets/profile.jpg",
         "sameAs": [
-            "https://github.com/ll-0013py",
+            "https://github.com/rayramy04",
             "https://x.com/ll_0013py",
             "https://note.com/ll_0013py",
             "https://www.youtube.com/@ray_pianocover"
@@ -39,7 +39,7 @@ window.seoConfig = {
         "@type": "Website",
         "name": "Ray's Portfolio",
         "description": "Portfolio website showcasing computer science and data science projects, AI/ML applications, and professional experience.",
-        "url": "https://ll-0013py.github.io/portfolio/",
+        "url": "https://rayramy04.github.io/portfolio/",
         "author": {
             "@type": "Person",
             "name": "Ray"

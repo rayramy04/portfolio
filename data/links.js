@@ -22,8 +22,8 @@ window.linksData = {
     social: [
         {
             name: "github", // Internal identifier for CSS styling
-            url: "https://github.com/ll-0013py",
-            username: "@ll-0013py", // Display username/handle
+            url: "https://github.com/rayramy04",
+            username: "@rayramy04", // Display username/handle
             title: "GitHub", // Platform display name
             icon: "fab fa-github" // FontAwesome brand icon
         },
