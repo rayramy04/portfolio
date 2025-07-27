@@ -116,6 +116,30 @@ portfolio/
 }
 ```
 
+**リンクを安全に設定**（`data/links.js`内）：
+```javascript
+// ✅ 安全：空のセクション（セクションは自動的に非表示になります）
+window.linksData = {
+    contact: [],           // 空でも安全
+    social: [],            // ソーシャルメディアリンクをここに追加
+    portfolio: []          // ポートフォリオナビゲーションリンクをここに追加
+};
+
+// ✅ 安全：自分のリンクを追加
+social: [
+    {
+        name: "github",
+        url: "https://github.com/YOUR-USERNAME",
+        username: "@YOUR-USERNAME",
+        title: "GitHub", 
+        icon: "fab fa-github"
+    }
+]
+
+// ❌ 危険：プロパティを完全に削除しない
+// delete window.linksData.contact;  // これはページを壊します！
+```
+
 **個人情報を更新**（`data/about.js`内）：
 ```javascript
 window.aboutData = {
@@ -144,7 +168,7 @@ window.aboutData = {
 1. GitHubリポジトリにプッシュ
 2. リポジトリ設定でGitHub Pagesを有効化
 3. ソースをmainブランチ / ルートディレクトリに設定
-4. `https://username.github.io/repository-name`でアクセス
+4. `https://rayramy04.github.io/portfolio`でアクセス
 
 ### その他のプラットフォーム
 
@@ -178,6 +202,11 @@ php -S localhost:8000
 - `data/`ファイル内のファイルパスを確認
 - `assets/`ディレクトリに画像が存在することを確認
 - 相対パスを使用（例：`assets/projects/image.jpg`）
+
+**リンクページでエラーが表示される場合：**
+- `data/links.js`が存在し、`window.linksData`が含まれていることを確認
+- プロパティを削除せず、空配列を使用：`contact: []`
+- 詳細なエラーメッセージはJavaScriptコンソールで確認
 
 ## 📄 ライセンス
 

@@ -19,7 +19,7 @@ window.projectsData = [
             "Python",
             "Jupyter Notebook"
         ],
-        githubUrl: "https://github.com/rayramy04/KoeLink",
+        githubUrl: "https://github.com/rayramy04/koeLink",
         liveUrl: null,
         image: "assets/projects/koelink.jpg"
     },

@@ -22,8 +22,8 @@ window.commonData = {
         },
         {
             name: "twitter",
-            url: "https://x.com/ll_0013py",
-            username: "@ll_0013py",
+            url: "https://x.com/rayramy04",
+            username: "@rayramy04",
             title: "X (Twitter)",
             icon: "fab fa-twitter"
         },
