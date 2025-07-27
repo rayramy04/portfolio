@@ -12,7 +12,7 @@ window.seoConfig = {
         "image": "https://rayramy04.github.io/portfolio/assets/profile.jpg",
         "sameAs": [
             "https://github.com/rayramy04",
-            "https://x.com/ll_0013py",
+            "https://x.com/rayramy04",
             "https://note.com/ll_0013py",
             "https://www.youtube.com/@ray_pianocover"
         ],
