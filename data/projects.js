@@ -8,7 +8,7 @@ window.projectsData = [
             "CSS",
             "JavaScript"
         ],
-        githubUrl: "https://github.com/ll-0013py/portfolio",
+        githubUrl: "https://github.com/rayramy04/portfolio",
         liveUrl: "index.html",
         image: "assets/og-image.jpg"
     },
@@ -19,7 +19,7 @@ window.projectsData = [
             "Python",
             "Jupyter Notebook"
         ],
-        githubUrl: "https://github.com/ll-0013py/KoeLink",
+        githubUrl: "https://github.com/rayramy04/KoeLink",
         liveUrl: null,
         image: "assets/projects/koelink.jpg"
     },
@@ -30,7 +30,7 @@ window.projectsData = [
             "Python",
             "Jupyter Notebook"
         ],
-        githubUrl: "https://github.com/ll-0013py/JOAI-2025",
+        githubUrl: "https://github.com/rayramy04/JOAI-2025",
         liveUrl: "https://ray-globallife.com/joai-2025/",
         image: "https://ray-globallife.com/wp-content/uploads/2025/05/7af774535ccbc012f22e592c5c928ec0.jpg"
     },
@@ -51,8 +51,8 @@ window.projectsData = [
             "Python",
             "Jupyter Notebook"
         ],
-        githubUrl: "https://github.com/ll-0013py/fft_study",
-        liveUrl: "https://ll-0013py.github.io/fft_study/",
+        githubUrl: "https://github.com/rayramy04/fft_study",
+        liveUrl: "https://rayramy04.github.io/fft_study/",
         image: "assets/projects/fft-study.jpg"
     },
     {
@@ -64,8 +64,8 @@ window.projectsData = [
             "JavaScript",
             "Shell"
         ],
-        githubUrl: "https://github.com/ll-0013py/connect-with-me",
-        liveUrl: "https://ll-0013py.github.io/connect-with-me/",
+        githubUrl: "https://github.com/rayramy04/connect-with-me",
+        liveUrl: "https://rayramy04.github.io/connect-with-me/",
         image: "assets/projects/connect-with-me.jpg"
     },
     {
