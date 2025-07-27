@@ -1,9 +1,4 @@
-// =============================================================================
-// COMMON DATA CONFIGURATION
-// =============================================================================
-// Site-wide shared data used across all pages including navigation,
-// social links, and basic profile information.
-
+// Site-wide shared data configuration
 window.commonData = {
     // Basic profile info displayed in headers/footers
     profile: {
