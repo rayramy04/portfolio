@@ -129,6 +129,12 @@
   align-items: stretch;
 }
 
+.grid-3-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: stretch;
+}
+
 .grid-fixed {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(var(--grid-min-card), var(--grid-min-card)));
@@ -145,6 +151,16 @@
   .grid-auto-fit-compact {
     grid-template-columns: repeat(auto-fit, minmax(var(--grid-min-compact), 1fr));
     align-items: stretch;
+  }
+  
+  .grid-3-cols {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .grid-3-cols {
+    grid-template-columns: repeat(2, 1fr);
   }
   
 }

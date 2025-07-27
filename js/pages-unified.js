@@ -109,20 +109,55 @@ async function initAbout() {
     }
     const whoIAmContent = document.getElementById('who-i-am-content');
     if (whoIAmContent) {
-        whoIAmContent.innerHTML = HTMLGenerator.profileCard(window.aboutData.personal);
+        if (window.aboutData.personal) {
+            whoIAmContent.innerHTML = HTMLGenerator.profileCard(window.aboutData.personal);
+        } else {
+            showEmptyState(whoIAmContent, {
+                type: 'personal',
+                icon: EMPTY_STATE_CONFIG.icon,
+                message: EMPTY_STATE_CONFIG.message
+            });
+        }
     }
     const storyContent = document.getElementById('story-content-inner');
-    if (storyContent && window.aboutData?.story?.paragraphs) {
-        storyContent.innerHTML = window.aboutData.story.paragraphs
-            .map(p => `<p>${p}</p>`).join('');
+    if (storyContent) {
+        if (window.aboutData?.story?.paragraphs && window.aboutData.story.paragraphs.length > 0) {
+            storyContent.innerHTML = window.aboutData.story.paragraphs
+                .map(p => `<p>${p}</p>`).join('');
+        } else {
+            storyContent.innerHTML = HTMLGenerator.emptyStateMessage({
+                icon: EMPTY_STATE_CONFIG.icon,
+                message: 'No story available.',
+                className: 'no-story-message'
+            });
+        }
     }
-    initContainer('timeline-container', window.aboutData.timeline, HTMLGenerator.unifiedCardTemplate, {
-        emptyState: { type: 'timeline', icon: EMPTY_STATE_CONFIG.icon, message: EMPTY_STATE_CONFIG.message }
-    });
-    initContainer('interests-container', window.aboutData.interests, HTMLGenerator.unifiedCardTemplate, {
-        className: 'interests-grid grid-auto-fit gap-sm',
-        emptyState: { type: 'interests', icon: EMPTY_STATE_CONFIG.icon, message: EMPTY_STATE_CONFIG.message }
-    });
+    const timelineContainer = document.getElementById('timeline-container');
+    if (timelineContainer) {
+        if (window.aboutData.timeline && window.aboutData.timeline.length > 0) {
+            timelineContainer.innerHTML = window.aboutData.timeline.map(item => HTMLGenerator.unifiedCardTemplate(item)).join('');
+        } else {
+            showEmptyState(timelineContainer, {
+                type: 'timeline',
+                icon: EMPTY_STATE_CONFIG.icon,
+                message: EMPTY_STATE_CONFIG.message
+            });
+        }
+    }
+    
+    const interestsContainer = document.getElementById('interests-container');
+    if (interestsContainer) {
+        interestsContainer.className = 'interests-grid grid-3-cols gap-sm';
+        if (window.aboutData.interests && window.aboutData.interests.length > 0) {
+            interestsContainer.innerHTML = window.aboutData.interests.map(item => HTMLGenerator.unifiedCardTemplate(item)).join('');
+        } else {
+            showEmptyState(interestsContainer, {
+                type: 'interests',
+                icon: EMPTY_STATE_CONFIG.icon,
+                message: EMPTY_STATE_CONFIG.message
+            });
+        }
+    }
     animateElements([
         { selector: '.about-section', delay: ANIMATION_DELAYS.SECTION_BASE },
         { selector: '.story-section', delay: ANIMATION_DELAYS.SECTION_STORY },
@@ -147,7 +182,7 @@ async function initCV() {
                 cat.classList.add('hover-lift');
             });
         } else {
-            showEmptyStateMessage(skillsContainer, {
+            showEmptyState(skillsContainer, {
                 type: 'skills',
                 icon: EMPTY_STATE_CONFIG.icon,
                 message: EMPTY_STATE_CONFIG.message
@@ -164,7 +199,7 @@ async function initCV() {
         if (window.cvData.awards && Object.keys(window.cvData.awards).length > 0) {
             awardsContainer.innerHTML = HTMLGenerator.awardsSection(window.cvData.awards);
         } else {
-            showEmptyStateMessage(awardsContainer, {
+            showEmptyState(awardsContainer, {
                 type: 'awards',
                 icon: EMPTY_STATE_CONFIG.icon,
                 message: EMPTY_STATE_CONFIG.message
@@ -176,15 +211,17 @@ async function initCV() {
         emptyState: { type: 'grants', icon: EMPTY_STATE_CONFIG.icon, message: EMPTY_STATE_CONFIG.message }
     });
     
-    animateElements([{ selector: '.cv-section', delay: ANIMATION_DELAYS.SECTION_BASE }]);
+    animateElements([
+        { selector: '.cv-section', delay: ANIMATION_DELAYS.SECTION_BASE }
+    ]);
 }
 
 async function initProjects() {
-    // Generate filter buttons dynamically
     generateFilterButtons();
     
     initContainer('projects-container', window.projectsData, HTMLGenerator.projectCard, {
-        containerClass: 'projects-grid grid-fixed gap-sm fade-in-up mb-section'
+        containerClass: 'projects-grid grid-fixed gap-sm fade-in-up mb-section',
+        emptyState: { type: 'projects', icon: EMPTY_STATE_CONFIG.icon, message: EMPTY_STATE_CONFIG.message }
     });
     
     initProjectFilters();
@@ -217,22 +254,40 @@ function initProjectFilters() {
             filterButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
             
-            const projectCards = document.querySelectorAll('.project-card');
-            const projectsContainer = document.getElementById('projects-container');
-            const visibleCount = resetAndShowCards(projectCards, category);
-            if (visibleCount === FILTER_CONFIG.NO_RESULTS_THRESHOLD) {
-                showNoProjectsMessage(projectsContainer, category);
-                animateElements([
-                    { selector: '.no-projects-message', delay: ANIMATION_DELAYS.PROJECT_FILTER }
-                ]);
-            } else {
-                hideNoProjectsMessage(projectsContainer);
-                animateElements([
-                    { selector: '.project-card[style*="display: block"]', delay: ANIMATION_DELAYS.PROJECT_FILTER }
-                ]);
-            }
+            renderFilteredProjects(category);
         });
     });
+}
+
+function renderFilteredProjects(category) {
+    const projectsContainer = document.getElementById('projects-container');
+    if (!projectsContainer || !window.projectsData) return;
+    
+    let filteredProjects;
+    if (category === 'all') {
+        filteredProjects = window.projectsData;
+    } else {
+        filteredProjects = window.projectsData.filter(project => 
+            project.categories && project.categories.includes(category)
+        );
+    }
+    
+    if (filteredProjects.length > 0) {
+        projectsContainer.innerHTML = filteredProjects.map(project => HTMLGenerator.projectCard(project)).join('');
+        projectsContainer.querySelectorAll('.project-card').forEach(card => {
+            card.classList.add('fade-in-up');
+        });
+    } else {
+        projectsContainer.innerHTML = HTMLGenerator.emptyStateMessage({
+            icon: EMPTY_STATE_CONFIG.icon,
+            message: EMPTY_STATE_CONFIG.message,
+            className: 'no-projects-message fade-in-up'
+        });
+    }
+    
+    animateElements([
+        { selector: '.project-card, .no-projects-message', delay: ANIMATION_DELAYS.SECTION_BASE }
+    ]);
 }
 
 async function initLinks() {
@@ -241,67 +296,47 @@ async function initLinks() {
 
     const sections = [];
 
-    // Safe data access with optional chaining and length checks
     if (window.linksData.contact?.length > 0) {
         sections.push(HTMLGenerator.linksSection('Website & Contact', 'fas fa-globe', 
             window.linksData.contact, { cardClass: 'link-card website-card', external: true }));
+    } else {
+        sections.push(HTMLGenerator.linksSection('Website & Contact', 'fas fa-globe', [], { cardClass: 'link-card website-card', external: true }));
     }
 
-    // Social Media section with empty state
     if (window.linksData.social?.length > 0) {
         sections.push(HTMLGenerator.linksSection('Social Media', 'fas fa-share-alt', 
             window.linksData.social, { cardClass: 'link-card social-card', external: true }));
     } else {
-        sections.push(`
-            <section class="links-section fade-in-up mb-section">
-                <h2 class="section-title">
-                    <i class="fas fa-share-alt"></i>
-                    Social Media
-                </h2>
-                <div class="links-grid grid-auto-fit gap-sm">
-                    <div class="no-social-message fade-in-up">
-                        <div class="card text-center">
-                            <i class="${EMPTY_STATE_CONFIG.icon}" style="font-size: 3rem; color: var(--text-secondary); margin-bottom: var(--space-4);"></i>
-                            <h3>${EMPTY_STATE_CONFIG.message}</h3>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        `);
+        sections.push(HTMLGenerator.linksSection('Social Media', 'fas fa-share-alt', [], { cardClass: 'link-card social-card', external: true }));
     }
 
-    // Portfolio section with empty state
+  
     if (window.linksData.portfolio?.length > 0) {
         sections.push(HTMLGenerator.linksSection('Portfolio', 'fas fa-briefcase', 
-            window.linksData.portfolio, { 
-                cardClass: 'link-card portfolio-card', 
-                external: false
-            }));
+            window.linksData.portfolio, { cardClass: 'link-card portfolio-card', external: false }));
     } else {
-        sections.push(`
-            <section class="links-section fade-in-up mb-section">
-                <h2 class="section-title">
-                    <i class="fas fa-briefcase"></i>
-                    Portfolio
-                </h2>
-                <div class="links-grid grid-auto-fit gap-sm">
-                    <div class="no-portfolio-message fade-in-up">
-                        <div class="card text-center">
-                            <i class="${EMPTY_STATE_CONFIG.icon}" style="font-size: 3rem; color: var(--text-secondary); margin-bottom: var(--space-4);"></i>
-                            <h3>${EMPTY_STATE_CONFIG.message}</h3>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        `);
+        sections.push(HTMLGenerator.linksSection('Portfolio', 'fas fa-briefcase', [], { cardClass: 'link-card portfolio-card', external: false }));
     }
 
-    // Fallback for when no links are configured
-    linksContainer.innerHTML = sections.length > 0 
-        ? sections.join('') 
-        : '<div class="no-links"><p>No links configured. Edit <code>data/links.js</code> to add your links.</p></div>';
-    
-    animateElements([{ selector: '.links-section', delay: ANIMATION_DELAYS.LINKS_SECTION }]);
+    linksContainer.innerHTML = sections.join('');
+    animateElements([
+        { selector: '.links-section', delay: ANIMATION_DELAYS.LINKS_SECTION }
+    ]);
+}
+
+function createLinksSection(title, icon, data, sectionId) {
+    const hasData = data?.length > 0;
+    return `
+        <section class="links-section fade-in-up mb-section" id="${sectionId}-section">
+            <h2 class="section-title">
+                <i class="${icon}"></i>
+                ${title}
+            </h2>
+            <div class="links-grid grid-auto-fit gap-sm">
+                ${hasData ? data.map(link => HTMLGenerator.linkCard(link, { external: sectionId !== 'portfolio' })).join('') : ''}
+            </div>
+        </section>
+    `;
 }
 
 function initContainer(containerId, data, generator, options = {}) {
@@ -310,7 +345,7 @@ function initContainer(containerId, data, generator, options = {}) {
     
     if (!data || (Array.isArray(data) && data.length === 0)) {
         if (options.emptyState) {
-            showEmptyStateMessage(container, options.emptyState);
+            showEmptyState(container, options.emptyState);
         }
         return;
     }
@@ -343,65 +378,30 @@ function animateElements(animations) {
     });
 }
 
-function resetAndShowCards(projectCards, matchingFilter) {
-    projectCards.forEach(card => {
-        card.style.display = 'none';
-        card.classList.remove('loaded');
-        card.classList.add('fade-in-up');
-    });
-    
-    void document.body.offsetHeight;
-    
-    let visibleCount = 0;
-    projectCards.forEach(card => {
-        const categoryTags = card.querySelectorAll('.category-tag');
-        const projectCategories = Array.from(categoryTags).map(tag => tag.textContent);
-        
-        if (matchingFilter === 'all' || projectCategories.includes(matchingFilter)) {
-            card.style.display = 'block';
-            visibleCount++;
-        }
-    });
-    
-    return visibleCount;
-}
 
-function showEmptyStateMessage(container, config) {
-    const className = `no-${config.type}-message`;
+function showEmptyState(container, config) {
+    const className = config.className || `no-${config.type || 'items'}-message`;
     if (container.querySelector(`.${className}`)) return;
     
     const messageElement = document.createElement('div');
-    messageElement.innerHTML = `
-        <div class="${className} fade-in-up">
-            <div class="card text-center">
-                <i class="${config.icon}" style="font-size: 3rem; color: var(--text-secondary); margin-bottom: var(--space-4);"></i>
-                <h3>${config.message}</h3>
-                ${config.description ? `<p class="text-meta">${config.description}</p>` : ''}
-            </div>
-        </div>
-    `;
+    messageElement.innerHTML = HTMLGenerator.emptyStateMessage({
+        icon: config.icon,
+        message: config.message,
+        description: config.description,
+        className: className
+    });
     
     container.appendChild(messageElement.firstElementChild);
 }
 
-function hideEmptyStateMessage(container, type) {
-    const messageEl = container.querySelector(`.no-${type}-message`);
+function hideEmptyState(container, config) {
+    const className = config.className || `no-${config.type || 'items'}-message`;
+    const messageEl = container.querySelector(`.${className}`);
     if (messageEl) {
         messageEl.remove();
     }
 }
 
-function showNoProjectsMessage(container, category) {
-    showEmptyStateMessage(container, {
-        type: 'projects',
-        icon: EMPTY_STATE_CONFIG.icon,
-        message: EMPTY_STATE_CONFIG.message
-    });
-}
-
-function hideNoProjectsMessage(container) {
-    hideEmptyStateMessage(container, 'projects');
-}
 
 function getCurrentPageName() {
     const path = window.location.pathname;
