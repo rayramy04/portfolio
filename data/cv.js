@@ -226,14 +226,14 @@ window.cvData = {
             title: "YouTube音楽チャンネル: 登録者数1万人達成",
             organization: "YouTube",
             date: "2025.06",
-            description: "ピアノ演奏・楽譜制作動画の投稿",
+            description: "ピアノ演奏・楽譜動画の投稿",
             link: "https://www.youtube.com/@ray_pianocover"
             },
             {
             title: "留学ブログ: 累計700記事以上執筆",
             organization: "個人ブログ（Rayの海外生活ノート）",
             date: "2025.06",
-            description: "現役海外大学生が運営する留学メディアとしては最大級の規模",
+            description: "業界最大級の規模を誇る留学メディア",
             link: "https://ray-globallife.com/"
             },
             {
