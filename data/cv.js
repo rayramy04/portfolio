@@ -230,6 +230,13 @@ window.cvData = {
             link: "https://www.youtube.com/@ray_pianocover"
             },
             {
+            title: "留学ブログ: 累計700記事以上執筆",
+            organization: "個人ブログ（Rayの海外生活ノート）",
+            date: "2025.06",
+            description: "現役海外大学生が運営する留学メディアとしては最大級の規模",
+            link: "https://ray-globallife.com/"
+            },
+            {
             title: "日本人工知能オリンピック2025: 金賞・全国5位（オープン枠）",
             organization: "国際人工知能オリンピック日本委員会",
             date: "2025.05",
