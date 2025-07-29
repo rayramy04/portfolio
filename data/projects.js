@@ -43,6 +43,14 @@ window.projectsData = [
         image: "https://university.go-for-it-malaysia.com/wp-content/uploads/2024/10/Top_Uni-top_12.webp"
     },
     {
+        name: "家計簿Excelテンプレート",
+        description: "外貨換算機能付きシンプル家計簿を無料配布",
+        categories: ["Automation & Tools"],
+        githubUrl: null,
+        liveUrl: "https://ray-globallife.com/householdaccount-template/",
+        image: "https://ray-globallife.com/wp-content/uploads/2024/01/ec64cbd14f09d56e896252de882ebac4.png"
+    },
+    {
         name: "connect-with-me",
         description: "Hugoで構築した高速リンク集約ページ",
         categories: ["Web Development"],
