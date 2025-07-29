@@ -1,8 +1,16 @@
-# Portfolio Website
+# Portfolio Website Template
 
-A clean, responsive portfolio website built with vanilla HTML, CSS, and JavaScript. Features a data-driven architecture for easy content management, responsive design, and SEO optimization. Includes an optional HTML generation script for development convenience. No dependencies or complex build process required.
+A clean, responsive portfolio template built with vanilla HTML, CSS, and JavaScript.  
+**Free to use** - Fork, customize, and make it your own!
 
-**🌟 [Live Demo](https://rayramy04.github.io/portfolio/index.html)** | **📖 [日本語版](README.ja.md)**
+**🌟 [Live Demo](https://rayramy04.github.io/portfolio/index.html)** | **📄 [MIT License](LICENSE)** | **📖 [日本語版](README.ja.md)**
+
+## 🎯 Perfect For
+- Students building their first portfolio
+- Developers wanting a clean, professional site  
+- Anyone needing a fast, customizable portfolio
+
+Features a data-driven architecture for easy content management, responsive design, and SEO optimization. Includes an optional HTML generation script for development convenience. No dependencies or complex build process required.
 
 ## ✨ Features
 
@@ -13,7 +21,9 @@ A clean, responsive portfolio website built with vanilla HTML, CSS, and JavaScri
 - **Multiple Category Support** - Projects can belong to multiple categories with flexible filtering
 - **Unified Empty State Handling** - Consistent "No items found" display across all sections and pages
 - **Profile Image Support** - Automatic image handling with fallback for missing images
-- **Responsive Design** - Mobile-first approach with adaptive layouts
+- **My Strengths Section** - Dedicated section for showcasing core competencies with highlights
+- **Unified Card System** - Consistent card layouts with equal height and reusable styling
+- **Responsive Design** - Mobile-first approach with adaptive layouts and optimized typography
 - **SEO Optimized** - Structured data, meta tags, and technical SEO best practices
 - **Performance Focused** - Optimized loading, animations, and resource management
 - **Unified Animation System** - Consistent animation effects across all pages
@@ -133,6 +143,20 @@ Content is managed via JavaScript data files - no HTML editing required!
     period: "2024.01 - Present",
     description: "Role description and achievements",
     url: "https://company.com"
+}
+```
+
+**Add personal strengths** (in `data/about.js` - strengths array):
+```javascript
+{
+    title: "Strength Category",
+    description: "Brief description of this strength area",
+    icon: "fas fa-icon-name",  // FontAwesome icon
+    highlights: [
+        "First key highlight or achievement",
+        "Second key highlight or skill",
+        "Third key highlight or experience"
+    ]
 }
 ```
 
@@ -312,6 +336,6 @@ Built with modern web standards and best practices:
 
 ---
 
-**Template Version**: 1.1  
+**Template Version**: 1.2  
 **Last Updated**: July 2025  
 **Supported Browsers**: Modern browsers with ES6+ and CSS Grid support

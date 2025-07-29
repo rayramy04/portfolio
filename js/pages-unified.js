@@ -3,6 +3,7 @@ const ANIMATION_DELAYS = {
     PAGE_TITLE: 200,
     SECTION_BASE: 400,
     SECTION_STORY: 500,
+    SECTION_STRENGTHS: 550,
     SECTION_TIMELINE: 600,
     SECTION_INTERESTS: 700,
     LINKS_SECTION: 200,
@@ -145,9 +146,31 @@ async function initAbout() {
         }
     }
     
+    const strengthsContainer = document.getElementById('strengths-container');
+    if (strengthsContainer) {
+        strengthsContainer.className = 'grid-2-cols gap-sm cards-equal-height card-icons-primary';
+        if (window.aboutData.strengths && window.aboutData.strengths.length > 0) {
+            strengthsContainer.innerHTML = window.aboutData.strengths.map(item => {
+                const highlightsList = item.highlights ? 
+                    `${item.highlights.map(h => `<p>• ${h}</p>`).join('')}` : '';
+                const customDescription = `<p class="text-meta">${item.description}</p>${highlightsList}`;
+                return HTMLGenerator.unifiedCardTemplate({
+                    ...item,
+                    description: customDescription
+                });
+            }).join('');
+        } else {
+            showEmptyState(strengthsContainer, {
+                type: 'strengths',
+                icon: EMPTY_STATE_CONFIG.icon,
+                message: EMPTY_STATE_CONFIG.message
+            });
+        }
+    }
+    
     const interestsContainer = document.getElementById('interests-container');
     if (interestsContainer) {
-        interestsContainer.className = 'interests-grid grid-3-cols gap-sm';
+        interestsContainer.className = 'interests-grid grid-3-cols gap-sm cards-equal-height card-icons-primary';
         if (window.aboutData.interests && window.aboutData.interests.length > 0) {
             interestsContainer.innerHTML = window.aboutData.interests.map(item => HTMLGenerator.unifiedCardTemplate(item)).join('');
         } else {
@@ -161,6 +184,7 @@ async function initAbout() {
     animateElements([
         { selector: '.about-section', delay: ANIMATION_DELAYS.SECTION_BASE },
         { selector: '.story-section', delay: ANIMATION_DELAYS.SECTION_STORY },
+        { selector: '.strengths-section', delay: ANIMATION_DELAYS.SECTION_STRENGTHS },
         { selector: '.timeline-section', delay: ANIMATION_DELAYS.SECTION_TIMELINE },
         { selector: '.interests-section', delay: ANIMATION_DELAYS.SECTION_INTERESTS }
     ]);
