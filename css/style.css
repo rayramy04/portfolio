@@ -903,7 +903,7 @@ h3 {
   display: flex;
   align-items: center;
   gap: var(--space-4);
-  margin-top: var(--space-2);
+  margin-top: auto;
   flex-wrap: wrap;
 }
 
@@ -925,6 +925,9 @@ h3 {
 .project-card {
   padding: 0;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .project-card.fade-in-up {
@@ -950,6 +953,9 @@ h3 {
 
 .project-content {
   padding: var(--space-4) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .project-content .card-header {
@@ -1238,7 +1244,7 @@ h3.awards-year {
   }
 
   .project-links {
-    margin-top: var(--space-4);
+    margin-top: auto;
   }
 }
 
