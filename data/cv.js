@@ -42,7 +42,7 @@ window.cvData = {
             description: "中学数学の個別指導"
         },
         {
-            company: "Tobiratory Japan",
+            company: "合同会社Tobiratory Japan",
             period: "2024.06 - Present",
             position: "インターンシップ",
             description: "AI業務自動化・JavaScriptでのウェブサイト制作",
