@@ -25,7 +25,7 @@ window.cvData = {
             company: "株式会社リアブロード（スマ留）",
             period: "2025.05 - Present",
             position: "業務委託（公式アンバサダー）",
-            description: "留学関係イベントの登壇・運営・メディア露出・記事執筆",
+            description: "留学関係イベントの登壇・運営・記事執筆",
             url: "https://smaryu.com/"
         },
         {
@@ -45,14 +45,14 @@ window.cvData = {
             company: "Tobiratory Japan",
             period: "2024.06 - Present",
             position: "インターンシップ",
-            description: "AI業務自動化・JavaScriptフレームワークでのウェブサイト制作",
+            description: "AI業務自動化・JavaScriptでのウェブサイト制作",
             url: "https://www.tobiratory.com/"
         },
         {
             company: "グローバルハブジャパン株式会社（マレーシア留学サポートセンター）",
             period: "2024.06 - 2024.08",
             position: "インターンシップ（学生サポーター）",
-            description: "留学関係イベントの登壇・運営・通訳",
+            description: "留学関係イベントの登壇・運営",
             url: "https://malaysia-ryugaku.jp/"
         },
         {
