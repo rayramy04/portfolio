@@ -223,6 +223,13 @@ window.cvData = {
     awards: {
         "2025": [
             {
+            title: "技育CAMPハッカソン2025 vol.9: 優秀賞",
+            organization: "サポーターズ",
+            date: "2025.08",
+            description: "EmotiGift - AIが分析するパーソナライズドギフトレコメンドサービス",
+            link: "https://github.com/rayramy04/emotigift"
+            },
+            {
             title: "YouTube音楽チャンネル: 登録者数1万人達成",
             organization: "YouTube",
             date: "2025.06",
