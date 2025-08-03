@@ -11,6 +11,14 @@ window.projectCategories = [
 // Projects data configuration
 window.projectsData = [
     {
+        name: "EmotiGift",
+        description: "SNS履歴からAIが最適なギフトを分析してくれるサービス。技育CAMPハッカソン2025 vol.9優秀賞受賞。",
+        categories: ["Web Development", "Data Science & AI", "Backend & API"],
+        githubUrl: "https://github.com/rayramy04/emotigift",
+        liveUrl: null,
+        image: "assets/projects/emotigift.jpg"
+    },
+    {
         name: "Ray's Portfolio",
         description: "フルスクラッチで制作したポートフォリオサイト",
         categories: ["Web Development"],
