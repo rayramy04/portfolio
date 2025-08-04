@@ -179,7 +179,8 @@ window.cvData = {
         {
             title: "東京大学 Deep Learning 基礎講座 2025 Spring: 修了",
             organization: "東京大学 松尾研究室",
-            date: "2025.07"
+            date: "2025.07",
+            link: "https://weblab.t.u-tokyo.ac.jp/deep-learning/"
         },
         {
             title: "東京大学AI経営講座 AI Business Insights 2025: 修了",
