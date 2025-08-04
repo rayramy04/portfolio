@@ -177,6 +177,11 @@ window.cvData = {
     ],
     certifications: [
         {
+            title: "東京大学 Deep Learning 基礎講座 2025 Spring: 修了",
+            organization: "東京大学 松尾研究室",
+            date: "2025.07"
+        },
+        {
             title: "東京大学AI経営講座 AI Business Insights 2025: 修了",
             organization: "東京大学 松尾研究室",
             date: "2025.04",
