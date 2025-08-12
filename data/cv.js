@@ -263,8 +263,8 @@ window.cvData = {
             description: "WAM約90%・情報学部全体および数学分野で表彰"
             },
             {
-            title: "Mensa Malaysia: 入会",
-            organization: "Mensa Malaysia",
+            title: "Malaysian Mensa: 入会",
+            organization: "Malaysian Mensa",
             date: "2025.03",
             description: "人口上位2%のIQを有する者が入会可能な国際団体のマレーシア支部",
             link: "https://mensa.my/"
