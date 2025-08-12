@@ -11,6 +11,14 @@ window.projectCategories = [
 // Projects data configuration
 window.projectsData = [
     {
+        name: "PressyAI",
+        description: "AIが自動でプレスリリースを生成してくれる企業向けウェブサービス",
+        categories: ["Web Development", "Backend & API", "Automation & Tools"],
+        githubUrl: null,
+        liveUrl: "https://pressy-ai.com/",
+        image: "assets/projects/pressy-ai.jpg"
+    },
+    {
         name: "EmotiGift",
         description: "SNS履歴からAIが最適なギフトを分析してくれるサービス。技育CAMPハッカソン2025 vol.9優秀賞受賞。",
         categories: ["Web Development", "Data Science & AI", "Backend & API"],
