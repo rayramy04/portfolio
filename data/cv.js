@@ -266,7 +266,7 @@ window.cvData = {
             title: "Malaysian Mensa: 入会",
             organization: "Malaysian Mensa",
             date: "2025.03",
-            description: "人口上位2%のIQを有する者が入会可能な国際団体のマレーシア支部",
+            description: "人口上位2%のIQ保有者が入会可能な国際団体に入会",
             link: "https://mensa.my/"
             },
             {
