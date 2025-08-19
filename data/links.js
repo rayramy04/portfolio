@@ -22,9 +22,9 @@ window.linksData = {
         },
         {
             title: "X (Twitter)",
-            url: "https://x.com/ll_0013py",
+            url: "https://x.com/rayramy04",
             icon: "fab fa-x-twitter",
-            username: "@ll_0013py"
+            username: "@rayramy04"
         },
         {
             title: "YouTube",
