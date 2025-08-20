@@ -67,6 +67,14 @@ window.projectsData = [
         image: "https://ray-globallife.com/wp-content/uploads/2024/01/ec64cbd14f09d56e896252de882ebac4.png"
     },
     {
+        name: "LinkCard",
+        description: "バニラJSで実装した超軽量リンク集ページ",
+        categories: ["Web Development"],
+        githubUrl: "https://github.com/rayramy04/linkcard",
+        liveUrl: "https://rayramy04.github.io/linkcard/",
+        image: "assets/projects/linkcard.jpg"
+    },
+    {
         name: "connect-with-me",
         description: "Hugoで構築した高速リンク集約ページ",
         categories: ["Web Development"],
