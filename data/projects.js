@@ -11,6 +11,14 @@ window.projectCategories = [
 // Projects data configuration
 window.projectsData = [
     {
+        name: "LinkCard",
+        description: "バニラJSで実装した超軽量リンク集ページ",
+        categories: ["Web Development"],
+        githubUrl: "https://github.com/rayramy04/linkcard",
+        liveUrl: "https://rayramy04.github.io/linkcard/",
+        image: "assets/projects/linkcard.jpg"
+    },
+    {
         name: "PressyAI",
         description: "AIが自動でプレスリリースを生成してくれる企業向けウェブサービス",
         categories: ["Web Development", "Backend & API", "Automation & Tools"],
@@ -65,14 +73,6 @@ window.projectsData = [
         githubUrl: null,
         liveUrl: "https://ray-globallife.com/householdaccount-template/",
         image: "https://ray-globallife.com/wp-content/uploads/2024/01/ec64cbd14f09d56e896252de882ebac4.png"
-    },
-    {
-        name: "LinkCard",
-        description: "バニラJSで実装した超軽量リンク集ページ",
-        categories: ["Web Development"],
-        githubUrl: "https://github.com/rayramy04/linkcard",
-        liveUrl: "https://rayramy04.github.io/linkcard/",
-        image: "assets/projects/linkcard.jpg"
     },
     {
         name: "connect-with-me",
