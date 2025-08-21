@@ -16,7 +16,7 @@ window.projectsData = [
         categories: ["Web Development"],
         githubUrl: "https://github.com/rayramy04/linkcard",
         liveUrl: "https://rayramy04.github.io/linkcard/",
-        image: "assets/projects/linkcard.jpg"
+        image: "assets/projects/linkcard.png"
     },
     {
         name: "PressyAI",
