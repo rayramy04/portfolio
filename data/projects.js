@@ -11,6 +11,14 @@ window.projectCategories = [
 // Projects data configuration
 window.projectsData = [
     {
+        name: "PhotoVoca",
+        description: "撮って、見て、覚える。新しい英語学習アプリ",
+        categories: ["App Development"],
+        githubUrl: "https://github.com/rayramy04/photovoca",
+        liveUrl: null,
+        image: "assets/projects/photovoca.png"
+    },
+    {
         name: "LinkCard",
         description: "バニラJSで実装した超軽量リンク集ページ",
         categories: ["Web Development"],
