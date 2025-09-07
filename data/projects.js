@@ -16,7 +16,7 @@ window.projectsData = [
         categories: ["App Development"],
         githubUrl: "https://github.com/rayramy04/photovoca",
         liveUrl: null,
-        image: "assets/projects/photovoca.png"
+        image: "assets/projects/photovoca.jpg"
     },
     {
         name: "LinkCard",
