@@ -12,7 +12,7 @@ window.projectCategories = [
 window.projectsData = [
     {
         name: "PhotoVoca",
-        description: "撮って、見て、覚える。新しい英語学習アプリ",
+        description: "撮って、見て、覚える、新感覚の英語学習アプリ",
         categories: ["App Development"],
         githubUrl: "https://github.com/rayramy04/photovoca",
         liveUrl: null,

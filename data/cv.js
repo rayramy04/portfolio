@@ -232,7 +232,7 @@ window.cvData = {
                 title: 'RSS Hackathon 2025 Beyond "あたりまえ"の、その先へ: 優秀賞',
                 organization: "レイスシステムソリューションズ株式会社",
                 date: "2025.09",
-                description: "PhotoVoca - 撮って、見て、覚える、新しい形の英語学習アプリを開発",
+                description: "PhotoVoca - 撮って、見て、覚える、新感覚の英語学習アプリを開発",
                 link: "https://www.craftstadium.com/hackathon/rss-hackathon-2025-beyond"
                 },
             {
