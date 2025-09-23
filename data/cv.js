@@ -229,6 +229,13 @@ window.cvData = {
     awards: {
         "2025": [
             {
+                title: "YouTube音楽チャンネル: 登録者数1.5万人達成",
+                organization: "YouTube",
+                date: "2025.09",
+                description: "ピアノ演奏・楽譜動画の投稿",
+                link: "https://www.youtube.com/@ray_pianocover"
+                },    
+            {
                 title: 'RSS Hackathon 2025 Beyond "あたりまえ"の、その先へ: 優秀賞',
                 organization: "レイスシステムソリューションズ株式会社",
                 date: "2025.09",
@@ -241,13 +248,6 @@ window.cvData = {
             date: "2025.08",
             description: "EmotiGift - AIが分析するパーソナライズドギフトレコメンドサービスを開発",
             link: "https://talent.supporterz.jp/events/98b0c3d3-a5d3-4083-b11d-48b71f97fded/"
-            },
-            {
-            title: "YouTube音楽チャンネル: 登録者数1万人達成",
-            organization: "YouTube",
-            date: "2025.06",
-            description: "ピアノ演奏・楽譜動画の投稿",
-            link: "https://www.youtube.com/@ray_pianocover"
             },
             {
             title: "留学ブログ: 累計700記事以上執筆",
