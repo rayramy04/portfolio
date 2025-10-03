@@ -232,7 +232,7 @@ window.cvData = {
                 title: "L'Oréal x Monash Datathon 2025: 第3位",
                 organization: "L'Oréal Malaysia & Monash University Malaysia",
                 date: "2025.10",
-                description: "データソンで500以上のエントリーの中から第3位入賞",
+                description: "データソンで500以上のエントリーの中からチームで第3位入賞",
                 link: "https://thedatathon.com/"
                 },
             {
@@ -246,14 +246,14 @@ window.cvData = {
                 title: 'RSS Hackathon 2025 Beyond "あたりまえ"の、その先へ: 優秀賞',
                 organization: "レイスシステムソリューションズ株式会社",
                 date: "2025.09",
-                description: "PhotoVoca - 撮って、見て、覚える、新感覚の英語学習アプリを開発",
+                description: "PhotoVoca - 撮って、見て、覚える、新感覚の英語学習アプリをチームで開発",
                 link: "https://www.craftstadium.com/hackathon/rss-hackathon-2025-beyond"
                 },
             {
             title: "技育CAMPハッカソン2025 vol.9: 優秀賞",
             organization: "サポーターズ",
             date: "2025.08",
-            description: "EmotiGift - AIが分析するパーソナライズドギフトレコメンドサービスを開発",
+            description: "EmotiGift - AIが分析するパーソナライズドギフトレコメンドサービスをチームで開発",
             link: "https://talent.supporterz.jp/events/98b0c3d3-a5d3-4083-b11d-48b71f97fded/"
             },
             {
