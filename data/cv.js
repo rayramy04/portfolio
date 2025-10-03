@@ -229,12 +229,19 @@ window.cvData = {
     awards: {
         "2025": [
             {
+                title: "L'Oréal x Monash Datathon 2025: 第3位",
+                organization: "L'Oréal Malaysia & Monash University Malaysia",
+                date: "2025.10",
+                description: "データソンで500以上のエントリーの中から第3位入賞",
+                link: "https://thedatathon.com/"
+                },
+            {
                 title: "YouTube音楽チャンネル: 登録者数1.5万人達成",
                 organization: "YouTube",
                 date: "2025.09",
                 description: "ピアノ演奏・楽譜動画の投稿",
                 link: "https://www.youtube.com/@ray_pianocover"
-                },    
+                },
             {
                 title: 'RSS Hackathon 2025 Beyond "あたりまえ"の、その先へ: 優秀賞',
                 organization: "レイスシステムソリューションズ株式会社",
