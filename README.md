@@ -75,7 +75,8 @@ portfolio/
 ├── generate-pages.js        # HTML generation script (optional)
 ├── template-base.html      # Base template for new pages
 ├── css/
-│   └── style.css          # Complete stylesheet
+│   ├── palette.css        # Color palette variables (edit for theme colors)
+│   └── style.css          # Main stylesheet
 ├── js/
 │   ├── pages-unified.js   # Centralized page initialization
 │   └── utils/             # Utility class library
@@ -98,15 +99,30 @@ portfolio/
 
 ### Change Colors
 
-Update the CSS custom properties in `css/style.css`:
+All color-related CSS variables are centralized in `css/palette.css` for easy theme customization:
 
 ```css
+/* css/palette.css */
 :root {
+  /* Primary Colors */
   --color-primary: #059669;        /* Main brand color */
   --color-primary-light: #34d399;  /* Hover states */
   --color-primary-dark: #047857;   /* Active states */
+
+  /* Base Colors */
+  --color-white: #ffffff;
+  --color-gray-light: #f0fdf4;
+  --color-gray: #6b7280;
+  --color-black: #1f2937;
+
+  /* ... and more color variables */
 }
 ```
+
+**Benefits of separate palette file:**
+- Easy to find and modify all colors in one place
+- Simple to create alternative color themes
+- Better organization and maintainability
 
 ### Add Content
 

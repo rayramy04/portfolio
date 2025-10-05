@@ -75,7 +75,8 @@ portfolio/
 ├── generate-pages.js        # HTML生成スクリプト（オプション）
 ├── template-base.html      # 新規ページ作成用ベーステンプレート
 ├── css/
-│   └── style.css          # 完全スタイルシート
+│   ├── palette.css        # カラーパレット変数（テーマ色の編集用）
+│   └── style.css          # メインスタイルシート
 ├── js/
 │   ├── pages-unified.js   # 中央ページ初期化
 │   └── utils/             # ユーティリティクラスライブラリ
@@ -98,15 +99,30 @@ portfolio/
 
 ### 色の変更
 
-`css/style.css`のCSSカスタムプロパティを更新：
+色関連のCSS変数は`css/palette.css`に集約されており、簡単にテーマカスタマイズができます：
 
 ```css
+/* css/palette.css */
 :root {
+  /* Primary Colors */
   --color-primary: #059669;        /* メインブランドカラー */
   --color-primary-light: #34d399;  /* ホバー状態 */
   --color-primary-dark: #047857;   /* アクティブ状態 */
+
+  /* Base Colors */
+  --color-white: #ffffff;
+  --color-gray-light: #f0fdf4;
+  --color-gray: #6b7280;
+  --color-black: #1f2937;
+
+  /* ... その他の色変数 */
 }
 ```
+
+**パレットファイル分離のメリット：**
+- すべての色を一箇所で簡単に見つけて編集可能
+- 代替カラーテーマの作成が容易
+- より良い整理とメンテナンス性
 
 ### コンテンツ追加
 
