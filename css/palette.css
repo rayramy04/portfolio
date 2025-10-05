@@ -1,0 +1,47 @@
+/* ===== COLOR PALETTE ===== */
+/* This file contains all color-related CSS variables for easy theme customization */
+
+:root {
+  /* Primary Colors */
+  --color-primary: #059669;
+  --color-primary-light: #34d399;
+  --color-primary-dark: #047857;
+  --color-primary-rgb: 5, 150, 105;
+
+  /* Base Colors */
+  --color-white: #ffffff;
+  --color-white-rgb: 255, 255, 255;
+  --color-gray-light: #f0fdf4;
+  --color-gray: #6b7280;
+  --color-black: #1f2937;
+  --color-accent: #dc2626;
+
+  /* Semantic Colors */
+  --primary-color: var(--color-primary);
+  --primary-dark: var(--color-primary-dark);
+
+  /* Background Colors */
+  --bg-primary: var(--color-white);
+  --bg-secondary: var(--color-gray-light);
+  --bg-tertiary: var(--color-gray-light);
+  --bg-dark: var(--color-primary-dark);
+  --bg-card: var(--color-white);
+
+  /* Text Colors */
+  --text-primary: var(--color-black);
+  --text-secondary: var(--color-primary-dark);
+  --text-light: var(--color-gray);
+  --text-white: var(--color-white);
+
+  /* Gradients */
+  --gradient-hero: linear-gradient(135deg,
+    #10b981 0%,
+    #14b8a6 30%,
+    #06b6d4 60%,
+    var(--color-primary-light) 100%
+  );
+  --gradient-button: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+
+  /* Shadows (color-related) */
+  --shadow-green: 0 4px 12px rgba(var(--color-primary-rgb), 0.2);
+}
