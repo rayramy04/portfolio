@@ -1,39 +1,11 @@
+/* Import color palette */
+@import url('palette.css');
+
 :root {
-  --color-primary: #059669;
-  --color-primary-light: #34d399;
-  --color-primary-dark: #047857;
-  --color-primary-rgb: 5, 150, 105;
-  --color-white-rgb: 255, 255, 255;
-  --color-white: #ffffff;
-  --color-gray-light: #f0fdf4;
-  --color-gray: #6b7280;
-  --color-black: #1f2937;
-  --color-accent: #dc2626;
-
-  --primary-color: var(--color-primary);
-  --primary-dark: var(--color-primary-dark);
-  --bg-primary: var(--color-white);
-  --bg-secondary: var(--color-gray-light);
-  --bg-tertiary: var(--color-gray-light);
-  --bg-dark: var(--color-primary-dark);
-  --bg-card: var(--color-white);
-  --text-primary: var(--color-black);
-  --text-secondary: var(--color-primary-dark);
-  --text-light: var(--color-gray);
-  --text-white: var(--color-white);
-
-  --gradient-hero: linear-gradient(135deg, 
-    #10b981 0%,
-    #14b8a6 30%,
-    #06b6d4 60%,
-    var(--color-primary-light) 100%
-  );
-  --gradient-button: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-
+  /* Shadows (non-color-related) */
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  --shadow-green: 0 4px 12px rgba(var(--color-primary-rgb), 0.2);
 
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-heading: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
