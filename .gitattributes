@@ -1,0 +1,18 @@
+# ==========================================
+# GIT ATTRIBUTES FOR FORK SYNC
+# ==========================================
+# This file protects custom data files from being overwritten
+# when syncing updates from the upstream repository.
+
+# Custom data files - always keep local version during merge
+data/** merge=ours
+robots.txt merge=ours
+css/palette.css merge=ours
+
+# Image assets - keep local version
+assets/*.jpg merge=ours
+assets/*.webp merge=ours
+assets/*.png merge=ours
+assets/projects/*.jpg merge=ours
+assets/projects/*.webp merge=ours
+assets/projects/*.png merge=ours
