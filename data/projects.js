@@ -43,7 +43,7 @@ window.projectsData = [
         image: "assets/projects/emotigift.jpg"
     },
     {
-        name: "Ray's Portfolio",
+        name: "Portfolio",
         description: "フルスクラッチで制作したポートフォリオサイト",
         categories: ["Web Development"],
         githubUrl: "https://github.com/rayramy04/portfolio",
