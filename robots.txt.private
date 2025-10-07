@@ -1,0 +1,6 @@
+# Portfolio Website - Private Mode
+# Block all search engines from crawling the site
+# Use this if you want to keep your portfolio private and not indexed by search engines
+
+User-agent: *
+Disallow: /
