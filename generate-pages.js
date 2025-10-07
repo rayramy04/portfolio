@@ -110,6 +110,47 @@ function generatePage(pageName) {
 }
 
 // ==========================================
+// GENERATE SITEMAP
+// ==========================================
+function generateSitemap() {
+    const pages = [
+        { name: 'index', priority: '1.0', changefreq: 'monthly' },
+        { name: 'about', priority: '0.8', changefreq: 'monthly' },
+        { name: 'cv', priority: '0.9', changefreq: 'monthly' },
+        { name: 'projects', priority: '0.9', changefreq: 'weekly' },
+        { name: 'links', priority: '0.7', changefreq: 'monthly' }
+    ];
+
+    const lastmod = new Date().toISOString().split('T')[0];
+
+    let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+`;
+
+    pages.forEach(page => {
+        const url = page.name === 'index'
+            ? seoConfig.baseUrl
+            : `${seoConfig.baseUrl}${page.name}.html`;
+
+        sitemap += `    <url>
+        <loc>${url}</loc>
+        <lastmod>${lastmod}</lastmod>
+        <changefreq>${page.changefreq}</changefreq>
+        <priority>${page.priority}</priority>
+    </url>
+`;
+    });
+
+    sitemap += `</urlset>
+`;
+
+    const sitemapPath = path.join(__dirname, 'sitemap.xml');
+    fs.writeFileSync(sitemapPath, sitemap);
+
+    console.log('✓ Generated sitemap.xml');
+}
+
+// ==========================================
 // MAIN
 // ==========================================
 // Generate all pages
@@ -117,5 +158,8 @@ const pages = ['index', 'about', 'cv', 'projects', 'links'];
 pages.forEach(pageName => {
     generatePage(pageName);
 });
+
+// Generate sitemap
+generateSitemap();
 
 console.log('\n✓ All pages generated successfully!');
