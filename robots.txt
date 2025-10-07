@@ -1,5 +1,6 @@
-# Ray's Portfolio - Robots.txt
+# Portfolio Website - Public Mode
 # Allow all search engines to crawl the entire site
+# Use this if you want your portfolio to appear in Google/Bing search results
 
 User-agent: *
 Allow: /
@@ -8,6 +9,7 @@ Allow: /
 Disallow: /.git/
 Disallow: /node_modules/
 Disallow: /.vscode/
+Disallow: /.claude/
 
 # Allow specific important files
 Allow: /assets/
