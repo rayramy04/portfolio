@@ -6,17 +6,18 @@
 
 # Custom data files - always keep local version during merge
 data/** merge=ours
-robots.txt merge=ours
-sitemap.xml merge=ours
-css/palette.css merge=ours
+
+# Custom assets - always keep local version during merge
+assets/** merge=ours
+
+# Custom resume files - always keep local version during merge
+resume/** merge=ours
 
 # Generated HTML files - keep local version (regenerated from data/seo-config.js)
 *.html merge=ours
+content/*.html merge=ours
 
-# Image assets - keep local version
-assets/*.jpg merge=ours
-assets/*.webp merge=ours
-assets/*.png merge=ours
-assets/projects/*.jpg merge=ours
-assets/projects/*.webp merge=ours
-assets/projects/*.png merge=ours
+# Custom configuration files - always keep local version during merge
+robots.txt merge=ours
+sitemap.xml merge=ours
+css/palette.css merge=ours

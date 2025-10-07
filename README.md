@@ -27,6 +27,7 @@ A clean, responsive portfolio template built with vanilla HTML, CSS, and JavaScr
 - **🎨 Customizable** - Easy color themes, responsive design
 - **📱 Mobile-first** - Looks great on all devices
 - **🔍 SEO Optimized** - Structured data and meta tags included
+- **📄 Resume Downloads** - Auto-detects and displays resume download buttons
 - **🍴 Fork-friendly** - Sync upstream updates without losing your customizations
 - **🚀 Zero Dependencies** - Pure HTML/CSS/JS, works anywhere
 
@@ -72,6 +73,8 @@ This template is **fork-friendly** - sync upstream updates without losing your c
 - `css/palette.css` - Your colors
 - `robots.txt` - Your SEO settings
 - `assets/**` - Your images
+- `resume/**` - Your resume PDFs
+- `content/**` - Generated content HTML
 
 **Auto-synced files** (template logic):
 - `generate-pages.js`, `template-base.html`, `css/style.css`, `js/**`
@@ -94,6 +97,7 @@ This is configured via `.gitattributes` with the `merge=ours` strategy.
 | **Page Content** | `data/*.js` | About, CV, projects, links, homepage |
 | **Visual Theme** | `css/palette.css` | Brand colors |
 | **Media Assets** | `assets/**` | Profile photos, project images |
+| **Resume Files** | `resume/**` | `resume-ja.pdf`, `resume-en.pdf` (optional) |
 | **Search Settings** | `robots.txt` | Public/private visibility (see below) |
 
 **Don't edit these** (template logic, auto-synced):
@@ -171,6 +175,22 @@ Edit `data/cv.js`:
 ```
 
 All content is managed through JavaScript data files - no HTML editing needed!
+
+### Add Resume Downloads
+
+Create a `resume/` folder and add your resume PDFs:
+```bash
+mkdir resume
+# Add your resume files:
+# - resume-ja.pdf (Japanese)
+# - resume-en.pdf (English)
+```
+
+Download buttons will automatically appear on the homepage and CV page when the files are detected. The feature:
+- Auto-detects PDF files in the `resume/` folder
+- Shows buttons only if files exist
+- Displays Japanese resume first (left), then English (right)
+- Uses consistent animations and styling with the rest of the site
 
 ### Generate Sitemap
 

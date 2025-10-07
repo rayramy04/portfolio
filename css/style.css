@@ -1000,6 +1000,82 @@ h3 {
   transition: var(--transition-fast);
 }
 
+/* ===== BUTTON SYSTEM ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-6);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-medium);
+  font-family: var(--font-primary);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.btn:hover {
+  transform: translateY(var(--hover-lift-sm));
+}
+
+.btn-primary {
+  background: var(--primary-color);
+  color: var(--text-white);
+  border-color: var(--primary-color);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.btn-outline:hover {
+  background: var(--primary-color);
+  color: var(--text-white);
+  border-color: var(--primary-color);
+}
+
+.btn-gradient {
+  background: var(--gradient-button);
+  color: var(--text-white);
+  border-color: transparent;
+}
+
+.btn-gradient:hover {
+  opacity: 0.9;
+}
+
+.btn-light {
+  background: var(--color-primary-light);
+  color: var(--text-white);
+  border-color: var(--color-primary-light);
+}
+
+.btn-light:hover {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn i {
+  font-size: 1em;
+}
+
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  justify-content: center;
+  align-items: center;
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-4);
+}
+
 /* ===== ABOUT STYLES ===== */
 
 /* ===== TIMELINE STYLES ===== */

@@ -20,6 +20,11 @@ const EMPTY_STATE_CONFIG = {
     icon: 'fas fa-inbox'
 };
 
+const RESUME_FILES = {
+    JP: 'resume/resume-ja.pdf',
+    EN: 'resume/resume-en.pdf'
+};
+
 async function initializePage() {
     const pageName = getCurrentPageName();
     await initializeBase();
@@ -101,6 +106,7 @@ async function initHome() {
         const heroContent = document.querySelector('.hero-content');
         if (heroContent) heroContent.classList.add('loaded');
     }, 100);
+    await initResumeButtons();
 }
 
 async function initAbout() {
@@ -235,8 +241,10 @@ async function initCV() {
         emptyState: { type: 'grants', icon: EMPTY_STATE_CONFIG.icon, message: EMPTY_STATE_CONFIG.message }
     });
     
+    await initResumeButtons('cv');
     animateElements([
-        { selector: '.cv-section', delay: ANIMATION_DELAYS.SECTION_BASE }
+        { selector: '.cv-section', delay: ANIMATION_DELAYS.SECTION_BASE },
+        { selector: '#resume-buttons-cv', delay: ANIMATION_DELAYS.SECTION_BASE }
     ]);
 }
 
@@ -449,6 +457,47 @@ function generateStars(level) {
         }
     }
     return starsHTML;
+}
+
+async function checkFileExists(url) {
+    try {
+        const response = await fetch(url, { method: 'HEAD' });
+        return response.ok;
+    } catch (error) {
+        return false;
+    }
+}
+
+async function initResumeButtons(suffix = '') {
+    const containerIdSuffix = suffix ? `-${suffix}` : '';
+    const btnIdSuffix = suffix ? `-${suffix}` : '';
+
+    const container = document.getElementById(`resume-buttons${containerIdSuffix}`);
+    const btnJP = document.getElementById(`resume-btn-jp${btnIdSuffix}`);
+    const btnEN = document.getElementById(`resume-btn-en${btnIdSuffix}`);
+
+    if (!container) return;
+
+    const [jpExists, enExists] = await Promise.all([
+        checkFileExists(RESUME_FILES.JP),
+        checkFileExists(RESUME_FILES.EN)
+    ]);
+
+    let hasVisibleButton = false;
+
+    if (jpExists && btnJP) {
+        btnJP.style.display = 'inline-flex';
+        hasVisibleButton = true;
+    }
+
+    if (enExists && btnEN) {
+        btnEN.style.display = 'inline-flex';
+        hasVisibleButton = true;
+    }
+
+    if (hasVisibleButton) {
+        container.style.display = 'flex';
+    }
 }
 
 document.addEventListener('DOMContentLoaded', initializePage);
