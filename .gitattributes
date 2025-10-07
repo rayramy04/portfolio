@@ -10,6 +10,9 @@ robots.txt merge=ours
 sitemap.xml merge=ours
 css/palette.css merge=ours
 
+# Generated HTML files - keep local version (regenerated from data/seo-config.js)
+*.html merge=ours
+
 # Image assets - keep local version
 assets/*.jpg merge=ours
 assets/*.webp merge=ours
