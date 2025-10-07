@@ -178,19 +178,15 @@ All content is managed through JavaScript data files - no HTML editing needed!
 
 ### Add Resume Downloads
 
-Create a `resume/` folder and add your resume PDFs:
+Add resume PDFs to the `resume/` folder:
 ```bash
 mkdir resume
-# Add your resume files:
+# Place your files:
 # - resume-ja.pdf (Japanese)
 # - resume-en.pdf (English)
 ```
 
-Download buttons will automatically appear on the homepage and CV page when the files are detected. The feature:
-- Auto-detects PDF files in the `resume/` folder
-- Shows buttons only if files exist
-- Displays Japanese resume first (left), then English (right)
-- Uses consistent animations and styling with the rest of the site
+Download buttons will automatically appear on the homepage and CV page when files are detected.
 
 ### Generate Sitemap
 
