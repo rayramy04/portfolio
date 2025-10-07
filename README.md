@@ -134,6 +134,76 @@ When the original template gets updates (bug fixes, new features, etc.), sync th
 
 This is configured via `.gitattributes` with the `merge=ours` strategy.
 
+## 📝 What to Customize (For Template Users)
+
+When you fork this template, you only need to edit **custom data files**. The template logic stays unchanged and will auto-sync from upstream.
+
+### 🔒 Custom Data Files (Edit These!)
+
+Files that define YOUR portfolio - these are protected from upstream updates:
+
+| Category | Files | What to Change |
+|----------|-------|----------------|
+| **Personal Info & SEO** | `data/seo-config.js` | Your name, URLs, meta descriptions, social links |
+| **Page Content** | `data/about.js`<br>`data/cv.js`<br>`data/projects.js`<br>`data/links.js`<br>`data/home.js` | Your story, experience, projects, contact info |
+| **Visual Theme** | `css/palette.css` | Brand colors, theme customization |
+| **Media Assets** | `assets/**` | Profile photos, project images, OG images |
+| **Search Settings** | `robots.txt` | Public/private visibility (see below) |
+
+### ⚙️ Template Logic Files (Don't Edit - Auto-synced)
+
+Files that handle template functionality - these will be updated from upstream:
+
+| Files | Purpose |
+|-------|---------|
+| `generate-pages.js` | Page generation logic |
+| `template-base.html` | HTML structure template |
+| `css/style.css` | Layout & common styles |
+| `js/**` | Interactive features & utilities |
+
+### 🎯 Quick Customization Checklist
+
+```bash
+# 1. Fork this repository on GitHub
+
+# 2. Clone your fork
+git clone https://github.com/YOUR-USERNAME/portfolio.git
+cd portfolio
+
+# 3. Edit ONLY custom data files:
+vim data/seo-config.js    # ← Your name, URLs, meta tags
+vim data/about.js         # ← Your story & background
+vim data/cv.js            # ← Your education & experience
+vim data/projects.js      # ← Your projects
+vim data/links.js         # ← Your contact & social links
+vim data/home.js          # ← Homepage hero content
+
+# 4. (Optional) Customize visual theme
+vim css/palette.css       # ← Your brand colors
+
+# 5. Replace images in assets/ with your own photos
+
+# 6. Choose search engine visibility (see next section)
+cp robots.txt.public robots.txt    # Public (default)
+# OR
+cp robots.txt.private robots.txt   # Private
+
+# 7. Regenerate HTML pages
+node generate-pages.js
+
+# 8. Commit and deploy
+git add .
+git commit -m "chore: personalize portfolio"
+git push
+
+# Done! 🎉
+```
+
+**Why this separation?**
+- ✅ Easy to customize - just edit data files
+- ✅ Safe to sync - template improvements won't overwrite your data
+- ✅ Clear boundaries - know exactly what to change
+
 ## 🔍 Search Engine Visibility (robots.txt)
 
 Choose whether you want your portfolio to appear in search engine results.
