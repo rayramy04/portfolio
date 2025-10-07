@@ -34,7 +34,7 @@ const seoConfig = {
             title: "Projects - Ray's Portfolio",
             metaDescription: "Ray's Tech Projects - AI/ML applications, full-stack web development, data analysis tools. Explore innovative solutions built with Python, JavaScript, and modern frameworks.",
             metaKeywords: "Ray, projects, AI, machine learning, web development, Python, JavaScript, full-stack development, data analysis",
-            ogImage: "assets/projects/portfolio.jpg"
+            ogImage: "assets/og-image.jpg"
         },
         links: {
             title: "Links - Ray's Portfolio",
