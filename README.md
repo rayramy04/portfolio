@@ -1,5 +1,9 @@
 # Portfolio Website Template
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Node.js Version](https://img.shields.io/badge/node-%3E%3D15.0.0-brightgreen)](https://nodejs.org/)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+
 **[🇯🇵 日本語版はこちら (Japanese README)](README.ja.md)**
 
 ---
@@ -8,6 +12,9 @@ A clean, responsive portfolio template built with vanilla HTML, CSS, and JavaScr
 **Free to use** - Fork, customize, and make it your own!
 
 **🌟 [Live Demo](https://rayramy04.github.io/portfolio/index.html)** | **📄 [MIT License](LICENSE)**
+
+![Portfolio Preview](assets/og-image.jpg)
+*Clean, modern design optimized for all devices*
 
 ## 🎯 Perfect For
 - Students building their first portfolio
@@ -22,6 +29,12 @@ A clean, responsive portfolio template built with vanilla HTML, CSS, and JavaScr
 - **🔍 SEO Optimized** - Structured data and meta tags included
 - **🍴 Fork-friendly** - Sync upstream updates without losing your customizations
 - **🚀 Zero Dependencies** - Pure HTML/CSS/JS, works anywhere
+
+## 📋 Requirements
+
+- **Node.js 15.0.0+** (for running `generate-pages.js`)
+- Modern web browser (Chrome 60+, Firefox 60+, Safari 12+, Edge 79+)
+- Git (for cloning and version control)
 
 ## 🚀 Quick Start
 
@@ -159,6 +172,16 @@ Edit `data/cv.js`:
 
 All content is managed through JavaScript data files - no HTML editing needed!
 
+### Generate Sitemap
+
+Sitemap is automatically generated from your SEO config:
+
+```bash
+node generate-pages.js  # Generates sitemap.xml with correct URLs
+```
+
+The sitemap uses `baseUrl` from `data/seo-config.js` and includes all pages with appropriate priorities and change frequencies.
+
 ## 🚀 Deployment
 
 **GitHub Pages:**
@@ -177,11 +200,36 @@ All content is managed through JavaScript data files - no HTML editing needed!
 
 **Need help?** Open an issue on GitHub.
 
+## 🤝 Contributing
+
+Contributions are welcome! If you have suggestions for improvements:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+**Note:** This is a template project. When contributing:
+- Focus on improving template logic, not personal data
+- Ensure changes work with `.gitattributes` merge strategy
+- Update documentation if adding new features
+- Test with both `data/seo-config.js` variations
+
 ## 📄 License
 
 MIT License - Free for personal and commercial use.
 
+## 🙏 Acknowledgments
+
+This template uses the following open-source resources:
+
+- [Font Awesome](https://fontawesome.com/) - Icon library
+- [Google Fonts](https://fonts.google.com/) - Poppins & Inter typefaces
+- [Particles.js](https://vincentgarreau.com/particles.js/) - Interactive background animations
+- [Schema.org](https://schema.org/) - Structured data standards
+
 ---
 
 **Template Version**: 1.2
-**Requires**: Modern browser with ES6+ and CSS Grid support
+**Requires**: Node.js 15.0+ | Modern browser with ES6+ and CSS Grid support
