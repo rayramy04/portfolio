@@ -51,17 +51,88 @@ npx http-server .
 # Open http://localhost:8000 in your browser
 ```
 
+### One-time Setup (Recommended)
+
+**Edit the configuration file once** - all pages will be automatically updated:
+
+```bash
+# 1. Edit SEO settings (name, URLs, meta descriptions)
+vim data/seo-config.js
+
+# 2. Regenerate all HTML pages
+node generate-pages.js
+```
+
+That's it! All HTML files are now personalized with your information.
+
 ### Customization
 
 1. **Update Personal Information**
    - Edit files in `/data/` directory
    - Replace images in `/assets/` directory
-   - Customize colors via CSS custom properties
+   - Customize colors in `css/palette.css`
 
 2. **Deploy**
    - Upload files to any static hosting service
    - GitHub Pages, Netlify, Vercel all supported
    - No build process required
+
+## 🍴 Fork & Sync Workflow
+
+This template is **fork-friendly** - you can keep your personalized fork in sync with upstream updates without losing your customizations.
+
+### Initial Setup
+
+```bash
+# 1. Fork this repository on GitHub
+
+# 2. Clone your fork
+git clone https://github.com/YOUR-USERNAME/portfolio.git
+cd portfolio
+
+# 3. Customize your data
+vim data/seo-config.js  # Edit name, URLs, meta info
+vim data/about.js       # Edit about page content
+vim data/cv.js          # Edit CV content
+vim data/projects.js    # Edit projects
+# ... edit other data files
+
+# 4. Replace images
+# Replace files in assets/ with your own photos
+
+# 5. Customize colors (optional)
+vim css/palette.css
+
+# 6. Regenerate HTML files
+node generate-pages.js
+
+# 7. Commit your changes
+git add .
+git commit -m "chore: personalize portfolio content"
+git push
+```
+
+### Syncing Updates from Upstream
+
+When the original template gets updates (bug fixes, new features, etc.), sync them to your fork:
+
+```bash
+# Use GitHub's "Sync fork" button - your customizations are protected!
+```
+
+**Protected files** (won't be overwritten during sync):
+- `data/**` - All your personal data
+- `css/palette.css` - Your color theme
+- `robots.txt` - Your SEO settings
+- `assets/**` - Your images
+
+**Will be updated** (template logic):
+- `generate-pages.js` - Page generation script
+- `template-base.html` - HTML template structure
+- `css/style.css` - Common styles
+- `js/**` - JavaScript utilities
+
+This is configured via `.gitattributes` with the `merge=ours` strategy.
 
 ## 📁 Project Structure
 
