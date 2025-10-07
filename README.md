@@ -1,538 +1,187 @@
 # Portfolio Website Template
 
-A clean, responsive portfolio template built with vanilla HTML, CSS, and JavaScript.  
+**[🇯🇵 日本語版はこちら (Japanese README)](README.ja.md)**
+
+---
+
+A clean, responsive portfolio template built with vanilla HTML, CSS, and JavaScript.
 **Free to use** - Fork, customize, and make it your own!
 
-**🌟 [Live Demo](https://rayramy04.github.io/portfolio/index.html)** | **📄 [MIT License](LICENSE)** | **📖 [日本語版](README.ja.md)**
+**🌟 [Live Demo](https://rayramy04.github.io/portfolio/index.html)** | **📄 [MIT License](LICENSE)**
 
 ## 🎯 Perfect For
 - Students building their first portfolio
-- Developers wanting a clean, professional site  
+- Developers wanting a clean, professional site
 - Anyone needing a fast, customizable portfolio
 
-Features a data-driven architecture for easy content management, responsive design, and SEO optimization. Includes an optional HTML generation script for development convenience. No dependencies or complex build process required.
+## ✨ Key Features
 
-## ✨ Features
-
-- **Zero Dependencies** - Pure HTML, CSS, JavaScript with no build process
-- **Data-driven Architecture** - Easy content updates via JavaScript data files
-- **Optional HTML Generation** - Development script for generating HTML files from templates
-- **Project Filtering System** - Dynamic category-based project filtering with smooth animations
-- **Multiple Category Support** - Projects can belong to multiple categories with flexible filtering
-- **Unified Empty State Handling** - Consistent "No items found" display across all sections and pages
-- **Profile Image Support** - Automatic image handling with fallback for missing images
-- **My Strengths Section** - Dedicated section for showcasing core competencies with highlights
-- **Unified Card System** - Consistent card layouts with equal height and reusable styling
-- **Responsive Design** - Mobile-first approach with adaptive layouts and optimized typography
-- **SEO Optimized** - Structured data, meta tags, and technical SEO best practices
-- **Performance Focused** - Optimized loading, animations, and resource management
-- **Unified Animation System** - Consistent animation effects across all pages
-- **Modular Utility Classes** - Reusable DOM helpers, HTML generators, and data populators
-- **Category Classification** - Organized project categorization with visual filtering
-- **Easy Deployment** - Works with any static hosting service
+- **🔧 Data-driven** - Edit content via simple JavaScript files, no HTML needed
+- **🎨 Customizable** - Easy color themes, responsive design
+- **📱 Mobile-first** - Looks great on all devices
+- **🔍 SEO Optimized** - Structured data and meta tags included
+- **🍴 Fork-friendly** - Sync upstream updates without losing your customizations
+- **🚀 Zero Dependencies** - Pure HTML/CSS/JS, works anywhere
 
 ## 🚀 Quick Start
 
-### Installation
-
 ```bash
-# Clone the repository
-git clone https://github.com/rayramy04/portfolio.git
+# 1. Fork this repository on GitHub
+
+# 2. Clone your fork
+git clone https://github.com/YOUR-USERNAME/portfolio.git
 cd portfolio
 
-# (Optional) Generate HTML pages from templates
+# 3. Edit data files (see "What to Customize" below)
+vim data/seo-config.js    # Your name, URLs, meta tags
+vim data/about.js         # Your story
+vim data/cv.js            # Your experience
+vim data/projects.js      # Your projects
+
+# 4. Regenerate HTML pages
 node generate-pages.js
 
-# Start local development server (choose one)
-python -m http.server 8000
-# or
-npx http-server .
+# 5. Test locally
+python -m http.server 8000  # Open http://localhost:8000
 
-# Open http://localhost:8000 in your browser
+# 6. Deploy to GitHub Pages / Netlify / Vercel
+git add . && git commit -m "chore: personalize portfolio" && git push
 ```
-
-### One-time Setup (Recommended)
-
-**Edit the configuration file once** - all pages will be automatically updated:
-
-```bash
-# 1. Edit SEO settings (name, URLs, meta descriptions)
-vim data/seo-config.js
-
-# 2. Regenerate all HTML pages
-node generate-pages.js
-```
-
-That's it! All HTML files are now personalized with your information.
-
-### Customization
-
-1. **Update Personal Information**
-   - Edit files in `/data/` directory
-   - Replace images in `/assets/` directory
-   - Customize colors in `css/palette.css`
-
-2. **Deploy**
-   - Upload files to any static hosting service
-   - GitHub Pages, Netlify, Vercel all supported
-   - No build process required
 
 ## 🍴 Fork & Sync Workflow
 
-This template is **fork-friendly** - you can keep your personalized fork in sync with upstream updates without losing your customizations.
+This template is **fork-friendly** - sync upstream updates without losing your customizations.
 
-### Initial Setup
+### How It Works
 
-```bash
-# 1. Fork this repository on GitHub
-
-# 2. Clone your fork
-git clone https://github.com/YOUR-USERNAME/portfolio.git
-cd portfolio
-
-# 3. Customize your data
-vim data/seo-config.js  # Edit name, URLs, meta info
-vim data/about.js       # Edit about page content
-vim data/cv.js          # Edit CV content
-vim data/projects.js    # Edit projects
-# ... edit other data files
-
-# 4. Replace images
-# Replace files in assets/ with your own photos
-
-# 5. Customize colors (optional)
-vim css/palette.css
-
-# 6. Regenerate HTML files
-node generate-pages.js
-
-# 7. Commit your changes
-git add .
-git commit -m "chore: personalize portfolio content"
-git push
-```
-
-### Syncing Updates from Upstream
-
-When the original template gets updates (bug fixes, new features, etc.), sync them to your fork:
-
-```bash
-# Use GitHub's "Sync fork" button - your customizations are protected!
-```
-
-**Protected files** (won't be overwritten during sync):
-- `data/**` - All your personal data
-- `css/palette.css` - Your color theme
+**Protected files** (yours, won't be overwritten):
+- `data/**` - Your content
+- `css/palette.css` - Your colors
 - `robots.txt` - Your SEO settings
 - `assets/**` - Your images
 
-**Will be updated** (template logic):
-- `generate-pages.js` - Page generation script
-- `template-base.html` - HTML template structure
-- `css/style.css` - Common styles
-- `js/**` - JavaScript utilities
+**Auto-synced files** (template logic):
+- `generate-pages.js`, `template-base.html`, `css/style.css`, `js/**`
+
+### To Sync Updates
+
+```bash
+# Click GitHub's "Sync fork" button - your data stays safe!
+```
 
 This is configured via `.gitattributes` with the `merge=ours` strategy.
 
-## 📝 What to Customize (For Template Users)
+## 📝 What to Customize
 
-When you fork this template, you only need to edit **custom data files**. The template logic stays unchanged and will auto-sync from upstream.
-
-### 🔒 Custom Data Files (Edit These!)
-
-Files that define YOUR portfolio - these are protected from upstream updates:
+**Edit these** (your content, protected from updates):
 
 | Category | Files | What to Change |
 |----------|-------|----------------|
-| **Personal Info & SEO** | `data/seo-config.js` | Your name, URLs, meta descriptions, social links |
-| **Page Content** | `data/about.js`<br>`data/cv.js`<br>`data/projects.js`<br>`data/links.js`<br>`data/home.js` | Your story, experience, projects, contact info |
-| **Visual Theme** | `css/palette.css` | Brand colors, theme customization |
-| **Media Assets** | `assets/**` | Profile photos, project images, OG images |
+| **Personal Info & SEO** | `data/seo-config.js` | Name, URLs, meta descriptions, social links |
+| **Page Content** | `data/*.js` | About, CV, projects, links, homepage |
+| **Visual Theme** | `css/palette.css` | Brand colors |
+| **Media Assets** | `assets/**` | Profile photos, project images |
 | **Search Settings** | `robots.txt` | Public/private visibility (see below) |
 
-### ⚙️ Template Logic Files (Don't Edit - Auto-synced)
+**Don't edit these** (template logic, auto-synced):
+- `generate-pages.js`, `template-base.html`, `css/style.css`, `js/**`
 
-Files that handle template functionality - these will be updated from upstream:
+## 🔍 Search Engine Visibility
 
-| Files | Purpose |
-|-------|---------|
-| `generate-pages.js` | Page generation logic |
-| `template-base.html` | HTML structure template |
-| `css/style.css` | Layout & common styles |
-| `js/**` | Interactive features & utilities |
+Choose whether your portfolio appears in Google/Bing search results:
 
-### 🎯 Quick Customization Checklist
-
+**Public (default)** - Recommended for most users:
 ```bash
-# 1. Fork this repository on GitHub
-
-# 2. Clone your fork
-git clone https://github.com/YOUR-USERNAME/portfolio.git
-cd portfolio
-
-# 3. Edit ONLY custom data files:
-vim data/seo-config.js    # ← Your name, URLs, meta tags
-vim data/about.js         # ← Your story & background
-vim data/cv.js            # ← Your education & experience
-vim data/projects.js      # ← Your projects
-vim data/links.js         # ← Your contact & social links
-vim data/home.js          # ← Homepage hero content
-
-# 4. (Optional) Customize visual theme
-vim css/palette.css       # ← Your brand colors
-
-# 5. Replace images in assets/ with your own photos
-
-# 6. Choose search engine visibility (see next section)
-cp robots.txt.public robots.txt    # Public (default)
-# OR
-cp robots.txt.private robots.txt   # Private
-
-# 7. Regenerate HTML pages
-node generate-pages.js
-
-# 8. Commit and deploy
-git add .
-git commit -m "chore: personalize portfolio"
-git push
-
-# Done! 🎉
-```
-
-**Why this separation?**
-- ✅ Easy to customize - just edit data files
-- ✅ Safe to sync - template improvements won't overwrite your data
-- ✅ Clear boundaries - know exactly what to change
-
-## 🔍 Search Engine Visibility (robots.txt)
-
-Choose whether you want your portfolio to appear in search engine results.
-
-### Option 1: Public (Indexed by Search Engines) ✅ **Recommended for most users**
-
-```bash
-# Allow search engines to index your portfolio
 cp robots.txt.public robots.txt
 ```
 
-**Use this if:**
-- You want employers/recruiters to find your portfolio via Google
-- You're building your professional online presence
-- This is a public portfolio showcasing your work
-
-### Option 2: Private (Hidden from Search Engines) 🔒
-
+**Private** - Only accessible via direct link:
 ```bash
-# Block search engines from indexing your portfolio
 cp robots.txt.private robots.txt
 ```
-
-**Use this if:**
-- You're still developing and not ready to go public
-- You want a private portfolio only accessible via direct link
-- You prefer not to appear in search results
-
-**Note:** The default setting is **Public** (search engines allowed).
-
-### Current Status
-
-Check your current setting:
-```bash
-head -3 robots.txt
-```
-
-- If it says `Allow: /` → Public mode (indexed)
-- If it says `Disallow: /` → Private mode (not indexed)
 
 ## 📁 Project Structure
 
 ```
 portfolio/
-├── index.html              # Homepage
-├── about.html              # About page with timeline and interests
-├── cv.html                 # CV/Resume with collapsible sections
-├── projects.html           # Project showcase
-├── links.html              # Contact and social links
-├── generate-pages.js        # HTML generation script (optional)
-├── template-base.html      # Base template for new pages
+├── data/                   # ← Edit these files
+│   ├── seo-config.js      #    Name, URLs, meta tags
+│   ├── about.js           #    Your story
+│   ├── cv.js              #    Experience & skills
+│   ├── projects.js        #    Your projects
+│   ├── links.js           #    Contact info
+│   └── ...
+├── assets/                # ← Replace with your images
 ├── css/
-│   ├── palette.css        # Color palette variables (edit for theme colors)
-│   └── style.css          # Main stylesheet
-├── js/
-│   ├── pages-unified.js   # Centralized page initialization
-│   └── utils/             # Utility class library
-│       ├── dom-helpers.js    # DOM utilities + PageBase class
-│       ├── html-generator.js # Template rendering
-│       └── data-populator.js # Data to DOM population
-├── data/                   # Content configuration (edit these!)
-│   ├── common.js          # Site navigation, social links
-│   ├── home.js            # Homepage hero content
-│   ├── about.js           # Personal story, timeline, interests
-│   ├── cv.js              # Education, experience, skills, awards
-│   ├── projects.js        # Project portfolio
-│   ├── links.js           # Contact information
-│   └── seo-config.js      # SEO structured data
-├── assets/                # Images and media files
-└── content/               # Static HTML fragments
+│   └── palette.css        # ← Customize colors here
+├── generate-pages.js      # ← Run to regenerate HTML
+├── *.html                 # Generated pages
+└── ...                    # Template files (don't edit)
 ```
 
-## 🎨 Customization
+## 🎨 Customization Examples
 
 ### Change Colors
 
-All color-related CSS variables are centralized in `css/palette.css` for easy theme customization:
-
+Edit `css/palette.css`:
 ```css
-/* css/palette.css */
 :root {
-  /* Primary Colors */
-  --color-primary: #059669;        /* Main brand color */
-  --color-primary-light: #34d399;  /* Hover states */
-  --color-primary-dark: #047857;   /* Active states */
-
-  /* Base Colors */
-  --color-white: #ffffff;
-  --color-gray-light: #f0fdf4;
-  --color-gray: #6b7280;
-  --color-black: #1f2937;
-
-  /* ... and more color variables */
+  --color-primary: #059669;     /* Change this to your brand color */
+  --color-primary-light: #34d399;
+  --color-primary-dark: #047857;
 }
 ```
 
-**Benefits of separate palette file:**
-- Easy to find and modify all colors in one place
-- Simple to create alternative color themes
-- Better organization and maintainability
+### Add a Project
 
-### Add Content
-
-Content is managed via JavaScript data files - no HTML editing required!
-
-**Add a project** (in `data/projects.js`):
+Edit `data/projects.js`:
 ```javascript
 {
     name: "My New Project",
-    description: "Project description here",
-    categories: ["Web Development", "Backend & API"], // Multiple categories supported
+    description: "Project description",
+    categories: ["Web Development", "AI"],
     githubUrl: "https://github.com/username/project",
-    liveUrl: "https://project-demo.com",
-    image: "assets/projects/new-project.jpg"
+    image: "assets/projects/my-project.jpg"
 }
 ```
 
-**Project categorization system**:
-- **Multiple categories per project** - Projects can belong to multiple categories
-- **Automatic category buttons** - Filter buttons are generated from project data
-- **Predefined categories** (customizable in `data/projects.js`):
-  - Web Development
-  - Backend & API
-  - Data Science & AI
-  - App Development
-  - Automation & Tools
-  - Research & Others
+### Add Work Experience
 
-**Add work experience** (in `data/cv.js` - experience array):
+Edit `data/cv.js`:
 ```javascript
 {
     company: "Company Name",
     position: "Job Title",
     period: "2024.01 - Present",
-    description: "Role description and achievements",
-    url: "https://company.com"
+    description: "What you did and achieved"
 }
 ```
 
-**Add personal strengths** (in `data/about.js` - strengths array):
-```javascript
-{
-    title: "Strength Category",
-    description: "Brief description of this strength area",
-    icon: "fas fa-icon-name",  // FontAwesome icon
-    highlights: [
-        "First key highlight or achievement",
-        "Second key highlight or skill",
-        "Third key highlight or experience"
-    ]
-}
-```
-
-**Configure links safely** (in `data/links.js`):
-```javascript
-// ✅ Empty sections show "No items found" message automatically
-window.linksData = {
-    contact: [],           // Always shown (website/contact info)
-    social: [],            // Shows empty state if empty
-    portfolio: []          // Shows empty state if empty
-};
-
-// ✅ Safe: Add your own links
-social: [
-    {
-        title: "GitHub",
-        url: "https://github.com/YOUR-USERNAME",
-        username: "@YOUR-USERNAME",
-        icon: "fab fa-github"
-    }
-]
-
-// ❌ Dangerous: Never delete properties completely
-// delete window.linksData.social;  // This will break the page!
-```
-
-**Empty state handling**:
-- Social Media and Portfolio sections automatically show "No items found" when empty
-- Contact section is typically always populated
-- Template users can see which sections are available even when empty
-
-**Update personal info** (in `data/about.js`):
-```javascript
-window.aboutData = {
-    personal: {
-        name: "Your Name",
-        position: "Your Title",
-        image: "assets/about-photo.jpg",  // Profile image (optional)
-        description: [
-            "First paragraph about yourself",
-            "Second paragraph with more details"
-        ]
-    }
-}
-```
-
-### Project Filtering System
-
-The portfolio includes a dynamic filtering system for projects:
-
-**Features:**
-- Real-time category filtering with smooth animations
-- Multiple category support - projects can belong to multiple categories
-- Automatic button generation from project data
-- Empty state handling when no projects match filter
-- Unified animation timing across all interactions
-
-**Configuration** (in `data/projects.js`):
-```javascript
-// Define available categories
-window.projectCategories = [
-    "Web Development",
-    "Backend & API", 
-    "Data Science & AI",
-    "App Development",
-    "Automation & Tools",
-    "Research & Others"
-];
-
-// Assign multiple categories to projects
-{
-    name: "Full-stack App",
-    categories: ["Web Development", "Backend & API"], // Multiple categories
-    // ... other project data
-}
-```
-
-**Customization:**
-- Modify `window.projectCategories` array to add/remove categories
-- Projects automatically support multiple categories
-- Filter buttons are dynamically generated from project data
-- Modify `EMPTY_STATE_CONFIG` in `js/pages-unified.js` to change empty state message
-
-### Add New Pages
-
-**Option 1: Use HTML Generation Script**
-1. **Update page configuration** in `generate-pages.js`
-2. **Add navigation** in `data/common.js`  
-3. **Add page handler** in `js/pages-unified.js`
-4. **Create data file** in `data/` directory
-5. **Run generation script**: `node generate-pages.js`
-
-**Option 2: Manual Creation**
-1. **Create HTML file** (copy from `template-base.html`)
-2. **Add navigation** in `data/common.js`
-3. **Add page handler** in `js/pages-unified.js`
-4. **Create data file** in `data/` directory
+All content is managed through JavaScript data files - no HTML editing needed!
 
 ## 🚀 Deployment
 
-### GitHub Pages
+**GitHub Pages:**
+1. Push to GitHub → Settings → Pages → Enable
+2. Set source to `main` branch
 
-1. Push to GitHub repository
-2. Enable GitHub Pages in repository settings
-3. Set source to main branch / root directory
-4. Access at `https://rayramy04.github.io/portfolio`
+**Other platforms:** Netlify, Vercel, any static hosting - just upload the files!
 
-### Other Platforms
-
-- **Netlify** - Drag and drop the folder
-- **Vercel** - Connect GitHub repository  
-- **Traditional Hosting** - Upload files via FTP
-
-### Environment Configuration
-
-No environment variables needed. Update URLs in:
-- `data/seo-config.js` - Main site URL
-- Social media links in `data/common.js` and `data/links.js`
-
-## 🛠️ Browser Support
-
-- **Modern Browsers** - Chrome 60+, Firefox 60+, Safari 12+, Edge 79+
-- **CSS Features** - CSS Grid, Custom Properties, Flexbox
-- **JavaScript Features** - ES6 Classes, async/await, Template Literals
+💡 Don't forget to update URLs in `data/seo-config.js` after deployment.
 
 ## 🐛 Troubleshooting
 
-**Local server not working?**
-```bash
-# Try alternative servers
-python3 -m http.server 8000
-# or
-php -S localhost:8000
-```
+**Images not showing?** Check file paths in `data/` files match your `assets/` folder.
 
-**Images not loading?**
-- Check file paths in `data/` files
-- Ensure images exist in `assets/` directory
-- Use relative paths (e.g., `assets/projects/image.jpg`)
-- Profile images show "No image available" if path is incorrect or missing
+**Page not updating?** Run `node generate-pages.js` after editing data files.
 
-**Links page showing errors?**
-- Ensure `data/links.js` exists and contains `window.linksData`
-- Don't delete properties, use empty arrays instead: `contact: []`
-- Empty sections (social, portfolio) will show "No items found" automatically
-- Check JavaScript console for detailed error messages
-
-**Empty state messages not appearing?**
-- Check that `EMPTY_STATE_CONFIG` is properly defined in `js/pages-unified.js`
-- Verify data arrays are truly empty (not undefined)
-- Ensure page initialization functions are called correctly
+**Need help?** Open an issue on GitHub.
 
 ## 📄 License
 
 MIT License - Free for personal and commercial use.
 
-## 🤝 Contributing
-
-Contributions welcome! This template is designed for easy customization. Common improvements:
-
-- Additional page templates
-- New card types or layouts  
-- Enhanced animations
-- Additional utility classes
-- Accessibility improvements
-
-Please open an issue or submit a pull request.
-
-## 💡 Credits
-
-Built with modern web standards and best practices:
-- **CSS Grid & Flexbox** - For layouts
-- **CSS Custom Properties** - For theming
-- **Font Awesome** - For icons
-- **Google Fonts** - For typography
-- **Schema.org** - For structured data
-
 ---
 
-**Template Version**: 1.2  
-**Last Updated**: July 2025  
-**Supported Browsers**: Modern browsers with ES6+ and CSS Grid support
+**Template Version**: 1.2
+**Requires**: Modern browser with ES6+ and CSS Grid support
