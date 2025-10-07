@@ -257,9 +257,9 @@ window.cvData = {
             link: "https://talent.supporterz.jp/events/98b0c3d3-a5d3-4083-b11d-48b71f97fded/"
             },
             {
-            title: "留学ブログ: 累計700記事以上執筆",
+            title: "留学ブログ: 累計750記事以上執筆",
             organization: "個人ブログ（Rayの海外生活ノート）",
-            date: "2025.06",
+            date: "2025.08",
             description: "業界最大級の規模を誇る留学メディア",
             link: "https://ray-globallife.com/"
             },
