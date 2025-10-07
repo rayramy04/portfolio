@@ -73,5 +73,16 @@ window.commonData = {
             href: "links.html",
             icon: "fas fa-link"
         }
-    ]
+    ],
+    // Resume download button labels
+    resumeButtons: {
+        ja: {
+            text: "レジュメをダウンロード (日本語)",
+            icon: "fas fa-file-download"
+        },
+        en: {
+            text: "Download Resume (English)",
+            icon: "fas fa-file-download"
+        }
+    }
 };
