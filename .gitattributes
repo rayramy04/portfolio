@@ -7,6 +7,7 @@
 # Custom data files - always keep local version during merge
 data/** merge=ours
 robots.txt merge=ours
+sitemap.xml merge=ours
 css/palette.css merge=ours
 
 # Image assets - keep local version
