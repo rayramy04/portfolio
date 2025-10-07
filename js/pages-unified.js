@@ -21,7 +21,7 @@ const EMPTY_STATE_CONFIG = {
 };
 
 const RESUME_FILES = {
-    JP: 'resume/resume-ja.pdf',
+    JA: 'resume/resume-ja.pdf',
     EN: 'resume/resume-en.pdf'
 };
 
@@ -241,11 +241,10 @@ async function initCV() {
         emptyState: { type: 'grants', icon: EMPTY_STATE_CONFIG.icon, message: EMPTY_STATE_CONFIG.message }
     });
     
-    await initResumeButtons('cv');
     animateElements([
-        { selector: '.cv-section', delay: ANIMATION_DELAYS.SECTION_BASE },
-        { selector: '#resume-buttons-cv', delay: ANIMATION_DELAYS.SECTION_BASE }
+        { selector: '.cv-section', delay: ANIMATION_DELAYS.SECTION_BASE }
     ]);
+    await initResumeButtons('cv');
 }
 
 async function initProjects() {
@@ -473,30 +472,40 @@ async function initResumeButtons(suffix = '') {
     const btnIdSuffix = suffix ? `-${suffix}` : '';
 
     const container = document.getElementById(`resume-buttons${containerIdSuffix}`);
-    const btnJP = document.getElementById(`resume-btn-jp${btnIdSuffix}`);
+    const btnJA = document.getElementById(`resume-btn-ja${btnIdSuffix}`);
     const btnEN = document.getElementById(`resume-btn-en${btnIdSuffix}`);
 
-    if (!container) return;
+    if (!container || !window.commonData?.resumeButtons) return;
 
-    const [jpExists, enExists] = await Promise.all([
-        checkFileExists(RESUME_FILES.JP),
+    const [jaExists, enExists] = await Promise.all([
+        checkFileExists(RESUME_FILES.JA),
         checkFileExists(RESUME_FILES.EN)
     ]);
 
     let hasVisibleButton = false;
 
-    if (jpExists && btnJP) {
-        btnJP.style.display = 'inline-flex';
+    if (jaExists && btnJA) {
+        const jaConfig = window.commonData.resumeButtons.ja;
+        btnJA.innerHTML = `<i class="${jaConfig.icon}"></i> ${jaConfig.text}`;
+        btnJA.style.display = 'inline-flex';
         hasVisibleButton = true;
     }
 
     if (enExists && btnEN) {
+        const enConfig = window.commonData.resumeButtons.en;
+        btnEN.innerHTML = `<i class="${enConfig.icon}"></i> ${enConfig.text}`;
         btnEN.style.display = 'inline-flex';
         hasVisibleButton = true;
     }
 
     if (hasVisibleButton) {
         container.style.display = 'flex';
+        // Trigger animation for fade-in-up (same timing as page-title)
+        if (suffix) {
+            setTimeout(() => {
+                container.classList.add('loaded');
+            }, ANIMATION_DELAYS.PAGE_TITLE);
+        }
     }
 }
 
