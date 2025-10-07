@@ -134,6 +134,46 @@ When the original template gets updates (bug fixes, new features, etc.), sync th
 
 This is configured via `.gitattributes` with the `merge=ours` strategy.
 
+## 🔍 Search Engine Visibility (robots.txt)
+
+Choose whether you want your portfolio to appear in search engine results.
+
+### Option 1: Public (Indexed by Search Engines) ✅ **Recommended for most users**
+
+```bash
+# Allow search engines to index your portfolio
+cp robots.txt.public robots.txt
+```
+
+**Use this if:**
+- You want employers/recruiters to find your portfolio via Google
+- You're building your professional online presence
+- This is a public portfolio showcasing your work
+
+### Option 2: Private (Hidden from Search Engines) 🔒
+
+```bash
+# Block search engines from indexing your portfolio
+cp robots.txt.private robots.txt
+```
+
+**Use this if:**
+- You're still developing and not ready to go public
+- You want a private portfolio only accessible via direct link
+- You prefer not to appear in search results
+
+**Note:** The default setting is **Public** (search engines allowed).
+
+### Current Status
+
+Check your current setting:
+```bash
+head -3 robots.txt
+```
+
+- If it says `Allow: /` → Public mode (indexed)
+- If it says `Disallow: /` → Private mode (not indexed)
+
 ## 📁 Project Structure
 
 ```
