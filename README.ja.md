@@ -27,6 +27,7 @@
 - **🎨 カスタマイズ可能** - 簡単な色テーマ設定、レスポンシブデザイン
 - **📱 モバイルファースト** - 全デバイスで美しく表示
 - **🔍 SEO最適化** - 構造化データとメタタグを含む
+- **📄 レジュメダウンロード** - PDFを自動検出してダウンロードボタンを表示
 - **🍴 フォーク対応** - カスタマイズを失わずに上流の更新を同期
 - **🚀 依存関係ゼロ** - 純粋なHTML/CSS/JS、どこでも動作
 
@@ -72,6 +73,8 @@ git add . && git commit -m "chore: personalize portfolio" && git push
 - `css/palette.css` - あなたのカラー
 - `robots.txt` - あなたのSEO設定
 - `assets/**` - あなたの画像
+- `resume/**` - あなたのレジュメPDF
+- `content/**` - 生成されたコンテンツHTML
 
 **自動同期されるファイル** (テンプレートロジック):
 - `generate-pages.js`, `template-base.html`, `css/style.css`, `js/**`
@@ -94,6 +97,7 @@ git add . && git commit -m "chore: personalize portfolio" && git push
 | **ページコンテンツ** | `data/*.js` | About、CV、Projects、Links、ホームページ |
 | **ビジュアルテーマ** | `css/palette.css` | ブランドカラー |
 | **メディアアセット** | `assets/**` | プロフィール写真、プロジェクト画像 |
+| **レジュメファイル** | `resume/**` | `resume-ja.pdf`, `resume-en.pdf` (任意) |
 | **検索設定** | `robots.txt` | 公開/非公開の表示設定 (下記参照) |
 
 **これらは編集しないでください** (テンプレートロジック、自動同期されます):
@@ -171,6 +175,22 @@ portfolio/
 ```
 
 すべてのコンテンツはJavaScriptデータファイルで管理されます - HTMLの編集は不要です！
+
+### レジュメダウンロードの追加
+
+`resume/` フォルダーを作成してレジュメPDFを追加:
+```bash
+mkdir resume
+# レジュメファイルを追加:
+# - resume-ja.pdf (日本語)
+# - resume-en.pdf (英語)
+```
+
+ファイルが検出されると、ホームページとCVページに自動的にダウンロードボタンが表示されます。機能：
+- `resume/` フォルダー内のPDFファイルを自動検出
+- ファイルが存在する場合のみボタンを表示
+- 日本語レジュメを左側、英語レジュメを右側に表示
+- サイト全体と統一されたアニメーションとスタイル
 
 ### サイトマップの生成
 
