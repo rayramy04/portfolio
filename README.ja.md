@@ -162,9 +162,9 @@ portfolio/
 }
 ```
 
-### 職務経験の追加
+### CV（経歴）の追加
 
-`data/cv.js` を編集:
+`data/cv.js` を編集（順序: 学歴→職歴→実績→資格→奨学金→スキル）:
 ```javascript
 {
     company: "会社名",

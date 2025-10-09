@@ -92,7 +92,7 @@ window.projectsData = [
     },
     {
         name: "Rayの海外生活ノート",
-        description: "750記事超の留学情報ブログ",
+        description: "累計750記事超/月2万PV超の、業界最大級の留学情報ブログ",
         categories: ["Research & Others"],
         githubUrl: null,
         liveUrl: "https://ray-globallife.com/",
@@ -116,7 +116,7 @@ window.projectsData = [
     },
     {
         name: "YouTubeピアノチャンネル",
-        description: "登録者1.5万人超のピアノ・耳コピ楽譜のチャンネル",
+        description: "登録者1.5万人超/総再生回数400万回超のピアノ・耳コピ楽譜のチャンネル",
         categories: ["Research & Others"],
         githubUrl: null,
         liveUrl: "https://www.youtube.com/@ray_pianocover",

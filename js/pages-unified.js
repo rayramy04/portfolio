@@ -204,6 +204,27 @@ async function initCV() {
         emptyState: { type: 'experience', icon: EMPTY_STATE_CONFIG.icon, message: EMPTY_STATE_CONFIG.message }
     });
     
+    const awardsContainer = document.getElementById('awards-container');
+    if (awardsContainer) {
+        if (window.cvData.awards && Object.keys(window.cvData.awards).length > 0) {
+            awardsContainer.innerHTML = HTMLGenerator.awardsSection(window.cvData.awards);
+        } else {
+            showEmptyState(awardsContainer, {
+                type: 'awards',
+                icon: EMPTY_STATE_CONFIG.icon,
+                message: EMPTY_STATE_CONFIG.message
+            });
+        }
+    }
+    
+    initContainer('certifications-container', window.cvData.certifications, HTMLGenerator.certificationItem, {
+        emptyState: { type: 'certifications', icon: EMPTY_STATE_CONFIG.icon, message: EMPTY_STATE_CONFIG.message }
+    });
+    
+    initContainer('grants-container', window.cvData.grants, HTMLGenerator.grantItem, {
+        emptyState: { type: 'grants', icon: EMPTY_STATE_CONFIG.icon, message: EMPTY_STATE_CONFIG.message }
+    });
+    
     const skillsContainer = document.getElementById('skills-container');
     if (skillsContainer) {
         if (window.cvData.skills && window.cvData.skills.length > 0) {
@@ -219,27 +240,6 @@ async function initCV() {
             });
         }
     }
-    
-    initContainer('certifications-container', window.cvData.certifications, HTMLGenerator.certificationItem, {
-        emptyState: { type: 'certifications', icon: EMPTY_STATE_CONFIG.icon, message: EMPTY_STATE_CONFIG.message }
-    });
-    
-    const awardsContainer = document.getElementById('awards-container');
-    if (awardsContainer) {
-        if (window.cvData.awards && Object.keys(window.cvData.awards).length > 0) {
-            awardsContainer.innerHTML = HTMLGenerator.awardsSection(window.cvData.awards);
-        } else {
-            showEmptyState(awardsContainer, {
-                type: 'awards',
-                icon: EMPTY_STATE_CONFIG.icon,
-                message: EMPTY_STATE_CONFIG.message
-            });
-        }
-    }
-    
-    initContainer('grants-container', window.cvData.grants, HTMLGenerator.grantItem, {
-        emptyState: { type: 'grants', icon: EMPTY_STATE_CONFIG.icon, message: EMPTY_STATE_CONFIG.message }
-    });
     
     animateElements([
         { selector: '.cv-section', delay: ANIMATION_DELAYS.SECTION_BASE }
