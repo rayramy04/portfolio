@@ -13,8 +13,6 @@ A clean, responsive portfolio template built with vanilla HTML, CSS, and JavaScr
 
 **🌟 [Live Demo](https://rayramy04.github.io/portfolio/index.html)** | **📄 [MIT License](LICENSE)**
 
-*Last updated: 2025-01-09*
-
 ![Portfolio Preview](assets/og-image.jpg)
 *Clean, modern design optimized for all devices*
 
