@@ -566,6 +566,7 @@ h3 {
   z-index: 2;
   text-align: center;
   color: var(--text-white);
+  margin-top: var(--space-12);
 }
 
 .profile-photo {
