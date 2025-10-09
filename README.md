@@ -162,9 +162,9 @@ Edit `data/projects.js`:
 }
 ```
 
-### Add Work Experience
+### Add CV (Experience)
 
-Edit `data/cv.js`:
+Edit `data/cv.js` (Order: Education→Experience→Awards→Certifications→Grants→Skills):
 ```javascript
 {
     company: "Company Name",

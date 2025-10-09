@@ -77,155 +77,6 @@ window.cvData = {
             url: "https://52hz.world/"
         }
     ],
-    skills: [
-        {
-            category: "Frontend Development",
-            skills: [
-                { name: "HTML/CSS", level: 5 },
-                { name: "JavaScript", level: 4 },
-                { name: "React", level: 3 },
-                { name: "Next.js", level: 3 },
-                { name: "Astro", level: 2 }
-            ]
-        },
-        {
-            category: "Backend Development",
-            skills: [
-                { name: "Python", level: 5 },
-                { name: "R", level: 4 },
-                { name: "SQL", level: 3 },
-                { name: "TypeScript", level: 2 },
-                { name: "PHP", level: 1 }
-            ]
-        },
-        {
-            category: "Development Tools",
-            skills: [
-                { name: "Git/GitHub", level: 5 },
-                { name: "WordPress", level: 5 },
-                { name: "Dify", level: 4 },
-                { name: "MySQL", level: 3 },
-                { name: "Firebase", level: 3 },
-                { name: "Linux", level: 2 },
-                { name: "AWS", level: 2 },
-                { name: "Figma", level: 1 }
-            ]
-        },
-        {
-            category: "Other Tools",
-            skills: [
-                { name: "Sheet Music Software (MuseScore, Sibelius, Dorico Pro)", level: 5 },
-                { name: "OBS Studio", level: 4 },
-                { name: "Logic Pro", level: 3 },
-                { name: "Final Cut Pro", level: 2 }
-            ]
-        },
-        {
-            category: "Languages",
-            skills: [
-                { name: "Japanese: Native", level: 5 },
-                { name: "English: Business", level: 4 },
-                { name: "Malay / Indonesian: Basic", level: 1 }
-            ]
-        },
-        {
-            category: "Specialized Skills",
-            skills: [
-                {
-                    name: "Data Science",
-                    level: 5,
-                    description: [
-                        "学部課程でCS・データサイエンス専攻",
-                        "モナッシュ大学数学分野主席表彰",
-                        "日本人工知能オリンピック金賞・全国5位",
-                        "カンガルー数学コンテスト銀賞（世界最大の数学コンテスト）",
-                        "東京大学松尾研究室AI講座複数修了"
-                    ]
-                },
-                {
-                    name: "Research / Writing",
-                    level: 5,
-                    description: [
-                        "1ヶ月でAdSense合格・5か月で月1万PV達成・累計700記事以上執筆",
-                        "文章の論理構造・読みやすさに定評",
-                        "複数の広告案件獲得",
-                        "高校時代研究論文コンテスト全国入賞多数"
-                    ]
-                },
-                {
-                    name: "Music",
-                    level: 5,
-                    description: [
-                        "6音程度まで聴音（耳コピ）可能",
-                        "YouTubeチャンネル登録者数1万人超",
-                        "オンラインストアピアノ楽譜販売・オーダーメイド楽譜制作",
-                        "フリーランス音楽講師経験"
-                    ]
-                },
-                {
-                    name: "Project Management / Business",
-                    level: 3,
-                    description: [
-                        "複数業界でのインターンシップ経験",
-                        "ウェブサイト運営・音楽事業の収益化",
-                        "52Hz Accelerator・家庭教師での中高生メンター経験",
-                        "コミュニティ運営・サポート業務担当経験"
-                    ]
-                }
-            ]
-        }
-    ],
-    certifications: [
-        {
-            title: "東京大学 Deep Learning 基礎講座 2025 Spring: 修了",
-            organization: "東京大学 松尾研究室",
-            date: "2025.07",
-            link: "https://weblab.t.u-tokyo.ac.jp/deep-learning/"
-        },
-        {
-            title: "東京大学AI経営講座 AI Business Insights 2025: 修了",
-            organization: "東京大学 松尾研究室",
-            date: "2025.04",
-            link: "https://weblab.t.u-tokyo.ac.jp/lecture/course-list/ai-driven/"
-        },
-        {
-            title: "基本情報技術者試験（FE）: 取得",
-            organization: "独立行政法人情報処理推進機構（IPA）",
-            date: "2025.02"
-        },
-        {
-            title: "ITパスポート試験（iパス）: 取得",
-            organization: "独立行政法人情報処理推進機構（IPA）",
-            date: "2025.02"
-        },
-        {
-            title: "日本商工会議所 簿記検定試験 3級: 取得",
-            organization: "日本商工会議所",
-            date: "2025.02"
-        },
-        {
-            title: "グローバル消費インテリジェンス寄附講座 2024 Summer: 修了",
-            organization: "東京大学 松尾研究室",
-            date: "2024.08",
-            link: "https://gci2.t.u-tokyo.ac.jp/"
-        },
-        {
-            title: "Mahout (象使い) 免許: 取得",
-            organization: "Manifa Elephant Camp（ラオス）",
-            date: "2024.06"
-        },
-        {
-            title: "普通自動車第一種運転免許（AT限定）: 取得",
-            organization: "日本国公安委員会",
-            date: "2023.05"
-        },
-        {
-            title: "名大MIRAI GSC 第2ステージ: 修了",
-            organization: "名古屋大学",
-            date: "2021.11",
-            link: "https://nuqa.nagoya-u.ac.jp/miraigsc/"
-        }
-    ],
     awards: {
         "2025": [
             {
@@ -239,7 +90,7 @@ window.cvData = {
                 title: "YouTube音楽チャンネル: 登録者数1.5万人達成",
                 organization: "YouTube",
                 date: "2025.09",
-                description: "ピアノ演奏・楽譜動画の投稿",
+                description: "ピアノ演奏・楽譜動画の投稿（総再生回数400万回超）",
                 link: "https://www.youtube.com/@ray_pianocover"
                 },
             {
@@ -260,7 +111,7 @@ window.cvData = {
             title: "留学ブログ: 累計750記事以上執筆",
             organization: "個人ブログ（Rayの海外生活ノート）",
             date: "2025.08",
-            description: "業界最大級の規模を誇る留学メディア",
+            description: "月2万PV超の業界最大級の規模を誇る留学メディア",
             link: "https://ray-globallife.com/"
             },
             {
@@ -348,6 +199,57 @@ window.cvData = {
             }
         ]
     },
+    certifications: [
+        {
+            title: "東京大学 Deep Learning 基礎講座 2025 Spring: 修了",
+            organization: "東京大学 松尾研究室",
+            date: "2025.07",
+            link: "https://weblab.t.u-tokyo.ac.jp/deep-learning/"
+        },
+        {
+            title: "東京大学AI経営講座 AI Business Insights 2025: 修了",
+            organization: "東京大学 松尾研究室",
+            date: "2025.04",
+            link: "https://weblab.t.u-tokyo.ac.jp/lecture/course-list/ai-driven/"
+        },
+        {
+            title: "基本情報技術者試験（FE）: 取得",
+            organization: "独立行政法人情報処理推進機構（IPA）",
+            date: "2025.02"
+        },
+        {
+            title: "ITパスポート試験（iパス）: 取得",
+            organization: "独立行政法人情報処理推進機構（IPA）",
+            date: "2025.02"
+        },
+        {
+            title: "日本商工会議所 簿記検定試験 3級: 取得",
+            organization: "日本商工会議所",
+            date: "2025.02"
+        },
+        {
+            title: "グローバル消費インテリジェンス寄附講座 2024 Summer: 修了",
+            organization: "東京大学 松尾研究室",
+            date: "2024.08",
+            link: "https://gci2.t.u-tokyo.ac.jp/"
+        },
+        {
+            title: "Mahout (象使い) 免許: 取得",
+            organization: "Manifa Elephant Camp（ラオス）",
+            date: "2024.06"
+        },
+        {
+            title: "普通自動車第一種運転免許（AT限定）: 取得",
+            organization: "日本国公安委員会",
+            date: "2023.05"
+        },
+        {
+            title: "名大MIRAI GSC 第2ステージ: 修了",
+            organization: "名古屋大学",
+            date: "2021.11",
+            link: "https://nuqa.nagoya-u.ac.jp/miraigsc/"
+        }
+    ],
     grants: [
         {
             title: "Monash High Achiever Award",
@@ -369,6 +271,108 @@ window.cvData = {
             amount: "MYR 5,000",
             date: "2023",
             description: "成績優秀者奨学金・1セメスター（半年）ごとにMYR5000支給"
+        }
+    ],
+    skills: [
+        {
+            category: "Frontend Development",
+            skills: [
+                { name: "HTML/CSS", level: 5 },
+                { name: "JavaScript", level: 4 },
+                { name: "React", level: 3 },
+                { name: "Next.js", level: 3 },
+                { name: "Astro", level: 2 }
+            ]
+        },
+        {
+            category: "Backend Development",
+            skills: [
+                { name: "Python", level: 5 },
+                { name: "R", level: 4 },
+                { name: "SQL", level: 3 },
+                { name: "TypeScript", level: 2 },
+                { name: "PHP", level: 1 }
+            ]
+        },
+        {
+            category: "Development Tools",
+            skills: [
+                { name: "Git/GitHub", level: 5 },
+                { name: "WordPress", level: 5 },
+                { name: "Dify", level: 4 },
+                { name: "Vercel", level: 4 },
+                { name: "Railway", level: 4 },
+                { name: "MySQL", level: 3 },
+                { name: "Firebase", level: 3 },
+                { name: "Docker", level: 3 },
+                { name: "Stripe", level: 3 },
+                { name: "Linux", level: 2 },
+                { name: "AWS", level: 2 },
+                { name: "Figma", level: 1 }
+            ]
+        },
+        {
+            category: "Other Tools",
+            skills: [
+                { name: "Sheet Music Software (MuseScore, Sibelius, Dorico Pro)", level: 5 },
+                { name: "OBS Studio", level: 4 },
+                { name: "Logic Pro", level: 3 },
+                { name: "Final Cut Pro", level: 2 }
+            ]
+        },
+        {
+            category: "Languages",
+            skills: [
+                { name: "Japanese: Native", level: 5 },
+                { name: "English: Business", level: 4 },
+                { name: "Malay / Indonesian: Basic", level: 1 }
+            ]
+        },
+        {
+            category: "Specialized Skills",
+            skills: [
+                {
+                    name: "Data Science",
+                    level: 5,
+                    description: [
+                        "学部課程でCS・データサイエンス専攻",
+                        "モナッシュ大学数学分野主席表彰",
+                        "日本人工知能オリンピック金賞・全国5位",
+                        "カンガルー数学コンテスト銀賞（世界最大の数学コンテスト）",
+                        "東京大学松尾研究室AI講座複数修了"
+                    ]
+                },
+                {
+                    name: "Research / Writing",
+                    level: 5,
+                    description: [
+                        "1か月でAdSense合格（合格率4%以下）・累計750記事以上執筆・月2万PV超（業界最大級）",
+                        "文章の論理構造・読みやすさに定評",
+                        "複数の広告案件獲得",
+                        "高校時代研究論文コンテスト全国入賞多数"
+                    ]
+                },
+                {
+                    name: "Music",
+                    level: 5,
+                    description: [
+                        "6音程度まで聴音（耳コピ）可能",
+                        "YouTubeチャンネル登録者数1.5万人超・総再生回数400万回超",
+                        "オンラインストアピアノ楽譜販売・オーダーメイド楽譜制作",
+                        "フリーランス音楽講師経験"
+                    ]
+                },
+                {
+                    name: "Project Management / Business",
+                    level: 3,
+                    description: [
+                        "複数業界でのインターンシップ経験",
+                        "ウェブサイト運営・音楽事業の収益化",
+                        "52Hz Accelerator・家庭教師での中高生メンター経験",
+                        "コミュニティ運営・サポート業務担当経験"
+                    ]
+                }
+            ]
         }
     ]
 };
