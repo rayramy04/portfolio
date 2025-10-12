@@ -225,6 +225,7 @@ async function initAbout() {
                 const customDescription = `<p class="text-meta">${getText(item.description)}</p>${highlightsList}`;
                 return HTMLGenerator.unifiedCardTemplate({
                     ...item,
+                    title: getText(item.title),
                     description: customDescription
                 });
             }).join('');
@@ -244,6 +245,7 @@ async function initAbout() {
             interestsContainer.innerHTML = window.aboutData.interests.map(item => {
                 const transformedItem = {
                     ...item,
+                    title: getText(item.title),
                     description: getText(item.description)
                 };
                 return HTMLGenerator.unifiedCardTemplate(transformedItem);
@@ -280,6 +282,7 @@ async function initCV() {
     // Transform experience data
     const experienceData = window.cvData.experience.map(item => ({
         ...item,
+        company: getText(item.company),
         position: getText(item.position),
         description: getText(item.description)
     }));
@@ -296,6 +299,7 @@ async function initCV() {
                 transformedAwards[year] = window.cvData.awards[year].map(award => ({
                     ...award,
                     title: getText(award.title),
+                    organization: getText(award.organization),
                     description: getText(award.description)
                 }));
             });
@@ -312,7 +316,8 @@ async function initCV() {
     // Transform certifications data
     const certificationsData = window.cvData.certifications.map(item => ({
         ...item,
-        title: getText(item.title)
+        title: getText(item.title),
+        organization: getText(item.organization)
     }));
     initContainer('certifications-container', certificationsData, HTMLGenerator.certificationItem, {
         emptyState: { type: 'certifications', icon: EMPTY_STATE_CONFIG.icon, message: EMPTY_STATE_CONFIG.message }
@@ -367,6 +372,7 @@ async function initProjects() {
     // Transform projects data
     const transformedProjects = window.projectsData.map(project => ({
         ...project,
+        name: getText(project.name),
         description: getText(project.description)
     }));
 
@@ -427,6 +433,7 @@ function renderFilteredProjects(category) {
         // Transform projects data
         const transformedProjects = filteredProjects.map(project => ({
             ...project,
+            name: getText(project.name),
             description: getText(project.description)
         }));
         projectsContainer.innerHTML = transformedProjects.map(project => HTMLGenerator.projectCard(project)).join('');
