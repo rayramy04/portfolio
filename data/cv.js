@@ -564,9 +564,13 @@ window.cvData = {
     // Key Strengths - Focus on concrete achievements and outcomes
     keyStrengths: [
         {
-            name: {
+            title: {
                 en: "Data Science & AI",
                 ja: "データサイエンス・AI"
+            },
+            description: {
+                en: "Academic excellence in mathematics and AI, with multiple competition awards",
+                ja: "数学とAI分野での学術的卓越性、複数のコンペティション受賞歴"
             },
             icon: "fas fa-brain",
             highlights: [
@@ -593,9 +597,13 @@ window.cvData = {
             ]
         },
         {
-            name: {
+            title: {
                 en: "Research & Writing",
                 ja: "リサーチ・ライティング"
+            },
+            description: {
+                en: "Industry-leading content creation and SEO expertise with proven results",
+                ja: "業界トップクラスのコンテンツ制作とSEOの専門知識、実績あり"
             },
             icon: "fas fa-pen-nib",
             highlights: [
@@ -618,9 +626,13 @@ window.cvData = {
             ]
         },
         {
-            name: {
+            title: {
                 en: "Music & Content Creation",
                 ja: "音楽・コンテンツ制作"
+            },
+            description: {
+                en: "Professional music production with large-scale audience engagement",
+                ja: "大規模なオーディエンスを持つプロフェッショナルな音楽制作"
             },
             icon: "fas fa-music",
             highlights: [
@@ -643,9 +655,13 @@ window.cvData = {
             ]
         },
         {
-            name: {
+            title: {
                 en: "Project Management",
                 ja: "プロジェクトマネジメント"
+            },
+            description: {
+                en: "Cross-industry experience with proven ability to monetize projects",
+                ja: "複数業界での経験とプロジェクト収益化の実績"
             },
             icon: "fas fa-tasks",
             highlights: [

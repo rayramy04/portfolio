@@ -336,7 +336,16 @@ async function initCV() {
     const keyStrengthsContainer = document.getElementById('key-strengths-container');
     if (keyStrengthsContainer) {
         if (window.cvData.keyStrengths && window.cvData.keyStrengths.length > 0) {
-            keyStrengthsContainer.innerHTML = HTMLGenerator.keyStrengthsSection(window.cvData.keyStrengths);
+            keyStrengthsContainer.innerHTML = window.cvData.keyStrengths.map(item => {
+                const highlightsList = item.highlights ?
+                    `${item.highlights.map(h => `<p>• ${getText(h)}</p>`).join('')}` : '';
+                const customDescription = `<p class="text-meta">${getText(item.description)}</p>${highlightsList}`;
+                return HTMLGenerator.unifiedCardTemplate({
+                    ...item,
+                    title: getText(item.title),
+                    description: customDescription
+                });
+            }).join('');
         } else {
             showEmptyState(keyStrengthsContainer, {
                 type: 'keyStrengths',
