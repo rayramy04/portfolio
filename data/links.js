@@ -2,7 +2,10 @@
 window.linksData = {
     contact: [
         {
-            title: "Rayの海外生活ノート（ブログ）",
+            title: {
+                en: "Ray's Global Life Notes (Blog)",
+                ja: "Rayの海外生活ノート（ブログ）"
+            },
             url: "https://ray-globallife.com",
             icon: "fas fa-home"
         },
