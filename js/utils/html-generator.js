@@ -87,7 +87,7 @@ class HTMLGenerator {
 
         return skillsData.map(category => `
             <div class="skills-category card hover-lift">
-                <h3>${category.category}</h3>
+                <h3>${getText(category.category)}</h3>
                 <div class="skills-list">
                     ${category.skills.map((skill, index) => {
                         const separator = index < category.skills.length - 1 ? ' <span class="skill-separator">•</span> ' : '';

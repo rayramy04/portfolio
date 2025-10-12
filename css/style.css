@@ -902,7 +902,7 @@ h3 {
 
 .skill-description ul li {
   margin-bottom: var(--space-2);
-  padding-left: var(--space-4);
+  padding-left: var(--space-6);
   position: relative;
 }
 
@@ -944,7 +944,7 @@ h3 {
 
 .key-strength-highlights li {
   padding: var(--space-2) 0;
-  padding-left: var(--space-5);
+  padding-left: var(--space-6);
   position: relative;
   color: var(--text-secondary);
   line-height: 1.6;

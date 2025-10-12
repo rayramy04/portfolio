@@ -366,7 +366,10 @@ window.cvData = {
                 en: "Research Science Contest: National Grand Prize, International Competition Participant",
                 ja: "研究科学コンテスト: 全国最優秀賞・国際大会出場"
             },
-            organization: "NA",
+            organization: {
+                en: "General Incorporated Association Glocal Academy",
+                ja: "一般社団法人Glocal Academy"
+            },
             date: "~2023",
             description: {
                 en: "Research on improving quality of synthetic voice (Text-to-Speech) in acoustic phonetics field",
@@ -668,27 +671,31 @@ window.cvData = {
     // Technical Skills - Simple list format without star ratings
     skills: [
         {
-            category: "Programming Languages",
-            skills: ["Python", "JavaScript", "TypeScript", "R", "SQL", "HTML/CSS", "PHP"]
+            category: {
+                en: "Programming & Development",
+                ja: "プログラミング・開発"
+            },
+            skills: ["Python", "JavaScript", "TypeScript", "R", "SQL", "HTML/CSS", "PHP", "React", "Next.js", "Astro", "MySQL", "Firebase", "Supabase", "Git/GitHub", "Docker", "Vercel", "Railway", "WordPress", "Dify", "Stripe", "AWS", "Linux"]
         },
         {
-            category: "Web Development & Databases",
-            skills: ["React", "Next.js", "Astro", "MySQL", "Firebase", "Supabase"]
-        },
-        {
-            category: "Data Science & Machine Learning",
+            category: {
+                en: "Data Science & AI",
+                ja: "データサイエンス・AI"
+            },
             skills: ["Machine Learning", "Data Analytics", "Statistical Modeling"]
         },
         {
-            category: "Development Tools",
-            skills: ["Git/GitHub", "Docker", "Vercel", "Railway", "WordPress", "Dify", "Stripe", "AWS", "Linux"]
-        },
-        {
-            category: "Creative Tools",
+            category: {
+                en: "Creative Tools",
+                ja: "クリエイティブツール"
+            },
             skills: ["MuseScore", "Sibelius", "Dorico Pro", "Logic Pro", "Final Cut Pro", "OBS Studio"]
         },
         {
-            category: "Languages",
+            category: {
+                en: "Languages",
+                ja: "言語"
+            },
             skills: ["Japanese (Native)", "English (Business)", "Malay/Indonesian (Basic)"]
         }
     ]
