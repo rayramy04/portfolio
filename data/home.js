@@ -4,7 +4,7 @@ window.homeData = {
         name: "Ray",
         subtitle: {
             en: "Studying Computer Science and Data Science at Monash University Malaysia 🇲🇾",
-            ja: "Studying Computer Science and Data Science at Monash University Malaysia 🇲🇾"
+            ja: "マレーシアのモナッシュ大学でコンピュータサイエンス・データサイエンスを学んでいます。🇲🇾"
         },
         description: {
             en: "I am passionate about Data Science, AI & Machine Learning, and Web Development. Currently studying at Monash University Malaysia, I focus on research and writing while gaining international experience.",
