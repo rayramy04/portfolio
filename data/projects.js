@@ -99,7 +99,10 @@ window.projectsData = [
         image: "https://university.go-for-it-malaysia.com/wp-content/uploads/2024/10/Top_Uni-top_12.webp"
     },
     {
-        name: "家計簿Excelテンプレート",
+        name: {
+            en: "Household Budget Excel Template",
+            ja: "家計簿Excelテンプレート"
+        },
         description: {
             en: "Free simple household budget Excel template with currency conversion feature",
             ja: "外貨換算機能付きシンプル家計簿を無料配布"
@@ -121,7 +124,10 @@ window.projectsData = [
         image: "assets/projects/connect-with-me.jpg"
     },
     {
-        name: "Rayの海外生活ノート",
+        name: {
+            en: "Ray's Global Life Notes",
+            ja: "Rayの海外生活ノート"
+        },
         description: {
             en: "Industry-leading study abroad blog with 750+ articles and 20,000+ monthly page views",
             ja: "累計750記事超/月2万PV超の、業界最大級の留学情報ブログ"
@@ -132,7 +138,10 @@ window.projectsData = [
         image: "https://ray-globallife.com/wp-content/uploads/2025/04/4.jpg"
     },
     {
-        name: "note記事執筆・販売",
+        name: {
+            en: "note Article Writing & Sales",
+            ja: "note記事執筆・販売"
+        },
         description: {
             en: "Writing and selling premium study abroad articles on note",
             ja: "留学情報の有料記事を執筆・販売"
@@ -154,7 +163,10 @@ window.projectsData = [
         image: "assets/projects/fft-study.jpg"
     },
     {
-        name: "YouTubeピアノチャンネル",
+        name: {
+            en: "YouTube Piano Channel",
+            ja: "YouTubeピアノチャンネル"
+        },
         description: {
             en: "Piano cover channel with 15,000+ subscribers and 4 million+ total views",
             ja: "登録者1.5万人超/総再生回数400万回超のピアノ・耳コピ楽譜のチャンネル"

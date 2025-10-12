@@ -78,7 +78,10 @@ window.cvData = {
             }
         },
         {
-            company: "合同会社Tobiratory Japan",
+            company: {
+                en: "Tobiratory Japan LLC",
+                ja: "合同会社Tobiratory Japan"
+            },
             period: "2024.06 - Present",
             position: {
                 en: "Internship",
@@ -91,7 +94,10 @@ window.cvData = {
             url: "https://www.tobiratory.com/"
         },
         {
-            company: "グローバルハブジャパン株式会社（マレーシア留学サポートセンター）",
+            company: {
+                en: "Global Hub Japan Ltd. (Malaysia Study Abroad Support Center)",
+                ja: "グローバルハブジャパン株式会社（マレーシア留学サポートセンター）"
+            },
             period: "2024.06 - 2024.08",
             position: {
                 en: "Internship (Student Supporter)",
@@ -104,7 +110,10 @@ window.cvData = {
             url: "https://malaysia-ryugaku.jp/"
         },
         {
-            company: "株式会社ココナラ",
+            company: {
+                en: "coconala Inc.",
+                ja: "株式会社ココナラ"
+            },
             period: "2024.04 - Present",
             position: {
                 en: "Freelancer",
@@ -117,7 +126,10 @@ window.cvData = {
             url: "https://coconala.com/users/4454434"
         },
         {
-            company: "株式会社LOOPAL",
+            company: {
+                en: "Loopal Inc.",
+                ja: "株式会社LOOPAL"
+            },
             period: "2023.07 - Present",
             position: {
                 en: "Internship",
@@ -130,7 +142,10 @@ window.cvData = {
             url: "https://loopal.net/"
         },
         {
-            company: "一般社団法人52Hz",
+            company: {
+                en: "General Incorporated Association 52Hz",
+                ja: "一般社団法人52Hz"
+            },
             period: "2023.04 - Present",
             position: {
                 en: "Member, Contractor (52Hz Accelerator Gen 0 Mentor)",
@@ -176,7 +191,10 @@ window.cvData = {
                     en: 'RSS Hackathon 2025 Beyond "Atarimae": Excellence Award',
                     ja: 'RSS Hackathon 2025 Beyond "あたりまえ"の、その先へ: 優秀賞'
                 },
-                organization: "レイスシステムソリューションズ株式会社",
+                organization: {
+                    en: "Reiss System Solutions, Inc.",
+                    ja: "レイスシステムソリューションズ株式会社"
+                },
                 date: "2025.09",
                 description: {
                     en: "Developed PhotoVoca as a team - an innovative English learning app that lets you capture, view, and memorize vocabulary",
@@ -189,7 +207,10 @@ window.cvData = {
                 en: "Geek Camp Hackathon 2025 vol.9: Excellence Award",
                 ja: "技育CAMPハッカソン2025 vol.9: 優秀賞"
             },
-            organization: "サポーターズ",
+            organization: {
+                en: "Supporterz Inc.",
+                ja: "サポーターズ"
+            },
             date: "2025.08",
             description: {
                 en: "Developed EmotiGift as a team - an AI-powered personalized gift recommendation service",
@@ -202,7 +223,10 @@ window.cvData = {
                 en: "Study Abroad Blog: Over 750 Articles Published",
                 ja: "留学ブログ: 累計750記事以上執筆"
             },
-            organization: "個人ブログ（Rayの海外生活ノート）",
+            organization: {
+                en: "Personal Blog (Ray's Global Life Notes)",
+                ja: "個人ブログ（Rayの海外生活ノート）"
+            },
             date: "2025.08",
             description: {
                 en: "One of the largest study abroad media platforms in the industry with over 20,000 monthly page views",
@@ -215,7 +239,10 @@ window.cvData = {
                 en: "Japan AI Olympiad 2025: Gold Medal, 5th Place Nationally (Open Division)",
                 ja: "日本人工知能オリンピック2025: 金賞・全国5位（オープン枠）"
             },
-            organization: "国際人工知能オリンピック日本委員会",
+            organization: {
+                en: "International Artificial Intelligence Olympiad Japan Committee",
+                ja: "国際人工知能オリンピック日本委員会"
+            },
             date: "2025.05",
             description: {
                 en: "Kaggle-style data analysis competition",
@@ -253,7 +280,10 @@ window.cvData = {
                     en: "Japan Linguistics Olympiad 2025: Fighting Spirit Award (Open Division)",
                     ja: "日本言語学オリンピック2025: 敢闘賞（オープン枠）"
                 },
-                organization: "国際言語学オリンピック日本委員会",
+                organization: {
+                    en: "The International Linguistics Olympiad Japan Committee",
+                    ja: "国際言語学オリンピック日本委員会"
+                },
                 date: "2025.02",
                 description: {
                     en: "Academic olympiad analyzing unknown languages",
@@ -266,7 +296,10 @@ window.cvData = {
                 en: "Coming of Age Ceremony: Career Profile Exhibition",
                 ja: "20歳のつどい: 同級生応援イベント経歴掲載"
             },
-            organization: "地元市役所",
+            organization: {
+                en: "Local City Hall",
+                ja: "地元市役所"
+            },
             date: "2025.01",
             description: {
                 en: "Career profile exhibited at local city hall for a limited period",
@@ -306,7 +339,10 @@ window.cvData = {
                 en: "Japan Linguistics Olympiad 2024: Fighting Spirit Award (Open Division)",
                 ja: "日本言語学オリンピック2024: 敢闘賞（オープン枠）"
             },
-            organization: "国際言語学オリンピック日本委員会",
+            organization: {
+                en: "The International Linguistics Olympiad Japan Committee",
+                ja: "国際言語学オリンピック日本委員会"
+            },
             date: "2024.02",
             description: {
                 en: "Academic olympiad analyzing unknown languages",
@@ -333,7 +369,10 @@ window.cvData = {
                 en: "Mainichi Typing Competition: 1st Dan Certification, 3rd Place Nationally in High School Division (Japanese B) and others",
                 ja: "毎日パソコン入力コンクール: 初段認定・高校生部門全国3位（和文B） ほか"
             },
-            organization: "毎日新聞社 ほか",
+            organization: {
+                en: "The Mainichi Newspapers Co., Ltd. and others",
+                ja: "毎日新聞社 ほか"
+            },
             date: "~2023",
             description: {
                 en: "Typing speed: 154 characters/minute with 100% accuracy",
@@ -346,7 +385,10 @@ window.cvData = {
                 en: "Shogi (Japanese Chess): Eastern Japan Tournament Participant, Prefectural Tournament Team Champion & 3rd Place Individual, and others",
                 ja: "将棋: 東日本大会出場、県大会 団体優勝・個人第3位 ほか"
             },
-            organization: "県高等学校文化連盟 ほか",
+            organization: {
+                en: "Prefectural High School Cultural Federation and others",
+                ja: "県高等学校文化連盟 ほか"
+            },
             date: "~2023",
             description: {
                 en: "Participated in shogi tournaments from middle school through high school",
@@ -358,7 +400,10 @@ window.cvData = {
                 en: "English Debate: Prefectural Tournament Best Debater Award (Individual) & 3rd Place (Team)",
                 ja: "英語ディベート: 県大会 個人ベストディベーター賞・団体第3位"
             },
-            organization: "県高等学校教育研究会",
+            organization: {
+                en: "Prefectural High School Education Research Association",
+                ja: "県高等学校教育研究会"
+            },
             date: "~2023",
             description: {
                 en: "4-person team, served as attacker",
@@ -373,7 +418,10 @@ window.cvData = {
                 en: "Deep Learning Basic Course 2025 Spring - Matsuo Lab, The University of Tokyo",
                 ja: "東京大学 Deep Learning 基礎講座 2025 Spring: 修了"
             },
-            organization: "東京大学 松尾研究室",
+            organization: {
+                en: "Matsuo Lab, The University of Tokyo",
+                ja: "東京大学 松尾研究室"
+            },
             date: "2025.07",
             link: "https://weblab.t.u-tokyo.ac.jp/deep-learning/"
         },
@@ -382,7 +430,10 @@ window.cvData = {
                 en: "AI Business Insights 2025 - Matsuo Lab, The University of Tokyo",
                 ja: "東京大学AI経営講座 AI Business Insights 2025: 修了"
             },
-            organization: "東京大学 松尾研究室",
+            organization: {
+                en: "Matsuo Lab, The University of Tokyo",
+                ja: "東京大学 松尾研究室"
+            },
             date: "2025.04",
             link: "https://weblab.t.u-tokyo.ac.jp/lecture/course-list/ai-driven/"
         },
@@ -391,7 +442,10 @@ window.cvData = {
                 en: "Fundamental Information Technology Engineer Examination (FE)",
                 ja: "基本情報技術者試験（FE）: 取得"
             },
-            organization: "独立行政法人情報処理推進機構（IPA）",
+            organization: {
+                en: "Information-technology Promotion Agency, Japan (IPA)",
+                ja: "独立行政法人情報処理推進機構（IPA）"
+            },
             date: "2025.02"
         },
         {
@@ -399,7 +453,10 @@ window.cvData = {
                 en: "IT Passport Examination (iPass)",
                 ja: "ITパスポート試験（iパス）: 取得"
             },
-            organization: "独立行政法人情報処理推進機構（IPA）",
+            organization: {
+                en: "Information-technology Promotion Agency, Japan (IPA)",
+                ja: "独立行政法人情報処理推進機構（IPA）"
+            },
             date: "2025.02"
         },
         {
@@ -407,7 +464,10 @@ window.cvData = {
                 en: "Japan Chamber of Commerce and Industry Bookkeeping Test Level 3",
                 ja: "日本商工会議所 簿記検定試験 3級: 取得"
             },
-            organization: "日本商工会議所",
+            organization: {
+                en: "The Japan Chamber of Commerce and Industry",
+                ja: "日本商工会議所"
+            },
             date: "2025.02"
         },
         {
@@ -415,7 +475,10 @@ window.cvData = {
                 en: "Global Consumer Intelligence 2024 Summer - Matsuo Lab, The University of Tokyo",
                 ja: "グローバル消費インテリジェンス寄附講座 2024 Summer: 修了"
             },
-            organization: "東京大学 松尾研究室",
+            organization: {
+                en: "Matsuo Lab, The University of Tokyo",
+                ja: "東京大学 松尾研究室"
+            },
             date: "2024.08",
             link: "https://gci2.t.u-tokyo.ac.jp/"
         },
@@ -424,7 +487,10 @@ window.cvData = {
                 en: "Mahout (elephant driver) license",
                 ja: "Mahout (象使い) 免許: 取得"
             },
-            organization: "Manifa Elephant Camp（ラオス）",
+            organization: {
+                en: "Manifa Elephant Camp (Laos)",
+                ja: "Manifa Elephant Camp（ラオス）"
+            },
             date: "2024.06"
         },
         {
@@ -432,7 +498,10 @@ window.cvData = {
                 en: "Driver's License (Type 1, AT only)",
                 ja: "普通自動車第一種運転免許（AT限定）: 取得"
             },
-            organization: "日本国公安委員会",
+            organization: {
+                en: "National Public Safety Commission of Japan",
+                ja: "日本国公安委員会"
+            },
             date: "2023.05"
         },
         {
@@ -440,7 +509,10 @@ window.cvData = {
                 en: "Nagoya University MIRAI GSC Stage 2",
                 ja: "名大MIRAI GSC 第2ステージ: 修了"
             },
-            organization: "名古屋大学",
+            organization: {
+                en: "Nagoya University",
+                ja: "名古屋大学"
+            },
             date: "2021.11",
             link: "https://nuqa.nagoya-u.ac.jp/miraigsc/"
         }
