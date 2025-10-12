@@ -1,9 +1,24 @@
 // Site-wide shared data configuration
 window.commonData = {
+    // Language settings
+    lang: {
+        current: 'en', // Default language: 'en' or 'ja'
+        available: ['en', 'ja']
+    },
+    // UI text for language switcher
+    ui: {
+        langSwitch: {
+            en: { flag: '🇺🇸', label: 'EN' },
+            ja: { flag: '🇯🇵', label: 'JP' }
+        }
+    },
     // Basic profile info displayed in headers/footers
     profile: {
         name: "Ray",
-        title: "Computer Science & Data Science Student",
+        title: {
+            en: "Computer Science & Data Science Student",
+            ja: "コンピュータサイエンス・データサイエンス学生"
+        },
         photo: "assets/profile.jpg" // Path to profile image
     },
     // Social media links displayed in footer and links page
