@@ -6,8 +6,8 @@ window.cvData = {
             degree: "Bachelor of Computer Science in Data Science, School of Information Technology",
             period: "2024.07 - Present",
             description: {
-                en: "GPA 4.0 • Top scholar recognition • Merit scholarship",
-                ja: "GPA 4.0・主席表彰・奨学金獲得"
+                en: "GPA 4.0 • Academic Excellence Award, Top Scholar in Mathematics • Merit scholarship",
+                ja: "GPA 4.0・成績優秀表彰・数学分野主席・奨学金獲得"
             }
         },
         {
@@ -34,7 +34,10 @@ window.cvData = {
     ],
     experience: [
         {
-            company: "株式会社リアブロード（スマ留）",
+            company: {
+                en: "Reabroad, Inc. (Smaryu)",
+                ja: "株式会社リアブロード（スマ留）"
+            },
             period: "2025.05 - Present",
             position: {
                 en: "Contracted (Official Ambassador)",
@@ -47,7 +50,10 @@ window.cvData = {
             url: "https://smaryu.com/"
         },
         {
-            company: "株式会社GFIエデュケーションズ（Go for it）",
+            company: {
+                en: "GFI Education, Inc. (Go for it)",
+                ja: "株式会社GFIエデュケーションズ（Go for it）"
+            },
             period: "2024.09 - Present",
             position: {
                 en: "Internship",
@@ -471,157 +477,138 @@ window.cvData = {
             }
         }
     ],
-    skills: [
+    // Key Strengths - Focus on concrete achievements and outcomes
+    keyStrengths: [
         {
-            category: "Frontend Development",
-            skills: [
-                { name: "HTML/CSS", level: 5 },
-                { name: "JavaScript", level: 4 },
-                { name: "React", level: 3 },
-                { name: "Next.js", level: 3 },
-                { name: "Astro", level: 2 }
+            name: {
+                en: "Data Science & AI",
+                ja: "データサイエンス・AI"
+            },
+            icon: "fas fa-brain",
+            highlights: [
+                {
+                    en: "Majoring in Computer Science and Data Science at Monash University",
+                    ja: "モナッシュ大学でコンピュータサイエンス・データサイエンス専攻"
+                },
+                {
+                    en: "Top Scholar in Mathematics, Academic Excellence Award",
+                    ja: "数学分野主席表彰・成績優秀賞受賞"
+                },
+                {
+                    en: "Japan AI Olympiad: Gold Medal, 5th Place Nationally",
+                    ja: "日本人工知能オリンピック金賞・全国5位"
+                },
+                {
+                    en: "Kangaroo Math Contest: Silver Award (World's largest mathematics competition)",
+                    ja: "カンガルー数学コンテスト銀賞（世界最大の数学コンテスト）"
+                },
+                {
+                    en: "Completed multiple AI courses from Matsuo Lab at The University of Tokyo",
+                    ja: "東京大学松尾研究室AI講座複数修了"
+                }
             ]
         },
         {
-            category: "Backend Development",
-            skills: [
-                { name: "Python", level: 5 },
-                { name: "R", level: 4 },
-                { name: "SQL", level: 3 },
-                { name: "TypeScript", level: 2 },
-                { name: "PHP", level: 1 }
+            name: {
+                en: "Research & Writing",
+                ja: "リサーチ・ライティング"
+            },
+            icon: "fas fa-pen-nib",
+            highlights: [
+                {
+                    en: "750+ articles published, 20,000+ monthly page views (One of the largest in the industry)",
+                    ja: "750記事以上執筆・月2万PV超（業界最大級の規模）"
+                },
+                {
+                    en: "Qualified for Google AdSense within 1 month (Acceptance rate below 4%)",
+                    ja: "1か月でAdSense合格（合格率4%以下）"
+                },
+                {
+                    en: "Secured multiple advertising partnerships",
+                    ja: "複数の広告案件を獲得"
+                },
+                {
+                    en: "Multiple national awards in research paper contests during high school",
+                    ja: "高校時代の研究論文コンテストで全国入賞多数"
+                }
             ]
+        },
+        {
+            name: {
+                en: "Music & Content Creation",
+                ja: "音楽・コンテンツ制作"
+            },
+            icon: "fas fa-music",
+            highlights: [
+                {
+                    en: "YouTube: 15,000+ subscribers, 4 million+ total views",
+                    ja: "YouTube登録者数1.5万人超・総再生回数400万回超"
+                },
+                {
+                    en: "Transcription ability: Up to 6-note chords by ear",
+                    ja: "6音程度まで聴音（耳コピ）可能"
+                },
+                {
+                    en: "Sheet music sales and custom transcription services",
+                    ja: "楽譜販売・オーダーメイド楽譜制作"
+                },
+                {
+                    en: "Experience as freelance music instructor",
+                    ja: "フリーランス音楽講師として活動"
+                }
+            ]
+        },
+        {
+            name: {
+                en: "Project Management",
+                ja: "プロジェクトマネジメント"
+            },
+            icon: "fas fa-tasks",
+            highlights: [
+                {
+                    en: "Internship experience across multiple industries (Education, IT, Media)",
+                    ja: "複数業界でのインターンシップ経験（教育・IT・メディア）"
+                },
+                {
+                    en: "Successfully monetized blog and music business",
+                    ja: "ブログ運営・音楽事業を収益化"
+                },
+                {
+                    en: "Mentored junior/senior high school students at 52Hz Accelerator",
+                    ja: "52Hz Acceleratorで中高生のメンター経験"
+                },
+                {
+                    en: "Community management and support operations experience",
+                    ja: "コミュニティ運営・サポート業務を担当"
+                }
+            ]
+        }
+    ],
+    // Technical Skills - Simple list format without star ratings
+    skills: [
+        {
+            category: "Programming Languages",
+            skills: ["Python", "JavaScript", "TypeScript", "R", "SQL", "HTML/CSS", "PHP"]
+        },
+        {
+            category: "Web Development & Databases",
+            skills: ["React", "Next.js", "Astro", "MySQL", "Firebase", "Supabase"]
+        },
+        {
+            category: "Data Science & Machine Learning",
+            skills: ["Machine Learning", "Data Analytics", "Statistical Modeling"]
         },
         {
             category: "Development Tools",
-            skills: [
-                { name: "Git/GitHub", level: 5 },
-                { name: "WordPress", level: 5 },
-                { name: "Dify", level: 4 },
-                { name: "Vercel", level: 4 },
-                { name: "Railway", level: 4 },
-                { name: "MySQL", level: 3 },
-                { name: "Firebase", level: 3 },
-                { name: "Docker", level: 3 },
-                { name: "Stripe", level: 3 },
-                { name: "Linux", level: 2 },
-                { name: "AWS", level: 2 },
-                { name: "Figma", level: 1 }
-            ]
+            skills: ["Git/GitHub", "Docker", "Vercel", "Railway", "WordPress", "Dify", "Stripe", "AWS", "Linux"]
         },
         {
-            category: "Other Tools",
-            skills: [
-                { name: "Sheet Music Software (MuseScore, Sibelius, Dorico Pro)", level: 5 },
-                { name: "OBS Studio", level: 4 },
-                { name: "Logic Pro", level: 3 },
-                { name: "Final Cut Pro", level: 2 }
-            ]
+            category: "Creative Tools",
+            skills: ["MuseScore", "Sibelius", "Dorico Pro", "Logic Pro", "Final Cut Pro", "OBS Studio"]
         },
         {
             category: "Languages",
-            skills: [
-                { name: "Japanese: Native", level: 5 },
-                { name: "English: Business", level: 4 },
-                { name: "Malay / Indonesian: Basic", level: 1 }
-            ]
-        },
-        {
-            category: "Specialized Skills",
-            skills: [
-                {
-                    name: "Data Science",
-                    level: 5,
-                    description: [
-                        {
-                            en: "Majoring in CS and Data Science at undergraduate level",
-                            ja: "学部課程でCS・データサイエンス専攻"
-                        },
-                        {
-                            en: "Top scholar recognition in Mathematics at Monash University",
-                            ja: "モナッシュ大学数学分野主席表彰"
-                        },
-                        {
-                            en: "Japan AI Olympiad: Gold Medal, 5th Place Nationally",
-                            ja: "日本人工知能オリンピック金賞・全国5位"
-                        },
-                        {
-                            en: "Kangaroo Math Contest: Silver Award (world's largest mathematics competition)",
-                            ja: "カンガルー数学コンテスト銀賞（世界最大の数学コンテスト）"
-                        },
-                        {
-                            en: "Completed multiple AI courses from Matsuo Lab at The University of Tokyo",
-                            ja: "東京大学松尾研究室AI講座複数修了"
-                        }
-                    ]
-                },
-                {
-                    name: "Research / Writing",
-                    level: 5,
-                    description: [
-                        {
-                            en: "Qualified for AdSense within one month (acceptance rate below 4%) - Over 750 articles written - Over 20,000 monthly PV (one of the largest in the industry)",
-                            ja: "1か月でAdSense合格（合格率4%以下）・累計750記事以上執筆・月2万PV超（業界最大級）"
-                        },
-                        {
-                            en: "Recognized for logical structure and readability of writing",
-                            ja: "文章の論理構造・読みやすさに定評"
-                        },
-                        {
-                            en: "Secured multiple advertising partnerships",
-                            ja: "複数の広告案件獲得"
-                        },
-                        {
-                            en: "Multiple national awards in research paper contests during high school",
-                            ja: "高校時代研究論文コンテスト全国入賞多数"
-                        }
-                    ]
-                },
-                {
-                    name: "Music",
-                    level: 5,
-                    description: [
-                        {
-                            en: "Able to transcribe by ear up to 6-note chords",
-                            ja: "6音程度まで聴音（耳コピ）可能"
-                        },
-                        {
-                            en: "YouTube channel: Over 15,000 subscribers - Over 4 million total views",
-                            ja: "YouTubeチャンネル登録者数1.5万人超・総再生回数400万回超"
-                        },
-                        {
-                            en: "Online store piano sheet music sales - Custom sheet music transcription",
-                            ja: "オンラインストアピアノ楽譜販売・オーダーメイド楽譜制作"
-                        },
-                        {
-                            en: "Experience as freelance music instructor",
-                            ja: "フリーランス音楽講師経験"
-                        }
-                    ]
-                },
-                {
-                    name: "Project Management / Business",
-                    level: 3,
-                    description: [
-                        {
-                            en: "Internship experience across multiple industries",
-                            ja: "複数業界でのインターンシップ経験"
-                        },
-                        {
-                            en: "Website management - Monetization of music business",
-                            ja: "ウェブサイト運営・音楽事業の収益化"
-                        },
-                        {
-                            en: "Mentoring experience for junior/senior high school students at 52Hz Accelerator and as a tutor",
-                            ja: "52Hz Accelerator・家庭教師での中高生メンター経験"
-                        },
-                        {
-                            en: "Experience in community management and support operations",
-                            ja: "コミュニティ運営・サポート業務担当経験"
-                        }
-                    ]
-                }
-            ]
+            skills: ["Japanese (Native)", "English (Business)", "Malay/Indonesian (Basic)"]
         }
     ]
 };
