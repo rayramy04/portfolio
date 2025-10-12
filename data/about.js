@@ -40,7 +40,10 @@ window.aboutData = {
     // Core strengths and competencies
     strengths: [
         {
-            title: "Technical × Content Creation",
+            title: {
+                en: "Technical × Content Creation",
+                ja: "技術×コンテンツ制作"
+            },
             description: {
                 en: "Combining IT skills with content creation. Communicating information clearly and effectively",
                 ja: "ITスキルとコンテンツ制作力を融合。情報を分かりやすく発信"
@@ -52,8 +55,8 @@ window.aboutData = {
                     ja: "フルスタック開発スキル（Python, Reactなど）"
                 },
                 {
-                    en: "Launched one of the largest study abroad blogs; YouTube channel with over 10,000 subscribers",
-                    ja: "業界最大規模の留学ブログ開設・YouTube登録者1万人超"
+                    en: "Launched one of the largest study abroad blogs; YouTube channel with 15,000+ subscribers",
+                    ja: "業界最大規模の留学ブログ開設・YouTube登録者15,000人以上"
                 },
                 {
                     en: "Website development, SEO optimization, research & writing",
@@ -62,7 +65,10 @@ window.aboutData = {
             ]
         },
         {
-            title: "Global Perspective",
+            title: {
+                en: "Global Perspective",
+                ja: "グローバルな視点"
+            },
             description: {
                 en: "Academic studies at an overseas university combined with diverse international experiences. Problem-solving from a global viewpoint",
                 ja: "海外大学での学業と多様な国際経験。グローバル視点での問題解決"
@@ -84,7 +90,10 @@ window.aboutData = {
             ]
         },
         {
-            title: "Academic Excellence",
+            title: {
+                en: "Academic Excellence",
+                ja: "学術的な卓越性"
+            },
             description: {
                 en: "Balancing academic achievements with practical skills. Creating value through both theory and implementation",
                 ja: "学術的な成果と実践的なスキルの両立。理論と実装の両面から価値を創出"
@@ -106,7 +115,10 @@ window.aboutData = {
             ]
         },
         {
-            title: "Entrepreneurial Mindset",
+            title: {
+                en: "Entrepreneurial Mindset",
+                ja: "起業家マインド"
+            },
             description: {
                 en: "Creating value from scratch and delivering it to real users with execution power",
                 ja: "ゼロから価値を創出し、実際にユーザーに届ける実行力"
@@ -195,7 +207,10 @@ window.aboutData = {
     // Uses specialized interestItem template (not unifiedCardTemplate)
     interests: [
         {
-            title: "Programming",
+            title: {
+                en: "Programming",
+                ja: "プログラミング"
+            },
             description: {
                 en: "Development using Python and JavaScript, implementing machine learning, website creation, etc.",
                 ja: "PythonやJavaScriptを使った開発、機械学習の実装、ウェブサイト制作など。"
@@ -203,7 +218,10 @@ window.aboutData = {
             icon: "fas fa-code"
         },
         {
-            title: "Music",
+            title: {
+                en: "Music",
+                ja: "音楽"
+            },
             description: {
                 en: "Piano performance, sheet music transcription by ear. Also run a YouTube channel and work as a music instructor.",
                 ja: "ピアノ演奏、耳コピでの楽譜制作。YouTubeチャンネルの運営や音楽講師も務める。"
@@ -211,7 +229,10 @@ window.aboutData = {
             icon: "fas fa-music"
         },
         {
-            title: "Shogi (Japanese Chess)",
+            title: {
+                en: "Shogi (Japanese Chess)",
+                ja: "将棋"
+            },
             description: {
                 en: "Amateur 2nd dan, Sangenbishasystem player. Would love to try chess someday.",
                 ja: "アマチュア二段、三間飛車党。チェスもいつかやりたい。"
@@ -219,7 +240,10 @@ window.aboutData = {
             icon: "fas fa-chess"
         },
         {
-            title: "Travel",
+            title: {
+                en: "Travel",
+                ja: "旅行"
+            },
             description: {
                 en: "Traveled to about 15 Asian countries. Enjoy experiencing different cultures and food exploration.",
                 ja: "アジア各国へ15か国ほど旅行。異文化体験と食べ歩きが好き。"
@@ -227,7 +251,10 @@ window.aboutData = {
             icon: "fas fa-plane"
         },
         {
-            title: "Sports",
+            title: {
+                en: "Sports",
+                ja: "スポーツ"
+            },
             description: {
                 en: "From tennis to martial arts, anything goes! Recently hooked on pickleball.",
                 ja: "テニスから格闘技までなんでも！最近はピックルボールにハマっています。"
@@ -235,7 +262,10 @@ window.aboutData = {
             icon: "fas fa-dumbbell"
         },
         {
-            title: "Reading",
+            title: {
+                en: "Reading",
+                ja: "読書"
+            },
             description: {
                 en: "Reading across a wide range of genres from technical books to novels. Particularly love mystery novels.",
                 ja: "技術書から小説まで、幅広いジャンルの読書。ミステリー小説が特に好き。"
