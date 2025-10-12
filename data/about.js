@@ -37,105 +37,105 @@ window.aboutData = {
             }
         ]
     },
-    // Core strengths and competencies
+    // Personal values and characteristics
     strengths: [
         {
             title: {
-                en: "Technical × Content Creation",
-                ja: "技術×コンテンツ制作"
+                en: "Problem Solver with Technology",
+                ja: "技術で課題を解決する"
             },
             description: {
-                en: "Combining IT skills with content creation. Communicating information clearly and effectively",
-                ja: "ITスキルとコンテンツ制作力を融合。情報を分かりやすく発信"
+                en: "I value using technology to help people and make information accessible. Passionate about translating complex ideas into clear, actionable solutions",
+                ja: "技術を使って人の役に立ち、情報をわかりやすく届けることを大切にしています"
             },
-            icon: "fas fa-bullhorn",
+            icon: "fas fa-lightbulb",
             highlights: [
                 {
-                    en: "Full-stack development skills (Python, React, etc.)",
-                    ja: "フルスタック開発スキル（Python, Reactなど）"
+                    en: "Believe technology should solve real problems and be user-friendly",
+                    ja: "技術は実際の課題を解決し、使いやすいものであるべき"
                 },
                 {
-                    en: "Launched one of the largest study abroad blogs; YouTube channel with 15,000+ subscribers",
-                    ja: "業界最大規模の留学ブログ開設・YouTube登録者15,000人以上"
+                    en: "Enjoy bridging the gap between technical and non-technical audiences",
+                    ja: "専門知識を誰にでもわかりやすく伝えることが好き"
                 },
                 {
-                    en: "Website development, SEO optimization, research & writing",
-                    ja: "ウェブサイト構築・SEO対策・リサーチ＆ライティング"
+                    en: "Constantly explore new tools and methods to improve efficiency",
+                    ja: "効率化のために新しいツールや手法を常に探求"
                 }
             ]
         },
         {
             title: {
-                en: "Global Perspective",
-                ja: "グローバルな視点"
+                en: "Embracing Diversity",
+                ja: "多様性を受け入れる"
             },
             description: {
-                en: "Academic studies at an overseas university combined with diverse international experiences. Problem-solving from a global viewpoint",
-                ja: "海外大学での学業と多様な国際経験。グローバル視点での問題解決"
+                en: "I value learning from different cultures, perspectives, and ways of thinking. Open-minded approach to understanding the world",
+                ja: "異なる文化や価値観から学び、多様な視点を大切にしています"
             },
             icon: "fas fa-globe-asia",
             highlights: [
                 {
-                    en: "Enrolled at Monash University (Malaysia); exchange program in Australia",
-                    ja: "モナッシュ大学（マレーシア）在籍・オーストラリアへの交換留学"
+                    en: "Chose to study abroad to experience diverse environments firsthand",
+                    ja: "多様な環境を体験するために海外での学びを選択"
                 },
                 {
-                    en: "Traveled to over 15 countries",
-                    ja: "15カ国以上への渡航経験"
+                    en: "Value cross-cultural communication and adaptability",
+                    ja: "異文化コミュニケーションと適応力を重視"
                 },
                 {
-                    en: "Business-level English proficiency; multilingual capabilities",
-                    ja: "英語ビジネスレベル・複数言語対応可能"
+                    en: "Enjoy learning languages to connect with more people",
+                    ja: "より多くの人とつながるために言語学習を楽しむ"
                 }
             ]
         },
         {
             title: {
-                en: "Academic Excellence",
-                ja: "学術的な卓越性"
+                en: "Balance of Theory & Practice",
+                ja: "理論と実践のバランス"
             },
             description: {
-                en: "Balancing academic achievements with practical skills. Creating value through both theory and implementation",
-                ja: "学術的な成果と実践的なスキルの両立。理論と実装の両面から価値を創出"
+                en: "I believe in learning both the 'why' and the 'how'. Value understanding fundamentals while building practical skills through hands-on experience",
+                ja: "理論的な理解と実践的なスキルの両方を大切にしています"
             },
-            icon: "fas fa-graduation-cap",
+            icon: "fas fa-balance-scale",
             highlights: [
                 {
-                    en: "Monash University top scholar recognition; multiple scholarships",
-                    ja: "モナッシュ大学主席表彰・複数の奨学金獲得"
+                    en: "Pursue academic excellence while applying knowledge to real projects",
+                    ja: "学術的な学びを実際のプロジェクトに応用"
                 },
                 {
-                    en: "Double winner of Linguistics & AI Olympiads",
-                    ja: "言語学＆人工知能オリンピック二冠"
+                    en: "Learn by doing - iterate, fail, and improve continuously",
+                    ja: "実践を通じて学び、試行錯誤を繰り返して成長"
                 },
                 {
-                    en: "Participated in international competition for acoustic phonetics research",
-                    ja: "音響音声学の研究で国際大会出場"
+                    en: "Combine structured learning with self-directed exploration",
+                    ja: "体系的な学習と自主的な探求を組み合わせる"
                 }
             ]
         },
         {
             title: {
-                en: "Entrepreneurial Mindset",
-                ja: "起業家マインド"
+                en: "Action-Oriented Mindset",
+                ja: "行動を起こす姿勢"
             },
             description: {
-                en: "Creating value from scratch and delivering it to real users with execution power",
-                ja: "ゼロから価値を創出し、実際にユーザーに届ける実行力"
+                en: "I believe in taking initiative and turning ideas into reality. Not afraid to try new things, learn from failures, and keep moving forward",
+                ja: "アイデアを形にし、新しいことに挑戦し続ける行動力を持っています"
             },
             icon: "fas fa-rocket",
             highlights: [
                 {
-                    en: "Practical experience across multiple industries: education, IT, media",
-                    ja: "教育・IT・メディアなど複数業界での実務経験"
+                    en: "Start projects before they're perfect - iterate and improve along the way",
+                    ja: "完璧を待たずにプロジェクトを始め、改善を重ねる"
                 },
                 {
-                    en: "Developed and distributed practical products: budget tool, voice AI, etc.",
-                    ja: "家計簿ツール・音声AIなど実用的プロダクトを開発・配布"
+                    en: "Embrace challenges as opportunities to grow and learn",
+                    ja: "挑戦を成長と学びの機会として捉える"
                 },
                 {
-                    en: "Completed over 50 music projects as a freelancer and monetized",
-                    ja: "フリーランスとして50件以上の音楽案件を受注・収益化"
+                    en: "Value execution and results over just planning and theorizing",
+                    ja: "計画だけでなく、実行と成果を重視"
                 }
             ]
         }
