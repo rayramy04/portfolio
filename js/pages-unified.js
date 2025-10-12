@@ -327,26 +327,25 @@ async function initCV() {
         emptyState: { type: 'grants', icon: EMPTY_STATE_CONFIG.icon, message: EMPTY_STATE_CONFIG.message }
     });
 
+    // Render Key Strengths
+    const keyStrengthsContainer = document.getElementById('key-strengths-container');
+    if (keyStrengthsContainer) {
+        if (window.cvData.keyStrengths && window.cvData.keyStrengths.length > 0) {
+            keyStrengthsContainer.innerHTML = HTMLGenerator.keyStrengthsSection(window.cvData.keyStrengths);
+        } else {
+            showEmptyState(keyStrengthsContainer, {
+                type: 'keyStrengths',
+                icon: EMPTY_STATE_CONFIG.icon,
+                message: EMPTY_STATE_CONFIG.message
+            });
+        }
+    }
+
+    // Render Technical Skills
     const skillsContainer = document.getElementById('skills-container');
     if (skillsContainer) {
         if (window.cvData.skills && window.cvData.skills.length > 0) {
-            // Transform specialized skills descriptions
-            const transformedSkills = window.cvData.skills.map(category => {
-                if (category.category === "Specialized Skills") {
-                    return {
-                        ...category,
-                        skills: category.skills.map(skill => ({
-                            ...skill,
-                            description: skill.description ? skill.description.map(desc => getText(desc)) : undefined
-                        }))
-                    };
-                }
-                return category;
-            });
-            skillsContainer.innerHTML = HTMLGenerator.skillsSection(transformedSkills, generateStars);
-            skillsContainer.querySelectorAll('.skills-category').forEach(cat => {
-                cat.classList.add('hover-lift');
-            });
+            skillsContainer.innerHTML = HTMLGenerator.skillsSection(window.cvData.skills);
         } else {
             showEmptyState(skillsContainer, {
                 type: 'skills',
