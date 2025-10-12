@@ -25,6 +25,57 @@ const RESUME_FILES = {
     EN: 'resume/resume-en.pdf'
 };
 
+// ===== LANGUAGE SYSTEM =====
+function getCurrentLang() {
+    return localStorage.getItem('siteLang') || window.commonData?.lang?.current || 'en';
+}
+
+function getText(obj) {
+    if (typeof obj === 'string') return obj; // Fixed text
+    const lang = getCurrentLang();
+    return obj[lang] || obj['en'] || obj['ja'] || ''; // Fallback chain
+}
+
+function switchLanguage(lang) {
+    localStorage.setItem('siteLang', lang);
+
+    // Add fade-out animation
+    document.body.style.opacity = '0.5';
+    document.body.style.transition = 'opacity 0.3s ease-in-out';
+
+    setTimeout(() => {
+        location.reload();
+    }, 300);
+}
+
+function initLanguageSwitcher() {
+    const langSwitch = document.getElementById('lang-switch');
+    if (!langSwitch || !window.commonData?.ui?.langSwitch) return;
+
+    const currentLang = getCurrentLang();
+    const langs = window.commonData.lang.available;
+
+    langSwitch.innerHTML = langs.map(lang => {
+        const config = window.commonData.ui.langSwitch[lang];
+        const activeClass = lang === currentLang ? 'active' : '';
+        return `
+            <button class="lang-btn ${activeClass}" data-lang="${lang}">
+                <span class="flag">${config.flag}</span>
+                <span class="label">${config.label}</span>
+            </button>
+        `;
+    }).join('');
+
+    langSwitch.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const lang = btn.dataset.lang;
+            if (lang !== currentLang) {
+                switchLanguage(lang);
+            }
+        });
+    });
+}
+
 async function initializePage() {
     const pageName = getCurrentPageName();
     await initializeBase();
@@ -40,6 +91,7 @@ async function initializePage() {
 async function initializeBase() {
     const pageBase = new PageBase('current');
     await pageBase.loadCommonComponents();
+    initLanguageSwitcher();
     initializeSEO();
     setTimeout(() => {
         const pageTitle = document.querySelector('.page-title');
@@ -73,9 +125,9 @@ async function initHome() {
     const heroTitle = document.getElementById('hero-title');
     const keywordsList = document.getElementById('keywords-list');
     if (heroName) heroName.textContent = name;
-    if (heroTitle) heroTitle.textContent = subtitle;
+    if (heroTitle) heroTitle.textContent = getText(subtitle);
     if (keywordsList) {
-        keywordsList.innerHTML = keywords.map(keyword => 
+        keywordsList.innerHTML = keywords.map(keyword =>
             `<li class="keyword-item">${keyword}</li>`
         ).join('');
     }
@@ -117,7 +169,11 @@ async function initAbout() {
     const whoIAmContent = document.getElementById('who-i-am-content');
     if (whoIAmContent) {
         if (window.aboutData.personal) {
-            whoIAmContent.innerHTML = HTMLGenerator.profileCard(window.aboutData.personal);
+            const personalData = {
+                ...window.aboutData.personal,
+                description: window.aboutData.personal.description.map(item => getText(item))
+            };
+            whoIAmContent.innerHTML = HTMLGenerator.profileCard(personalData);
         } else {
             showEmptyState(whoIAmContent, {
                 type: 'personal',
@@ -130,7 +186,7 @@ async function initAbout() {
     if (storyContent) {
         if (window.aboutData?.story?.paragraphs && window.aboutData.story.paragraphs.length > 0) {
             storyContent.innerHTML = window.aboutData.story.paragraphs
-                .map(p => `<p>${p}</p>`).join('');
+                .map(p => `<p>${getText(p)}</p>`).join('');
         } else {
             storyContent.innerHTML = HTMLGenerator.emptyStateMessage({
                 icon: EMPTY_STATE_CONFIG.icon,
@@ -142,7 +198,14 @@ async function initAbout() {
     const timelineContainer = document.getElementById('timeline-container');
     if (timelineContainer) {
         if (window.aboutData.timeline && window.aboutData.timeline.length > 0) {
-            timelineContainer.innerHTML = window.aboutData.timeline.map(item => HTMLGenerator.unifiedCardTemplate(item)).join('');
+            timelineContainer.innerHTML = window.aboutData.timeline.map(item => {
+                const transformedItem = {
+                    ...item,
+                    title: getText(item.title),
+                    description: getText(item.description)
+                };
+                return HTMLGenerator.unifiedCardTemplate(transformedItem);
+            }).join('');
         } else {
             showEmptyState(timelineContainer, {
                 type: 'timeline',
@@ -157,9 +220,9 @@ async function initAbout() {
         strengthsContainer.className = 'grid-2-cols gap-sm cards-equal-height card-icons-primary';
         if (window.aboutData.strengths && window.aboutData.strengths.length > 0) {
             strengthsContainer.innerHTML = window.aboutData.strengths.map(item => {
-                const highlightsList = item.highlights ? 
-                    `${item.highlights.map(h => `<p>• ${h}</p>`).join('')}` : '';
-                const customDescription = `<p class="text-meta">${item.description}</p>${highlightsList}`;
+                const highlightsList = item.highlights ?
+                    `${item.highlights.map(h => `<p>• ${getText(h)}</p>`).join('')}` : '';
+                const customDescription = `<p class="text-meta">${getText(item.description)}</p>${highlightsList}`;
                 return HTMLGenerator.unifiedCardTemplate({
                     ...item,
                     description: customDescription
@@ -178,7 +241,13 @@ async function initAbout() {
     if (interestsContainer) {
         interestsContainer.className = 'interests-grid grid-3-cols gap-sm cards-equal-height card-icons-primary';
         if (window.aboutData.interests && window.aboutData.interests.length > 0) {
-            interestsContainer.innerHTML = window.aboutData.interests.map(item => HTMLGenerator.unifiedCardTemplate(item)).join('');
+            interestsContainer.innerHTML = window.aboutData.interests.map(item => {
+                const transformedItem = {
+                    ...item,
+                    description: getText(item.description)
+                };
+                return HTMLGenerator.unifiedCardTemplate(transformedItem);
+            }).join('');
         } else {
             showEmptyState(interestsContainer, {
                 type: 'interests',
@@ -197,17 +266,40 @@ async function initAbout() {
 }
 
 async function initCV() {
-    initContainer('education-container', window.cvData.education, HTMLGenerator.cvItem, {
+    // Transform education data
+    const educationData = window.cvData.education.map(item => ({
+        ...item,
+        institution: getText(item.institution),
+        degree: getText(item.degree),
+        description: getText(item.description)
+    }));
+    initContainer('education-container', educationData, HTMLGenerator.cvItem, {
         emptyState: { type: 'education', icon: EMPTY_STATE_CONFIG.icon, message: EMPTY_STATE_CONFIG.message }
     });
-    initContainer('experience-container', window.cvData.experience, HTMLGenerator.cvItem, {
+
+    // Transform experience data
+    const experienceData = window.cvData.experience.map(item => ({
+        ...item,
+        position: getText(item.position),
+        description: getText(item.description)
+    }));
+    initContainer('experience-container', experienceData, HTMLGenerator.cvItem, {
         emptyState: { type: 'experience', icon: EMPTY_STATE_CONFIG.icon, message: EMPTY_STATE_CONFIG.message }
     });
-    
+
     const awardsContainer = document.getElementById('awards-container');
     if (awardsContainer) {
         if (window.cvData.awards && Object.keys(window.cvData.awards).length > 0) {
-            awardsContainer.innerHTML = HTMLGenerator.awardsSection(window.cvData.awards);
+            // Transform awards data
+            const transformedAwards = {};
+            Object.keys(window.cvData.awards).forEach(year => {
+                transformedAwards[year] = window.cvData.awards[year].map(award => ({
+                    ...award,
+                    title: getText(award.title),
+                    description: getText(award.description)
+                }));
+            });
+            awardsContainer.innerHTML = HTMLGenerator.awardsSection(transformedAwards);
         } else {
             showEmptyState(awardsContainer, {
                 type: 'awards',
@@ -216,19 +308,42 @@ async function initCV() {
             });
         }
     }
-    
-    initContainer('certifications-container', window.cvData.certifications, HTMLGenerator.certificationItem, {
+
+    // Transform certifications data
+    const certificationsData = window.cvData.certifications.map(item => ({
+        ...item,
+        title: getText(item.title)
+    }));
+    initContainer('certifications-container', certificationsData, HTMLGenerator.certificationItem, {
         emptyState: { type: 'certifications', icon: EMPTY_STATE_CONFIG.icon, message: EMPTY_STATE_CONFIG.message }
     });
-    
-    initContainer('grants-container', window.cvData.grants, HTMLGenerator.grantItem, {
+
+    // Transform grants data
+    const grantsData = window.cvData.grants.map(item => ({
+        ...item,
+        description: getText(item.description)
+    }));
+    initContainer('grants-container', grantsData, HTMLGenerator.grantItem, {
         emptyState: { type: 'grants', icon: EMPTY_STATE_CONFIG.icon, message: EMPTY_STATE_CONFIG.message }
     });
-    
+
     const skillsContainer = document.getElementById('skills-container');
     if (skillsContainer) {
         if (window.cvData.skills && window.cvData.skills.length > 0) {
-            skillsContainer.innerHTML = HTMLGenerator.skillsSection(window.cvData.skills, generateStars);
+            // Transform specialized skills descriptions
+            const transformedSkills = window.cvData.skills.map(category => {
+                if (category.category === "Specialized Skills") {
+                    return {
+                        ...category,
+                        skills: category.skills.map(skill => ({
+                            ...skill,
+                            description: skill.description ? skill.description.map(desc => getText(desc)) : undefined
+                        }))
+                    };
+                }
+                return category;
+            });
+            skillsContainer.innerHTML = HTMLGenerator.skillsSection(transformedSkills, generateStars);
             skillsContainer.querySelectorAll('.skills-category').forEach(cat => {
                 cat.classList.add('hover-lift');
             });
@@ -240,7 +355,7 @@ async function initCV() {
             });
         }
     }
-    
+
     animateElements([
         { selector: '.cv-section', delay: ANIMATION_DELAYS.SECTION_BASE }
     ]);
@@ -249,14 +364,20 @@ async function initCV() {
 
 async function initProjects() {
     generateFilterButtons();
-    
-    initContainer('projects-container', window.projectsData, HTMLGenerator.projectCard, {
+
+    // Transform projects data
+    const transformedProjects = window.projectsData.map(project => ({
+        ...project,
+        description: getText(project.description)
+    }));
+
+    initContainer('projects-container', transformedProjects, HTMLGenerator.projectCard, {
         containerClass: 'projects-grid grid-fixed gap-sm fade-in-up mb-section',
         emptyState: { type: 'projects', icon: EMPTY_STATE_CONFIG.icon, message: EMPTY_STATE_CONFIG.message }
     });
-    
+
     initProjectFilters();
-    
+
     animateElements([
         { selector: '.project-filters', delay: ANIMATION_DELAYS.SECTION_BASE },
         { selector: '.projects-grid', delay: ANIMATION_DELAYS.SECTION_BASE + 100 }
@@ -293,18 +414,23 @@ function initProjectFilters() {
 function renderFilteredProjects(category) {
     const projectsContainer = document.getElementById('projects-container');
     if (!projectsContainer || !window.projectsData) return;
-    
+
     let filteredProjects;
     if (category === 'all') {
         filteredProjects = window.projectsData;
     } else {
-        filteredProjects = window.projectsData.filter(project => 
+        filteredProjects = window.projectsData.filter(project =>
             project.categories && project.categories.includes(category)
         );
     }
-    
+
     if (filteredProjects.length > 0) {
-        projectsContainer.innerHTML = filteredProjects.map(project => HTMLGenerator.projectCard(project)).join('');
+        // Transform projects data
+        const transformedProjects = filteredProjects.map(project => ({
+            ...project,
+            description: getText(project.description)
+        }));
+        projectsContainer.innerHTML = transformedProjects.map(project => HTMLGenerator.projectCard(project)).join('');
         projectsContainer.querySelectorAll('.project-card').forEach(card => {
             card.classList.add('fade-in-up');
         });
@@ -315,7 +441,7 @@ function renderFilteredProjects(category) {
             className: 'no-projects-message fade-in-up'
         });
     }
-    
+
     animateElements([
         { selector: '.project-card, .no-projects-message', delay: ANIMATION_DELAYS.SECTION_BASE }
     ]);
@@ -327,27 +453,35 @@ async function initLinks() {
 
     const sections = [];
 
-    if (window.linksData.contact?.length > 0) {
-        sections.push(HTMLGenerator.linksSection('Website & Contact', 'fas fa-globe', 
-            window.linksData.contact, { cardClass: 'link-card website-card', external: true }));
-    } else {
-        sections.push(HTMLGenerator.linksSection('Website & Contact', 'fas fa-globe', [], { cardClass: 'link-card website-card', external: true }));
-    }
+    // Transform contact links
+    const contactLinks = window.linksData.contact?.length > 0
+        ? window.linksData.contact.map(link => ({
+            ...link,
+            title: getText(link.title)
+        }))
+        : [];
+    sections.push(HTMLGenerator.linksSection('Website & Contact', 'fas fa-globe',
+        contactLinks, { cardClass: 'link-card website-card', external: true }));
 
-    if (window.linksData.social?.length > 0) {
-        sections.push(HTMLGenerator.linksSection('Social Media', 'fas fa-share-alt', 
-            window.linksData.social, { cardClass: 'link-card social-card', external: true }));
-    } else {
-        sections.push(HTMLGenerator.linksSection('Social Media', 'fas fa-share-alt', [], { cardClass: 'link-card social-card', external: true }));
-    }
+    // Transform social links
+    const socialLinks = window.linksData.social?.length > 0
+        ? window.linksData.social.map(link => ({
+            ...link,
+            title: getText(link.title)
+        }))
+        : [];
+    sections.push(HTMLGenerator.linksSection('Social Media', 'fas fa-share-alt',
+        socialLinks, { cardClass: 'link-card social-card', external: true }));
 
-  
-    if (window.linksData.portfolio?.length > 0) {
-        sections.push(HTMLGenerator.linksSection('Portfolio', 'fas fa-briefcase', 
-            window.linksData.portfolio, { cardClass: 'link-card portfolio-card', external: false }));
-    } else {
-        sections.push(HTMLGenerator.linksSection('Portfolio', 'fas fa-briefcase', [], { cardClass: 'link-card portfolio-card', external: false }));
-    }
+    // Transform portfolio links
+    const portfolioLinks = window.linksData.portfolio?.length > 0
+        ? window.linksData.portfolio.map(link => ({
+            ...link,
+            title: getText(link.title)
+        }))
+        : [];
+    sections.push(HTMLGenerator.linksSection('Portfolio', 'fas fa-briefcase',
+        portfolioLinks, { cardClass: 'link-card portfolio-card', external: false }));
 
     linksContainer.innerHTML = sections.join('');
     animateElements([

@@ -12,7 +12,10 @@ window.projectCategories = [
 window.projectsData = [
     {
         name: "PhotoVoca",
-        description: "撮って、見て、覚える、新感覚の英語学習アプリ",
+        description: {
+            en: "A revolutionary English learning app: snap, see, and memorize",
+            ja: "撮って、見て、覚える、新感覚の英語学習アプリ"
+        },
         categories: ["App Development"],
         githubUrl: "https://github.com/rayramy04/photovoca",
         liveUrl: null,
@@ -20,7 +23,10 @@ window.projectsData = [
     },
     {
         name: "LinkCard",
-        description: "バニラJSで実装した超軽量リンク集ページ",
+        description: {
+            en: "Ultra-lightweight link collection page built with vanilla JavaScript",
+            ja: "バニラJSで実装した超軽量リンク集ページ"
+        },
         categories: ["Web Development"],
         githubUrl: "https://github.com/rayramy04/linkcard",
         liveUrl: "https://rayramy04.github.io/linkcard/",
@@ -28,7 +34,10 @@ window.projectsData = [
     },
     {
         name: "PressyAI",
-        description: "AIが自動でプレスリリースを生成してくれる企業向けウェブサービス",
+        description: {
+            en: "AI-powered web service that automatically generates press releases for businesses",
+            ja: "AIが自動でプレスリリースを生成してくれる企業向けウェブサービス"
+        },
         categories: ["Web Development", "Backend & API", "Automation & Tools"],
         githubUrl: null,
         liveUrl: "https://pressy-ai.com/",
@@ -36,7 +45,10 @@ window.projectsData = [
     },
     {
         name: "EmotiGift",
-        description: "SNS履歴からAIが最適なギフトを分析してくれるサービス。技育CAMPハッカソン2025 vol.9優秀賞受賞。",
+        description: {
+            en: "AI-powered gift recommendation service analyzing social media history. Winner of Excellence Award at Geek CAMP Hackathon 2025 vol.9",
+            ja: "SNS履歴からAIが最適なギフトを分析してくれるサービス。技育CAMPハッカソン2025 vol.9優秀賞受賞。"
+        },
         categories: ["Web Development", "Data Science & AI", "Backend & API"],
         githubUrl: "https://github.com/rayramy04/emotigift",
         liveUrl: null,
@@ -44,7 +56,10 @@ window.projectsData = [
     },
     {
         name: "Portfolio",
-        description: "フルスクラッチで制作したポートフォリオサイト",
+        description: {
+            en: "Custom portfolio website built entirely from scratch",
+            ja: "フルスクラッチで制作したポートフォリオサイト"
+        },
         categories: ["Web Development"],
         githubUrl: "https://github.com/rayramy04/portfolio",
         liveUrl: "index.html",
@@ -52,7 +67,10 @@ window.projectsData = [
     },
     {
         name: "KoeLink",
-        description: "AIによる音声クローニング技術で英語音声を生成",
+        description: {
+            en: "AI voice cloning technology for generating English audio",
+            ja: "AIによる音声クローニング技術で英語音声を生成"
+        },
         categories: ["Automation & Tools", "Backend & API"],
         githubUrl: "https://github.com/rayramy04/koeLink",
         liveUrl: null,
@@ -60,7 +78,10 @@ window.projectsData = [
     },
     {
         name: "joai2025-solutions",
-        description: "人工知能オリンピック金賞・全国5位を獲得した際の解法コード解説",
+        description: {
+            en: "Solution code explanations from winning Gold Award and 5th place nationally at AI Olympics",
+            ja: "人工知能オリンピック金賞・全国5位を獲得した際の解法コード解説"
+        },
         categories: ["Data Science & AI"],
         githubUrl: "https://github.com/rayramy04/joai2025-solutions",
         liveUrl: "https://ray-globallife.com/joai-2025/",
@@ -68,7 +89,10 @@ window.projectsData = [
     },
     {
         name: "Go for it University Website",
-        description: "留学エージェントの大学情報サイトを構築",
+        description: {
+            en: "University information website built for a study abroad agency",
+            ja: "留学エージェントの大学情報サイトを構築"
+        },
         categories: ["Research & Others"],
         githubUrl: null,
         liveUrl: "https://university.go-for-it-malaysia.com/",
@@ -76,7 +100,10 @@ window.projectsData = [
     },
     {
         name: "家計簿Excelテンプレート",
-        description: "外貨換算機能付きシンプル家計簿を無料配布",
+        description: {
+            en: "Free simple household budget Excel template with currency conversion feature",
+            ja: "外貨換算機能付きシンプル家計簿を無料配布"
+        },
         categories: ["Automation & Tools"],
         githubUrl: null,
         liveUrl: "https://ray-globallife.com/householdaccount-template/",
@@ -84,7 +111,10 @@ window.projectsData = [
     },
     {
         name: "connect-with-me",
-        description: "Hugoで構築した高速リンク集約ページ",
+        description: {
+            en: "High-performance link aggregation page built with Hugo",
+            ja: "Hugoで構築した高速リンク集約ページ"
+        },
         categories: ["Web Development"],
         githubUrl: "https://github.com/rayramy04/connect-with-me",
         liveUrl: "https://rayramy04.github.io/connect-with-me/",
@@ -92,7 +122,10 @@ window.projectsData = [
     },
     {
         name: "Rayの海外生活ノート",
-        description: "累計750記事超/月2万PV超の、業界最大級の留学情報ブログ",
+        description: {
+            en: "Industry-leading study abroad blog with 750+ articles and 20,000+ monthly page views",
+            ja: "累計750記事超/月2万PV超の、業界最大級の留学情報ブログ"
+        },
         categories: ["Research & Others"],
         githubUrl: null,
         liveUrl: "https://ray-globallife.com/",
@@ -100,7 +133,10 @@ window.projectsData = [
     },
     {
         name: "note記事執筆・販売",
-        description: "留学情報の有料記事を執筆・販売",
+        description: {
+            en: "Writing and selling premium study abroad articles on note",
+            ja: "留学情報の有料記事を執筆・販売"
+        },
         categories: ["Research & Others"],
         githubUrl: null,
         liveUrl: "https://note.com/ll_0013py",
@@ -108,7 +144,10 @@ window.projectsData = [
     },
     {
         name: "fft-study",
-        description: "フーリエ変換を初学者向けに解説した学習サイト",
+        description: {
+            en: "Educational website explaining Fourier Transform for beginners",
+            ja: "フーリエ変換を初学者向けに解説した学習サイト"
+        },
         categories: ["Research & Others"],
         githubUrl: "https://github.com/rayramy04/fft-study",
         liveUrl: "https://rayramy04.github.io/fft-study/",
@@ -116,7 +155,10 @@ window.projectsData = [
     },
     {
         name: "YouTubeピアノチャンネル",
-        description: "登録者1.5万人超/総再生回数400万回超のピアノ・耳コピ楽譜のチャンネル",
+        description: {
+            en: "Piano cover channel with 15,000+ subscribers and 4 million+ total views",
+            ja: "登録者1.5万人超/総再生回数400万回超のピアノ・耳コピ楽譜のチャンネル"
+        },
         categories: ["Research & Others"],
         githubUrl: null,
         liveUrl: "https://www.youtube.com/@ray_pianocover",
