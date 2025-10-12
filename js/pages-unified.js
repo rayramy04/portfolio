@@ -219,7 +219,16 @@ async function initAbout() {
     if (strengthsContainer) {
         strengthsContainer.className = 'grid-2-cols gap-sm cards-equal-height card-icons-primary';
         if (window.aboutData.strengths && window.aboutData.strengths.length > 0) {
-            strengthsContainer.innerHTML = HTMLGenerator.keyStrengthsSection(window.aboutData.strengths);
+            strengthsContainer.innerHTML = window.aboutData.strengths.map(item => {
+                const highlightsList = item.highlights ?
+                    `${item.highlights.map(h => `<p>• ${getText(h)}</p>`).join('')}` : '';
+                const customDescription = `<p class="text-meta">${getText(item.description)}</p>${highlightsList}`;
+                return HTMLGenerator.unifiedCardTemplate({
+                    ...item,
+                    title: getText(item.title),
+                    description: customDescription
+                });
+            }).join('');
         } else {
             showEmptyState(strengthsContainer, {
                 type: 'strengths',

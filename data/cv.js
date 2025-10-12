@@ -672,10 +672,17 @@ window.cvData = {
     skills: [
         {
             category: {
-                en: "Programming & Development",
-                ja: "プログラミング・開発"
+                en: "Development",
+                ja: "開発"
             },
-            skills: ["Python", "JavaScript", "TypeScript", "R", "SQL", "HTML/CSS", "PHP", "React", "Next.js", "Astro", "MySQL", "Firebase", "Supabase", "Git/GitHub", "Docker", "Vercel", "Railway", "WordPress", "Dify", "Stripe", "AWS", "Linux"]
+            skills: ["Python", "JavaScript", "TypeScript", "R", "SQL", "HTML/CSS", "PHP", "React", "Next.js", "Astro", "Git/GitHub", "Docker"]
+        },
+        {
+            category: {
+                en: "Infrastructure & Services",
+                ja: "インフラ・サービス"
+            },
+            skills: ["MySQL", "Firebase", "Supabase", "Vercel", "Railway", "AWS", "Linux", "WordPress", "Dify", "Stripe"]
         },
         {
             category: {
@@ -686,8 +693,8 @@ window.cvData = {
         },
         {
             category: {
-                en: "Creative Tools",
-                ja: "クリエイティブツール"
+                en: "Creative Production",
+                ja: "クリエイティブ制作"
             },
             skills: ["MuseScore", "Sibelius", "Dorico Pro", "Logic Pro", "Final Cut Pro", "OBS Studio"]
         },
