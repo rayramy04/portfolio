@@ -914,6 +914,51 @@ h3 {
   left: 0;
 }
 
+/* Skills List - Simple format without stars */
+.skills-list {
+  line-height: 2;
+  color: var(--text-secondary);
+  font-size: var(--fs-base);
+}
+
+.skill-tag {
+  font-weight: var(--fw-medium);
+  color: var(--text-primary);
+}
+
+.skill-separator {
+  color: var(--text-secondary);
+  margin: 0 var(--space-1);
+}
+
+/* Key Strengths Styles */
+.key-strength-item {
+  padding: var(--space-4);
+}
+
+.key-strength-highlights {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-3) 0 0 0;
+}
+
+.key-strength-highlights li {
+  padding: var(--space-2) 0;
+  padding-left: var(--space-5);
+  position: relative;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.key-strength-highlights li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-weight: var(--fw-bold);
+  font-size: 1.2em;
+}
+
 /* ===== PROJECTS STYLES ===== */
 .projects-section {
   height: auto;

@@ -79,7 +79,7 @@ window.projectsData = [
     {
         name: "joai2025-solutions",
         description: {
-            en: "Solution code explanations from winning Gold Award and 5th place nationally at AI Olympics",
+            en: "Solution code explanations from winning Gold Award and 5th place nationally at AI Olympiad",
             ja: "人工知能オリンピック金賞・全国5位を獲得した際の解法コード解説"
         },
         categories: ["Data Science & AI"],

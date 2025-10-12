@@ -63,38 +63,39 @@ class HTMLGenerator {
     }
 
 
-    static skillsSection(skillsData, generateStars) {
+    static keyStrengthsSection(keyStrengthsData) {
+        if (!keyStrengthsData || keyStrengthsData.length === 0) {
+            return HTMLGenerator.emptyStateMessage();
+        }
+
+        return keyStrengthsData.map(strength => `
+            <div class="key-strength-item card hover-lift">
+                <div class="card-header">
+                    <h3><i class="${strength.icon}"></i> ${getText(strength.name)}</h3>
+                </div>
+                <ul class="key-strength-highlights">
+                    ${strength.highlights.map(highlight => `<li>${getText(highlight)}</li>`).join('')}
+                </ul>
+            </div>
+        `).join('');
+    }
+
+    static skillsSection(skillsData) {
         if (!skillsData || skillsData.length === 0) {
             return HTMLGenerator.emptyStateMessage();
         }
-        
-        return skillsData.map(category => {
-            const isSpecialized = category.category === "Specialized Skills";
-            const gridClass = isSpecialized ? "specialized-skills-grid gap-sm" : "skills-grid grid-auto-fit-compact gap-sm";
-            const itemClass = isSpecialized ? "specialized-skill-item card hover-lift" : "card hover-lift";
-            return `
+
+        return skillsData.map(category => `
             <div class="skills-category card hover-lift">
                 <h3>${category.category}</h3>
-                <div class="${gridClass}">
-                    ${category.skills.map(skill => `
-                        <div class="${itemClass}">
-                            <div class="skill-header mb-2">
-                                <p class="skill-name">${skill.name}</p>
-                                ${skill.level ? `<div class="skill-stars">${generateStars(skill.level)}</div>` : ''}
-                            </div>
-                            ${skill.description ? (isSpecialized 
-                                ? `<div class="skill-description">
-                                    <ul>
-                                        ${skill.description.map(item => `<li>${item}</li>`).join('')}
-                                    </ul>
-                                   </div>`
-                                : `<p class="skill-description-text">${skill.description.join(', ')}</p>`
-                            ) : ''}
-                        </div>
-                    `).join('')}
+                <div class="skills-list">
+                    ${category.skills.map((skill, index) => {
+                        const separator = index < category.skills.length - 1 ? ' <span class="skill-separator">•</span> ' : '';
+                        return `<span class="skill-tag">${skill}</span>${separator}`;
+                    }).join('')}
                 </div>
-            </div>`;
-        }).join('');
+            </div>
+        `).join('');
     }
 
     static projectCard(project) {
