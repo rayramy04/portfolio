@@ -8,26 +8,29 @@
 
 ---
 
-バニラHTML、CSS、JavaScriptで構築されたクリーンでレスポンシブなポートフォリオテンプレート。
+バニラHTML、CSS、JavaScriptで構築されたクリーンでレスポンシブな**バイリンガル**ポートフォリオテンプレート。
 **無料で使用可能** - フォーク、カスタマイズして、あなただけのものにしてください！
 
 **🌟 [ライブデモ](https://rayramy04.github.io/portfolio/index.html)** | **📄 [MIT ライセンス](LICENSE)**
 
 ![ポートフォリオ プレビュー](assets/og-image.jpg)
-*全デバイスに最適化されたクリーンでモダンなデザイン*
+*全デバイスに最適化されたクリーンでモダンなデザイン、英語/日本語の言語切り替え対応*
 
 ## 🎯 こんな方におすすめ
 - 初めてポートフォリオを作る学生
 - クリーンでプロフェッショナルなサイトが欲しい開発者
+- バイリンガル対応が必要な国際的なプロフェッショナル
 - 高速でカスタマイズ可能なポートフォリオが必要な方
 
 ## ✨ 主な機能
 
+- **🌐 バイリンガル** - localStorageによる言語切り替えで英語/日本語に完全対応
 - **🔧 データ駆動型** - シンプルなJavaScriptファイルでコンテンツを編集、HTMLの編集不要
+- **🎯 目的別セクション** - About（価値観）とCV（スキル）を明確に分離
 - **🎨 カスタマイズ可能** - 簡単な色テーマ設定、レスポンシブデザイン
-- **📱 モバイルファースト** - 全デバイスで美しく表示
+- **📱 モバイルファースト** - 最適化されたモバイルメニューで全デバイスで美しく表示
 - **🔍 SEO最適化** - 構造化データとメタタグを含む
-- **📄 レジュメダウンロード** - PDFを自動検出してダウンロードボタンを表示
+- **📄 レジュメダウンロード** - バイリンガルレジュメを自動検出してダウンロードボタンを表示
 - **🍴 フォーク対応** - カスタマイズを失わずに上流の更新を同期
 - **🚀 依存関係ゼロ** - 純粋なHTML/CSS/JS、どこでも動作
 
@@ -48,8 +51,9 @@ cd portfolio
 
 # 3. データファイルを編集 (下の「カスタマイズする項目」を参照)
 vim data/seo-config.js    # あなたの名前、URL、メタタグ
-vim data/about.js         # あなたのストーリー
-vim data/cv.js            # あなたの経験
+vim data/common.js        # 言語設定、SNSリンク
+vim data/about.js         # あなたのストーリーと価値観
+vim data/cv.js            # あなたの経験とスキル
 vim data/projects.js      # あなたのプロジェクト
 
 # 4. HTMLページを再生成
@@ -94,6 +98,7 @@ git add . && git commit -m "chore: personalize portfolio" && git push
 | カテゴリ | ファイル | 変更内容 |
 |----------|-------|----------------|
 | **個人情報とSEO** | `data/seo-config.js` | 名前、URL、メタディスクリプション、SNSリンク |
+| **言語と共通設定** | `data/common.js` | デフォルト言語、SNSリンク、ナビゲーション |
 | **ページコンテンツ** | `data/*.js` | About、CV、Projects、Links、ホームページ |
 | **ビジュアルテーマ** | `css/palette.css` | ブランドカラー |
 | **メディアアセット** | `assets/**` | プロフィール写真、プロジェクト画像 |
@@ -102,6 +107,41 @@ git add . && git commit -m "chore: personalize portfolio" && git push
 
 **これらは編集しないでください** (テンプレートロジック、自動同期されます):
 - `generate-pages.js`, `template-base.html`, `css/style.css`, `js/**`
+
+## 🌐 バイリンガル対応
+
+このテンプレートは英語/日本語の完全な言語サポートを含んでいます:
+
+### 言語設定
+
+`data/common.js` を編集:
+```javascript
+lang: {
+    current: 'en', // デフォルト言語: 'en' または 'ja'
+    available: ['en', 'ja']
+}
+```
+
+### バイリンガルコンテンツの追加
+
+すべてのデータファイルはバイリンガルオブジェクトをサポート:
+```javascript
+{
+    title: {
+        en: "My Project",
+        ja: "私のプロジェクト"
+    },
+    description: {
+        en: "Project description",
+        ja: "プロジェクトの説明"
+    }
+}
+```
+
+テンプレートは自動的に:
+- 選択された言語でコンテンツを表示
+- localStorageに言語設定を保存
+- ナビゲーションに言語切り替えを表示
 
 ## 🔍 検索エンジンの表示設定
 
@@ -149,32 +189,59 @@ portfolio/
 }
 ```
 
-### プロジェクトの追加
+### バイリンガルプロジェクトの追加
 
 `data/projects.js` を編集:
 ```javascript
 {
-    name: "新しいプロジェクト",
-    description: "プロジェクトの説明",
+    name: {
+        en: "My New Project",
+        ja: "新しいプロジェクト"
+    },
+    description: {
+        en: "Project description",
+        ja: "プロジェクトの説明"
+    },
     categories: ["Web Development", "AI"],
     githubUrl: "https://github.com/username/project",
     image: "assets/projects/my-project.jpg"
 }
 ```
 
-### CV（経歴）の追加
+### CV経歴の追加
 
-`data/cv.js` を編集（順序: 学歴→職歴→実績→資格→奨学金→スキル）:
+`data/cv.js` を編集:
 ```javascript
 {
-    company: "会社名",
-    position: "職種",
+    company: {
+        en: "Company Name Inc.",
+        ja: "会社名株式会社"
+    },
+    position: {
+        en: "Software Engineer",
+        ja: "ソフトウェアエンジニア"
+    },
     period: "2024.01 - Present",
-    description: "あなたが行ったことと達成したこと"
+    description: {
+        en: "What you did and achieved",
+        ja: "担当業務と成果"
+    }
 }
 ```
 
-すべてのコンテンツはJavaScriptデータファイルで管理されます - HTMLの編集は不要です！
+### About と CV: 目的の分離
+
+このテンプレートは個人的な価値観と専門的なスキルを分離しています:
+
+**About - My Strengths** (価値観と人格):
+- 「あなたは誰か」「何を大切にしているか」に焦点
+- 個人的な哲学、アプローチ、マインドセット
+- 例: 「技術で課題を解決する」「多様性を受け入れる」
+
+**CV - Key Strengths** (スキルと実績):
+- 「何ができるか」「測定可能な成果」に焦点
+- 具体的なスキル、定量的な実績
+- 例: 「データサイエンス・AI: 全国5位」「YouTube登録者15,000人以上」
 
 ### レジュメダウンロードの追加
 
@@ -214,6 +281,10 @@ node generate-pages.js  # 正しいURLでsitemap.xmlを生成
 
 **ページが更新されない？** データファイル編集後に `node generate-pages.js` を実行してください。
 
+**言語が切り替わらない？** ブラウザのlocalStorageをクリアして再読み込みしてください。
+
+**モバイルメニューでHOMEが表示されない？** これはv1.3で修正されました - フォークを同期して最新の修正を取得してください。
+
 **ヘルプが必要？** GitHubでissueを開いてください。
 
 ## 🤝 貢献
@@ -230,7 +301,7 @@ node generate-pages.js  # 正しいURLでsitemap.xmlを生成
 - 個人データではなく、テンプレートロジックの改善に焦点を当ててください
 - 変更が `.gitattributes` のマージ戦略で動作することを確認してください
 - 新機能を追加する場合はドキュメントを更新してください
-- 両方の `data/seo-config.js` バリエーションでテストしてください
+- 英語と日本語の両方のコンテンツでテストしてください
 
 ## 📄 ライセンス
 
@@ -247,5 +318,6 @@ MIT ライセンス - 個人利用・商用利用ともに無料です。
 
 ---
 
-**テンプレートバージョン**: 1.2
+**テンプレートバージョン**: 1.3
 **必要環境**: Node.js 15.0+ | ES6+とCSS Gridをサポートするモダンブラウザ
+**v1.3の新機能**: 完全なバイリンガル対応、モバイルメニュー修正、About/CV目的分離

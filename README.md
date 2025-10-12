@@ -8,26 +8,29 @@
 
 ---
 
-A clean, responsive portfolio template built with vanilla HTML, CSS, and JavaScript.
+A clean, responsive, **bilingual** portfolio template built with vanilla HTML, CSS, and JavaScript.
 **Free to use** - Fork, customize, and make it your own!
 
 **🌟 [Live Demo](https://rayramy04.github.io/portfolio/index.html)** | **📄 [MIT License](LICENSE)**
 
 ![Portfolio Preview](assets/og-image.jpg)
-*Clean, modern design optimized for all devices*
+*Clean, modern design optimized for all devices with English/Japanese language switching*
 
 ## 🎯 Perfect For
 - Students building their first portfolio
 - Developers wanting a clean, professional site
+- International professionals needing bilingual support
 - Anyone needing a fast, customizable portfolio
 
 ## ✨ Key Features
 
+- **🌐 Bilingual** - Full English/Japanese support with localStorage language switching
 - **🔧 Data-driven** - Edit content via simple JavaScript files, no HTML needed
+- **🎯 Purposeful Sections** - About (values) vs CV (skills) with clear separation
 - **🎨 Customizable** - Easy color themes, responsive design
-- **📱 Mobile-first** - Looks great on all devices
+- **📱 Mobile-first** - Looks great on all devices with optimized mobile menu
 - **🔍 SEO Optimized** - Structured data and meta tags included
-- **📄 Resume Downloads** - Auto-detects and displays resume download buttons
+- **📄 Resume Downloads** - Auto-detects and displays bilingual resume download buttons
 - **🍴 Fork-friendly** - Sync upstream updates without losing your customizations
 - **🚀 Zero Dependencies** - Pure HTML/CSS/JS, works anywhere
 
@@ -48,8 +51,9 @@ cd portfolio
 
 # 3. Edit data files (see "What to Customize" below)
 vim data/seo-config.js    # Your name, URLs, meta tags
-vim data/about.js         # Your story
-vim data/cv.js            # Your experience
+vim data/common.js        # Language settings, social links
+vim data/about.js         # Your story and values
+vim data/cv.js            # Your experience and skills
 vim data/projects.js      # Your projects
 
 # 4. Regenerate HTML pages
@@ -94,6 +98,7 @@ This is configured via `.gitattributes` with the `merge=ours` strategy.
 | Category | Files | What to Change |
 |----------|-------|----------------|
 | **Personal Info & SEO** | `data/seo-config.js` | Name, URLs, meta descriptions, social links |
+| **Language & Common** | `data/common.js` | Default language, social links, navigation |
 | **Page Content** | `data/*.js` | About, CV, projects, links, homepage |
 | **Visual Theme** | `css/palette.css` | Brand colors |
 | **Media Assets** | `assets/**` | Profile photos, project images |
@@ -102,6 +107,41 @@ This is configured via `.gitattributes` with the `merge=ours` strategy.
 
 **Don't edit these** (template logic, auto-synced):
 - `generate-pages.js`, `template-base.html`, `css/style.css`, `js/**`
+
+## 🌐 Bilingual Support
+
+This template includes full English/Japanese language support:
+
+### Language Settings
+
+Edit `data/common.js`:
+```javascript
+lang: {
+    current: 'en', // Default language: 'en' or 'ja'
+    available: ['en', 'ja']
+}
+```
+
+### Adding Bilingual Content
+
+All data files support bilingual objects:
+```javascript
+{
+    title: {
+        en: "My Project",
+        ja: "私のプロジェクト"
+    },
+    description: {
+        en: "Project description",
+        ja: "プロジェクトの説明"
+    }
+}
+```
+
+The template automatically:
+- Displays content in the selected language
+- Saves language preference to localStorage
+- Shows language switcher in navigation
 
 ## 🔍 Search Engine Visibility
 
@@ -123,7 +163,8 @@ cp robots.txt.private robots.txt
 portfolio/
 ├── data/                   # ← Edit these files
 │   ├── seo-config.js      #    Name, URLs, meta tags
-│   ├── about.js           #    Your story
+│   ├── common.js          #    Language, social links, navigation
+│   ├── about.js           #    Your story and values
 │   ├── cv.js              #    Experience & skills
 │   ├── projects.js        #    Your projects
 │   ├── links.js           #    Contact info
@@ -149,36 +190,63 @@ Edit `css/palette.css`:
 }
 ```
 
-### Add a Project
+### Add a Bilingual Project
 
 Edit `data/projects.js`:
 ```javascript
 {
-    name: "My New Project",
-    description: "Project description",
+    name: {
+        en: "My New Project",
+        ja: "新しいプロジェクト"
+    },
+    description: {
+        en: "Project description",
+        ja: "プロジェクトの説明"
+    },
     categories: ["Web Development", "AI"],
     githubUrl: "https://github.com/username/project",
     image: "assets/projects/my-project.jpg"
 }
 ```
 
-### Add CV (Experience)
+### Add CV Experience
 
-Edit `data/cv.js` (Order: Education→Experience→Awards→Certifications→Grants→Skills):
+Edit `data/cv.js`:
 ```javascript
 {
-    company: "Company Name",
-    position: "Job Title",
+    company: {
+        en: "Company Name Inc.",
+        ja: "会社名株式会社"
+    },
+    position: {
+        en: "Software Engineer",
+        ja: "ソフトウェアエンジニア"
+    },
     period: "2024.01 - Present",
-    description: "What you did and achieved"
+    description: {
+        en: "What you did and achieved",
+        ja: "担当業務と成果"
+    }
 }
 ```
 
-All content is managed through JavaScript data files - no HTML editing needed!
+### About vs CV: Purpose Separation
+
+This template separates personal values from professional skills:
+
+**About - My Strengths** (Values & Personality):
+- Focus on "who you are" and "what you value"
+- Personal philosophy, approach, mindset
+- Example: "Problem Solver with Technology", "Embracing Diversity"
+
+**CV - Key Strengths** (Skills & Achievements):
+- Focus on "what you can do" and measurable results
+- Concrete skills, quantitative achievements
+- Example: "Data Science & AI: 5th Place Nationally", "15,000+ YouTube subscribers"
 
 ### Add Resume Downloads
 
-Add resume PDFs to the `resume/` folder:
+Add bilingual resume PDFs to the `resume/` folder:
 ```bash
 mkdir resume
 # Place your files:
@@ -214,6 +282,10 @@ The sitemap uses `baseUrl` from `data/seo-config.js` and includes all pages with
 
 **Page not updating?** Run `node generate-pages.js` after editing data files.
 
+**Language not switching?** Clear browser localStorage and refresh.
+
+**Mobile menu not showing HOME?** This was fixed in v1.3 - sync your fork to get the latest fixes.
+
 **Need help?** Open an issue on GitHub.
 
 ## 🤝 Contributing
@@ -230,7 +302,7 @@ Contributions are welcome! If you have suggestions for improvements:
 - Focus on improving template logic, not personal data
 - Ensure changes work with `.gitattributes` merge strategy
 - Update documentation if adding new features
-- Test with both `data/seo-config.js` variations
+- Test with both English and Japanese content
 
 ## 📄 License
 
@@ -247,5 +319,6 @@ This template uses the following open-source resources:
 
 ---
 
-**Template Version**: 1.2
+**Template Version**: 1.3
 **Requires**: Node.js 15.0+ | Modern browser with ES6+ and CSS Grid support
+**New in 1.3**: Full bilingual support, mobile menu fixes, About/CV purpose separation
