@@ -171,7 +171,7 @@ window.cvData = {
         "2025": [
             {
                 title: {
-                    en: "L'Oréal x Monash Datathon 2025: 3rd Place",
+                    en: "3rd Place: L'Oréal x Monash Datathon 2025",
                     ja: "L'Oréal x Monash Datathon 2025: 第3位"
                 },
                 organization: "L'Oréal Malaysia & Monash University Malaysia",
@@ -197,7 +197,7 @@ window.cvData = {
                 },
             {
                 title: {
-                    en: 'RSS Hackathon 2025 Beyond "Atarimae": Excellence Award',
+                    en: 'Excellence Award: RSS Hackathon 2025 Beyond "Atarimae"',
                     ja: 'RSS Hackathon 2025 Beyond "あたりまえ"の、その先へ: 優秀賞'
                 },
                 organization: {
@@ -213,7 +213,7 @@ window.cvData = {
                 },
             {
             title: {
-                en: "Geek Camp Hackathon 2025 vol.9: Excellence Award",
+                en: "Excellence Award: Geek Camp Hackathon 2025 vol.9",
                 ja: "技育CAMPハッカソン2025 vol.9: 優秀賞"
             },
             organization: {
@@ -245,7 +245,7 @@ window.cvData = {
             },
             {
             title: {
-                en: "Japan AI Olympiad 2025: Gold Medal, 5th Place Nationally (Open Division)",
+                en: "5th Place Nationally: Japan AI Olympiad 2025 Gold Medal (Open Division)",
                 ja: "日本人工知能オリンピック2025: 金賞・全国5位（オープン枠）"
             },
             organization: {
@@ -261,7 +261,7 @@ window.cvData = {
             },
             {
             title: {
-                en: "Monash University: Academic Excellence Award, Top Scholar in Mathematics",
+                en: "Academic Excellence Award, Top Scholar in Mathematics: Monash University",
                 ja: "モナッシュ大学: 成績優秀賞・数学分野主席表彰"
             },
             organization: "Monash University Malaysia",
@@ -286,7 +286,7 @@ window.cvData = {
             },
             {
                 title: {
-                    en: "Japan Linguistics Olympiad 2025: Fighting Spirit Award (Open Division)",
+                    en: "Fighting Spirit Award: Japan Linguistics Olympiad 2025 (Open Division)",
                     ja: "日本言語学オリンピック2025: 敢闘賞（オープン枠）"
                 },
                 organization: {
@@ -319,7 +319,7 @@ window.cvData = {
         "2024": [
             {
             title: {
-                en: "Kangaroo Math Contest 2024: Silver Award (Student Categories)",
+                en: "Silver Award: Kangaroo Math Contest 2024 (Student Categories)",
                 ja: "カンガルー数学コンテスト2024: 銀賞（Student Categories）"
             },
             organization: "Kangaroo Math Malaysia",
@@ -332,7 +332,7 @@ window.cvData = {
             },
             {
             title: {
-                en: "Malaysia Computational Linguistics Olympiad 2024: Bronze Medal, Top 32 (Secondary Categories)",
+                en: "Bronze Medal, Top 32: Malaysia Computational Linguistics Olympiad 2024 (Secondary Categories)",
                 ja: "言語学オリンピックマレーシア大会2024: 銅賞・ベスト32（Secondary Categories）"
             },
             organization: "Malaysian Computational Thinking Association",
@@ -345,7 +345,7 @@ window.cvData = {
             },
             {
             title: {
-                en: "Japan Linguistics Olympiad 2024: Fighting Spirit Award (Open Division)",
+                en: "Fighting Spirit Award: Japan Linguistics Olympiad 2024 (Open Division)",
                 ja: "日本言語学オリンピック2024: 敢闘賞（オープン枠）"
             },
             organization: {
@@ -363,7 +363,7 @@ window.cvData = {
         "~2023": [
             {
             title: {
-                en: "Research Science Contest: National Grand Prize, International Competition Participant",
+                en: "National Grand Prize, International Competition Participant: Research Science Contest",
                 ja: "研究科学コンテスト: 全国最優秀賞・国際大会出場"
             },
             organization: {
@@ -378,7 +378,7 @@ window.cvData = {
             },
             {
             title: {
-                en: "Mainichi Typing Competition: 1st Dan Certification, 3rd Place Nationally in High School Division (Japanese B) and others",
+                en: "3rd Place Nationally: Mainichi Typing Competition (High School Division - Japanese B), 1st Dan Certification, and others",
                 ja: "毎日パソコン入力コンクール: 初段認定・高校生部門全国3位（和文B） ほか"
             },
             organization: {
@@ -394,7 +394,7 @@ window.cvData = {
             },
             {
             title: {
-                en: "Shogi (Japanese Chess): Eastern Japan Tournament Participant, Prefectural Tournament Team Champion & 3rd Place Individual, and others",
+                en: "Team Champion & 3rd Place Individual: Shogi (Japanese Chess) Prefectural Tournament, Eastern Japan Tournament Participant, and others",
                 ja: "将棋: 東日本大会出場、県大会 団体優勝・個人第3位 ほか"
             },
             organization: {
@@ -409,7 +409,7 @@ window.cvData = {
             },
             {
             title: {
-                en: "English Debate: Prefectural Tournament Best Debater Award (Individual) & 3rd Place (Team)",
+                en: "Best Debater Award & 3rd Place (Team): English Debate Prefectural Tournament",
                 ja: "英語ディベート: 県大会 個人ベストディベーター賞・団体第3位"
             },
             organization: {
@@ -579,11 +579,11 @@ window.cvData = {
                     ja: "数学分野主席表彰・成績優秀賞受賞"
                 },
                 {
-                    en: "Japan AI Olympiad: Gold Medal, 5th Place Nationally",
+                    en: "5th Place Nationally: Japan AI Olympiad Gold Medal",
                     ja: "日本人工知能オリンピック金賞・全国5位"
                 },
                 {
-                    en: "Kangaroo Math Contest: Silver Award (World's largest mathematics competition)",
+                    en: "Silver Award: Kangaroo Math Contest (World's largest mathematics competition)",
                     ja: "カンガルー数学コンテスト銀賞（世界最大の数学コンテスト）"
                 },
                 {
