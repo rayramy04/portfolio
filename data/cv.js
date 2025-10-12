@@ -9,7 +9,7 @@ window.cvData = {
             degree: "Bachelor of Computer Science in Data Science, School of Information Technology",
             period: "2024.07 - Present",
             description: {
-                en: "GPA 4.0 • Academic Excellence Award, Top Scholar in Mathematics • Merit scholarship",
+                en: "GPA 4.0 • Academic Excellence Award • Top Scholar in Mathematics • Merit scholarship",
                 ja: "GPA 4.0・成績優秀表彰・数学分野主席・奨学金獲得"
             }
         },
@@ -50,7 +50,7 @@ window.cvData = {
                 ja: "業務委託（公式アンバサダー）"
             },
             description: {
-                en: "Speaking at study abroad events, event management, article writing",
+                en: "Speaker at study abroad events, event management, and article writing",
                 ja: "留学関係イベントの登壇・運営・記事執筆"
             },
             url: "https://smaryu.com/"
@@ -113,7 +113,7 @@ window.cvData = {
                 ja: "インターンシップ（学生サポーター）"
             },
             description: {
-                en: "Speaking at study abroad events, event management",
+                en: "Speaker at study abroad events and event management",
                 ja: "留学関係イベントの登壇・運営"
             },
             url: "https://malaysia-ryugaku.jp/"
@@ -161,7 +161,7 @@ window.cvData = {
                 ja: "会員、業務委託（52Hz Accelerator 0期メンター）"
             },
             description: {
-                en: "Career exploration program management for junior/senior high school students, extracurricular mentor",
+                en: "Managing career exploration programs for middle and high school students, serving as extracurricular mentor",
                 ja: "中高生向け進路探求プログラム運営・課外活動メンター"
             },
             url: "https://52hz.world/"
@@ -184,7 +184,7 @@ window.cvData = {
                 },
             {
                 title: {
-                    en: "YouTube Music Channel: Reached 15,000 Subscribers",
+                    en: "15,000+ Subscribers: YouTube Music Channel",
                     ja: "YouTube音楽チャンネル: 登録者数1.5万人達成"
                 },
                 organization: "YouTube",
@@ -216,10 +216,7 @@ window.cvData = {
                 en: "Excellence Award: Geek Camp Hackathon 2025 vol.9",
                 ja: "技育CAMPハッカソン2025 vol.9: 優秀賞"
             },
-            organization: {
-                en: "Supporterz Inc.",
-                ja: "サポーターズ"
-            },
+            organization: "Supporterz Inc.",
             date: "2025.08",
             description: {
                 en: "Developed EmotiGift as a team - an AI-powered personalized gift recommendation service",
@@ -229,7 +226,7 @@ window.cvData = {
             },
             {
             title: {
-                en: "Study Abroad Blog: Over 750 Articles Published",
+                en: "750+ Articles Published: Study Abroad Blog",
                 ja: "留学ブログ: 累計750記事以上執筆"
             },
             organization: {
@@ -273,7 +270,7 @@ window.cvData = {
             },
             {
             title: {
-                en: "Malaysian Mensa: Membership",
+                en: "Membership: Malaysian Mensa",
                 ja: "Malaysian Mensa: 入会"
             },
             organization: "Malaysian Mensa",
@@ -302,8 +299,8 @@ window.cvData = {
             },
             {
             title: {
-                en: "Coming of Age Ceremony: Career Profile Exhibition",
-                ja: "20歳のつどい: 同級生応援イベント経歴掲載"
+                en: "Career Profile Exhibition: Coming of Age Ceremony (Classmate Support Event)",
+                ja: "20歳のつどい同級生応援イベント: 経歴掲載"
             },
             organization: {
                 en: "Local City Hall",
@@ -602,8 +599,8 @@ window.cvData = {
                 ja: "リサーチ・ライティング"
             },
             description: {
-                en: "Industry-leading content creation and SEO expertise with proven results",
-                ja: "業界トップクラスのコンテンツ制作とSEOの専門知識、実績あり"
+                en: "High-impact content creation and SEO expertise with proven track record",
+                ja: "業界トップクラスのコンテンツ制作とSEO専門知識、確かな実績"
             },
             icon: "fas fa-pen-nib",
             highlights: [
@@ -631,7 +628,7 @@ window.cvData = {
                 ja: "音楽・コンテンツ制作"
             },
             description: {
-                en: "Professional music production with large-scale audience engagement",
+                en: "Professional music production reaching a large audience",
                 ja: "大規模なオーディエンスを持つプロフェッショナルな音楽制作"
             },
             icon: "fas fa-music",
