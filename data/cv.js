@@ -2,7 +2,10 @@
 window.cvData = {
     education: [
         {
-            institution: "Monash University Malaysia",
+            institution: {
+                en: "Monash University Malaysia",
+                ja: "モナッシュ大学マレーシア校"
+            },
             degree: "Bachelor of Computer Science in Data Science, School of Information Technology",
             period: "2024.07 - Present",
             description: {
@@ -11,7 +14,10 @@ window.cvData = {
             }
         },
         {
-            institution: "Sunway College",
+            institution: {
+                en: "Sunway College",
+                ja: "サンウェイカレッジ"
+            },
             degree: "Monash University Foundation Year (MUFY)",
             period: "2023.07 - 2024.06",
             description: {
@@ -66,7 +72,10 @@ window.cvData = {
             url: "https://go-for-it-malaysia.com/"
         },
         {
-            company: "Self-Employed",
+            company: {
+                en: "Self-Employed",
+                ja: "個人事業"
+            },
             period: "2024.06 - 2024.11",
             position: {
                 en: "Private Tutor",
