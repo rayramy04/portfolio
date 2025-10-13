@@ -54,41 +54,41 @@ window.aboutData = {
             icon: "fas fa-bolt",
             highlights: [
                 {
-                    en: "Standardized my learning process: passed Fundamental IT Engineer Exam and Bookkeeping Certification in only 20-30% of typical study time",
-                    ja: "学習プロセスを標準化：基本情報技術者試験・簿記を通常の2-3割の学習時間で合格"
+                    en: "FE Exam & Bookkeeping in 20-30% of typical prep time",
+                    ja: "FE試験・簿記を通常の2-3割の対策時間で合格"
                 },
                 {
-                    en: "Proven track record across diverse domains: AI research (National Grand Prize), university datathon (3rd place), multiple Olympiad medals",
-                    ja: "多分野で成果：AI研究（全国最優秀賞）、大学データソン（3位）、各種オリンピックでメダル獲得"
+                    en: "AI research National Grand Prize, Datathon 3rd place, multiple Olympiad medals",
+                    ja: "AI研究全国最優秀賞、データソン3位、オリンピックメダル複数"
                 },
                 {
-                    en: "Academic excellence: GPA 4.0, merit scholarships, Mathematics Top Scholar award at world's 36th-ranked university",
-                    ja: "世界36位の大学でトップクラス成績：GPA 4.0、奨学金獲得、数学分野主席表彰"
+                    en: "GPA 4.0, scholarships, Mathematics Top Scholar (world's 36th-ranked)",
+                    ja: "GPA 4.0、奨学金、数学主席表彰（世界36位大学）"
                 }
             ]
         },
         {
             title: {
-                en: "Cross-Domain Bridge Builder",
-                ja: "領域を超えてつなぐ力"
+                en: "Global × Cross-Domain Value Creation",
+                ja: "グローバル×多領域で価値を創る"
             },
             description: {
-                en: "Excel at the intersections of Tech × Communication, Development × Business, Research × Content Creation",
-                ja: "技術×コミュニケーション、開発×ビジネス、研究×発信の交差点で活躍"
+                en: "Excel at the intersections of Tech × Business × Communication across borders",
+                ja: "技術×ビジネス×発信を国境を超えて融合し価値を創出"
             },
-            icon: "fas fa-network-wired",
+            icon: "fas fa-globe",
             highlights: [
                 {
-                    en: "Technical versatility: full-stack web development, mobile apps, data science/AI/ML through hackathons and real-world projects",
-                    ja: "技術の幅：フルスタックWeb開発、モバイルアプリ、データサイエンス/AI/MLをハッカソンや実案件で経験"
+                    en: "15+ countries, multinational teams, business-level English",
+                    ja: "15カ国以上渡航、多国籍チーム協働、英語ビジネスレベル"
                 },
                 {
-                    en: "Business execution: freelance music work, blog monetization (750+ articles), internships across tech/education/consulting",
-                    ja: "ビジネス経験：音楽フリーランス、ブログ収益化（750本以上）、技術・教育・コンサル業界インターン"
+                    en: "Full-stack web, mobile apps, data science/AI/ML (hackathons & real projects)",
+                    ja: "Web・アプリ・データサイエンス/AI/ML（ハッカソン・実案件）"
                 },
                 {
-                    en: "Communication & leadership: YouTube (15K subscribers), tutor/mentor (music/math/study abroad), multinational project collaboration",
-                    ja: "発信・指導：YouTube（登録者1.5万人）、音楽・数学講師、留学進路メンター、多国籍チーム協働"
+                    en: "Monetized blog (750+ articles), YouTube (15K subs), cross-industry internships",
+                    ja: "ブログ（750記事）・YouTube（1.5万人）収益化、複数業界インターン"
                 }
             ]
         },
@@ -104,16 +104,16 @@ window.aboutData = {
             icon: "fas fa-mountain",
             highlights: [
                 {
-                    en: "YouTube channel: grew organically from 0 to 15K subscribers (4M+ views) through years of consistent content creation",
-                    ja: "YouTube：0から登録者1.5万人まで数年かけて継続的に成長（総再生回数400万回超）"
+                    en: "YouTube: 0 → 15K subscribers, 4M+ views over years of consistency",
+                    ja: "YouTube：0→1.5万人（総再生400万回超）数年間継続"
                 },
                 {
-                    en: "Study abroad blog: scaled into an industry-leading site with 750+ articles by persistently documenting experiences",
-                    ja: "留学ブログ：マレーシア生活を記録し続け、750本以上の記事で業界最大級サイトに"
+                    en: "Study abroad blog: 750+ articles built into industry-leading site",
+                    ja: "留学ブログ：750記事以上執筆、業界最大級サイトに成長"
                 },
                 {
-                    en: "Competition success: overcame initial struggles in new fields (linguistics, AI, datathons) and ultimately earned awards",
-                    ja: "未知分野：言語学・AI・データソンなど、最初は苦戦した分野でも諦めず入賞"
+                    en: "Overcame struggles in new fields (linguistics, AI, datathons) to win awards",
+                    ja: "未知分野（言語学・AI・データソン）で苦戦も諦めず入賞"
                 }
             ]
         },
@@ -129,16 +129,16 @@ window.aboutData = {
             icon: "fas fa-comments",
             highlights: [
                 {
-                    en: "Teaching: music instructor (piano/theory), math tutor, study abroad career mentor",
-                    ja: "指導：音楽講師（ピアノ・理論）、数学家庭教師、留学進路メンター"
+                    en: "Music instructor, math tutor, study abroad mentor",
+                    ja: "音楽講師、数学家庭教師、留学進路メンター"
                 },
                 {
-                    en: "Content: 750+ blog articles on tech/study abroad/Malaysia life in plain language",
-                    ja: "発信：750本以上のブログで技術・留学・マレーシア生活を分かりやすく解説"
+                    en: "750+ blog articles on tech/study abroad in plain language",
+                    ja: "750記事以上で技術・留学を分かりやすく解説"
                 },
                 {
-                    en: "Presentation: won hackathons with storytelling, not just code—making solutions relatable",
-                    ja: "プレゼン：ハッカソンで技術だけでなくストーリーで審査員を説得"
+                    en: "Won hackathons with storytelling, not just code",
+                    ja: "ハッカソンで技術だけでなくストーリーで勝利"
                 }
             ]
         }
