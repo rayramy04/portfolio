@@ -1,44 +1,27 @@
-# ポートフォリオ ウェブサイト テンプレート
+# ポートフォリオウェブサイト テンプレート
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D15.0.0-brightgreen)](https://nodejs.org/)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
-**[🇬🇧 English README is here](README.md)**
+**[🇬🇧 English Version](README.md)**
 
 ---
 
-バニラHTML、CSS、JavaScriptで構築されたクリーンでレスポンシブな**バイリンガル**ポートフォリオテンプレート。
-**無料で使用可能** - フォーク、カスタマイズして、あなただけのものにしてください！
+バニラHTML、CSS、JavaScriptで構築された、シンプルでレスポンシブな**日英バイリンガル対応**のポートフォリオテンプレートです。自由にフォーク、カスタマイズ、デプロイできます。
 
-**🌟 [ライブデモ](https://rayramy04.github.io/portfolio/index.html)** | **📄 [MIT ライセンス](LICENSE)**
+**[🌟 デモサイト](https://rayramy04.github.io/portfolio/)** | **[📝 更新履歴](CHANGELOG.md)**
 
-![ポートフォリオ プレビュー](assets/og-image.jpg)
-*全デバイスに最適化されたクリーンでモダンなデザイン、英語/日本語の言語切り替え対応*
-
-## 🎯 こんな方におすすめ
-- 初めてポートフォリオを作る学生
-- クリーンでプロフェッショナルなサイトが欲しい開発者
-- バイリンガル対応が必要な国際的なプロフェッショナル
-- 高速でカスタマイズ可能なポートフォリオが必要な方
+![Portfolio Preview](assets/og-image.jpg)
 
 ## ✨ 主な機能
 
-- **🌐 バイリンガル** - localStorageによる言語切り替えで英語/日本語に完全対応
-- **🔧 データ駆動型** - シンプルなJavaScriptファイルでコンテンツを編集、HTMLの編集不要
-- **🎯 目的別セクション** - About（価値観）とCV（スキル）を明確に分離
-- **🎨 カスタマイズ可能** - 簡単な色テーマ設定、レスポンシブデザイン
-- **📱 モバイルファースト** - 最適化されたモバイルメニューで全デバイスで美しく表示
-- **🔍 SEO最適化** - 構造化データとメタタグを含む
-- **📄 レジュメダウンロード** - バイリンガルレジュメを自動検出してダウンロードボタンを表示
-- **🍴 フォーク対応** - カスタマイズを失わずに上流の更新を同期
-- **🚀 依存関係ゼロ** - 純粋なHTML/CSS/JS、どこでも動作
-
-## 📋 必要要件
-
-- **Node.js 15.0.0+** (`generate-pages.js` の実行に必要)
-- モダンなウェブブラウザ (Chrome 60+, Firefox 60+, Safari 12+, Edge 79+)
-- Git (クローンとバージョン管理用)
+- **🌐 バイリンガル** - 日本語/英語の完全対応、localStorageで言語設定を保持
+- **🔧 データ駆動** - JSON形式のJavaScriptファイルでコンテンツを管理
+- **📱 レスポンシブ** - モバイルファーストデザイン、全デバイス対応
+- **🚀 依存関係ゼロ** - ピュアHTML/CSS/JS、ビルド不要
+- **🔍 SEO最適化** - メタタグ、サイトマップ、構造化データ対応
+- **🎨 カスタマイズ可能** - 簡単な色テーマとコンテンツ更新
+- **🍴 フォークフレンドリー** - マージ戦略でカスタマイズを保護
 
 ## 🚀 クイックスタート
 
@@ -46,278 +29,167 @@
 # 1. GitHubでこのリポジトリをフォーク
 
 # 2. フォークをクローン
-git clone https://github.com/YOUR-USERNAME/portfolio.git
+git clone https://github.com/あなたのユーザー名/portfolio.git
 cd portfolio
 
-# 3. データファイルを編集 (下の「カスタマイズする項目」を参照)
-vim data/seo-config.js    # あなたの名前、URL、メタタグ
-vim data/common.js        # 言語設定、SNSリンク
-vim data/about.js         # あなたのストーリーと価値観
-vim data/cv.js            # あなたの経験とスキル
-vim data/projects.js      # あなたのプロジェクト
+# 3. コンテンツを編集
+vim data/seo-config.js    # 名前、URL、メタタグ
+vim data/common.js        # SNSリンク、ナビゲーション
+vim data/about.js         # 自己紹介と価値観
+vim data/cv.js            # 経歴とスキル
+vim data/projects.js      # プロジェクト
 
 # 4. HTMLページを再生成
 node generate-pages.js
 
 # 5. ローカルでテスト
-python -m http.server 8000  # http://localhost:8000 を開く
+python -m http.server 8000
+# http://localhost:8000 を開く
 
-# 6. GitHub Pages / Netlify / Vercel にデプロイ
-git add . && git commit -m "chore: personalize portfolio" && git push
+# 6. GitHub Pagesにデプロイ
+git add . && git commit -m "ポートフォリオ内容を更新" && git push
 ```
 
-## 🍴 フォーク＆同期ワークフロー
+## 📝 カスタマイズ
 
-このテンプレートは**フォーク対応** - カスタマイズを失わずに上流の更新を同期できます。
+### 編集が必要なファイル
 
-### 仕組み
+| ファイル | 用途 |
+|---------|------|
+| `data/seo-config.js` | 名前、URL、メタ情報 |
+| `data/common.js` | 言語設定、SNSリンク |
+| `data/about.js` | 自己紹介と価値観 |
+| `data/cv.js` | 職歴、スキル、実績 |
+| `data/projects.js` | プロジェクト |
+| `css/palette.css` | ブランドカラー |
+| `assets/**` | 画像を差し替え |
+| `resume/**` | `resume-ja.pdf` と `resume-en.pdf` を追加（任意） |
 
-**保護されるファイル** (あなたのもの、上書きされません):
-- `data/**` - あなたのコンテンツ
-- `css/palette.css` - あなたのカラー
-- `robots.txt` - あなたのSEO設定
-- `assets/**` - あなたの画像
-- `resume/**` - あなたのレジュメPDF
-- `content/**` - 生成されたコンテンツHTML
+### バイリンガルコンテンツの形式
 
-**自動同期されるファイル** (テンプレートロジック):
-- `generate-pages.js`, `template-base.html`, `css/style.css`, `js/**`
+すべてのデータファイルはバイリンガルオブジェクトに対応：
 
-### 更新を同期するには
-
-```bash
-# GitHubの「Sync fork」ボタンをクリック - あなたのデータは安全です！
-```
-
-これは `.gitattributes` で `merge=ours` 戦略により設定されています。
-
-## 📝 カスタマイズする項目
-
-**これらを編集** (あなたのコンテンツ、更新から保護されます):
-
-| カテゴリ | ファイル | 変更内容 |
-|----------|-------|----------------|
-| **個人情報とSEO** | `data/seo-config.js` | 名前、URL、メタディスクリプション、SNSリンク |
-| **言語と共通設定** | `data/common.js` | デフォルト言語、SNSリンク、ナビゲーション |
-| **ページコンテンツ** | `data/*.js` | About、CV、Projects、Links、ホームページ |
-| **ビジュアルテーマ** | `css/palette.css` | ブランドカラー |
-| **メディアアセット** | `assets/**` | プロフィール写真、プロジェクト画像 |
-| **レジュメファイル** | `resume/**` | `resume-ja.pdf`, `resume-en.pdf` (任意) |
-| **検索設定** | `robots.txt` | 公開/非公開の表示設定 (下記参照) |
-
-**これらは編集しないでください** (テンプレートロジック、自動同期されます):
-- `generate-pages.js`, `template-base.html`, `css/style.css`, `js/**`
-
-## 🌐 バイリンガル対応
-
-このテンプレートは英語/日本語の完全な言語サポートを含んでいます:
-
-### 言語設定
-
-`data/common.js` を編集:
-```javascript
-lang: {
-    current: 'en', // デフォルト言語: 'en' または 'ja'
-    available: ['en', 'ja']
-}
-```
-
-### バイリンガルコンテンツの追加
-
-すべてのデータファイルはバイリンガルオブジェクトをサポート:
 ```javascript
 {
     title: {
-        en: "My Project",
-        ja: "私のプロジェクト"
+        en: "Software Engineer",
+        ja: "ソフトウェアエンジニア"
     },
     description: {
-        en: "Project description",
-        ja: "プロジェクトの説明"
+        en: "Built scalable web applications",
+        ja: "スケーラブルなWebアプリケーションを構築"
     }
 }
 ```
 
-テンプレートは自動的に:
-- 選択された言語でコンテンツを表示
-- localStorageに言語設定を保存
-- ナビゲーションに言語切り替えを表示
+### 色を変更
 
-## 🔍 検索エンジンの表示設定
+`css/palette.css` を編集：
 
-あなたのポートフォリオをGoogle/Bingの検索結果に表示するかどうかを選択できます:
-
-**公開 (デフォルト)** - ほとんどのユーザーに推奨:
-```bash
-cp robots.txt.public robots.txt
+```css
+:root {
+  --color-primary: #059669;        /* ブランドカラー */
+  --color-primary-light: #34d399;
+  --color-primary-dark: #047857;
+}
 ```
 
-**非公開** - 直接リンク経由でのみアクセス可能:
+### デフォルト言語を設定
+
+`data/common.js` を編集：
+
+```javascript
+lang: {
+    current: 'ja',  // 'en' または 'ja'
+    available: ['en', 'ja']
+}
+```
+
+## 🍴 フォークと更新のワークフロー
+
+このテンプレートは `.gitattributes` で `merge=ours` 戦略を使用し、あなたのコンテンツを保護します：
+
+**保護される**（上書きされない）：
+- `data/**` - あなたのコンテンツ
+- `css/palette.css` - あなたの色
+- `assets/**` - あなたの画像
+- `resume/**` - あなたの履歴書ファイル
+
+**同期される**（テンプレートの更新）：
+- `generate-pages.js`、`template-base.html`、`js/**`、`css/style.css`
+
+**テンプレートの更新を同期：**
 ```bash
-cp robots.txt.private robots.txt
+# GitHubで：「Sync fork」ボタンをクリック
+# または手動で：
+git remote add upstream https://github.com/rayramy04/portfolio.git
+git fetch upstream
+git merge upstream/main
 ```
 
 ## 📁 プロジェクト構造
 
 ```
 portfolio/
-├── data/                   # ← これらのファイルを編集
-│   ├── seo-config.js      #    名前、URL、メタタグ
-│   ├── about.js           #    あなたのストーリー
-│   ├── cv.js              #    経験とスキル
-│   ├── projects.js        #    あなたのプロジェクト
-│   ├── links.js           #    連絡先情報
-│   └── ...
-├── assets/                # ← あなたの画像に置き換え
+├── data/              # ← コンテンツを編集
+│   ├── seo-config.js
+│   ├── common.js
+│   ├── about.js
+│   ├── cv.js
+│   └── projects.js
+├── assets/            # ← あなたの画像
 ├── css/
-│   └── palette.css        # ← ここで色をカスタマイズ
-├── generate-pages.js      # ← HTML再生成のために実行
-├── *.html                 # 生成されたページ
-└── ...                    # テンプレートファイル (編集しない)
+│   └── palette.css    # ← あなたの色
+├── resume/            # ← resume-ja.pdf, resume-en.pdf
+├── generate-pages.js  # ← HTMLを再生成
+└── *.html             # 生成されたページ
 ```
-
-## 🎨 カスタマイズの例
-
-### 色の変更
-
-`css/palette.css` を編集:
-```css
-:root {
-  --color-primary: #059669;     /* これをあなたのブランドカラーに変更 */
-  --color-primary-light: #34d399;
-  --color-primary-dark: #047857;
-}
-```
-
-### バイリンガルプロジェクトの追加
-
-`data/projects.js` を編集:
-```javascript
-{
-    name: {
-        en: "My New Project",
-        ja: "新しいプロジェクト"
-    },
-    description: {
-        en: "Project description",
-        ja: "プロジェクトの説明"
-    },
-    categories: ["Web Development", "AI"],
-    githubUrl: "https://github.com/username/project",
-    image: "assets/projects/my-project.jpg"
-}
-```
-
-### CV経歴の追加
-
-`data/cv.js` を編集:
-```javascript
-{
-    company: {
-        en: "Company Name Inc.",
-        ja: "会社名株式会社"
-    },
-    position: {
-        en: "Software Engineer",
-        ja: "ソフトウェアエンジニア"
-    },
-    period: "2024.01 - Present",
-    description: {
-        en: "What you did and achieved",
-        ja: "担当業務と成果"
-    }
-}
-```
-
-### About と CV: 目的の分離
-
-このテンプレートは個人的な価値観と専門的なスキルを分離しています:
-
-**About - My Strengths** (価値観と人格):
-- 「あなたは誰か」「何を大切にしているか」に焦点
-- 個人的な哲学、アプローチ、マインドセット
-- 例: 「技術で課題を解決する」「多様性を受け入れる」
-
-**CV - Key Strengths** (スキルと実績):
-- 「何ができるか」「測定可能な成果」に焦点
-- 具体的なスキル、定量的な実績
-- 例: 「データサイエンス・AI: 全国5位」「YouTube登録者15,000人以上」
-
-### レジュメダウンロードの追加
-
-`resume/` フォルダーにレジュメPDFを追加:
-```bash
-mkdir resume
-# ファイルを配置:
-# - resume-ja.pdf (日本語)
-# - resume-en.pdf (英語)
-```
-
-ファイルが検出されると、ホームページとCVページに自動的にダウンロードボタンが表示されます。
-
-### サイトマップの生成
-
-サイトマップはSEO設定から自動生成されます:
-
-```bash
-node generate-pages.js  # 正しいURLでsitemap.xmlを生成
-```
-
-サイトマップは `data/seo-config.js` の `baseUrl` を使用し、すべてのページを適切な優先度と変更頻度で含みます。
 
 ## 🚀 デプロイ
 
-**GitHub Pages:**
-1. GitHubにプッシュ → Settings → Pages → 有効化
-2. ソースを `main` ブランチに設定
+### GitHub Pages
 
-**その他のプラットフォーム:** Netlify、Vercel、任意の静的ホスティング - ファイルをアップロードするだけ！
+1. GitHubにプッシュ
+2. Settings → Pages に移動
+3. `main` ブランチをソースに設定 → 保存
+4. `data/seo-config.js` の `baseUrl` をGitHub PagesのURLに更新
 
-💡 デプロイ後は、`data/seo-config.js` のURLを更新することを忘れずに。
+任意の静的ホスティング（Netlify、Vercel、Cloudflare Pagesなど）で動作します。
 
-## 🐛 トラブルシューティング
+## 🔍 SEO設定
 
-**画像が表示されない？** `data/` ファイル内のファイルパスが `assets/` フォルダと一致しているか確認してください。
+`robots.txt` で検索エンジンの可視性を制御：
 
-**ページが更新されない？** データファイル編集後に `node generate-pages.js` を実行してください。
+**公開**（デフォルト）：
+```txt
+User-agent: *
+Allow: /
+```
 
-**言語が切り替わらない？** ブラウザのlocalStorageをクリアして再読み込みしてください。
+**非公開**（直接リンクのみ）：
+```txt
+User-agent: *
+Disallow: /
+```
 
-**モバイルメニューでHOMEが表示されない？** これはv1.3で修正されました - フォークを同期して最新の修正を取得してください。
+## 🤝 コントリビューション
 
-**ヘルプが必要？** GitHubでissueを開いてください。
-
-## 🤝 貢献
-
-改善の提案を歓迎します！
-
+コントリビューション歓迎！以下の手順でお願いします：
 1. リポジトリをフォーク
-2. 機能ブランチを作成 (`git checkout -b feature/AmazingFeature`)
-3. 変更をコミット (`git commit -m 'Add some AmazingFeature'`)
-4. ブランチにプッシュ (`git push origin feature/AmazingFeature`)
-5. プルリクエストを開く
-
-**注意:** これはテンプレートプロジェクトです。貢献する際は:
-- 個人データではなく、テンプレートロジックの改善に焦点を当ててください
-- 変更が `.gitattributes` のマージ戦略で動作することを確認してください
-- 新機能を追加する場合はドキュメントを更新してください
-- 英語と日本語の両方のコンテンツでテストしてください
+2. フィーチャーブランチを作成（`git checkout -b feature/新機能`）
+3. 英語と日本語の両方のコンテンツでテスト
+4. プルリクエストを送信
 
 ## 📄 ライセンス
 
-MIT ライセンス - 個人利用・商用利用ともに無料です。
+MITライセンス - 個人利用・商用利用ともに自由です。詳細は [LICENSE](LICENSE) を参照してください。
 
-## 🙏 謝辞
+## 🙏 クレジット
 
-このテンプレートは以下のオープンソースリソースを使用しています:
-
-- [Font Awesome](https://fontawesome.com/) - アイコンライブラリ
-- [Google Fonts](https://fonts.google.com/) - Poppins & Inter 書体
-- [Particles.js](https://vincentgarreau.com/particles.js/) - インタラクティブな背景アニメーション
-- [Schema.org](https://schema.org/) - 構造化データ標準
+- [Font Awesome](https://fontawesome.com/) - アイコン
+- [Google Fonts](https://fonts.google.com/) - タイポグラフィ
+- [Particles.js](https://vincentgarreau.com/particles.js/) - 背景アニメーション
 
 ---
 
-**テンプレートバージョン**: 1.3
-**必要環境**: Node.js 15.0+ | ES6+とCSS Gridをサポートするモダンブラウザ
-**v1.3の新機能**: 完全なバイリンガル対応、モバイルメニュー修正、About/CV目的分離
+**バージョン**: 1.3 | **必要環境**: Node.js 15.0+
