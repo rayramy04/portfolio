@@ -13,7 +13,7 @@ window.projectsData = [
     {
         name: "PhotoVoca",
         description: {
-            en: "A revolutionary English learning app: snap, see, and memorize",
+            en: "An innovative English learning app: snap, see, and memorize",
             ja: "撮って、見て、覚える、新感覚の英語学習アプリ"
         },
         categories: ["App Development"],
@@ -36,7 +36,7 @@ window.projectsData = [
         name: "PressyAI",
         description: {
             en: "AI-powered web service that automatically generates press releases for businesses",
-            ja: "AIが自動でプレスリリースを生成してくれる企業向けウェブサービス"
+            ja: "AIが自動でプレスリリースを生成する企業向けウェブサービス"
         },
         categories: ["Web Development", "Backend & API", "Automation & Tools"],
         githubUrl: null,
@@ -47,7 +47,7 @@ window.projectsData = [
         name: "EmotiGift",
         description: {
             en: "AI-powered gift recommendation service analyzing social media history. Winner of Excellence Award at Geek CAMP Hackathon 2025 vol.9",
-            ja: "SNS履歴からAIが最適なギフトを分析してくれるサービス。技育CAMPハッカソン2025 vol.9優秀賞受賞。"
+            ja: "SNS履歴からAIが最適なギフトを分析するサービス。技育CAMPハッカソン2025 vol.9優秀賞受賞。"
         },
         categories: ["Web Development", "Data Science & AI", "Backend & API"],
         githubUrl: "https://github.com/rayramy04/emotigift",
@@ -79,7 +79,7 @@ window.projectsData = [
     {
         name: "joai2025-solutions",
         description: {
-            en: "Solution code explanations from winning Gold Award and 5th place nationally at AI Olympiad",
+            en: "Solution code and explanations from achieving Gold Award and 5th place nationally at the AI Olympiad",
             ja: "人工知能オリンピック金賞・全国5位を獲得した際の解法コード解説"
         },
         categories: ["Data Science & AI"],
@@ -129,7 +129,7 @@ window.projectsData = [
             ja: "Rayの海外生活ノート"
         },
         description: {
-            en: "Industry-leading study abroad blog with 750+ articles and 20,000+ monthly page views",
+            en: "One of the largest study abroad blogs in the industry with 750+ articles and 20,000+ monthly page views",
             ja: "累計750記事超/月2万PV超の、業界最大級の留学情報ブログ"
         },
         categories: ["Research & Others"],
@@ -168,7 +168,7 @@ window.projectsData = [
             ja: "YouTubeピアノチャンネル"
         },
         description: {
-            en: "Piano cover channel with 15,000+ subscribers and 4 million+ total views",
+            en: "Piano performance and sheet music transcription channel with 15,000+ subscribers and 4 million+ total views",
             ja: "登録者1.5万人超/総再生回数400万回超のピアノ・耳コピ楽譜のチャンネル"
         },
         categories: ["Research & Others"],

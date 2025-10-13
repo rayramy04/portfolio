@@ -2,19 +2,22 @@
 window.aboutData = {
     personal: {
         name: "Ray",
-        position: "Computer Science & Data Science Student at Monash University Malaysia",
+        position: {
+            en: "Computer Science & Data Science Student at Monash University Malaysia",
+            ja: "モナッシュ大学マレーシア校 コンピュータサイエンス・データサイエンス専攻"
+        },
         image: "assets/about-photo.jpg",
         description: [
             {
-                en: "Born in 2004. During high school, actively engaged in acoustic phonetics research, shogi (Japanese chess), and English debate, winning top prizes at national competitions and participating in international tournaments.",
+                en: "Born in 2004. During high school, I actively engaged in acoustic phonetics research, shogi (Japanese chess), and English debate, winning top prizes at national competitions and representing Japan in international tournaments.",
                 ja: "2004年生まれ。高校時代は音響音声学の研究、将棋、英語ディベートなどの課外活動に励み、全国大会で最優秀賞・努力賞を受賞し、国際大会にも出場。"
             },
             {
-                en: "After enrolling at Monash University Malaysia (Faculty of Information Technology), maintained top-tier grades and received merit-based scholarships. Also won awards at the Artificial Intelligence Olympiad and Linguistics Olympiad.",
+                en: "At Monash University Malaysia (Faculty of Information Technology), I have consistently maintained top-tier grades and was awarded merit-based scholarships. I also achieved distinctions in the Artificial Intelligence Olympiad and the Linguistics Olympiad.",
                 ja: "マレーシアのモナッシュ大学(情報学部）に進学後は、大学でトップクラスの成績を維持し、給付型奨学金を受給。人工知能オリンピックや言語学オリンピックなどでも入賞。"
             },
             {
-                en: "Simultaneously launched a study abroad information website and worked as a freelance musician, while also pursuing internships, international travel, and martial arts—constantly seeking new challenges.",
+                en: "In parallel, I launched a study-abroad information website and pursued a career as a freelance musician, while also taking on internships, international travel, and martial arts—continuously seeking new challenges.",
                 ja: "並行して、留学情報サイトの立ち上げや音楽フリーランスとしての活動も行いながら、インターンシップや海外旅行、格闘技にも取り組むなど、常に新たな挑戦を続けている。"
             }
         ]
@@ -41,101 +44,101 @@ window.aboutData = {
     strengths: [
         {
             title: {
-                en: "Problem Solver with Technology",
-                ja: "技術で課題を解決する"
+                en: "Fast Learning & Consistent Results",
+                ja: "高速学習と成果の再現性"
             },
             description: {
-                en: "I value using technology to help people and make information accessible. Passionate about translating complex ideas into clear, actionable solutions",
-                ja: "技術を使って人の役に立ち、情報をわかりやすく届けることを大切にしています"
+                en: "Master the Learn → Implement → Verify → Reflect cycle to deliver results rapidly",
+                ja: "学習→実装→検証→振り返りのサイクルで高速に成果を出す"
             },
-            icon: "fas fa-lightbulb",
+            icon: "fas fa-bolt",
             highlights: [
                 {
-                    en: "Believe technology should solve real problems and be user-friendly",
-                    ja: "技術は実際の課題を解決し、使いやすいものであるべき"
+                    en: "Standardized my learning process: passed Fundamental IT Engineer Exam and Bookkeeping Certification in only 20-30% of typical study time",
+                    ja: "学習プロセスを標準化：基本情報技術者試験・簿記を通常の2-3割の学習時間で合格"
                 },
                 {
-                    en: "Enjoy bridging the gap between technical and non-technical audiences",
-                    ja: "専門知識を誰にでもわかりやすく伝えることが好き"
+                    en: "Proven track record across diverse domains: AI research (National Grand Prize), university datathon (3rd place), multiple Olympiad medals",
+                    ja: "多分野で成果：AI研究（全国最優秀賞）、大学データソン（3位）、各種オリンピックでメダル獲得"
                 },
                 {
-                    en: "Constantly explore new tools and methods to improve efficiency",
-                    ja: "効率化のために新しいツールや手法を常に探求"
+                    en: "Academic excellence: GPA 4.0, merit scholarships, Mathematics Top Scholar award at world's 36th-ranked university",
+                    ja: "世界36位の大学でトップクラス成績：GPA 4.0、奨学金獲得、数学分野主席表彰"
                 }
             ]
         },
         {
             title: {
-                en: "Embracing Diversity",
-                ja: "多様性を受け入れる"
+                en: "Cross-Domain Bridge Builder",
+                ja: "領域を超えてつなぐ力"
             },
             description: {
-                en: "I value learning from different cultures, perspectives, and ways of thinking. Open-minded approach to understanding the world",
-                ja: "異なる文化や価値観から学び、多様な視点を大切にしています"
+                en: "Excel at the intersections of Tech × Communication, Development × Business, Research × Content Creation",
+                ja: "技術×コミュニケーション、開発×ビジネス、研究×発信の交差点で活躍"
             },
-            icon: "fas fa-globe-asia",
+            icon: "fas fa-network-wired",
             highlights: [
                 {
-                    en: "Chose to study abroad to experience diverse environments firsthand",
-                    ja: "多様な環境を体験するために海外での学びを選択"
+                    en: "Technical versatility: full-stack web development, mobile apps, data science/AI/ML through hackathons and real-world projects",
+                    ja: "技術の幅：フルスタックWeb開発、モバイルアプリ、データサイエンス/AI/MLをハッカソンや実案件で経験"
                 },
                 {
-                    en: "Value cross-cultural communication and adaptability",
-                    ja: "異文化コミュニケーションと適応力を重視"
+                    en: "Business execution: freelance music work, blog monetization (750+ articles), internships across tech/education/consulting",
+                    ja: "ビジネス経験：音楽フリーランス、ブログ収益化（750本以上）、技術・教育・コンサル業界インターン"
                 },
                 {
-                    en: "Enjoy learning languages to connect with more people",
-                    ja: "より多くの人とつながるために言語学習を楽しむ"
+                    en: "Communication & leadership: YouTube (15K subscribers), tutor/mentor (music/math/study abroad), multinational project collaboration",
+                    ja: "発信・指導：YouTube（登録者1.5万人）、音楽・数学講師、留学進路メンター、多国籍チーム協働"
                 }
             ]
         },
         {
             title: {
-                en: "Balance of Theory & Practice",
-                ja: "理論と実践のバランス"
+                en: "Persistent Until Impact",
+                ja: "成果が出るまで粘り強く"
             },
             description: {
-                en: "I believe in learning both the 'why' and the 'how'. Value understanding fundamentals while building practical skills through hands-on experience",
-                ja: "理論的な理解と実践的なスキルの両方を大切にしています"
+                en: "Demonstrate resilience by trusting the process and working consistently until results are achieved",
+                ja: "簡単には諦めない—プロセスを信じて結果が出るまで粘り強く"
             },
-            icon: "fas fa-balance-scale",
+            icon: "fas fa-mountain",
             highlights: [
                 {
-                    en: "Pursue academic excellence while applying knowledge to real projects",
-                    ja: "学術的な学びを実際のプロジェクトに応用"
+                    en: "YouTube channel: grew organically from 0 to 15K subscribers (4M+ views) through years of consistent content creation",
+                    ja: "YouTube：0から登録者1.5万人まで数年かけて継続的に成長（総再生回数400万回超）"
                 },
                 {
-                    en: "Learn by doing - iterate, fail, and improve continuously",
-                    ja: "実践を通じて学び、試行錯誤を繰り返して成長"
+                    en: "Study abroad blog: scaled into an industry-leading site with 750+ articles by persistently documenting experiences",
+                    ja: "留学ブログ：マレーシア生活を記録し続け、750本以上の記事で業界最大級サイトに"
                 },
                 {
-                    en: "Combine structured learning with self-directed exploration",
-                    ja: "体系的な学習と自主的な探求を組み合わせる"
+                    en: "Competition success: overcame initial struggles in new fields (linguistics, AI, datathons) and ultimately earned awards",
+                    ja: "未知分野：言語学・AI・データソンなど、最初は苦戦した分野でも諦めず入賞"
                 }
             ]
         },
         {
             title: {
-                en: "Action-Oriented Mindset",
-                ja: "行動を起こす姿勢"
+                en: "Communicating Technology Clearly",
+                ja: "技術を分かりやすく伝える"
             },
             description: {
-                en: "I believe in taking initiative and turning ideas into reality. Not afraid to try new things, learn from failures, and keep moving forward",
-                ja: "アイデアを形にし、新しいことに挑戦し続ける行動力を持っています"
+                en: "Translate complex technical concepts into clear, accessible explanations for any audience",
+                ja: "複雑な技術概念を誰にでも分かる明快な説明に翻訳"
             },
-            icon: "fas fa-rocket",
+            icon: "fas fa-comments",
             highlights: [
                 {
-                    en: "Start projects before they're perfect - iterate and improve along the way",
-                    ja: "完璧を待たずにプロジェクトを始め、改善を重ねる"
+                    en: "Teaching: music instructor (piano/theory), math tutor, study abroad career mentor",
+                    ja: "指導：音楽講師（ピアノ・理論）、数学家庭教師、留学進路メンター"
                 },
                 {
-                    en: "Embrace challenges as opportunities to grow and learn",
-                    ja: "挑戦を成長と学びの機会として捉える"
+                    en: "Content: 750+ blog articles on tech/study abroad/Malaysia life in plain language",
+                    ja: "発信：750本以上のブログで技術・留学・マレーシア生活を分かりやすく解説"
                 },
                 {
-                    en: "Value execution and results over just planning and theorizing",
-                    ja: "計画だけでなく、実行と成果を重視"
+                    en: "Presentation: won hackathons with storytelling, not just code—making solutions relatable",
+                    ja: "プレゼン：ハッカソンで技術だけでなくストーリーで審査員を説得"
                 }
             ]
         }
@@ -245,7 +248,7 @@ window.aboutData = {
                 ja: "旅行"
             },
             description: {
-                en: "Traveled to about 15 Asian countries. Enjoy experiencing different cultures and food exploration.",
+                en: "Traveled to around 15 countries. Enjoy experiencing different cultures and food exploration.",
                 ja: "アジア各国へ15か国ほど旅行。異文化体験と食べ歩きが好き。"
             },
             icon: "fas fa-plane"
