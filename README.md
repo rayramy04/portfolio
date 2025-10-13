@@ -125,6 +125,9 @@ This template uses `.gitattributes` with `merge=ours` strategy to protect your c
 git remote add upstream https://github.com/rayramy04/portfolio.git
 git fetch upstream
 git merge upstream/main
+
+# IMPORTANT: Regenerate HTML pages after merging
+node generate-pages.js
 ```
 
 ## Project Structure
