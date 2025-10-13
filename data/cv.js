@@ -681,8 +681,8 @@ window.cvData = {
             icon: "fas fa-tasks",
             highlights: [
                 {
-                    en: "Led multinational teams in hackathons and datathons, securing multiple awards and top placements",
-                    ja: "ハッカソンやデータソンで多国籍チームをリードし、複数の受賞・上位入賞を達成"
+                    en: "Led multinational teams in hackathons, securing multiple awards",
+                    ja: "ハッカソンなどで多国籍チームをリードし、複数の受賞を達成"
                 },
                 {
                     en: "Successfully monetized blog and music business",
