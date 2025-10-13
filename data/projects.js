@@ -11,7 +11,10 @@ window.projectCategories = [
 // Projects data configuration
 window.projectsData = [
     {
-        name: "PhotoVoca",
+        name: {
+            en: "PhotoVoca",
+            ja: "PhotoVoca"
+        },
         description: {
             en: "An innovative English learning app: snap, see, and memorize",
             ja: "撮って、見て、覚える、新感覚の英語学習アプリ"
@@ -22,7 +25,10 @@ window.projectsData = [
         image: "assets/projects/photovoca.jpg"
     },
     {
-        name: "LinkCard",
+        name: {
+            en: "LinkCard",
+            ja: "LinkCard"
+        },
         description: {
             en: "Ultra-lightweight link collection page built with vanilla JavaScript",
             ja: "バニラJSで実装した超軽量リンク集ページ"
@@ -33,7 +39,10 @@ window.projectsData = [
         image: "assets/projects/linkcard.png"
     },
     {
-        name: "PressyAI",
+        name: {
+            en: "PressyAI",
+            ja: "PressyAI"
+        },
         description: {
             en: "AI-powered web service that automatically generates press releases for businesses",
             ja: "AIが自動でプレスリリースを生成する企業向けウェブサービス"
@@ -44,7 +53,10 @@ window.projectsData = [
         image: "assets/projects/pressy-ai.jpg"
     },
     {
-        name: "EmotiGift",
+        name: {
+            en: "EmotiGift",
+            ja: "EmotiGift"
+        },
         description: {
             en: "AI-powered gift recommendation service analyzing social media history. Winner of Excellence Award at Geek CAMP Hackathon 2025 vol.9",
             ja: "SNS履歴からAIが最適なギフトを分析するサービス。技育CAMPハッカソン2025 vol.9優秀賞受賞。"
@@ -69,7 +81,10 @@ window.projectsData = [
         image: "assets/og-image.jpg"
     },
     {
-        name: "KoeLink",
+        name: {
+            en: "KoeLink",
+            ja: "KoeLink"
+        },
         description: {
             en: "AI voice cloning technology for generating English audio",
             ja: "AIによる音声クローニング技術で英語音声を生成"
@@ -80,7 +95,10 @@ window.projectsData = [
         image: "assets/projects/koelink.jpg"
     },
     {
-        name: "joai2025-solutions",
+        name: {
+            en: "joai2025-solutions",
+            ja: "joai2025-solutions"
+        },
         description: {
             en: "Solution code and explanations from achieving Gold Award and 5th place nationally at the AI Olympiad",
             ja: "人工知能オリンピック金賞・全国5位を獲得した際の解法コード解説"
@@ -119,7 +137,10 @@ window.projectsData = [
         image: "https://ray-globallife.com/wp-content/uploads/2024/01/ec64cbd14f09d56e896252de882ebac4.png"
     },
     {
-        name: "connect-with-me",
+        name: {
+            en: "connect-with-me",
+            ja: "connect-with-me"
+        },
         description: {
             en: "High-performance link aggregation page built with Hugo",
             ja: "Hugoで構築した高速リンク集約ページ"
@@ -158,7 +179,10 @@ window.projectsData = [
         image: "assets/projects/note.jpg"
     },
     {
-        name: "fft-study",
+        name: {
+            en: "fft-study",
+            ja: "fft-study"
+        },
         description: {
             en: "Educational website explaining Fourier Transform for beginners",
             ja: "フーリエ変換を初学者向けに解説した学習サイト"
