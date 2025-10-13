@@ -10,7 +10,10 @@ window.linksData = {
             icon: "fas fa-home"
         },
         {
-            title: "Contact",
+            title: {
+                en: "Contact",
+                ja: "お問い合わせ"
+            },
             url: "https://ray-globallife.com/contact/",
             icon: "fas fa-paper-plane"
         }
@@ -18,25 +21,37 @@ window.linksData = {
 
     social: [
         {
-            title: "GitHub",
+            title: {
+                en: "GitHub",
+                ja: "GitHub"
+            },
             url: "https://github.com/rayramy04",
             icon: "fab fa-github",
             username: "@rayramy04"
         },
         {
-            title: "X (Twitter)",
+            title: {
+                en: "X (Twitter)",
+                ja: "X (Twitter)"
+            },
             url: "https://x.com/rayramy04",
             icon: "fab fa-x-twitter",
             username: "@rayramy04"
         },
         {
-            title: "YouTube",
+            title: {
+                en: "YouTube",
+                ja: "YouTube"
+            },
             url: "https://youtube.com/@ray_pianocover",
             icon: "fab fa-youtube",
             username: "@ray_pianocover"
         },
         {
-            title: "note",
+            title: {
+                en: "note",
+                ja: "note"
+            },
             url: "https://note.com/ll_0013py",
             icon: "fas fa-file-alt",
             username: "@ll_0013py"
@@ -45,7 +60,10 @@ window.linksData = {
 
     portfolio: [
         {
-            title: "Portfolio",
+            title: {
+                en: "Portfolio",
+                ja: "ポートフォリオ"
+            },
             url: "index.html",
             icon: "fas fa-home",
             rightIcon: "fas fa-arrow-right"
