@@ -13,17 +13,17 @@ A clean, responsive, and **bilingual** portfolio template built with vanilla HTM
 
 ![Portfolio Preview](assets/og-image.jpg)
 
-## ✨ Features
+## Features
 
-- **🌐 Bilingual** - Full English/Japanese support with localStorage
-- **🔧 Data-driven** - Edit content via JSON-like JavaScript files
-- **📱 Responsive** - Mobile-first design, works on all devices
-- **🚀 Zero Dependencies** - Pure HTML/CSS/JS, no build step required
-- **🔍 SEO Optimized** - Meta tags, sitemap, structured data
-- **🎨 Customizable** - Easy color themes and content updates
-- **🍴 Fork-friendly** - Merge strategy protects your customizations
+- **Bilingual** - Full English/Japanese support with localStorage
+- **Data-driven** - Edit content via JSON-like JavaScript files
+- **Responsive** - Mobile-first design, works on all devices
+- **Zero Dependencies** - Pure HTML/CSS/JS, no build step required
+- **SEO Optimized** - Meta tags, sitemap, structured data
+- **Customizable** - Easy color themes and content updates
+- **Fork-friendly** - Merge strategy protects your customizations
 
-## 🚀 Quick Start
+## Quick Start
 
 ```bash
 # 1. Fork this repository on GitHub
@@ -50,7 +50,7 @@ python -m http.server 8000
 git add . && git commit -m "Update portfolio content" && git push
 ```
 
-## 📝 Customization
+## Customization
 
 ### Essential Files to Edit
 
@@ -105,7 +105,7 @@ lang: {
 }
 ```
 
-## 🍴 Fork & Update Workflow
+## Fork & Update Workflow
 
 This template uses `.gitattributes` with `merge=ours` strategy to protect your content:
 
@@ -127,7 +127,7 @@ git fetch upstream
 git merge upstream/main
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 portfolio/
@@ -145,7 +145,7 @@ portfolio/
 └── *.html             # Generated pages
 ```
 
-## 🚀 Deployment
+## Deployment
 
 ### GitHub Pages
 
@@ -156,7 +156,7 @@ portfolio/
 
 Works on any static hosting (Netlify, Vercel, Cloudflare Pages, etc.).
 
-## 🔍 SEO Settings
+## SEO Settings
 
 Control search engine visibility with `robots.txt`:
 
@@ -172,7 +172,7 @@ User-agent: *
 Disallow: /
 ```
 
-## 🤝 Contributing
+## Contributing
 
 Contributions welcome! Please:
 1. Fork the repository
@@ -180,11 +180,11 @@ Contributions welcome! Please:
 3. Test with both English and Japanese content
 4. Submit a pull request
 
-## 📄 License
+## License
 
 MIT License - Free for personal and commercial use. See [LICENSE](LICENSE) for details.
 
-## 🙏 Credits
+## Credits
 
 - [Font Awesome](https://fontawesome.com/) - Icons
 - [Google Fonts](https://fonts.google.com/) - Typography
