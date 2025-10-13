@@ -84,7 +84,7 @@ class PageBase {
             if (footerSocial && window.commonData?.socialLinks) {
                 const socialHTML = window.commonData.socialLinks
                     .map(social => `
-                        <a href="${social.url}" target="_blank" title="${social.title}">
+                        <a href="${social.url}" target="_blank" title="${typeof getText === 'function' ? getText(social.title) : social.title}">
                             <i class="${social.icon}"></i>
                         </a>
                     `)
