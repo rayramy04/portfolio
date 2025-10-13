@@ -55,7 +55,10 @@ window.projectsData = [
         image: "assets/projects/emotigift.jpg"
     },
     {
-        name: "Portfolio",
+        name: {
+            en: "Portfolio Website",
+            ja: "ポートフォリオサイト"
+        },
         description: {
             en: "Custom portfolio website built entirely from scratch",
             ja: "フルスクラッチで制作したポートフォリオサイト"
@@ -88,7 +91,10 @@ window.projectsData = [
         image: "https://ray-globallife.com/wp-content/uploads/2025/05/7af774535ccbc012f22e592c5c928ec0.jpg"
     },
     {
-        name: "Go for it University Website",
+        name: {
+            en: "Go for it University Website",
+            ja: "Go for it 大学情報サイト"
+        },
         description: {
             en: "University information website built for a study abroad agency",
             ja: "留学エージェントの大学情報サイトを構築"
