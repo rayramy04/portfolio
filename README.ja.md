@@ -125,6 +125,9 @@ lang: {
 git remote add upstream https://github.com/rayramy04/portfolio.git
 git fetch upstream
 git merge upstream/main
+
+# 重要：マージ後にHTMLページを再生成
+node generate-pages.js
 ```
 
 ## プロジェクト構造
