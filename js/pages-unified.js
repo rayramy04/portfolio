@@ -326,6 +326,8 @@ async function initCV() {
     // Transform grants data
     const grantsData = window.cvData.grants.map(item => ({
         ...item,
+        title: getText(item.title),
+        organization: getText(item.organization),
         description: getText(item.description)
     }));
     initContainer('grants-container', grantsData, HTMLGenerator.grantItem, {

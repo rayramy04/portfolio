@@ -6,7 +6,10 @@ window.cvData = {
                 en: "Monash University Malaysia",
                 ja: "モナッシュ大学マレーシア校"
             },
-            degree: "Bachelor of Computer Science in Data Science, School of Information Technology",
+            degree: {
+                en: "Bachelor of Computer Science in Data Science, School of Information Technology",
+                ja: "情報学部 コンピュータサイエンス・データサイエンス学士課程"
+            },
             period: "2024.07 - Present",
             description: {
                 en: "GPA 4.0 • Academic Excellence Award • Top Scholar in Mathematics • Merit scholarship",
@@ -18,7 +21,10 @@ window.cvData = {
                 en: "Sunway College",
                 ja: "サンウェイカレッジ"
             },
-            degree: "Monash University Foundation Year (MUFY)",
+            degree: {
+                en: "Monash University Foundation Year (MUFY)",
+                ja: "モナッシュ大学基礎課程（MUFY）"
+            },
             period: "2023.07 - 2024.06",
             description: {
                 en: "GPA 4.0 (WAM 93.25%) • Dean's list • Merit scholarship",
@@ -50,14 +56,14 @@ window.cvData = {
                 ja: "業務委託（公式アンバサダー）"
             },
             description: {
-                en: "Speaker at study abroad events, event management, and article writing",
+                en: "Speaking at study abroad events, event management, and article writing",
                 ja: "留学関係イベントの登壇・運営・記事執筆"
             },
             url: "https://smaryu.com/"
         },
         {
             company: {
-                en: "GFI Education, Inc. (Go for it)",
+                en: "GFI Educations Co., Ltd. (Go for it)",
                 ja: "株式会社GFIエデュケーションズ（Go for it）"
             },
             period: "2024.09 - Present",
@@ -113,7 +119,7 @@ window.cvData = {
                 ja: "インターンシップ（学生サポーター）"
             },
             description: {
-                en: "Speaker at study abroad events and event management",
+                en: "Speaking at study abroad events and event management",
                 ja: "留学関係イベントの登壇・運営"
             },
             url: "https://malaysia-ryugaku.jp/"
@@ -161,7 +167,7 @@ window.cvData = {
                 ja: "会員、業務委託（52Hz Accelerator 0期メンター）"
             },
             description: {
-                en: "Managing career exploration programs for middle and high school students, serving as extracurricular mentor",
+                en: "Managing career exploration programs for middle and high school students, serving as an extracurricular mentor",
                 ja: "中高生向け進路探求プログラム運営・課外活動メンター"
             },
             url: "https://52hz.world/"
@@ -174,7 +180,10 @@ window.cvData = {
                     en: "3rd Place: L'Oréal x Monash Datathon 2025",
                     ja: "L'Oréal x Monash Datathon 2025: 第3位"
                 },
-                organization: "L'Oréal Malaysia & Monash University Malaysia",
+                organization: {
+                en: "L'Oréal Malaysia & Monash University Malaysia",
+                ja: "L'Oréal Malaysia & Monash University Malaysia"
+            },
                 date: "2025.10",
                 description: {
                     en: "Achieved 3rd place as a team among over 500 entries in the datathon",
@@ -187,7 +196,10 @@ window.cvData = {
                     en: "15,000+ Subscribers: YouTube Music Channel",
                     ja: "YouTube音楽チャンネル: 登録者数1.5万人達成"
                 },
-                organization: "YouTube",
+                organization: {
+                    en: "YouTube",
+                    ja: "YouTube"
+                },
                 date: "2025.09",
                 description: {
                     en: "Piano performance and sheet music videos (over 4 million total views)",
@@ -201,7 +213,7 @@ window.cvData = {
                     ja: 'RSS Hackathon 2025 Beyond "あたりまえ"の、その先へ: 優秀賞'
                 },
                 organization: {
-                    en: "Reiss System Solutions, Inc.",
+                    en: "Race System Solutions, Inc.",
                     ja: "レイスシステムソリューションズ株式会社"
                 },
                 date: "2025.09",
@@ -216,7 +228,10 @@ window.cvData = {
                 en: "Excellence Award: Geek Camp Hackathon 2025 vol.9",
                 ja: "技育CAMPハッカソン2025 vol.9: 優秀賞"
             },
-            organization: "Supporterz Inc.",
+            organization: {
+                en: "Supporterz Inc.",
+                ja: "サポーターズ株式会社"
+            },
             date: "2025.08",
             description: {
                 en: "Developed EmotiGift as a team - an AI-powered personalized gift recommendation service",
@@ -261,7 +276,10 @@ window.cvData = {
                 en: "Academic Excellence Award, Top Scholar in Mathematics: Monash University",
                 ja: "モナッシュ大学: 成績優秀賞・数学分野主席表彰"
             },
-            organization: "Monash University Malaysia",
+            organization: {
+                en: "Monash University Malaysia",
+                ja: "モナッシュ大学マレーシア校"
+            },
             date: "2025.04",
             description: {
                 en: "WAM approximately 90%, recognized across the School of IT and in Mathematics",
@@ -273,7 +291,10 @@ window.cvData = {
                 en: "Membership: Malaysian Mensa",
                 ja: "Malaysian Mensa: 入会"
             },
-            organization: "Malaysian Mensa",
+            organization: {
+                en: "Malaysian Mensa",
+                ja: "Malaysian Mensa"
+            },
             date: "2025.03",
             description: {
                 en: "Joined international organization for individuals in the top 2% of IQ",
@@ -283,7 +304,7 @@ window.cvData = {
             },
             {
                 title: {
-                    en: "Fighting Spirit Award: Japan Linguistics Olympiad 2025 (Open Division)",
+                    en: "Merit Award: Japan Linguistics Olympiad 2025 (Open Division)",
                     ja: "日本言語学オリンピック2025: 敢闘賞（オープン枠）"
                 },
                 organization: {
@@ -299,8 +320,8 @@ window.cvData = {
             },
             {
             title: {
-                en: "Career Profile Exhibition: Coming of Age Ceremony (Classmate Support Event)",
-                ja: "20歳のつどい同級生応援イベント: 経歴掲載"
+                en: "Featured in Coming of Age Ceremony Exhibition",
+                ja: "20歳のつどい: 同級生応援イベント経歴掲載"
             },
             organization: {
                 en: "Local City Hall",
@@ -308,7 +329,7 @@ window.cvData = {
             },
             date: "2025.01",
             description: {
-                en: "Career profile exhibited at local city hall for a limited period",
+                en: "Career profile displayed at city hall to inspire fellow graduates",
                 ja: "市役所にて一定期間の経歴展示"
             }
             }
@@ -319,7 +340,10 @@ window.cvData = {
                 en: "Silver Award: Kangaroo Math Contest 2024 (Student Categories)",
                 ja: "カンガルー数学コンテスト2024: 銀賞（Student Categories）"
             },
-            organization: "Kangaroo Math Malaysia",
+            organization: {
+                en: "Kangaroo Math Malaysia",
+                ja: "Kangaroo Math Malaysia"
+            },
             date: "2024.05",
             description: {
                 en: "World's largest mathematics competition",
@@ -332,7 +356,10 @@ window.cvData = {
                 en: "Bronze Medal, Top 32: Malaysia Computational Linguistics Olympiad 2024 (Secondary Categories)",
                 ja: "言語学オリンピックマレーシア大会2024: 銅賞・ベスト32（Secondary Categories）"
             },
-            organization: "Malaysian Computational Thinking Association",
+            organization: {
+                en: "Malaysian Computational Thinking Association",
+                ja: "Malaysian Computational Thinking Association"
+            },
             date: "2024.03",
             description: {
                 en: "Top 32 nationally in Malaysia, advanced to final tournament",
@@ -342,7 +369,7 @@ window.cvData = {
             },
             {
             title: {
-                en: "Fighting Spirit Award: Japan Linguistics Olympiad 2024 (Open Division)",
+                en: "Merit Award: Japan Linguistics Olympiad 2024 (Open Division)",
                 ja: "日本言語学オリンピック2024: 敢闘賞（オープン枠）"
             },
             organization: {
@@ -364,7 +391,7 @@ window.cvData = {
                 ja: "研究科学コンテスト: 全国最優秀賞・国際大会出場"
             },
             organization: {
-                en: "General Incorporated Association Glocal Academy",
+                en: "Glocal Academy",
                 ja: "一般社団法人Glocal Academy"
             },
             date: "~2023",
@@ -424,8 +451,8 @@ window.cvData = {
     certifications: [
         {
             title: {
-                en: "Deep Learning Basic Course 2025 Spring - Matsuo Lab, The University of Tokyo",
-                ja: "東京大学 Deep Learning 基礎講座 2025 Spring: 修了"
+                en: "Deep Learning Basic Course 2025 Spring",
+                ja: "Deep Learning 基礎講座 2025 Spring: 修了"
             },
             organization: {
                 en: "Matsuo Lab, The University of Tokyo",
@@ -436,8 +463,8 @@ window.cvData = {
         },
         {
             title: {
-                en: "AI Business Insights 2025 - Matsuo Lab, The University of Tokyo",
-                ja: "東京大学AI経営講座 AI Business Insights 2025: 修了"
+                en: "AI Business Insights 2025",
+                ja: "AI経営講座 AI Business Insights 2025: 修了"
             },
             organization: {
                 en: "Matsuo Lab, The University of Tokyo",
@@ -459,7 +486,7 @@ window.cvData = {
         },
         {
             title: {
-                en: "IT Passport Examination (iPass)",
+                en: "Information Technology Passport Examination (i-Passport)",
                 ja: "ITパスポート試験（iパス）: 取得"
             },
             organization: {
@@ -470,7 +497,7 @@ window.cvData = {
         },
         {
             title: {
-                en: "Japan Chamber of Commerce and Industry Bookkeeping Test Level 3",
+                en: "Japan Chamber of Commerce and Industry Bookkeeping Test (3rd grade)",
                 ja: "日本商工会議所 簿記検定試験 3級: 取得"
             },
             organization: {
@@ -481,7 +508,7 @@ window.cvData = {
         },
         {
             title: {
-                en: "Global Consumer Intelligence 2024 Summer - Matsuo Lab, The University of Tokyo",
+                en: "Global Consumer Intelligence 2024 Summer",
                 ja: "グローバル消費インテリジェンス寄附講座 2024 Summer: 修了"
             },
             organization: {
@@ -504,17 +531,6 @@ window.cvData = {
         },
         {
             title: {
-                en: "Driver's License (Type 1, AT only)",
-                ja: "普通自動車第一種運転免許（AT限定）: 取得"
-            },
-            organization: {
-                en: "National Public Safety Commission of Japan",
-                ja: "日本国公安委員会"
-            },
-            date: "2023.05"
-        },
-        {
-            title: {
                 en: "Nagoya University MIRAI GSC Stage 2",
                 ja: "名大MIRAI GSC 第2ステージ: 修了"
             },
@@ -528,8 +544,14 @@ window.cvData = {
     ],
     grants: [
         {
-            title: "Monash High Achiever Award",
-            organization: "Monash University Malaysia",
+            title: {
+                en: "Monash High Achiever Award",
+                ja: "モナッシュ大学優秀者奨学金（Monash High Achiever Award）"
+            },
+            organization: {
+                en: "Monash University Malaysia",
+                ja: "モナッシュ大学マレーシア校"
+            },
             amount: "MYR 10,000",
             date: "2025",
             description: {
@@ -538,8 +560,14 @@ window.cvData = {
             }
         },
         {
-            title: "Monash High Achiever Award",
-            organization: "Monash University Malaysia",
+            title: {
+                en: "Monash High Achiever Award",
+                ja: "モナッシュ大学優秀者奨学金（Monash High Achiever Award）"
+            },
+            organization: {
+                en: "Monash University Malaysia",
+                ja: "モナッシュ大学マレーシア校"
+            },
             amount: "MYR 10,000",
             date: "2024",
             description: {
@@ -548,8 +576,14 @@ window.cvData = {
             }
         },
         {
-            title: "Pre-U Bursary for Overseas Qualification",
-            organization: "Sunway College",
+            title: {
+                en: "Pre-U Bursary for Overseas Qualification",
+                ja: "海外資格取得者向け奨学金（Pre-U Bursary for Overseas Qualification）"
+            },
+            organization: {
+                en: "Sunway College",
+                ja: "サンウェイカレッジ"
+            },
             amount: "MYR 5,000",
             date: "2023",
             description: {
@@ -572,12 +606,8 @@ window.cvData = {
             icon: "fas fa-brain",
             highlights: [
                 {
-                    en: "Majoring in Computer Science and Data Science at Monash University",
-                    ja: "モナッシュ大学でコンピュータサイエンス・データサイエンス専攻"
-                },
-                {
-                    en: "Top Scholar in Mathematics, Academic Excellence Award",
-                    ja: "数学分野主席表彰・成績優秀賞受賞"
+                    en: "Recognized as Top Scholar in Mathematics, Academic Excellence Award (GPA 4.0, merit scholarships)",
+                    ja: "数学分野主席表彰・成績優秀賞受賞（GPA 4.0、奨学金獲得）"
                 },
                 {
                     en: "5th Place Nationally: Japan AI Olympiad Gold Medal",
@@ -586,10 +616,6 @@ window.cvData = {
                 {
                     en: "Silver Award: Kangaroo Math Contest (World's largest mathematics competition)",
                     ja: "カンガルー数学コンテスト銀賞（世界最大の数学コンテスト）"
-                },
-                {
-                    en: "Completed multiple AI courses from Matsuo Lab at The University of Tokyo",
-                    ja: "東京大学松尾研究室AI講座複数修了"
                 }
             ]
         },
@@ -613,12 +639,8 @@ window.cvData = {
                     ja: "1か月でAdSense合格（合格率4%以下）"
                 },
                 {
-                    en: "Secured multiple advertising partnerships",
-                    ja: "複数の広告案件を獲得"
-                },
-                {
-                    en: "Multiple national awards in research paper contests during high school",
-                    ja: "高校時代の研究論文コンテストで全国入賞多数"
+                    en: "Secured multiple advertising partnerships and monetized content",
+                    ja: "複数の広告案件を獲得しコンテンツを収益化"
                 }
             ]
         },
@@ -638,10 +660,6 @@ window.cvData = {
                     ja: "YouTube登録者数1.5万人超・総再生回数400万回超"
                 },
                 {
-                    en: "Transcription ability: Up to 6-note chords by ear",
-                    ja: "6音程度まで聴音（耳コピ）可能"
-                },
-                {
                     en: "Sheet music sales and custom transcription services",
                     ja: "楽譜販売・オーダーメイド楽譜制作"
                 },
@@ -657,45 +675,42 @@ window.cvData = {
                 ja: "プロジェクトマネジメント"
             },
             description: {
-                en: "Cross-industry experience with proven ability to monetize projects",
-                ja: "複数業界での経験とプロジェクト収益化の実績"
+                en: "Cross-industry experience with proven ability to lead teams and monetize projects",
+                ja: "チームリーダーシップとプロジェクト収益化の実績"
             },
             icon: "fas fa-tasks",
             highlights: [
                 {
-                    en: "Internship experience across multiple industries (Education, IT, Media)",
-                    ja: "複数業界でのインターンシップ経験（教育・IT・メディア）"
+                    en: "Led multinational teams in hackathons and datathons, securing multiple awards and top placements",
+                    ja: "ハッカソンやデータソンで多国籍チームをリードし、複数の受賞・上位入賞を達成"
                 },
                 {
                     en: "Successfully monetized blog and music business",
                     ja: "ブログ運営・音楽事業を収益化"
                 },
                 {
-                    en: "Mentored junior/senior high school students at 52Hz Accelerator",
-                    ja: "52Hz Acceleratorで中高生のメンター経験"
-                },
-                {
-                    en: "Community management and support operations experience",
-                    ja: "コミュニティ運営・サポート業務を担当"
+                    en: "Internship and mentoring experience across Education, IT, and Media industries",
+                    ja: "教育・IT・メディア業界でのインターンシップ・メンター経験"
                 }
             ]
         }
     ],
     // Technical Skills - Simple list format without star ratings
+    // Ordered by proficiency level (based on historical self-assessment)
     skills: [
         {
             category: {
                 en: "Development",
                 ja: "開発"
             },
-            skills: ["Python", "JavaScript", "TypeScript", "R", "SQL", "HTML/CSS", "PHP", "React", "Next.js", "Astro", "Git/GitHub", "Docker"]
+            skills: ["Python", "R", "SQL", "JavaScript", "React", "Next.js", "TypeScript", "Astro", "PHP", "HTML/CSS", "Git/GitHub", "Docker"]
         },
         {
             category: {
                 en: "Infrastructure & Services",
                 ja: "インフラ・サービス"
             },
-            skills: ["MySQL", "Firebase", "Supabase", "Vercel", "Railway", "AWS", "Linux", "WordPress", "Dify", "Stripe"]
+            skills: ["MySQL", "Firebase", "Supabase", "Vercel", "Railway", "Stripe", "Linux", "Dify", "WordPress"]
         },
         {
             category: {
@@ -709,7 +724,7 @@ window.cvData = {
                 en: "Creative Production",
                 ja: "クリエイティブ制作"
             },
-            skills: ["MuseScore", "Sibelius", "Dorico Pro", "Logic Pro", "Final Cut Pro", "OBS Studio"]
+            skills: ["MuseScore", "Sibelius", "Dorico Pro", "OBS Studio", "Logic Pro", "Final Cut Pro"]
         },
         {
             category: {

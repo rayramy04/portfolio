@@ -129,23 +129,23 @@ class HTMLGenerator {
     }
 
     static profileCard(personalData) {
-        const description = Array.isArray(personalData.description) 
+        const description = Array.isArray(personalData.description)
             ? personalData.description.map(p => `<p>${p}</p>`).join('')
             : `<p>${personalData.description}</p>`;
-        
-        const imageContent = personalData.image 
-            ? `<img src="${personalData.image}" alt="${personalData.name}" class="about-photo">` 
+
+        const imageContent = personalData.image
+            ? `<img src="${personalData.image}" alt="${personalData.name}" class="about-photo">`
             : HTMLGenerator.emptyStateMessage({
                 icon: 'fas fa-image',
                 message: 'No image available',
                 className: 'no-image-message'
             });
-            
+
         return `
             <div class="about-profile-layout">
                 <div class="card hover-lift">
                     <h3>${personalData.name}</h3>
-                    <p class="text-meta">${personalData.position}</p>
+                    <p class="text-meta">${getText(personalData.position)}</p>
                     ${description}
                 </div>
                 <div class="about-image-content">
