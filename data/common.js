@@ -27,28 +27,40 @@ window.commonData = {
             name: "github", // Internal identifier (used for CSS classes)
             url: "https://github.com/rayramy04",
             username: "@rayramy04", // Display username/handle
-            title: "GitHub", // Human-readable platform name
+            title: {
+                en: "GitHub",
+                ja: "GitHub"
+            },
             icon: "fab fa-github" // FontAwesome icon class
         },
         {
             name: "twitter",
             url: "https://x.com/rayramy04",
             username: "@rayramy04",
-            title: "X (Twitter)",
+            title: {
+                en: "X (Twitter)",
+                ja: "X (Twitter)"
+            },
             icon: "fab fa-twitter"
         },
         {
             name: "note",
             url: "https://note.com/ll_0013py",
             username: "@ll_0013py",
-            title: "note",
+            title: {
+                en: "note",
+                ja: "note"
+            },
             icon: "fas fa-pen-nib"
         },
         {
             name: "youtube",
             url: "https://www.youtube.com/@ray_pianocover",
             username: "@ray_pianocover",
-            title: "YouTube",
+            title: {
+                en: "YouTube",
+                ja: "YouTube"
+            },
             icon: "fab fa-youtube"
         }
     ],
@@ -57,7 +69,10 @@ window.commonData = {
         {
             name: "Portfolio",
             url: "index.html", // Relative URL to homepage
-            title: "Portfolio",
+            title: {
+                en: "Portfolio",
+                ja: "ポートフォリオ"
+            },
             icon: "fas fa-home"
         }
     ],
