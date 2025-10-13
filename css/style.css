@@ -85,9 +85,7 @@
   flex-direction: column;
 }
 
-.cards-equal-height .card > *:last-child {
-  margin-top: auto;
-}
+/* Default: align content to top (removed margin-top: auto) */
 
 .card:last-child {
   margin-bottom: 0;
