@@ -451,6 +451,18 @@ window.cvData = {
     certifications: [
         {
             title: {
+                en: "Deep Learning Advanced Course - Deep Generative Models Summer 2025",
+                ja: "Deep Learning 応用講座 深層生成モデル 2025 Summer: 修了"
+            },
+            organization: {
+                en: "Matsuo Lab, The University of Tokyo",
+                ja: "東京大学 松尾研究室"
+            },
+            date: "2025.10",
+            link: "https://weblab.t.u-tokyo.ac.jp/lecture/course-list/deep-generative-model/"
+        },
+        {
+            title: {
                 en: "Deep Learning Basic Course 2025 Spring",
                 ja: "Deep Learning 基礎講座 2025 Spring: 修了"
             },
