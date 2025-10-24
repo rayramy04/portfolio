@@ -129,7 +129,7 @@ window.cvData = {
                 en: "coconala Inc.",
                 ja: "株式会社ココナラ"
             },
-            period: "2024.04 - Present",
+            period: "2024.03 - Present",
             position: {
                 en: "Freelancer",
                 ja: "フリーランス"
