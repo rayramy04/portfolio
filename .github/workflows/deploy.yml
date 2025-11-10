@@ -20,8 +20,109 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # 文法チェックとビルド検証
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Check JavaScript syntax
+        run: |
+          echo "Checking JavaScript files for syntax errors..."
+          find . -name "*.js" -not -path "./node_modules/*" -not -path "./.git/*" | while read file; do
+            echo "Checking $file..."
+            node --check "$file"
+          done
+          echo "✓ All JavaScript files passed syntax check"
+
+      - name: Validate JSON files
+        run: |
+          echo "Checking JSON files for syntax errors..."
+          json_files=$(find . -name "*.json" -not -path "./node_modules/*" 2>/dev/null || true)
+          if [ -n "$json_files" ]; then
+            echo "$json_files" | while read file; do
+              if [ -f "$file" ]; then
+                echo "Validating $file..."
+                if ! python3 -m json.tool "$file" > /dev/null 2>&1; then
+                  echo "Error: $file contains invalid JSON"
+                  exit 1
+                fi
+              fi
+            done
+            echo "✓ All JSON files passed validation"
+          else
+            echo "ℹ No JSON files found to validate"
+          fi
+
+      - name: Validate HTML fragments in content/
+        run: |
+          echo "Checking HTML fragments in content/ directory..."
+          for file in content/*.html; do
+            if [ -f "$file" ]; then
+              echo "Validating $file..."
+              # Check for unclosed tags (basic check)
+              if grep -q "<[^/>]*>[^<]*$" "$file" 2>/dev/null; then
+                # More sophisticated check: count opening and closing tags
+                opening=$(grep -o "<[a-zA-Z][^>]*>" "$file" | grep -v "<br" | grep -v "<img" | grep -v "<meta" | grep -v "<link" | grep -v "<input" | grep -v "<hr" | wc -l)
+                closing=$(grep -o "</[a-zA-Z][^>]*>" "$file" | wc -l)
+                if [ "$opening" -ne "$closing" ]; then
+                  echo "Warning: Potential unclosed tags in $file (opening: $opening, closing: $closing)"
+                fi
+              fi
+            fi
+          done
+          echo "✓ HTML fragments validated"
+
+      - name: Validate generated HTML files
+        run: |
+          echo "Validating generated HTML files..."
+          for file in *.html; do
+            if [ -f "$file" ] && [ "$file" != "template-base.html" ]; then
+              echo "Validating $file..."
+              # Check for basic HTML structure
+              if ! grep -q "<!DOCTYPE html>" "$file"; then
+                echo "Error: $file missing DOCTYPE declaration"
+                exit 1
+              fi
+              if ! grep -q "<html" "$file"; then
+                echo "Error: $file missing html tag"
+                exit 1
+              fi
+              if ! grep -q "</html>" "$file"; then
+                echo "Error: $file missing closing html tag"
+                exit 1
+              fi
+            fi
+          done
+          echo "✓ All generated HTML files passed validation"
+
+      - name: Run page generation test
+        run: |
+          echo "Testing page generation..."
+          node generate-pages.js
+          echo "✓ Page generation successful"
+
+      - name: Verify critical files exist
+        run: |
+          echo "Verifying critical files..."
+          for file in index.html about.html cv.html projects.html links.html; do
+            if [ ! -f "$file" ]; then
+              echo "Error: Required file $file not found"
+              exit 1
+            fi
+            echo "✓ $file exists"
+          done
+          echo "✓ All critical files verified"
+
   # ビルドとデプロイを統合
   deploy:
+    needs: check
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -29,15 +130,26 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Generate pages
+        run: |
+          echo "Generating pages for deployment..."
+          node generate-pages.js
+          echo "✓ Pages generated"
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
-        
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: '.'
-          
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
