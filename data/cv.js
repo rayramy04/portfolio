@@ -456,7 +456,7 @@ window.cvData = {
             },
             organization: {
                 en: "The Japan Institute of Mathematics Certification",
-                ja: "公益財团法人 日本数学検定協会"
+                ja: "公益財団法人 日本数学検定協会"
             },
             date: "2025.11",
             link: "https://direct.career-tasu.jp/lp/su-gaku"
