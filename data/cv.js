@@ -454,6 +454,14 @@ window.cvData = {
                 en: "Certification for Business-Oriented Mathematics Skills (CBOMS) - for Business Manager",
                 ja: "ビジネス数学検定（CBOMS） for Business Manager: 取得"
             },
+            organization: {
+                en: "The Japan Institute of Mathematics Certification",
+                ja: "公益財团法人 日本数学検定協会"
+            },
+            date: "2025.11",
+            link: "https://direct.career-tasu.jp/lp/su-gaku"
+        },
+        {
             title: {
                 en: "Deep Learning Advanced Course - Deep Generative Models Summer 2025",
                 ja: "Deep Learning 応用講座 深層生成モデル 2025 Summer: 修了"
