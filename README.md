@@ -107,28 +107,58 @@ lang: {
 
 ## Fork & Update Workflow
 
-This template uses `.gitattributes` with `merge=ours` strategy to protect your content:
+This template is designed to be **forked and kept in sync** with upstream updates.
 
-**Protected** (won't be overwritten):
-- `data/**` - Your content
-- `css/palette.css` - Your colors
+### How It Works
+
+**Your content is protected** - When you sync updates:
+- You get new template features and bug fixes
+- Your custom data, images, and colors are **never overwritten**
+- HTML pages auto-regenerate with new template + your data
+
+**Protected files** (won't be overwritten):
+- `data/**` - Your content (name, projects, experience)
+- `css/palette.css` - Your brand colors
 - `assets/**` - Your images
-- `resume/**` - Your resume files
+- `resume/**` - Your resume PDFs
 
-**Synced** (template updates):
-- `generate-pages.js`, `template-base.html`, `js/**`, `css/style.css`
+**Synced files** (receives template updates):
+- `generate-pages.js`, `template-base.html` - HTML generator
+- `js/**`, `css/style.css` - Core functionality
 
-**To sync template updates:**
+### One-Time Setup
+
+After forking, configure the merge strategy:
+
+```bash
+git config --local merge.ours.driver true
+
+# Optional: Auto-regenerate HTML after sync
+cp .github/hooks/post-merge .git/hooks/post-merge
+chmod +x .git/hooks/post-merge
+```
+
+### Syncing Template Updates
+
+**Easy way** (recommended):
+```bash
+./sync-template.sh
+```
+
+**Manual way**:
 ```bash
 # On GitHub: Click "Sync fork" button
-# Or manually:
-git remote add upstream https://github.com/rayramy04/portfolio.git
-git fetch upstream
-git merge upstream/main
+# Or via command line:
+git remote add template-upstream https://github.com/rayramy04/portfolio.git
+git fetch template-upstream
+git merge template-upstream/main
 
-# IMPORTANT: Regenerate HTML pages after merging
+# Regenerate HTML (if not using post-merge hook)
 node generate-pages.js
+git add *.html && git commit -m "Regenerate HTML after sync" && git push
 ```
+
+**For detailed setup instructions**: See [TEMPLATE_SETUP.md](TEMPLATE_SETUP.md)
 
 ## Project Structure
 

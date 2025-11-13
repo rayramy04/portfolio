@@ -1,0 +1,35 @@
+#!/bin/bash
+# ==========================================
+# POST-MERGE HOOK
+# ==========================================
+# Automatically regenerates HTML pages after merging upstream changes
+# to ensure the latest template updates are reflected in your portfolio.
+
+echo "🔄 Post-merge hook: Checking if HTML regeneration is needed..."
+
+# Check if template files were updated
+TEMPLATE_CHANGED=$(git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD | grep -E '(generate-pages\.js|template-base\.html|js/|css/style\.css)')
+
+if [ -n "$TEMPLATE_CHANGED" ]; then
+    echo "✨ Template files were updated. Regenerating HTML pages..."
+
+    # Check if Node.js is available
+    if ! command -v node &> /dev/null; then
+        echo "⚠️  Warning: Node.js is not installed. Please run 'node generate-pages.js' manually."
+        exit 0
+    fi
+
+    # Regenerate HTML pages
+    if node generate-pages.js; then
+        echo "✅ HTML pages regenerated successfully!"
+        echo "💡 Don't forget to commit the updated HTML files:"
+        echo "   git add *.html content/*.html sitemap.xml"
+        echo "   git commit -m 'Regenerate HTML after template sync'"
+    else
+        echo "❌ Error: Failed to regenerate HTML pages."
+        echo "   Please run 'node generate-pages.js' manually and fix any errors."
+        exit 1
+    fi
+else
+    echo "✓ No template files changed. Skipping HTML regeneration."
+fi
