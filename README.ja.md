@@ -107,28 +107,58 @@ lang: {
 
 ## フォークと更新のワークフロー
 
-このテンプレートは `.gitattributes` で `merge=ours` 戦略を使用し、あなたのコンテンツを保護します：
+このテンプレートは**フォークして上流の更新と同期できる**ように設計されています。
 
-**保護される**（上書きされない）：
-- `data/**` - あなたのコンテンツ
-- `css/palette.css` - あなたの色
+### 仕組み
+
+**あなたのコンテンツは保護されます** - 更新を同期すると：
+- 新しいテンプレート機能とバグ修正が適用されます
+- あなたのカスタムデータ、画像、色は**絶対に上書きされません**
+- HTMLページは新しいテンプレート + あなたのデータで自動再生成されます
+
+**保護されるファイル**（上書きされない）：
+- `data/**` - あなたのコンテンツ（名前、プロジェクト、経験）
+- `css/palette.css` - あなたのブランドカラー
 - `assets/**` - あなたの画像
-- `resume/**` - あなたの履歴書ファイル
+- `resume/**` - あなたの履歴書PDF
 
-**同期される**（テンプレートの更新）：
-- `generate-pages.js`、`template-base.html`、`js/**`、`css/style.css`
+**同期されるファイル**（テンプレートの更新を受け取る）：
+- `generate-pages.js`、`template-base.html` - HTMLジェネレーター
+- `js/**`、`css/style.css` - コア機能
 
-**テンプレートの更新を同期：**
+### 初回セットアップ
+
+フォーク後、マージ戦略を設定：
+
+```bash
+git config --local merge.ours.driver true
+
+# オプション：同期後に自動でHTMLを再生成
+cp .github/hooks/post-merge .git/hooks/post-merge
+chmod +x .git/hooks/post-merge
+```
+
+### テンプレート更新の同期
+
+**簡単な方法**（推奨）：
+```bash
+./sync-template.sh
+```
+
+**手動の方法**：
 ```bash
 # GitHubで：「Sync fork」ボタンをクリック
-# または手動で：
-git remote add upstream https://github.com/rayramy04/portfolio.git
-git fetch upstream
-git merge upstream/main
+# またはコマンドラインで：
+git remote add template-upstream https://github.com/rayramy04/portfolio.git
+git fetch template-upstream
+git merge template-upstream/main
 
-# 重要：マージ後にHTMLページを再生成
+# HTMLを再生成（post-mergeフックを使っていない場合）
 node generate-pages.js
+git add *.html && git commit -m "同期後にHTMLを再生成" && git push
 ```
+
+**詳細なセットアップ手順**: [TEMPLATE_SETUP.md](TEMPLATE_SETUP.md) を参照
 
 ## プロジェクト構造
 
