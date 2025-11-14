@@ -177,6 +177,22 @@ window.cvData = {
         "2025": [
             {
                 title: {
+                    en: "800+ Articles Published: Study Abroad Blog",
+                    ja: "留学ブログ: 累計800記事以上執筆"
+                },
+                organization: {
+                    en: "Personal Blog (Ray's Global Life Notes)",
+                    ja: "個人ブログ（Rayの海外生活ノート）"
+                },
+                date: "2025.11",
+                description: {
+                    en: "One of the largest study abroad media platforms in the industry with over 20,000 monthly page views",
+                    ja: "月2万PV超の業界最大級の規模を誇る留学メディア"
+                },
+                link: "https://ray-globallife.com/"
+                },
+            {
+                title: {
                     en: "3rd Place: L'Oréal x Monash Datathon 2025",
                     ja: "L'Oréal x Monash Datathon 2025: 第3位"
                 },
@@ -238,22 +254,6 @@ window.cvData = {
                 ja: "EmotiGift - AIが分析するパーソナライズドギフトレコメンドサービスをチームで開発"
             },
             link: "https://talent.supporterz.jp/events/98b0c3d3-a5d3-4083-b11d-48b71f97fded/"
-            },
-            {
-            title: {
-                en: "750+ Articles Published: Study Abroad Blog",
-                ja: "留学ブログ: 累計750記事以上執筆"
-            },
-            organization: {
-                en: "Personal Blog (Ray's Global Life Notes)",
-                ja: "個人ブログ（Rayの海外生活ノート）"
-            },
-            date: "2025.08",
-            description: {
-                en: "One of the largest study abroad media platforms in the industry with over 20,000 monthly page views",
-                ja: "月2万PV超の業界最大級の規模を誇る留学メディア"
-            },
-            link: "https://ray-globallife.com/"
             },
             {
             title: {
@@ -639,8 +639,8 @@ window.cvData = {
             icon: "fas fa-pen-nib",
             highlights: [
                 {
-                    en: "750+ articles published, 20,000+ monthly page views (One of the largest in the industry)",
-                    ja: "750記事以上執筆・月2万PV超（業界最大級の規模）"
+                    en: "800+ articles published, 20,000+ monthly page views (One of the largest in the industry)",
+                    ja: "800記事以上執筆・月2万PV超（業界最大級の規模）"
                 },
                 {
                     en: "Qualified for Google AdSense within 1 month (Acceptance rate below 4%)",
