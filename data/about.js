@@ -63,7 +63,7 @@ window.aboutData = {
                 },
                 {
                     en: "GPA 4.0, scholarships, Mathematics Top Scholar (world's 36th-ranked)",
-                    ja: "GPA 4.0、奨学金、数学主席表彰（世界36位大学）"
+                    ja: "GPA 4.0、奨学金、数学首席表彰（世界36位大学）"
                 }
             ]
         },
