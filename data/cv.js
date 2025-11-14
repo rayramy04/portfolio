@@ -50,7 +50,7 @@ window.cvData = {
                 en: "Reabroad, Inc. (Smaryu)",
                 ja: "株式会社リアブロード（スマ留）"
             },
-            period: "2025.05 - Present",
+            period: "2025.05 - 2025.11 (Contracted)",
             position: {
                 en: "Contracted (Official Ambassador)",
                 ja: "業務委託（公式アンバサダー）"
@@ -161,10 +161,10 @@ window.cvData = {
                 en: "General Incorporated Association 52Hz",
                 ja: "一般社団法人52Hz"
             },
-            period: "2023.04 - Present",
+            period: "2023.04 - 2024.03 (Contracted)",
             position: {
-                en: "Member, Contractor (52Hz Accelerator Gen 0 Mentor)",
-                ja: "会員、業務委託（52Hz Accelerator 0期メンター）"
+                en: "Contractor (52Hz Accelerator Gen 0 Mentor) *Currently a member",
+                ja: "業務委託（52Hz Accelerator 0期メンター） ※現在は会員"
             },
             description: {
                 en: "Managing career exploration programs for middle and high school students, serving as an extracurricular mentor",
@@ -577,23 +577,7 @@ window.cvData = {
                 ja: "モナッシュ大学マレーシア校"
             },
             amount: "MYR 10,000",
-            date: "2025",
-            description: {
-                en: "Merit scholarship - MYR 5,000 per semester (semi-annually)",
-                ja: "成績優秀者奨学金・1セメスター（半年）ごとにMYR5000支給"
-            }
-        },
-        {
-            title: {
-                en: "Monash High Achiever Award",
-                ja: "モナッシュ大学優秀者奨学金（Monash High Achiever Award）"
-            },
-            organization: {
-                en: "Monash University Malaysia",
-                ja: "モナッシュ大学マレーシア校"
-            },
-            amount: "MYR 10,000",
-            date: "2024",
+            date: "2024-2026",
             description: {
                 en: "Merit scholarship - MYR 5,000 per semester (semi-annually)",
                 ja: "成績優秀者奨学金・1セメスター（半年）ごとにMYR5000支給"
@@ -734,7 +718,7 @@ window.cvData = {
                 en: "Infrastructure & Services",
                 ja: "インフラ・サービス"
             },
-            skills: ["MySQL", "Firebase", "Supabase", "Vercel", "Railway", "Stripe", "Linux", "Dify", "WordPress"]
+            skills: ["MySQL", "Firebase", "Supabase", "AWS", "Cloudflare", "Vercel", "Railway", "Stripe", "Linux", "Dify", "WordPress"]
         },
         {
             category: {
