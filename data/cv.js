@@ -452,7 +452,7 @@ window.cvData = {
         {
             title: {
                 en: "Certification for Business-Oriented Mathematics Skills (CBOMS) - for Business Manager",
-                ja: "ビジネス数学検定（CBOMS） for Business Manager: 取得"
+                ja: "英語版ビジネス数学検定（CBOMS） for Business Manager: 取得"
             },
             organization: {
                 en: "The Japan Institute of Mathematics Certification",
