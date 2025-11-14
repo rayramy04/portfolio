@@ -156,8 +156,8 @@ window.projectsData = [
             ja: "Rayの海外生活ノート"
         },
         description: {
-            en: "One of the largest study abroad blogs in the industry with 750+ articles and 20,000+ monthly page views",
-            ja: "累計750記事超/月2万PV超の、業界最大級の留学情報ブログ"
+            en: "One of the largest study abroad blogs in the industry with 800+ articles and 20,000+ monthly page views",
+            ja: "累計800記事超/月2万PV超の、業界最大級の留学情報ブログ"
         },
         categories: ["Research & Others"],
         githubUrl: null,

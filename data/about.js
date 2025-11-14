@@ -87,8 +87,8 @@ window.aboutData = {
                     ja: "Web・アプリ・データサイエンス/AI/ML（ハッカソン・実案件）"
                 },
                 {
-                    en: "Monetized blog (750+ articles), YouTube (15K subs), cross-industry internships",
-                    ja: "ブログ（750記事）・YouTube（1.5万人）収益化、複数業界インターン"
+                    en: "Monetized blog (800+ articles), YouTube (15K subs), cross-industry internships",
+                    ja: "ブログ（800記事）・YouTube（1.5万人）収益化、複数業界インターン"
                 }
             ]
         },
@@ -108,8 +108,8 @@ window.aboutData = {
                     ja: "YouTube：0→1.5万人（総再生400万回超）数年間継続"
                 },
                 {
-                    en: "Study abroad blog: 750+ articles built into industry-leading site",
-                    ja: "留学ブログ：750記事以上執筆、業界最大級サイトに成長"
+                    en: "Study abroad blog: 800+ articles built into industry-leading site",
+                    ja: "留学ブログ：800記事以上執筆、業界最大級サイトに成長"
                 },
                 {
                     en: "Overcame struggles in new fields (linguistics, AI, datathons) to win awards",
@@ -133,8 +133,8 @@ window.aboutData = {
                     ja: "音楽講師、数学家庭教師、留学進路メンター"
                 },
                 {
-                    en: "750+ blog articles on tech/study abroad in plain language",
-                    ja: "750記事以上で技術・留学を分かりやすく解説"
+                    en: "800+ blog articles on tech/study abroad in plain language",
+                    ja: "800記事以上で技術・留学を分かりやすく解説"
                 },
                 {
                     en: "Won hackathons with storytelling, not just code",
