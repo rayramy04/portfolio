@@ -13,7 +13,7 @@ window.cvData = {
             period: "2024.07 - Present",
             description: {
                 en: "GPA 4.0 • Academic Excellence Award • Top Scholar in Mathematics • Merit scholarship",
-                ja: "GPA 4.0・成績優秀表彰・数学分野主席・奨学金獲得"
+                ja: "GPA 4.0・成績優秀表彰・数学分野首席・奨学金獲得"
             }
         },
         {
@@ -274,7 +274,7 @@ window.cvData = {
             {
             title: {
                 en: "Academic Excellence Award, Top Scholar in Mathematics: Monash University",
-                ja: "モナッシュ大学: 成績優秀賞・数学分野主席表彰"
+                ja: "モナッシュ大学: 成績優秀賞・数学分野首席表彰"
             },
             organization: {
                 en: "Monash University Malaysia",
@@ -615,7 +615,7 @@ window.cvData = {
             highlights: [
                 {
                     en: "Recognized as Top Scholar in Mathematics, Academic Excellence Award (GPA 4.0, merit scholarships)",
-                    ja: "数学分野主席表彰・成績優秀賞受賞（GPA 4.0、奨学金獲得）"
+                    ja: "数学分野首席表彰・成績優秀賞受賞（GPA 4.0、奨学金獲得）"
                 },
                 {
                     en: "5th Place Nationally: Japan AI Olympiad Gold Medal",
