@@ -68,7 +68,7 @@ window.cvData = {
             },
             period: "2024.09 - Present",
             position: {
-                en: "Internship",
+                en: "Intern",
                 ja: "インターンシップ"
             },
             description: {
@@ -99,7 +99,7 @@ window.cvData = {
             },
             period: "2024.06 - Present",
             position: {
-                en: "Internship",
+                en: "Intern",
                 ja: "インターンシップ"
             },
             description: {
@@ -115,7 +115,7 @@ window.cvData = {
             },
             period: "2024.06 - 2024.08",
             position: {
-                en: "Internship (Student Supporter)",
+                en: "Intern (Student Supporter)",
                 ja: "インターンシップ（学生サポーター）"
             },
             description: {
@@ -147,7 +147,7 @@ window.cvData = {
             },
             period: "2023.07 - Present",
             position: {
-                en: "Internship",
+                en: "Intern",
                 ja: "インターンシップ"
             },
             description: {
@@ -577,7 +577,7 @@ window.cvData = {
                 ja: "モナッシュ大学マレーシア校"
             },
             amount: "MYR 10,000",
-            date: "2024-2026",
+            date: "2024 - 2026",
             description: {
                 en: "Merit scholarship - MYR 5,000 per semester (semi-annually)",
                 ja: "成績優秀者奨学金・1セメスター（半年）ごとにMYR5000支給"
@@ -697,7 +697,7 @@ window.cvData = {
                     ja: "ブログ運営・音楽事業を収益化"
                 },
                 {
-                    en: "Internship and mentoring experience across Education, IT, and Media industries",
+                    en: "Intern and mentoring experience across Education, IT, and Media industries",
                     ja: "教育・IT・メディア業界でのインターンシップ・メンター経験"
                 }
             ]
