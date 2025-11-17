@@ -26,6 +26,12 @@ const pageScripts = {
     <script src="data/common.js"></script>
     <script src="data/about.js"></script>
     <script src="js/pages-unified.js"></script>`,
+    'summary': `    <script src="js/utils/dom-helpers.js"></script>
+    <script src="js/utils/html-generator.js"></script>
+    <script src="js/utils/data-populator.js"></script>
+    <script src="data/common.js"></script>
+    <script src="data/summary.js"></script>
+    <script src="js/pages-unified.js"></script>`,
     'cv': `    <script src="js/utils/dom-helpers.js"></script>
     <script src="js/utils/html-generator.js"></script>
     <script src="js/utils/data-populator.js"></script>
@@ -115,6 +121,7 @@ function generatePage(pageName) {
 function generateSitemap() {
     const pages = [
         { name: 'index', priority: '1.0', changefreq: 'monthly' },
+        { name: 'summary', priority: '0.85', changefreq: 'monthly' },
         { name: 'about', priority: '0.8', changefreq: 'monthly' },
         { name: 'cv', priority: '0.9', changefreq: 'monthly' },
         { name: 'projects', priority: '0.9', changefreq: 'weekly' },
@@ -154,7 +161,7 @@ function generateSitemap() {
 // MAIN
 // ==========================================
 // Generate all pages
-const pages = ['index', 'about', 'cv', 'projects', 'links'];
+const pages = ['index', 'summary', 'about', 'cv', 'projects', 'links'];
 pages.forEach(pageName => {
     generatePage(pageName);
 });

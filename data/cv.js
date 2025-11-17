@@ -257,7 +257,7 @@ window.cvData = {
             },
             {
             title: {
-                en: "5th Place Nationally: Japan AI Olympiad 2025 Gold Medal (Open Division)",
+                en: "5th Place Nationally: Japan AI Olympiad 2025 Gold Award (Open Division)",
                 ja: "日本人工知能オリンピック2025: 金賞・全国5位（オープン枠）"
             },
             organization: {
@@ -353,7 +353,7 @@ window.cvData = {
             },
             {
             title: {
-                en: "Bronze Medal, Top 32: Malaysia Computational Linguistics Olympiad 2024 (Secondary Categories)",
+                en: "Bronze Award, Top 32: Malaysia Computational Linguistics Olympiad 2024 (Secondary Categories)",
                 ja: "言語学オリンピックマレーシア大会2024: 銅賞・ベスト32（Secondary Categories）"
             },
             organization: {
@@ -618,7 +618,7 @@ window.cvData = {
                     ja: "数学分野首席表彰・成績優秀賞受賞（GPA 4.0、奨学金獲得）"
                 },
                 {
-                    en: "5th Place Nationally: Japan AI Olympiad Gold Medal",
+                    en: "5th Place Nationally: Japan AI Olympiad Gold Award",
                     ja: "日本人工知能オリンピック金賞・全国5位"
                 },
                 {

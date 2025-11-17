@@ -84,6 +84,11 @@ window.commonData = {
             icon: "fas fa-home" // FontAwesome icon for mobile/visual nav
         },
         {
+            name: "Summary",
+            href: "summary.html",
+            icon: "fas fa-file-alt"
+        },
+        {
             name: "About",
             href: "about.html",
             icon: "fas fa-user"
