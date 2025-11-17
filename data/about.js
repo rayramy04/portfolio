@@ -58,7 +58,7 @@ window.aboutData = {
                     ja: "FE試験・簿記を通常の2-3割の対策時間で合格"
                 },
                 {
-                    en: "AI research National Grand Prize, Datathon 3rd place, multiple Olympiad medals",
+                    en: "AI research National Grand Prize, Datathon 3rd place, multiple Olympiad Awards",
                     ja: "AI研究全国最優秀賞、データソン3位、オリンピックメダル複数"
                 },
                 {
