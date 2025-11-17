@@ -12,6 +12,20 @@ window.projectCategories = [
 window.projectsData = [
     {
         name: {
+            en: "Kopi Chat",
+            ja: "Kopi Chat"
+        },
+        description: {
+            en: "A student-only bulletin board for buying, selling, asking questions, and posting announcements in Malaysia",
+            ja: "物の売買や質問相談、告知ができるマレーシアの学生限定掲示板"
+        },
+        categories: ["Web Development", "App Development"],
+        githubUrl: null,
+        liveUrl: "https://kopi-chat.com/",
+        image: "assets/projects/kopi-chat.svg"
+    },
+    {
+        name: {
             en: "PhotoVoca",
             ja: "PhotoVoca"
         },
