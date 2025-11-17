@@ -36,6 +36,7 @@ cd portfolio
 vim data/seo-config.js    # Your name, URLs, meta tags
 vim data/common.js        # Social links, navigation
 vim data/about.js         # Your story and values
+vim data/summary.js       # Quick overview/summary
 vim data/cv.js            # Experience and skills
 vim data/projects.js      # Your projects
 
@@ -59,6 +60,7 @@ git add . && git commit -m "Update portfolio content" && git push
 | `data/seo-config.js` | Name, URLs, meta descriptions |
 | `data/common.js` | Language settings, social links |
 | `data/about.js` | Personal story and values |
+| `data/summary.js` | Quick overview/summary page content |
 | `data/cv.js` | Work experience, skills, achievements |
 | `data/projects.js` | Your projects |
 | `css/palette.css` | Brand colors |
@@ -168,6 +170,7 @@ portfolio/
 │   ├── seo-config.js
 │   ├── common.js
 │   ├── about.js
+│   ├── summary.js
 │   ├── cv.js
 │   └── projects.js
 ├── assets/            # ← Your images

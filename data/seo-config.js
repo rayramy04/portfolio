@@ -24,6 +24,12 @@ const seoConfig = {
             metaKeywords: "Ray, about, computer science, data science, Monash University Malaysia, AI research, international student",
             ogImage: "assets/about-photo.jpg"
         },
+        summary: {
+            title: "Summary - Ray's Portfolio",
+            metaDescription: "Quick overview of Ray's education, experience, awards, and skills. Computer Science & Data Science student at Monash University Malaysia with AI/ML expertise.",
+            metaKeywords: "Ray, summary, overview, computer science, data science, AI, education, experience, awards",
+            ogImage: "assets/profile.jpg"
+        },
         cv: {
             title: "CV - Ray's Portfolio",
             metaDescription: "Ray's CV - Monash University CS/Data Science student with scholarships, AI research awards, full-stack development skills. Python, JavaScript, Machine Learning expertise.",
@@ -102,6 +108,14 @@ const seoConfig = {
             about: {
                 "@context": "https://schema.org",
                 "@type": "AboutPage",
+                "mainEntity": {
+                    "@type": "Person",
+                    "name": "Ray"
+                }
+            },
+            summary: {
+                "@context": "https://schema.org",
+                "@type": "ProfilePage",
                 "mainEntity": {
                     "@type": "Person",
                     "name": "Ray"
