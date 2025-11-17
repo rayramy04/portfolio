@@ -36,6 +36,7 @@ cd portfolio
 vim data/seo-config.js    # 名前、URL、メタタグ
 vim data/common.js        # SNSリンク、ナビゲーション
 vim data/about.js         # 自己紹介と価値観
+vim data/summary.js       # 簡易サマリー
 vim data/cv.js            # 経歴とスキル
 vim data/projects.js      # プロジェクト
 
@@ -59,6 +60,7 @@ git add . && git commit -m "ポートフォリオ内容を更新" && git push
 | `data/seo-config.js` | 名前、URL、メタ情報 |
 | `data/common.js` | 言語設定、SNSリンク |
 | `data/about.js` | 自己紹介と価値観 |
+| `data/summary.js` | 簡易サマリーページの内容 |
 | `data/cv.js` | 職歴、スキル、実績 |
 | `data/projects.js` | プロジェクト |
 | `css/palette.css` | ブランドカラー |
@@ -168,6 +170,7 @@ portfolio/
 │   ├── seo-config.js
 │   ├── common.js
 │   ├── about.js
+│   ├── summary.js
 │   ├── cv.js
 │   └── projects.js
 ├── assets/            # ← あなたの画像

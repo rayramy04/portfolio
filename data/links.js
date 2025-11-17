@@ -35,7 +35,7 @@ window.linksData = {
                 ja: "X (Twitter)"
             },
             url: "https://x.com/rayramy04",
-            icon: "fab fa-x-twitter",
+            icon: "fab fa-twitter",
             username: "@rayramy04"
         },
         {

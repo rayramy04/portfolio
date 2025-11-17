@@ -82,6 +82,7 @@ async function initializePage() {
     switch (pageName) {
         case 'index': await initHome(); break;
         case 'about': await initAbout(); break;
+        case 'summary': await initSummary(); break;
         case 'cv': await initCV(); break;
         case 'projects': await initProjects(); break;
         case 'links': await initLinks(); break;
@@ -584,12 +585,135 @@ function hideEmptyState(container, config) {
     }
 }
 
+async function initSummary() {
+    const lang = getCurrentLang();
+
+    // Populate header
+    const header = document.getElementById('summary-header');
+    if (header) {
+        header.innerHTML = `
+            <img src="${summaryData.intro.photo}" alt="${summaryData.intro.name}'s photo" class="summary-photo">
+            <div class="summary-intro">
+                <h1>${summaryData.intro.name}</h1>
+                <p><strong>${lang === 'ja' ? '年齢' : 'Age'}:</strong> ${summaryData.intro.age}</p>
+                <p><strong>${lang === 'ja' ? '専門分野' : 'Specialization'}:</strong> ${getText(summaryData.intro.specialization)}</p>
+            </div>
+        `;
+    }
+
+    // Populate About Me (convert newlines to paragraphs)
+    const aboutMeText = getText(summaryData.aboutMe);
+    const aboutMeParagraphs = aboutMeText.split('\n\n').map(p => `<p>${p}</p>`).join('');
+    const aboutMeElement = document.getElementById('about-me-text');
+    if (aboutMeElement) {
+        aboutMeElement.innerHTML = aboutMeParagraphs;
+    }
+
+    // Populate Education
+    const educationList = document.getElementById('education-list');
+    if (educationList) {
+        educationList.innerHTML = summaryData.education.map(item => `
+            <li>
+                <strong>${item.period}:</strong>
+                <span>${getText(item.institution)} - ${getText(item.degree)} (${getText(item.details)})</span>
+            </li>
+        `).join('');
+    }
+
+    // Populate Work Experience
+    const experienceList = document.getElementById('experience-list');
+    if (experienceList) {
+        experienceList.innerHTML = summaryData.experience.map(item => `
+            <li>
+                <strong>${item.period}:</strong>
+                <span>${getText(item.company)} - ${getText(item.role)} (${getText(item.description)})</span>
+            </li>
+        `).join('');
+    }
+
+    // Populate Top Achievements
+    const achievementsContainer = document.getElementById('achievements-container');
+    if (achievementsContainer) {
+        const years = Object.keys(summaryData.topAchievements).sort((a, b) => {
+            // Sort: "2025" > "2024" > "~2023"
+            if (a.startsWith('~')) return 1;
+            if (b.startsWith('~')) return -1;
+            return parseInt(b) - parseInt(a);
+        });
+        achievementsContainer.innerHTML = years.map(year => `
+            <div class="award-year-group">
+                <h3 class="award-year">${year}</h3>
+                <ul class="award-list">
+                    ${summaryData.topAchievements[year].map(award => {
+                        const text = getText(award);
+                        const parts = text.split(':');
+                        if (parts.length > 1) {
+                            return `<li><strong>${parts[0]}:</strong>${parts.slice(1).join(':')}</li>`;
+                        }
+                        return `<li>${text}</li>`;
+                    }).join('')}
+                </ul>
+            </div>
+        `).join('');
+    }
+
+    // Populate Technical Skills
+    const skillsList = document.getElementById('skills-list');
+    if (skillsList) {
+        skillsList.innerHTML = summaryData.skills.map(skill => `
+            <li>
+                <strong>${getText(skill.category)}:</strong>
+                <span>${skill.items.join(', ')}</span>
+            </li>
+        `).join('');
+    }
+
+    // Populate Social Links
+    const socialLinksList = document.getElementById('social-links-list');
+    if (socialLinksList) {
+        socialLinksList.innerHTML = summaryData.socialLinks.map(link => `
+            <li>
+                <i class="${link.icon}"></i>
+                <strong>${getText(link.title)}:</strong>
+                <a href="${link.url}" target="_blank">${link.username}</a>
+            </li>
+        `).join('');
+    }
+
+    // Add CTA section
+    const ctaSection = document.getElementById('summary-cta');
+    if (ctaSection) {
+        ctaSection.innerHTML = `
+            <div class="card">
+                <p><strong data-i18n-key="cta.title">${getText(summaryData.cta.title)}</strong></p>
+                <p data-i18n-key="cta.description">${getText(summaryData.cta.description)}</p>
+                <div class="btn-group">
+                    <a href="cv.html" class="btn btn-primary hover-lift">
+                        <i class="fas fa-file-alt"></i> <span data-i18n-key="cta.cvButton">${getText(summaryData.cta.cvButton)}</span>
+                    </a>
+                    <a href="projects.html" class="btn btn-primary hover-lift">
+                        <i class="fas fa-briefcase"></i> <span data-i18n-key="cta.projectsButton">${getText(summaryData.cta.projectsButton)}</span>
+                    </a>
+                </div>
+            </div>
+        `;
+    }
+
+    // Animate sections
+    animateElements([
+        { selector: '.summary-header', delay: 200 },
+        { selector: '.summary-section', delay: 400 },
+        { selector: '.summary-cta', delay: 600 }
+    ]);
+}
+
 
 function getCurrentPageName() {
     const path = window.location.pathname;
     const fileName = path.split('/').pop();
     if (fileName === 'index.html' || fileName === '') return 'index';
     if (fileName === 'about.html') return 'about';
+    if (fileName === 'summary.html') return 'summary';
     if (fileName === 'cv.html') return 'cv';
     if (fileName === 'projects.html') return 'projects';
     if (fileName === 'links.html') return 'links';
