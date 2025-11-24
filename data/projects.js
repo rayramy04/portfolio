@@ -12,6 +12,20 @@ window.projectCategories = [
 window.projectsData = [
     {
         name: {
+            en: "Locipe",
+            ja: "Locipe"
+        },
+        description: {
+            en: "Lets you snap any unfamiliar ingredient to instantly discover local recipes",
+            ja: "見知らぬ現地の食材を撮影するだけで、ローカルレシピを発見できるアプリ"
+        },
+        categories: ["Web Development", "Data Science & AI", "Backend & API"],
+        githubUrl: null,
+        liveUrl: "https://locipe.vercel.app/",
+        image: "assets/projects/locipe.png"
+    },
+    {
+        name: {
             en: "Kopi Chat",
             ja: "Kopi Chat"
         },

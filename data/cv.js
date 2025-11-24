@@ -177,6 +177,22 @@ window.cvData = {
         "2025": [
             {
                 title: {
+                    en: '3rd place: Startup Weekend Tokyo Kuala Lumpur',
+                    ja: 'Startup Weekend Tokyo Kuala Lumpur: 第3位'
+                },
+                organization: {
+                    en: "Startup Weekend",
+                    ja: "Startup Weekend"
+                },
+                date: "2025.11",
+                description: {
+                    en: "Developed Locipe as a team - an app that lets you snap any unfamiliar ingredient to instantly discover local recipes.",
+                    ja: "Locipe - 見知らぬ現地の食材を撮影するだけで、ローカルレシピを発見できるアプリ"
+                },
+                link: "https://swtokyo.doorkeeper.jp/events/186291"
+                },
+            {
+                title: {
                     en: "800+ Articles Published: Study Abroad Blog",
                     ja: "留学ブログ: 累計800記事以上執筆"
                 },
