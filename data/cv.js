@@ -187,7 +187,7 @@ window.cvData = {
                 date: "2025.11",
                 description: {
                     en: "Developed Locipe as a team - an app that lets you snap any unfamiliar ingredient to instantly discover local recipes.",
-                    ja: "Locipe - 見知らぬ現地の食材を撮影するだけで、ローカルレシピを発見できるアプリ"
+                    ja: "Locipe - 見知らぬ現地の食材を撮影するだけでローカルレシピを発見できるアプリをチームで開発"
                 },
                 link: "https://swtokyo.doorkeeper.jp/events/186291"
                 },
