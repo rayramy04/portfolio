@@ -17,7 +17,7 @@ window.projectsData = [
         },
         description: {
             en: "Lets you snap any unfamiliar ingredient to instantly discover local recipes",
-            ja: "見知らぬ現地の食材を撮影するだけで、ローカルレシピを発見できるアプリ"
+            ja: "見知らぬ現地の食材を撮影するだけでローカルレシピを発見できるアプリ"
         },
         categories: ["Web Development", "Data Science & AI", "Backend & API"],
         githubUrl: null,
