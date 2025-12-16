@@ -467,6 +467,17 @@ window.cvData = {
     certifications: [
         {
             title: {
+                en: "Japan Chamber of Commerce and Industry Bookkeeping Test (Level 2)",
+                ja: "日本商工会議所 簿記検定試験 2級: 取得"
+            },
+            organization: {
+                en: "The Japan Chamber of Commerce and Industry",
+                ja: "日本商工会議所"
+            },
+            date: "2025.12"
+        },
+        {
+            title: {
                 en: "Certification for Business-Oriented Mathematics Skills (CBOMS) - for Business Manager",
                 ja: "英語版ビジネス数学検定（CBOMS） for Business Manager: 取得"
             },
@@ -537,7 +548,7 @@ window.cvData = {
         },
         {
             title: {
-                en: "Japan Chamber of Commerce and Industry Bookkeeping Test (3rd grade)",
+                en: "Japan Chamber of Commerce and Industry Bookkeeping Test (Level 3)",
                 ja: "日本商工会議所 簿記検定試験 3級: 取得"
             },
             organization: {
