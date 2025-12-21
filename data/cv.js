@@ -199,7 +199,7 @@ window.cvData = {
                     en: "YouTube",
                     ja: "YouTube"
                 },
-                date: "2025.09",
+                date: "2025.12",
                 description: {
                     en: "Piano performance and sheet music videos (over 4 million total views)",
                     ja: "ピアノ演奏・楽譜動画の投稿（総再生回数400万回超）"
