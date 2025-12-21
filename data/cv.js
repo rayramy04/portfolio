@@ -47,6 +47,21 @@ window.cvData = {
     experience: [
         {
             company: {
+                en: "Self-Employed",
+                ja: "個人事業"
+            },
+            period: "2025.12 - Present",
+            position: {
+                en: "Private Tutor",
+                ja: "家庭教師"
+            },
+            description: {
+                en: "One-on-one tutoring for Year 11-12 mathematics",
+                ja: "算数の個別指導"
+            }
+        },
+        {
+            company: {
                 en: "Reabroad, Inc. (Smaryu)",
                 ja: "株式会社リアブロード（スマ留）"
             },
@@ -88,7 +103,7 @@ window.cvData = {
                 ja: "家庭教師"
             },
             description: {
-                en: "Individual tutoring for middle school mathematics",
+                en: "One-on-one tutoring for middle school mathematics",
                 ja: "中学数学の個別指導"
             }
         },
@@ -177,6 +192,22 @@ window.cvData = {
         "2025": [
             {
                 title: {
+                    en: "20,000+ Subscribers: YouTube Music Channel",
+                    ja: "YouTube音楽チャンネル: 登録者数2万人達成"
+                },
+                organization: {
+                    en: "YouTube",
+                    ja: "YouTube"
+                },
+                date: "2025.09",
+                description: {
+                    en: "Piano performance and sheet music videos (over 4 million total views)",
+                    ja: "ピアノ演奏・楽譜動画の投稿（総再生回数400万回超）"
+                },
+                link: "https://www.youtube.com/@ray_pianocover"
+                },
+            {
+                title: {
                     en: '3rd place: Startup Weekend Tokyo Kuala Lumpur',
                     ja: 'Startup Weekend Tokyo Kuala Lumpur: 第3位'
                 },
@@ -222,22 +253,6 @@ window.cvData = {
                     ja: "データソンで500以上のエントリーの中からチームで第3位入賞"
                 },
                 link: "https://thedatathon.com/"
-                },
-            {
-                title: {
-                    en: "15,000+ Subscribers: YouTube Music Channel",
-                    ja: "YouTube音楽チャンネル: 登録者数1.5万人達成"
-                },
-                organization: {
-                    en: "YouTube",
-                    ja: "YouTube"
-                },
-                date: "2025.09",
-                description: {
-                    en: "Piano performance and sheet music videos (over 4 million total views)",
-                    ja: "ピアノ演奏・楽譜動画の投稿（総再生回数400万回超）"
-                },
-                link: "https://www.youtube.com/@ray_pianocover"
                 },
             {
                 title: {
