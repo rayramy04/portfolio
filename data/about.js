@@ -87,8 +87,8 @@ window.aboutData = {
                     ja: "Web・アプリ・データサイエンス/AI/ML（ハッカソン・実案件）"
                 },
                 {
-                    en: "Monetized blog (800+ articles), YouTube (15K subs), cross-industry internships",
-                    ja: "ブログ（800記事）・YouTube（1.5万人）収益化、複数業界インターン"
+                    en: "Monetized blog (800+ articles), YouTube (20K subs), cross-industry internships",
+                    ja: "ブログ（800記事）・YouTube（2万人）収益化、複数業界インターン"
                 }
             ]
         },
@@ -104,8 +104,8 @@ window.aboutData = {
             icon: "fas fa-mountain",
             highlights: [
                 {
-                    en: "YouTube: 0 → 15K subscribers, 4M+ views over years of consistency",
-                    ja: "YouTube：0→1.5万人（総再生400万回超）数年間継続"
+                    en: "YouTube: 0 → 20K subscribers, 4M+ views over years of consistency",
+                    ja: "YouTube：0→2万人（総再生400万回超）数年間継続"
                 },
                 {
                     en: "Study abroad blog: 800+ articles built into industry-leading site",

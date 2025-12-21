@@ -132,16 +132,16 @@ window.summaryData = {
     topAchievements: {
         "2025": [
             {
+                en: "20,000+ Subscribers: YouTube Music Channel (4M+ total views)",
+                ja: "YouTube音楽チャンネル: 登録者数2万人（総再生回数400万回超）"
+            },
+            {
                 en: "800+ Articles Published: Study Abroad Blog (20,000+ monthly PVs)",
                 ja: "留学ブログ: 累計800記事以上執筆（月2万PV超）"
             },
             {
                 en: "3rd Place: L'Oréal x Monash Datathon 2025 (500+ entries)",
                 ja: "L'Oréal x Monash Datathon 2025: 第3位（500以上のエントリー）"
-            },
-            {
-                en: "15,000+ Subscribers: YouTube Music Channel (4M+ total views)",
-                ja: "YouTube音楽チャンネル: 登録者数1.5万人（総再生回数400万回超）"
             },
             {
                 en: "Excellence Award: RSS Hackathon 2025 (PhotoVoca)",

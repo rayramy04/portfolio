@@ -226,8 +226,8 @@ window.projectsData = [
             ja: "YouTubeピアノチャンネル"
         },
         description: {
-            en: "Piano performance and sheet music transcription channel with 15,000+ subscribers and 4 million+ total views",
-            ja: "登録者1.5万人超/総再生回数400万回超のピアノ・耳コピ楽譜のチャンネル"
+            en: "Piano performance and sheet music transcription channel with 20,000+ subscribers and 4 million+ total views",
+            ja: "登録者2万人超/総再生回数400万回超のピアノ・耳コピ楽譜のチャンネル"
         },
         categories: ["Research & Others"],
         githubUrl: null,
