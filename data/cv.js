@@ -56,7 +56,7 @@ window.cvData = {
                 ja: "家庭教師"
             },
             description: {
-                en: "One-on-one tutoring for Year 11-12 mathematics",
+                en: "One-on-one tutoring for Year 7 mathematics",
                 ja: "算数の個別指導"
             }
         },
