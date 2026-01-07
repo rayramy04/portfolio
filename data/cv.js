@@ -160,7 +160,7 @@ window.cvData = {
                 en: "Loopal Inc.",
                 ja: "株式会社LOOPAL"
             },
-            period: "2023.07 - Present",
+            period: "2023.07 - 2024.09",
             position: {
                 en: "Intern",
                 ja: "インターンシップ"
