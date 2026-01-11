@@ -482,6 +482,17 @@ window.cvData = {
     certifications: [
         {
             title: {
+                en: "AWS Certified Cloud Practitioner",
+                ja: "AWS認定 クラウドプラクティショナー: 取得"
+            },
+            organization: {
+                en: "Amazon Web Services Training and Certification",
+                ja: "AWS トレーニングと認定"
+            },
+            date: "2026.01"
+        },
+        {
+            title: {
                 en: "Japan Chamber of Commerce and Industry Bookkeeping Test (Level 2)",
                 ja: "日本商工会議所 簿記検定試験 2級: 取得"
             },
