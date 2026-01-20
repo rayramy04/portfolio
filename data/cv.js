@@ -47,6 +47,21 @@ window.cvData = {
     experience: [
         {
             company: {
+                en: "Ski Resort",
+                ja: "スキー場"
+            },
+            period: "2025.12 - 2026.01",
+            position: {
+                en: "Rental Staff",
+                ja: "レンタルスタッフ"
+            },
+            description: {
+                en: "Rental of ski equipment (English support experience)",
+                ja: "スキー用品の貸し出し（英語対応も経験）"
+            }
+        },
+        {
+            company: {
                 en: "Self-Employed",
                 ja: "個人事業"
             },
