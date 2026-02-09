@@ -62,21 +62,6 @@ window.cvData = {
         },
         {
             company: {
-                en: "Self-Employed",
-                ja: "個人事業"
-            },
-            period: "2025.12 - Present",
-            position: {
-                en: "Private Tutor",
-                ja: "家庭教師"
-            },
-            description: {
-                en: "One-on-one tutoring for Year 7 mathematics",
-                ja: "算数の個別指導"
-            }
-        },
-        {
-            company: {
                 en: "Reabroad, Inc. (Smaryu)",
                 ja: "株式会社リアブロード（スマ留）"
             },
@@ -96,7 +81,7 @@ window.cvData = {
                 en: "GFI Educations Co., Ltd. (Go for it)",
                 ja: "株式会社GFIエデュケーションズ（Go for it）"
             },
-            period: "2024.09 - Present",
+            period: "2024.09 - 2025.12",
             position: {
                 en: "Intern",
                 ja: "インターンシップ"
