@@ -1,237 +1,277 @@
 // Project categories configuration
 window.projectCategories = [
-    "Web Development",
-    "Backend & API", 
-    "Data Science & AI",
-    "App Development",
-    "Automation & Tools",
-    "Research & Others"
+    'Web Development',
+    'Backend & API',
+    'Data Science & AI',
+    'App Development',
+    'Automation & Tools',
+    'Research & Others'
 ];
 
 // Projects data configuration
 window.projectsData = [
     {
         name: {
-            en: "Locipe",
-            ja: "Locipe"
+            en: 'Locipe',
+            ja: 'Locipe'
         },
         description: {
-            en: "Lets you snap any unfamiliar ingredient to instantly discover local recipes",
-            ja: "見知らぬ現地の食材を撮影するだけでローカルレシピを発見できるアプリ"
+            en: 'Lets you snap any unfamiliar ingredient to instantly discover local recipes',
+            ja: '見知らぬ現地の食材を撮影するだけでローカルレシピを発見できるアプリ'
         },
-        categories: ["Web Development", "Data Science & AI", "Backend & API"],
+        categories: [
+            'Web Development',
+            'Data Science & AI',
+            'Backend & API'
+        ],
         githubUrl: null,
-        liveUrl: "https://locipe.vercel.app/",
-        image: "assets/projects/locipe.png"
+        liveUrl: 'https://locipe.vercel.app/',
+        image: 'assets/projects/locipe.png'
     },
     {
         name: {
-            en: "Kopi Chat",
-            ja: "Kopi Chat"
+            en: 'Kopi Chat',
+            ja: 'Kopi Chat'
         },
         description: {
-            en: "A student-only bulletin board for buying, selling, asking questions, and posting announcements in Malaysia",
-            ja: "物の売買や質問相談、告知ができるマレーシアの学生限定掲示板"
+            en: 'A student-only bulletin board for buying, selling, asking questions, and posting announcements in Malaysia',
+            ja: '物の売買や質問相談、告知ができるマレーシアの学生限定掲示板'
         },
-        categories: ["Web Development", "App Development"],
+        categories: [
+            'Web Development',
+            'App Development'
+        ],
         githubUrl: null,
-        liveUrl: "https://kopi-chat.com/",
-        image: "assets/projects/kopi-chat.svg"
+        liveUrl: 'https://kopi-chat.com/',
+        image: 'assets/projects/kopi-chat.svg'
     },
     {
         name: {
-            en: "PhotoVoca",
-            ja: "PhotoVoca"
+            en: 'PhotoVoca',
+            ja: 'PhotoVoca'
         },
         description: {
-            en: "An innovative English learning app: snap, see, and memorize",
-            ja: "撮って、見て、覚える、新感覚の英語学習アプリ"
+            en: 'An innovative English learning app: snap, see, and memorize',
+            ja: '撮って、見て、覚える、新感覚の英語学習アプリ'
         },
-        categories: ["App Development"],
-        githubUrl: "https://github.com/rayramy04/photovoca",
+        categories: [
+            'App Development'
+        ],
+        githubUrl: 'https://github.com/rayramy04/photovoca',
         liveUrl: null,
-        image: "assets/projects/photovoca.jpg"
+        image: 'assets/projects/photovoca.jpg'
     },
     {
         name: {
-            en: "LinkCard",
-            ja: "LinkCard"
+            en: 'LinkCard',
+            ja: 'LinkCard'
         },
         description: {
-            en: "Ultra-lightweight link collection page built with vanilla JavaScript",
-            ja: "バニラJSで実装した超軽量リンク集ページ"
+            en: 'Ultra-lightweight link collection page built with vanilla JavaScript',
+            ja: 'バニラJSで実装した超軽量リンク集ページ'
         },
-        categories: ["Web Development"],
-        githubUrl: "https://github.com/rayramy04/linkcard",
-        liveUrl: "https://rayramy04.github.io/linkcard/",
-        image: "assets/projects/linkcard.png"
+        categories: [
+            'Web Development'
+        ],
+        githubUrl: 'https://github.com/rayramy04/linkcard',
+        liveUrl: 'https://rayramy04.github.io/linkcard/',
+        image: 'assets/projects/linkcard.png'
     },
     {
         name: {
-            en: "PressyAI",
-            ja: "PressyAI"
+            en: 'PressyAI',
+            ja: 'PressyAI'
         },
         description: {
-            en: "AI-powered web service that automatically generates press releases for businesses",
-            ja: "AIが自動でプレスリリースを生成する企業向けウェブサービス"
+            en: 'AI-powered web service that automatically generates press releases for businesses',
+            ja: 'AIが自動でプレスリリースを生成する企業向けウェブサービス'
         },
-        categories: ["Web Development", "Backend & API", "Automation & Tools"],
+        categories: [
+            'Web Development',
+            'Backend & API',
+            'Automation & Tools'
+        ],
         githubUrl: null,
-        liveUrl: "https://pressy-ai.com/",
-        image: "assets/projects/pressy-ai.jpg"
+        liveUrl: 'https://pressy-ai.com/',
+        image: 'assets/projects/pressy-ai.jpg'
     },
     {
         name: {
-            en: "EmotiGift",
-            ja: "EmotiGift"
+            en: 'EmotiGift',
+            ja: 'EmotiGift'
         },
         description: {
-            en: "AI-powered gift recommendation service analyzing social media history. Winner of Excellence Award at Geek CAMP Hackathon 2025 vol.9",
-            ja: "SNS履歴からAIが最適なギフトを分析するサービス。技育CAMPハッカソン2025 vol.9優秀賞受賞。"
+            en: 'AI-powered gift recommendation service analyzing social media history. Winner of Excellence Award at Geek CAMP Hackathon 2025 vol.9',
+            ja: 'SNS履歴からAIが最適なギフトを分析するサービス。技育CAMPハッカソン2025 vol.9優秀賞受賞。'
         },
-        categories: ["Web Development", "Data Science & AI", "Backend & API"],
-        githubUrl: "https://github.com/rayramy04/emotigift",
+        categories: [
+            'Web Development',
+            'Data Science & AI',
+            'Backend & API'
+        ],
+        githubUrl: 'https://github.com/rayramy04/emotigift',
         liveUrl: null,
-        image: "assets/projects/emotigift.jpg"
+        image: 'assets/projects/emotigift.jpg'
     },
     {
         name: {
-            en: "Portfolio Website",
-            ja: "ポートフォリオサイト"
+            en: 'Portfolio Website',
+            ja: 'ポートフォリオサイト'
         },
         description: {
-            en: "Custom portfolio website built entirely from scratch",
-            ja: "フルスクラッチで制作したポートフォリオサイト"
+            en: 'Custom portfolio website built entirely from scratch',
+            ja: 'フルスクラッチで制作したポートフォリオサイト'
         },
-        categories: ["Web Development"],
-        githubUrl: "https://github.com/rayramy04/portfolio",
-        liveUrl: "index.html",
-        image: "assets/og-image.jpg"
+        categories: [
+            'Web Development'
+        ],
+        githubUrl: 'https://github.com/rayramy04/portfolio',
+        liveUrl: 'index.html',
+        image: 'assets/og-image.jpg'
     },
     {
         name: {
-            en: "KoeLink",
-            ja: "KoeLink"
+            en: 'KoeLink',
+            ja: 'KoeLink'
         },
         description: {
-            en: "AI voice cloning technology for generating English audio",
-            ja: "AIによる音声クローニング技術で英語音声を生成"
+            en: 'AI voice cloning technology for generating English audio',
+            ja: 'AIによる音声クローニング技術で英語音声を生成'
         },
-        categories: ["Automation & Tools", "Backend & API"],
-        githubUrl: "https://github.com/rayramy04/koeLink",
+        categories: [
+            'Automation & Tools',
+            'Backend & API'
+        ],
+        githubUrl: 'https://github.com/rayramy04/koeLink',
         liveUrl: null,
-        image: "assets/projects/koelink.jpg"
+        image: 'assets/projects/koelink.jpg'
     },
     {
         name: {
-            en: "joai2025-solutions",
-            ja: "joai2025-solutions"
+            en: 'joai2025-solutions',
+            ja: 'joai2025-solutions'
         },
         description: {
-            en: "Solution code and explanations from achieving Gold Award and 5th place nationally at the AI Olympiad",
-            ja: "人工知能オリンピック金賞・全国5位を獲得した際の解法コード解説"
+            en: 'Solution code and explanations from achieving Gold Award and 5th place nationally at the AI Olympiad',
+            ja: '人工知能オリンピック金賞・全国5位を獲得した際の解法コード解説'
         },
-        categories: ["Data Science & AI"],
-        githubUrl: "https://github.com/rayramy04/joai2025-solutions",
-        liveUrl: "https://ray-globallife.com/joai-2025/",
-        image: "https://ray-globallife.com/wp-content/uploads/2025/05/7af774535ccbc012f22e592c5c928ec0.jpg"
+        categories: [
+            'Data Science & AI'
+        ],
+        githubUrl: 'https://github.com/rayramy04/joai2025-solutions',
+        liveUrl: 'https://ray-globallife.com/joai-2025/',
+        image: 'https://ray-globallife.com/wp-content/uploads/2025/05/7af774535ccbc012f22e592c5c928ec0.jpg'
     },
     {
         name: {
-            en: "Go for it University Website",
-            ja: "Go for it 大学情報サイト"
+            en: 'Go for it University Website',
+            ja: 'Go for it 大学情報サイト'
         },
         description: {
-            en: "University information website built for a study abroad agency",
-            ja: "留学エージェントの大学情報サイトを構築"
+            en: 'University information website built for a study abroad agency',
+            ja: '留学エージェントの大学情報サイトを構築'
         },
-        categories: ["Research & Others"],
+        categories: [
+            'Research & Others'
+        ],
         githubUrl: null,
-        liveUrl: "https://university.go-for-it-malaysia.com/",
-        image: "https://university.go-for-it-malaysia.com/wp-content/uploads/2024/10/Top_Uni-top_12.webp"
+        liveUrl: 'https://university.go-for-it-malaysia.com/',
+        image: 'https://university.go-for-it-malaysia.com/wp-content/uploads/2024/10/Top_Uni-top_12.webp'
     },
     {
         name: {
-            en: "Household Budget Excel Template",
-            ja: "家計簿Excelテンプレート"
+            en: 'Household Budget Excel Template',
+            ja: '家計簿Excelテンプレート'
         },
         description: {
-            en: "Free simple household budget Excel template with currency conversion feature",
-            ja: "外貨換算機能付きシンプル家計簿を無料配布"
+            en: 'Free simple household budget Excel template with currency conversion feature',
+            ja: '外貨換算機能付きシンプル家計簿を無料配布'
         },
-        categories: ["Automation & Tools"],
+        categories: [
+            'Automation & Tools'
+        ],
         githubUrl: null,
-        liveUrl: "https://ray-globallife.com/householdaccount-template/",
-        image: "https://ray-globallife.com/wp-content/uploads/2024/01/ec64cbd14f09d56e896252de882ebac4.png"
+        liveUrl: 'https://ray-globallife.com/householdaccount-template/',
+        image: 'https://ray-globallife.com/wp-content/uploads/2024/01/ec64cbd14f09d56e896252de882ebac4.png'
     },
     {
         name: {
-            en: "connect-with-me",
-            ja: "connect-with-me"
+            en: 'connect-with-me',
+            ja: 'connect-with-me'
         },
         description: {
-            en: "High-performance link aggregation page built with Hugo",
-            ja: "Hugoで構築した高速リンク集約ページ"
+            en: 'High-performance link aggregation page built with Hugo',
+            ja: 'Hugoで構築した高速リンク集約ページ'
         },
-        categories: ["Web Development"],
-        githubUrl: "https://github.com/rayramy04/connect-with-me",
-        liveUrl: "https://rayramy04.github.io/connect-with-me/",
-        image: "assets/projects/connect-with-me.jpg"
+        categories: [
+            'Web Development'
+        ],
+        githubUrl: 'https://github.com/rayramy04/connect-with-me',
+        liveUrl: 'https://rayramy04.github.io/connect-with-me/',
+        image: 'assets/projects/connect-with-me.jpg'
     },
     {
         name: {
-            en: "Ray's Global Life Notes",
-            ja: "Rayの海外生活ノート"
+            en: 'Ray\'s Global Life Notes',
+            ja: 'Rayの海外生活ノート'
         },
         description: {
-            en: "One of the largest study abroad blogs in the industry with 800+ articles and 20,000+ monthly page views",
-            ja: "累計800記事超/月2万PV超の、業界最大級の留学情報ブログ"
+            en: 'One of the largest study abroad blogs in the industry with 800+ articles and 20,000+ monthly page views',
+            ja: '累計800記事超/月2万PV超の、業界最大級の留学情報ブログ'
         },
-        categories: ["Research & Others"],
+        categories: [
+            'Research & Others'
+        ],
         githubUrl: null,
-        liveUrl: "https://ray-globallife.com/",
-        image: "https://ray-globallife.com/wp-content/uploads/2025/04/4.jpg"
+        liveUrl: 'https://ray-globallife.com/',
+        image: 'https://ray-globallife.com/wp-content/uploads/2025/04/4.jpg'
     },
     {
         name: {
-            en: "note Article Writing & Sales",
-            ja: "note記事執筆・販売"
+            en: 'note Article Writing & Sales',
+            ja: 'note記事執筆・販売'
         },
         description: {
-            en: "Writing and selling premium study abroad articles on note",
-            ja: "留学情報の有料記事を執筆・販売"
+            en: 'Writing and selling premium study abroad articles on note',
+            ja: '留学情報の有料記事を執筆・販売'
         },
-        categories: ["Research & Others"],
+        categories: [
+            'Research & Others'
+        ],
         githubUrl: null,
-        liveUrl: "https://note.com/ll_0013py",
-        image: "assets/projects/note.jpg"
+        liveUrl: 'https://note.com/ll_0013py',
+        image: 'assets/projects/note.jpg'
     },
     {
         name: {
-            en: "fft-study",
-            ja: "fft-study"
+            en: 'fft-study',
+            ja: 'fft-study'
         },
         description: {
-            en: "Educational website explaining Fourier Transform for beginners",
-            ja: "フーリエ変換を初学者向けに解説した学習サイト"
+            en: 'Educational website explaining Fourier Transform for beginners',
+            ja: 'フーリエ変換を初学者向けに解説した学習サイト'
         },
-        categories: ["Research & Others"],
-        githubUrl: "https://github.com/rayramy04/fft-study",
-        liveUrl: "https://rayramy04.github.io/fft-study/",
-        image: "assets/projects/fft-study.jpg"
+        categories: [
+            'Research & Others'
+        ],
+        githubUrl: 'https://github.com/rayramy04/fft-study',
+        liveUrl: 'https://rayramy04.github.io/fft-study/',
+        image: 'assets/projects/fft-study.jpg'
     },
     {
         name: {
-            en: "YouTube Piano Channel",
-            ja: "YouTubeピアノチャンネル"
+            en: 'YouTube Piano Channel',
+            ja: 'YouTubeピアノチャンネル'
         },
         description: {
-            en: "Piano performance and sheet music transcription channel with 20,000+ subscribers and 4 million+ total views",
-            ja: "登録者2万人超/総再生回数400万回超のピアノ・耳コピ楽譜のチャンネル"
+            en: 'Piano performance and sheet music transcription channel with 20,000+ subscribers and 4 million+ total views',
+            ja: '登録者2万人超/総再生回数400万回超のピアノ・耳コピ楽譜のチャンネル'
         },
-        categories: ["Research & Others"],
+        categories: [
+            'Research & Others'
+        ],
         githubUrl: null,
-        liveUrl: "https://www.youtube.com/@ray_pianocover",
-        image: "https://img.youtube.com/vi/sYoEL8NvZWw/hqdefault.jpg"
+        liveUrl: 'https://www.youtube.com/@ray_pianocover',
+        image: 'https://img.youtube.com/vi/sYoEL8NvZWw/hqdefault.jpg'
     }
 ];

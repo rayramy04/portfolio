@@ -12,7 +12,7 @@ const seoConfig = require('./data/seo-config.js');
 // ==========================================
 // Define required scripts for each page
 const pageScripts = {
-    'index': `    <!-- Scripts -->
+    index: `    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="js/utils/dom-helpers.js"></script>
     <script src="js/utils/html-generator.js"></script>
@@ -20,31 +20,31 @@ const pageScripts = {
     <script src="data/common.js"></script>
     <script src="data/home.js"></script>
     <script src="js/pages-unified.js"></script>`,
-    'about': `    <script src="js/utils/dom-helpers.js"></script>
+    about: `    <script src="js/utils/dom-helpers.js"></script>
     <script src="js/utils/html-generator.js"></script>
     <script src="js/utils/data-populator.js"></script>
     <script src="data/common.js"></script>
     <script src="data/about.js"></script>
     <script src="js/pages-unified.js"></script>`,
-    'summary': `    <script src="js/utils/dom-helpers.js"></script>
+    summary: `    <script src="js/utils/dom-helpers.js"></script>
     <script src="js/utils/html-generator.js"></script>
     <script src="js/utils/data-populator.js"></script>
     <script src="data/common.js"></script>
     <script src="data/summary.js"></script>
     <script src="js/pages-unified.js"></script>`,
-    'cv': `    <script src="js/utils/dom-helpers.js"></script>
+    cv: `    <script src="js/utils/dom-helpers.js"></script>
     <script src="js/utils/html-generator.js"></script>
     <script src="js/utils/data-populator.js"></script>
     <script src="data/common.js"></script>
     <script src="data/cv.js"></script>
     <script src="js/pages-unified.js"></script>`,
-    'projects': `    <script src="js/utils/dom-helpers.js"></script>
+    projects: `    <script src="js/utils/dom-helpers.js"></script>
     <script src="js/utils/html-generator.js"></script>
     <script src="js/utils/data-populator.js"></script>
     <script src="data/common.js"></script>
     <script src="data/projects.js"></script>
     <script src="js/pages-unified.js"></script>`,
-    'links': `    <script src="js/utils/dom-helpers.js"></script>
+    links: `    <script src="js/utils/dom-helpers.js"></script>
     <script src="js/utils/html-generator.js"></script>
     <script src="js/utils/data-populator.js"></script>
     <script src="data/common.js"></script>
