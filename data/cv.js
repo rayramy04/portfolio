@@ -189,23 +189,41 @@ window.cvData = {
         }
     ],
     awards: {
-        "2025": [
+        "2026": [
             {
                 title: {
-                    en: "20,000+ Subscribers: YouTube Music Channel",
-                    ja: "YouTube音楽チャンネル: 登録者数2万人達成"
+                    en: "25,000+ Subscribers: YouTube Music Channel",
+                    ja: "YouTube音楽チャンネル: 登録者数2.5万人達成"
                 },
                 organization: {
                     en: "YouTube",
                     ja: "YouTube"
                 },
-                date: "2025.12",
+                date: "2026.05",
                 description: {
                     en: "Piano performance and sheet music videos (over 4 million total views)",
                     ja: "ピアノ演奏・楽譜動画の投稿（総再生回数400万回超）"
                 },
                 link: "https://www.youtube.com/@ray_pianocover"
+            },
+            {
+                title: {
+                    en: "850+ Articles Published: Study Abroad Blog",
+                    ja: "留学ブログ: 累計850記事以上執筆"
                 },
+                organization: {
+                    en: "Personal Blog (Ray's Global Life Notes)",
+                    ja: "個人ブログ（Rayの海外生活ノート）"
+                },
+                date: "2026.03",
+                description: {
+                    en: "One of the largest study abroad media platforms in the industry with over 20,000 monthly page views",
+                    ja: "月2万PV超の業界最大級の規模を誇る留学メディア"
+                },
+                link: "https://ray-globallife.com/"
+            },
+        ],
+        "2025": [
             {
                 title: {
                     en: '3rd place: Startup Weekend Tokyo Kuala Lumpur',
@@ -221,23 +239,7 @@ window.cvData = {
                     ja: "Locipe - 見知らぬ現地の食材を撮影するだけでローカルレシピを発見できるアプリをチームで開発"
                 },
                 link: "https://swtokyo.doorkeeper.jp/events/186291"
-                },
-            {
-                title: {
-                    en: "800+ Articles Published: Study Abroad Blog",
-                    ja: "留学ブログ: 累計800記事以上執筆"
-                },
-                organization: {
-                    en: "Personal Blog (Ray's Global Life Notes)",
-                    ja: "個人ブログ（Rayの海外生活ノート）"
-                },
-                date: "2025.11",
-                description: {
-                    en: "One of the largest study abroad media platforms in the industry with over 20,000 monthly page views",
-                    ja: "月2万PV超の業界最大級の規模を誇る留学メディア"
-                },
-                link: "https://ray-globallife.com/"
-                },
+            },
             {
                 title: {
                     en: "3rd Place: L'Oréal x Monash Datathon 2025",
@@ -253,7 +255,7 @@ window.cvData = {
                     ja: "データソンで500以上のエントリーの中からチームで第3位入賞"
                 },
                 link: "https://thedatathon.com/"
-                },
+            },
             {
                 title: {
                     en: 'Excellence Award: RSS Hackathon 2025 Beyond "Atarimae"',
@@ -269,7 +271,7 @@ window.cvData = {
                     ja: "PhotoVoca - 撮って、見て、覚える、新感覚の英語学習アプリをチームで開発"
                 },
                 link: "https://www.craftstadium.com/hackathon/rss-hackathon-2025-beyond"
-                },
+            },
             {
             title: {
                 en: "Excellence Award: Geek Camp Hackathon 2025 vol.9",
