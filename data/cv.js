@@ -125,22 +125,6 @@ window.cvData = {
         },
         {
             company: {
-                en: '[REDACTED]',
-                ja: '[REDACTED]'
-            },
-            period: '2024.06 - 2024.08',
-            position: {
-                en: 'Intern ([REDACTED])',
-                ja: 'インターンシップ（[REDACTED]）'
-            },
-            description: {
-                en: 'Speaking at study abroad events and event management',
-                ja: '留学関係イベントの登壇・運営'
-            },
-            url: '[REDACTED]'
-        },
-        {
-            company: {
                 en: 'coconala Inc.',
                 ja: '株式会社ココナラ'
             },
