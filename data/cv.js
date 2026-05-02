@@ -750,85 +750,35 @@ window.cvData = {
                 en: 'Development',
                 ja: '開発'
             },
-            // Technical Skills - Simple list format without star ratings
-    // Ordered by proficiency level (based on historical self-assessment)
-    skills: [
-                'Python',
-                'R',
-                'SQL',
-                'Java',
-                'JavaScript',
-                'React',
-                'Next.js',
-                'TypeScript',
-                'Astro',
-                'PHP',
-                'HTML/CSS',
-                'Git/GitHub'
-            ]
+            skills: ['Python', 'R', 'SQL', 'Java', 'JavaScript', 'React', 'Next.js', 'TypeScript', 'Astro', 'PHP', 'HTML/CSS', 'Git/GitHub']
         },
         {
             category: {
                 en: 'Infrastructure & Services',
                 ja: 'インフラ・サービス'
             },
-            // Technical Skills - Simple list format without star ratings
-    // Ordered by proficiency level (based on historical self-assessment)
-    skills: [
-                'MySQL',
-                'Firebase',
-                'Supabase',
-                'Oracle',
-                'AWS',
-                'Cloudflare',
-                'Vercel',
-                'Railway',
-                'Stripe',
-                'Dify',
-                'WordPress'
-            ]
+            skills: ['MySQL', 'Firebase', 'Supabase', 'Oracle', 'AWS', 'Cloudflare', 'Vercel', 'Railway', 'Stripe', 'Dify', 'WordPress']
         },
         {
             category: {
                 en: 'Data Science & AI',
                 ja: 'データサイエンス・AI'
             },
-            // Technical Skills - Simple list format without star ratings
-    // Ordered by proficiency level (based on historical self-assessment)
-    skills: [
-                'Machine Learning',
-                'Data Analytics',
-                'Statistical Modeling'
-            ]
+            skills: ['Machine Learning', 'Data Analytics', 'Statistical Modeling']
         },
         {
             category: {
                 en: 'Creative Production',
                 ja: 'クリエイティブ制作'
             },
-            // Technical Skills - Simple list format without star ratings
-    // Ordered by proficiency level (based on historical self-assessment)
-    skills: [
-                'MuseScore',
-                'Sibelius',
-                'Dorico Pro',
-                'OBS Studio',
-                'Logic Pro',
-                'Final Cut Pro'
-            ]
+            skills: ['MuseScore', 'Sibelius', 'Dorico Pro', 'OBS Studio', 'Logic Pro', 'Final Cut Pro']
         },
         {
             category: {
                 en: 'Languages',
                 ja: '言語'
             },
-            // Technical Skills - Simple list format without star ratings
-    // Ordered by proficiency level (based on historical self-assessment)
-    skills: [
-                'Japanese (Native)',
-                'English (Business)',
-                'Malay/Indonesian (Basic)'
-            ]
+            skills: ['Japanese (Native)', 'English (Business)', 'Malay/Indonesian (Basic)']
         }
     ]
 };
