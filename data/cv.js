@@ -678,8 +678,8 @@ window.cvData = {
             icon: 'fas fa-pen-nib',
             highlights: [
                 {
-                    en: '800+ articles published, 20,000+ monthly page views (One of the largest in the industry)',
-                    ja: '800記事以上執筆・月2万PV超（業界最大級の規模）'
+                    en: '850+ articles published, 20,000+ monthly page views (One of the largest in the industry)',
+                    ja: '850記事以上執筆・月2万PV超（業界最大級の規模）'
                 },
                 {
                     en: 'Qualified for Google AdSense within 1 month (Acceptance rate below 4%)',
@@ -703,8 +703,8 @@ window.cvData = {
             icon: 'fas fa-music',
             highlights: [
                 {
-                    en: 'YouTube: 15,000+ subscribers, 4 million+ total views',
-                    ja: 'YouTube登録者数1.5万人超・総再生回数400万回超'
+                    en: 'YouTube: 25,000+ subscribers, 4 million+ total views',
+                    ja: 'YouTube登録者数2.5万人超・総再生回数400万回超'
                 },
                 {
                     en: 'Sheet music sales and custom transcription services',
@@ -756,6 +756,7 @@ window.cvData = {
                 'Python',
                 'R',
                 'SQL',
+                'Java',
                 'JavaScript',
                 'React',
                 'Next.js',
@@ -763,8 +764,7 @@ window.cvData = {
                 'Astro',
                 'PHP',
                 'HTML/CSS',
-                'Git/GitHub',
-                'Docker'
+                'Git/GitHub'
             ]
         },
         {
@@ -778,12 +778,12 @@ window.cvData = {
                 'MySQL',
                 'Firebase',
                 'Supabase',
+                'Oracle',
                 'AWS',
                 'Cloudflare',
                 'Vercel',
                 'Railway',
                 'Stripe',
-                'Linux',
                 'Dify',
                 'WordPress'
             ]
