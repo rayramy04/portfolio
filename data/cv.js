@@ -217,7 +217,7 @@ window.cvData = {
                 },
                 date: '2026.03',
                 description: {
-                    en: 'WAM approximately 90%, received an Academic Excellence Award from the School of IT',
+                    en: 'WAM approximately 87%, received an Academic Excellence Award from the School of IT',
                     ja: 'WAM約90%・情報学部全体で表彰'
                 }
             },
