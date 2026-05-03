@@ -36,6 +36,37 @@ function getText(obj) {
     return obj[lang] || obj['en'] || obj['ja'] || ''; // Fallback chain
 }
 
+function extractChronologyValue(value) {
+    if (!value || typeof value !== 'string') return Number.NEGATIVE_INFINITY;
+
+    const match = value.match(/(\d{4})(?:\.(\d{1,2}))?/);
+    if (!match) return Number.NEGATIVE_INFINITY;
+
+    const year = parseInt(match[1], 10);
+    const month = match[2] ? parseInt(match[2], 10) : 0;
+    return (year * 100) + month;
+}
+
+function sortItemsByDateDesc(items, field = 'date') {
+    return [...items].sort((a, b) => {
+        const aValue = extractChronologyValue(a[field]);
+        const bValue = extractChronologyValue(b[field]);
+        return bValue - aValue;
+    });
+}
+
+function sortItemsByPeriodStartDesc(items) {
+    return [...items].sort((a, b) => {
+        const aValue = extractChronologyValue(a.period);
+        const bValue = extractChronologyValue(b.period);
+        return bValue - aValue;
+    });
+}
+
+function sortYearKeysDesc(keys) {
+    return [...keys].sort((a, b) => extractChronologyValue(b) - extractChronologyValue(a));
+}
+
 function switchLanguage(lang) {
     localStorage.setItem('siteLang', lang);
 
@@ -270,7 +301,7 @@ async function initAbout() {
 
 async function initCV() {
     // Transform education data
-    const educationData = window.cvData.education.map(item => ({
+    const educationData = sortItemsByPeriodStartDesc(window.cvData.education).map(item => ({
         ...item,
         institution: getText(item.institution),
         degree: getText(item.degree),
@@ -281,7 +312,7 @@ async function initCV() {
     });
 
     // Transform experience data
-    const experienceData = window.cvData.experience.map(item => ({
+    const experienceData = sortItemsByPeriodStartDesc(window.cvData.experience).map(item => ({
         ...item,
         company: getText(item.company),
         position: getText(item.position),
@@ -296,8 +327,8 @@ async function initCV() {
         if (window.cvData.awards && Object.keys(window.cvData.awards).length > 0) {
             // Transform awards data
             const transformedAwards = {};
-            Object.keys(window.cvData.awards).forEach(year => {
-                transformedAwards[year] = window.cvData.awards[year].map(award => ({
+            sortYearKeysDesc(Object.keys(window.cvData.awards)).forEach(year => {
+                transformedAwards[year] = sortItemsByDateDesc(window.cvData.awards[year]).map(award => ({
                     ...award,
                     title: getText(award.title),
                     organization: getText(award.organization),
@@ -315,7 +346,7 @@ async function initCV() {
     }
 
     // Transform certifications data
-    const certificationsData = window.cvData.certifications.map(item => ({
+    const certificationsData = sortItemsByDateDesc(window.cvData.certifications).map(item => ({
         ...item,
         title: getText(item.title),
         organization: getText(item.organization)
@@ -325,7 +356,7 @@ async function initCV() {
     });
 
     // Transform grants data
-    const grantsData = window.cvData.grants.map(item => ({
+    const grantsData = sortItemsByDateDesc(window.cvData.grants).map(item => ({
         ...item,
         title: getText(item.title),
         organization: getText(item.organization),
@@ -612,7 +643,7 @@ async function initSummary() {
     // Populate Education
     const educationList = document.getElementById('education-list');
     if (educationList) {
-        educationList.innerHTML = summaryData.education.map(item => `
+        educationList.innerHTML = sortItemsByPeriodStartDesc(summaryData.education).map(item => `
             <li>
                 <strong>${item.period}:</strong>
                 <span>${getText(item.institution)} - ${getText(item.degree)} (${getText(item.details)})</span>
@@ -623,7 +654,7 @@ async function initSummary() {
     // Populate Work Experience
     const experienceList = document.getElementById('experience-list');
     if (experienceList) {
-        experienceList.innerHTML = summaryData.experience.map(item => `
+        experienceList.innerHTML = sortItemsByPeriodStartDesc(summaryData.experience).map(item => `
             <li>
                 <strong>${item.period}:</strong>
                 <span>${getText(item.company)} - ${getText(item.role)} (${getText(item.description)})</span>
@@ -634,12 +665,7 @@ async function initSummary() {
     // Populate Top Achievements
     const achievementsContainer = document.getElementById('achievements-container');
     if (achievementsContainer) {
-        const years = Object.keys(summaryData.topAchievements).sort((a, b) => {
-            // Sort: "2025" > "2024" > "~2023"
-            if (a.startsWith('~')) return 1;
-            if (b.startsWith('~')) return -1;
-            return parseInt(b) - parseInt(a);
-        });
+        const years = sortYearKeysDesc(Object.keys(summaryData.topAchievements));
         achievementsContainer.innerHTML = years.map(year => `
             <div class="award-year-group">
                 <h3 class="award-year">${year}</h3>

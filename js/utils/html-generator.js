@@ -192,8 +192,14 @@ class HTMLGenerator {
         if (!awardsData || Object.keys(awardsData).length === 0) {
             return HTMLGenerator.emptyStateMessage();
         }
-        
-        const years = Object.keys(awardsData).sort((a, b) => parseInt(b) - parseInt(a));
+
+        const years = Object.keys(awardsData).sort((a, b) => {
+            const matchA = a.match(/\d{4}/);
+            const matchB = b.match(/\d{4}/);
+            const yearA = matchA ? parseInt(matchA[0], 10) : Number.NEGATIVE_INFINITY;
+            const yearB = matchB ? parseInt(matchB[0], 10) : Number.NEGATIVE_INFINITY;
+            return yearB - yearA;
+        });
         return years.map(year => `
             <div class="awards-year-group">
                 <h3 class="awards-year">${year}</h3>

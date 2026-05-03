@@ -173,55 +173,54 @@ window.cvData = {
         }
     ],
     awards: {
-        '2024': [
+        '2026': [
             {
                 title: {
-                    en: 'Silver Award: Kangaroo Math Contest 2024 (Student Categories)',
-                    ja: 'カンガルー数学コンテスト2024: 銀賞（Student Categories）'
+                    en: '25,000+ Subscribers: YouTube Music Channel',
+                    ja: 'YouTube音楽チャンネル: 登録者数2.5万人達成'
                 },
                 organization: {
-                    en: 'Kangaroo Math Malaysia',
-                    ja: 'Kangaroo Math Malaysia'
+                    en: 'YouTube',
+                    ja: 'YouTube'
                 },
-                date: '2024.05',
+                date: '2026.05',
                 description: {
-                    en: 'World\'s largest mathematics competition',
-                    ja: '世界最大の数学コンテスト'
+                    en: 'Piano performance and sheet music videos (over 4 million total views)',
+                    ja: 'ピアノ演奏・楽譜動画の投稿（総再生回数400万回超）'
                 },
-                link: 'https://www.kangaroomath.com.my/'
+                link: 'https://www.youtube.com/@ray_pianocover'
             },
             {
                 title: {
-                    en: 'Bronze Award, Top 32: Malaysia Computational Linguistics Olympiad 2024 (Secondary Categories)',
-                    ja: '言語学オリンピックマレーシア大会2024: 銅賞・ベスト32（Secondary Categories）'
+                    en: '850+ Articles Published: Study Abroad Blog',
+                    ja: '留学ブログ: 累計850記事以上執筆'
                 },
                 organization: {
-                    en: 'Malaysian Computational Thinking Association',
-                    ja: 'Malaysian Computational Thinking Association'
+                    en: 'Personal Blog (Ray\'s Global Life Notes)',
+                    ja: '個人ブログ（Rayの海外生活ノート）'
                 },
-                date: '2024.03',
+                date: '2026.03',
                 description: {
-                    en: 'Top 32 nationally in Malaysia, advanced to final tournament',
-                    ja: 'マレーシア国内ベスト32・決勝トーナメント進出'
+                    en: 'One of the largest study abroad media platforms in the industry with over 20,000 monthly page views',
+                    ja: '月2万PV超の業界最大級の規模を誇る留学メディア'
                 },
-                link: 'https://myclo.my/'
+                link: 'https://ray-globallife.com/'
             },
             {
                 title: {
-                    en: 'Merit Award: Japan Linguistics Olympiad 2024 (Open Division)',
-                    ja: '日本言語学オリンピック2024: 敢闘賞（オープン枠）'
+                    en: 'Academic Excellence Award: Monash University',
+                    ja: 'モナッシュ大学: 成績優秀賞'
                 },
                 organization: {
-                    en: 'The International Linguistics Olympiad Japan Committee',
-                    ja: '国際言語学オリンピック日本委員会'
+                    en: 'Monash University Malaysia',
+                    ja: 'モナッシュ大学マレーシア校'
                 },
-                date: '2024.02',
+                date: '2026.03',
                 description: {
-                    en: 'Academic olympiad analyzing unknown languages',
-                    ja: '未知の言語を解析する学術オリンピック'
-                },
-                link: 'https://iolingjapan.org/'
-            }
+                    en: 'WAM approximately 90%, received an Academic Excellence Award from the School of IT',
+                    ja: 'WAM約90%・情報学部全体で表彰'
+                }
+            },
         ],
         '2025': [
             {
@@ -315,7 +314,7 @@ window.cvData = {
                 },
                 date: '2025.04',
                 description: {
-                    en: 'WAM approximately 90%, recognized across the School of IT and in Mathematics',
+                    en: 'WAM approximately 90%, received an Academic Excellence Award from the School of IT and was recognized as Top Scholar in Mathematics',
                     ja: 'WAM約90%・情報学部全体および数学分野で表彰'
                 }
             },
@@ -367,38 +366,54 @@ window.cvData = {
                 }
             }
         ],
-        '2026': [
+        '2024': [
             {
                 title: {
-                    en: '25,000+ Subscribers: YouTube Music Channel',
-                    ja: 'YouTube音楽チャンネル: 登録者数2.5万人達成'
+                    en: 'Silver Award: Kangaroo Math Contest 2024 (Student Categories)',
+                    ja: 'カンガルー数学コンテスト2024: 銀賞（Student Categories）'
                 },
                 organization: {
-                    en: 'YouTube',
-                    ja: 'YouTube'
+                    en: 'Kangaroo Math Malaysia',
+                    ja: 'Kangaroo Math Malaysia'
                 },
-                date: '2026.05',
+                date: '2024.05',
                 description: {
-                    en: 'Piano performance and sheet music videos (over 4 million total views)',
-                    ja: 'ピアノ演奏・楽譜動画の投稿（総再生回数400万回超）'
+                    en: 'World\'s largest mathematics competition',
+                    ja: '世界最大の数学コンテスト'
                 },
-                link: 'https://www.youtube.com/@ray_pianocover'
+                link: 'https://www.kangaroomath.com.my/'
             },
             {
                 title: {
-                    en: '850+ Articles Published: Study Abroad Blog',
-                    ja: '留学ブログ: 累計850記事以上執筆'
+                    en: 'Bronze Award, Top 32: Malaysia Computational Linguistics Olympiad 2024 (Secondary Categories)',
+                    ja: '言語学オリンピックマレーシア大会2024: 銅賞・ベスト32（Secondary Categories）'
                 },
                 organization: {
-                    en: 'Personal Blog (Ray\'s Global Life Notes)',
-                    ja: '個人ブログ（Rayの海外生活ノート）'
+                    en: 'Malaysian Computational Thinking Association',
+                    ja: 'Malaysian Computational Thinking Association'
                 },
-                date: '2026.03',
+                date: '2024.03',
                 description: {
-                    en: 'One of the largest study abroad media platforms in the industry with over 20,000 monthly page views',
-                    ja: '月2万PV超の業界最大級の規模を誇る留学メディア'
+                    en: 'Top 32 nationally in Malaysia, advanced to final tournament',
+                    ja: 'マレーシア国内ベスト32・決勝トーナメント進出'
                 },
-                link: 'https://ray-globallife.com/'
+                link: 'https://myclo.my/'
+            },
+            {
+                title: {
+                    en: 'Merit Award: Japan Linguistics Olympiad 2024 (Open Division)',
+                    ja: '日本言語学オリンピック2024: 敢闘賞（オープン枠）'
+                },
+                organization: {
+                    en: 'The International Linguistics Olympiad Japan Committee',
+                    ja: '国際言語学オリンピック日本委員会'
+                },
+                date: '2024.02',
+                description: {
+                    en: 'Academic olympiad analyzing unknown languages',
+                    ja: '未知の言語を解析する学術オリンピック'
+                },
+                link: 'https://iolingjapan.org/'
             }
         ],
         '~2023': [
