@@ -79,7 +79,7 @@ window.summaryData = {
             }
         },
         {
-            period: '2024.09 - Present',
+            period: '2024.09 - 2025.12',
             company: {
                 en: 'GFI Educations Co., Ltd.',
                 ja: '株式会社GFIエデュケーションズ'
