@@ -793,7 +793,7 @@ window.cvData = {
                 en: 'Languages',
                 ja: '言語'
             },
-            skills: ['Japanese (Native)', 'English (Business)', 'Malay/Indonesian (Basic)']
+            skills: ['Japanese (Native)', 'English (Business)', 'Mandarin Chinese (Basic)', 'Malay/Indonesian (Basic)']
         }
     ]
 };

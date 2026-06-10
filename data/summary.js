@@ -235,6 +235,7 @@ window.summaryData = {
             items: [
                 'Japanese (Native)',
                 'English (Business)',
+                'Mandarin Chinese (Basic)',
                 'Malay/Indonesian (Basic)'
             ]
         }
