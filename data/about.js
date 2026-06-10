@@ -9,16 +9,12 @@ window.aboutData = {
         image: 'assets/about-photo.jpg',
         description: [
             {
-                en: 'Born in 2004. During high school, I actively engaged in acoustic phonetics research, shogi (Japanese chess), and English debate, winning top prizes at national competitions and representing Japan in international tournaments.',
-                ja: '2004年生まれ。高校時代は音響音声学の研究、将棋、英語ディベートなどの課外活動に励み、全国大会で最優秀賞・努力賞を受賞し、国際大会にも出場。',
+                en: 'After graduating from high school in Japan, I moved to Malaysia to study in an international environment and now work across AI, web development, education, music, and media.',
+                ja: '日本の高校を卒業後、国際的な環境で学ぶためにマレーシアへ渡り、現在はAI、Web開発、教育、音楽、メディア運営など複数の領域で活動しています。',
             },
             {
-                en: 'At Monash University Malaysia (Faculty of Information Technology), I have consistently maintained top-tier grades and was awarded merit-based scholarships. I also achieved distinctions in the Artificial Intelligence Olympiad and the Linguistics Olympiad.',
-                ja: 'マレーシアのモナッシュ大学(情報学部）に進学後は、大学でトップクラスの成績を維持し、給付型奨学金を受給。人工知能オリンピックや言語学オリンピックなどでも入賞。',
-            },
-            {
-                en: 'In parallel, I launched a study-abroad information website and pursued a career as a freelance musician, while also taking on internships, international travel, and martial arts—continuously seeking new challenges.',
-                ja: '並行して、留学情報サイトの立ち上げや音楽フリーランスとしての活動も行いながら、インターンシップや海外旅行、格闘技にも取り組むなど、常に新たな挑戦を続けている。',
+                en: 'My focus is on learning quickly, building practically, and turning ideas into things that people can actually use.',
+                ja: '素早く学び、実際に作り、人に使われる形まで落とし込むことを大切にしています。',
             },
         ],
     },
@@ -27,16 +23,16 @@ window.aboutData = {
         // Multiple paragraph format for storytelling flow
         paragraphs: [
             {
-                en: 'During high school, I first encountered Python through research on speech synthesis, which deepened my interest in AI and statistics. When the school festival website I created was used by all students, I experienced the joy of using technology to help others.',
-                ja: '高校時代に行っていた合成音声に関する研究で初めてPythonに触れ、AIや統計学への興味を深めました。また、自身が制作した学園祭のウェブサイトを全校生徒に利用してもらったことで、技術で人の役に立つ喜びを実感しました。',
+                en: 'In high school, my research on speech synthesis introduced me to Python and sparked my interest in AI, statistics, and treating language as data.',
+                ja: '高校時代の合成音声研究でPythonに初めて触れたことが、AIや統計、言語をデータとして扱う面白さを知るきっかけになりました。',
             },
             {
-                en: 'Wanting to learn cutting-edge technology in an international environment, I enrolled at Monash University Malaysia, where I could study both Computer Science and Data Science. Currently, I bridge theory and practice through implementing machine learning models and developing web applications.',
-                ja: 'その後、最先端の技術を国際的な環境で学びたいと考え、コンピュータサイエンスとデータサイエンスの両方を学ぶことができるモナッシュ大学マレーシア校に進学しました。現在は機械学習モデルの実装やWebアプリケーション開発を通じて、理論と実践の橋渡しに取り組んでいます。',
+                en: 'After building a school festival website used across my school, I realized how rewarding it is to create technology that helps people in a concrete way.',
+                ja: '自作した学園祭サイトを全校生徒に使ってもらった経験から、技術で人の具体的な役に立つ喜びを実感しました。',
             },
             {
-                en: 'In the future, I aim to leverage the global perspective gained through studying abroad and diverse extracurricular experiences to develop products that solve social issues using AI and data science.',
-                ja: '将来は、留学を通じて得たグローバルな視点や多様な課外活動の経験を活かし、AIやデータサイエンスを活用して社会問題を解決するプロダクトを開発したいです。',
+                en: 'That led me to Monash University Malaysia, where I could deepen Computer Science and Data Science in an international environment. Looking ahead, I want to use AI and data science to build things that are genuinely useful to others.',
+                ja: 'その延長で、国際的な環境でコンピュータサイエンスとデータサイエンスを深められるモナッシュ大学マレーシア校へ進学しました。今後は、AIやデータサイエンスを通じて、誰かの役に立つものを形にしていきたいです。',
             },
         ],
     },
@@ -48,22 +44,18 @@ window.aboutData = {
                 ja: '高速学習と成果の再現性',
             },
             description: {
-                en: 'Master the Learn → Implement → Verify → Reflect cycle to deliver results rapidly',
-                ja: '学習→実装→検証→振り返りのサイクルで高速に成果を出す',
+                en: 'Learn new fields quickly, then turn that learning into tested, repeatable results',
+                ja: '新しい分野を素早く学び、実装と検証を通じて再現性のある成果につなげる',
             },
             icon: 'fas fa-bolt',
             highlights: [
                 {
-                    en: 'FE Exam & Bookkeeping in 20-30% of typical prep time',
-                    ja: 'FE試験・簿記を通常の2-3割の対策時間で合格',
+                    en: 'Strong academic results alongside multiple technical and business certifications',
+                    ja: '大学での高成績に加え、技術・ビジネス系資格を複数取得',
                 },
                 {
-                    en: 'AI research National Grand Prize, Datathon 3rd place, multiple Olympiad Awards',
-                    ja: 'AI研究全国最優秀賞、データソン3位、オリンピックメダル複数',
-                },
-                {
-                    en: "GPA 4.0, scholarships, Mathematics Top Scholar (world's 36th-ranked)",
-                    ja: 'GPA 4.0、奨学金、数学首席表彰（世界36位大学）',
+                    en: 'Awards across AI research, olympiads, hackathons, and data competitions',
+                    ja: 'AI研究、オリンピック、ハッカソン、データコンペでの受賞',
                 },
             ],
         },
@@ -73,8 +65,8 @@ window.aboutData = {
                 ja: 'グローバル×多領域で価値を創る',
             },
             description: {
-                en: 'Excel at the intersections of Tech × Business × Communication across borders',
-                ja: '技術×ビジネス×発信を国境を超えて融合し価値を創出',
+                en: 'Connect technology, communication, and creativity across cultures and fields',
+                ja: '技術・発信・クリエイティブを、文化や分野を越えてつなげる',
             },
             icon: 'fas fa-globe',
             highlights: [
@@ -83,12 +75,8 @@ window.aboutData = {
                     ja: '15カ国以上渡航、多国籍チーム協働、英語ビジネスレベル',
                 },
                 {
-                    en: 'Full-stack web, mobile apps, data science/AI/ML (hackathons & real projects)',
-                    ja: 'Web・アプリ・データサイエンス/AI/ML（ハッカソン・実案件）',
-                },
-                {
-                    en: 'Monetized blog (850+ articles), YouTube (25K subs), cross-industry internships',
-                    ja: 'ブログ（850記事）・YouTube（2.5万人）収益化、複数業界インターン',
+                    en: 'Projects spanning web development, AI/data science, media, and music',
+                    ja: 'Web開発、AI/データサイエンス、メディア、音楽を横断して活動',
                 },
             ],
         },
@@ -98,8 +86,8 @@ window.aboutData = {
                 ja: '成果が出るまで粘り強く',
             },
             description: {
-                en: 'Demonstrate resilience by trusting the process and working consistently until results are achieved',
-                ja: '簡単には諦めない—プロセスを信じて結果が出るまで粘り強く',
+                en: 'Keep improving through long-term effort until the work reaches real people',
+                ja: '長期的に改善を重ね、成果が人に届くところまで粘り強く続ける',
             },
             icon: 'fas fa-mountain',
             highlights: [
@@ -109,11 +97,7 @@ window.aboutData = {
                 },
                 {
                     en: 'Study abroad blog: 850+ articles built into industry-leading site',
-                    ja: '留学ブログ：850記事以上執筆、業界最大級サイトに成長',
-                },
-                {
-                    en: 'Overcame struggles in new fields (linguistics, AI, datathons) to win awards',
-                    ja: '未知分野（言語学・AI・データソン）で苦戦も諦めず入賞',
+                    ja: '留学ブログ：850記事以上執筆、業界最大級のサイトに成長',
                 },
             ],
         },
@@ -123,18 +107,14 @@ window.aboutData = {
                 ja: '技術を分かりやすく伝える',
             },
             description: {
-                en: 'Translate complex technical concepts into clear, accessible explanations for any audience',
-                ja: '複雑な技術概念を誰にでも分かる明快な説明に翻訳',
+                en: 'Make complex ideas easier to understand through teaching, writing, and storytelling',
+                ja: '教える・書く・伝えることを通じて、複雑な内容を分かりやすく届ける',
             },
             icon: 'fas fa-comments',
             highlights: [
                 {
                     en: 'Music instructor, math tutor, study abroad mentor',
                     ja: '音楽講師、数学家庭教師、留学進路メンター',
-                },
-                {
-                    en: '850+ blog articles on tech/study abroad in plain language',
-                    ja: '850記事以上で技術・留学を分かりやすく解説',
                 },
                 {
                     en: 'Won hackathons with storytelling, not just code',
@@ -152,8 +132,8 @@ window.aboutData = {
                 ja: '現在',
             },
             description: {
-                en: "As of 2025, I'm in my second year of undergraduate studies, learning more specialized programming and data analysis. Alongside academics, I'm also engaged in music and website management.",
-                ja: '2025年現在、学部2年生として、より専門的なプログラミングやデータ解析の分野を学んでいる。学業の傍ら、音楽活動、ウェブサイト運営などにも取り組む。',
+                en: 'Now in my third undergraduate year, studying advanced programming and data analysis while continuing music and web/media projects.',
+                ja: '2026年現在、学部3年生として、より専門的なプログラミングやデータ解析の分野を学んでいる。学業の傍ら、音楽活動、ウェブサイト運営などにも取り組む。',
             },
             icon: 'fas fa-laptop-code',
         },
@@ -164,8 +144,8 @@ window.aboutData = {
                 ja: 'モナッシュ大学の学部課程に進学',
             },
             description: {
-                en: "After completing MUFY, enrolled in Monash University Malaysia's undergraduate program (Bachelor of Computer Science in Data Science) with a scholarship.",
-                ja: 'MUFY修了後、モナッシュ大学マレーシア校の学部課程（Bachelor of Computer Science in Data Science）に奨学金付きで進学。',
+                en: "After completing MUFY, entered Monash University Malaysia's Bachelor of Computer Science in Data Science with a scholarship.",
+                ja: 'MUFY修了後、モナッシュ大学マレーシア校のコンピュータサイエンス・データサイエンス学士課程に奨学金付きで進学。',
             },
             icon: 'fas fa-university',
         },
@@ -176,8 +156,8 @@ window.aboutData = {
                 ja: 'マレーシア留学開始',
             },
             description: {
-                en: 'Started a new life abroad. Enrolled in Monash University Foundation Year (MUFY) with a scholarship. Also began various internships around this time.',
-                ja: '海外での新生活をスタート。Monash University Foundation Year (MUFY)に奨学金付きで入学。この頃から各種インターンシップなども開始。',
+                en: 'Moved to Malaysia and entered Monash University Foundation Year (MUFY) with a scholarship; also began internships around this time.',
+                ja: '海外での新生活をスタート。モナッシュ大学基礎課程（MUFY）に奨学金付きで入学。この頃から各種インターンシップなども開始。',
             },
             icon: 'fas fa-plane-departure',
         },
@@ -188,7 +168,7 @@ window.aboutData = {
                 ja: '高校卒業',
             },
             description: {
-                en: 'Graduated from local public high school (IB-accredited). Entered a gap term of about 4.5 months before departure.',
+                en: 'Graduated from an IB-accredited public high school in Japan before a 4.5-month gap term.',
                 ja: '地元の公立高校（国際バカロレア認定校）を卒業。渡航まで約4か月半のギャップタームに突入。',
             },
             icon: 'fas fa-graduation-cap',
@@ -200,7 +180,7 @@ window.aboutData = {
                 ja: '誕生',
             },
             description: {
-                en: 'Born in Kanagawa Prefecture, spent early childhood in Chiba Prefecture. Moved to a rural area in fourth grade.',
+                en: 'Born in Kanagawa, spent early childhood in Chiba, and later moved to a rural area.',
                 ja: '神奈川県で生まれ、千葉県で幼少期を過ごす。小学4年生で地方に転校。',
             },
             icon: 'fas fa-baby',
@@ -215,7 +195,7 @@ window.aboutData = {
                 ja: 'プログラミング',
             },
             description: {
-                en: 'Development using Python and JavaScript, implementing machine learning, website creation, etc.',
+                en: 'Building with Python and JavaScript, from machine learning experiments to websites.',
                 ja: 'PythonやJavaScriptを使った開発、機械学習の実装、ウェブサイト制作など。',
             },
             icon: 'fas fa-code',
@@ -248,7 +228,7 @@ window.aboutData = {
                 ja: '旅行',
             },
             description: {
-                en: 'Traveled to around 15 countries. Enjoy experiencing different cultures and food exploration.',
+                en: 'Traveled to around 15 countries. I enjoy different cultures and local food.',
                 ja: 'アジア各国へ15か国ほど旅行。異文化体験と食べ歩きが好き。',
             },
             icon: 'fas fa-plane',
@@ -259,7 +239,7 @@ window.aboutData = {
                 ja: 'スポーツ',
             },
             description: {
-                en: 'From tennis to martial arts, anything goes! Recently hooked on pickleball.',
+                en: 'I enjoy all kinds of sports, from tennis to martial arts. Recently hooked on pickleball.',
                 ja: 'テニスから格闘技までなんでも！最近はピックルボールにハマっています。',
             },
             icon: 'fas fa-dumbbell',
