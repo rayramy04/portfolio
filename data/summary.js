@@ -4,7 +4,7 @@ window.summaryData = {
     // Personal intro section
     intro: {
         name: 'Ray',
-        age: '21',
+        age: '22',
         specialization: {
             en: 'Data Science, AI/ML, Full-stack Development',
             ja: 'データサイエンス・AI/ML・フルスタック開発'
@@ -107,21 +107,6 @@ window.summaryData = {
                 en: 'AI automation, JS web development',
                 ja: 'AI自動化・JS Web開発'
             }
-        },
-        {
-            period: '2023.04 - Present',
-            company: {
-                en: 'General Incorporated Association 52Hz',
-                ja: '一般社団法人52Hz'
-            },
-            role: {
-                en: 'Member (Former Contractor)',
-                ja: '会員（元業務委託）'
-            },
-            description: {
-                en: 'Career exploration programs',
-                ja: '進路探求プログラム運営'
-            }
         }
     ],
     // Top achievements grouped by year (condensed from cv.js awards)
@@ -186,6 +171,7 @@ window.summaryData = {
                 'Python',
                 'R',
                 'SQL',
+                'Java',
                 'JavaScript',
                 'React',
                 'Next.js',
