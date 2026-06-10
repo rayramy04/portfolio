@@ -366,29 +366,6 @@ async function initCV() {
         emptyState: { type: 'grants', icon: EMPTY_STATE_CONFIG.icon, message: EMPTY_STATE_CONFIG.message }
     });
 
-    // Render Key Strengths
-    const keyStrengthsContainer = document.getElementById('key-strengths-container');
-    if (keyStrengthsContainer) {
-        if (window.cvData.keyStrengths && window.cvData.keyStrengths.length > 0) {
-            keyStrengthsContainer.innerHTML = window.cvData.keyStrengths.map(item => {
-                const highlightsList = item.highlights ?
-                    `${item.highlights.map(h => `<p>• ${getText(h)}</p>`).join('')}` : '';
-                const customDescription = `<p class="text-meta">${getText(item.description)}</p>${highlightsList}`;
-                return HTMLGenerator.unifiedCardTemplate({
-                    ...item,
-                    title: getText(item.title),
-                    description: customDescription
-                });
-            }).join('');
-        } else {
-            showEmptyState(keyStrengthsContainer, {
-                type: 'keyStrengths',
-                icon: EMPTY_STATE_CONFIG.icon,
-                message: EMPTY_STATE_CONFIG.message
-            });
-        }
-    }
-
     // Render Technical Skills
     const skillsContainer = document.getElementById('skills-container');
     if (skillsContainer) {
