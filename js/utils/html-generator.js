@@ -62,24 +62,6 @@ class HTMLGenerator {
         return HTMLGenerator.unifiedCardTemplate(grant);
     }
 
-
-    static keyStrengthsSection(keyStrengthsData) {
-        if (!keyStrengthsData || keyStrengthsData.length === 0) {
-            return HTMLGenerator.emptyStateMessage();
-        }
-
-        return keyStrengthsData.map(strength => `
-            <div class="key-strength-item card hover-lift">
-                <div class="card-header">
-                    <h3><i class="${strength.icon}"></i> ${getText(strength.name)}</h3>
-                </div>
-                <ul class="key-strength-highlights">
-                    ${strength.highlights.map(highlight => `<li>${getText(highlight)}</li>`).join('')}
-                </ul>
-            </div>
-        `).join('');
-    }
-
     static skillsSection(skillsData) {
         if (!skillsData || skillsData.length === 0) {
             return HTMLGenerator.emptyStateMessage();
