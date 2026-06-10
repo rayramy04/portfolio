@@ -64,21 +64,6 @@ window.summaryData = {
     // Top 5 work experiences (from cv.js)
     experience: [
         {
-            period: '2025.05 - 2025.11',
-            company: {
-                en: 'Reabroad, Inc. (Smaryu)',
-                ja: '株式会社リアブロード（スマ留）'
-            },
-            role: {
-                en: 'Official Ambassador',
-                ja: '公式アンバサダー'
-            },
-            description: {
-                en: 'Event speaking, article writing',
-                ja: 'イベント登壇・記事執筆'
-            }
-        },
-        {
             period: '2024.09 - 2025.12',
             company: {
                 en: 'GFI Educations Co., Ltd.',
@@ -89,8 +74,8 @@ window.summaryData = {
                 ja: 'インターンシップ'
             },
             description: {
-                en: 'WordPress development, SEO',
-                ja: 'WordPress開発・SEO'
+                en: 'WordPress development, SEO, Project planning & Management',
+                ja: 'WordPress開発・SEO・企画/運営'
             }
         },
         {
@@ -106,6 +91,21 @@ window.summaryData = {
             description: {
                 en: 'AI automation, JS web development',
                 ja: 'AI自動化・JS Web開発'
+            }
+        },
+        {
+            period: "2024.03 - Present",
+            company: {
+                en: "coconala Inc.",
+                ja: "株式会社ココナラ"
+            },
+            role: {
+                en: "Freelancer",
+                ja: "フリーランス"
+            },
+            description: {
+                en: "Music instruction, custom sheet music transcription, music arrangement",
+                ja: "音楽講師・オーダーメイド楽譜制作・編曲"
             }
         }
     ],

@@ -208,8 +208,8 @@ window.cvData = {
             },
             {
                 title: {
-                    en: 'Academic Excellence Award: Monash University',
-                    ja: 'モナッシュ大学: 成績優秀賞'
+                    en: 'Academic Excellence Award (+ Top Scholar in Mathematics): Monash University',
+                    ja: 'モナッシュ大学: 成績優秀賞(+数学分野首席表彰)'
                 },
                 organization: {
                     en: 'Monash University Malaysia',
@@ -217,8 +217,8 @@ window.cvData = {
                 },
                 date: '2026.03',
                 description: {
-                    en: 'WAM approximately 87%, received an Academic Excellence Award from the School of IT',
-                    ja: 'WAM約90%・情報学部全体で表彰'
+                    en: 'WAM approximately 90% (consecutive awards since last year)',
+                    ja: '総合成績約90%（昨年からの連続受賞）'
                 }
             },
         ],
@@ -302,21 +302,6 @@ window.cvData = {
                     ja: 'Kaggle形式のデータ分析コンペティション'
                 },
                 link: 'https://ioai-japan.org/'
-            },
-            {
-                title: {
-                    en: 'Academic Excellence Award, Top Scholar in Mathematics: Monash University',
-                    ja: 'モナッシュ大学: 成績優秀賞・数学分野首席表彰'
-                },
-                organization: {
-                    en: 'Monash University Malaysia',
-                    ja: 'モナッシュ大学マレーシア校'
-                },
-                date: '2025.04',
-                description: {
-                    en: 'WAM approximately 90%, received an Academic Excellence Award from the School of IT and was recognized as Top Scholar in Mathematics',
-                    ja: 'WAM約90%・情報学部全体および数学分野で表彰'
-                }
             },
             {
                 title: {
