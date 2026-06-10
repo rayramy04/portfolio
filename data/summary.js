@@ -127,10 +127,6 @@ window.summaryData = {
                 ja: "L'Oréal x Monash Datathon 2025: 第3位（500以上のエントリー）",
             },
             {
-                en: 'Excellence Award: RSS Hackathon 2025 (PhotoVoca)',
-                ja: 'RSS Hackathon 2025: 優秀賞（PhotoVoca）',
-            },
-            {
                 en: 'Excellence Award: Geek Camp Hackathon 2025 vol.9 (EmotiGift)',
                 ja: '技育CAMPハッカソン2025 vol.9: 優秀賞（EmotiGift）',
             },
