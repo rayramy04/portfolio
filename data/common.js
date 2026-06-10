@@ -3,23 +3,23 @@ window.commonData = {
     // Language settings
     lang: {
         current: 'en', // Default language: 'en' or 'ja'
-        available: ['en', 'ja']
+        available: ['en', 'ja'],
     },
     // UI text for language switcher
     ui: {
         langSwitch: {
             en: { flag: '🇺🇸', label: 'EN' },
-            ja: { flag: '🇯🇵', label: 'JP' }
-        }
+            ja: { flag: '🇯🇵', label: 'JP' },
+        },
     },
     // Basic profile info displayed in headers/footers
     profile: {
         name: 'Ray',
         title: {
             en: 'Computer Science & Data Science Student',
-            ja: 'コンピュータサイエンス・データサイエンス学生'
+            ja: 'コンピュータサイエンス・データサイエンス学生',
         },
-        photo: 'assets/profile.jpg' // Path to profile image
+        photo: 'assets/profile.jpg', // Path to profile image
     },
     // Social media links displayed in footer and links page
     socialLinks: [
@@ -29,9 +29,9 @@ window.commonData = {
             username: '@rayramy04', // Display username/handle
             title: {
                 en: 'GitHub',
-                ja: 'GitHub'
+                ja: 'GitHub',
             },
-            icon: 'fab fa-github' // FontAwesome icon class
+            icon: 'fab fa-github', // FontAwesome icon class
         },
         {
             name: 'twitter',
@@ -39,9 +39,9 @@ window.commonData = {
             username: '@rayramy04',
             title: {
                 en: 'X (Twitter)',
-                ja: 'X (Twitter)'
+                ja: 'X (Twitter)',
             },
-            icon: 'fab fa-twitter'
+            icon: 'fab fa-twitter',
         },
         {
             name: 'note',
@@ -49,9 +49,9 @@ window.commonData = {
             username: '@ll_0013py',
             title: {
                 en: 'note',
-                ja: 'note'
+                ja: 'note',
             },
-            icon: 'fas fa-pen-nib'
+            icon: 'fas fa-pen-nib',
         },
         {
             name: 'youtube',
@@ -59,10 +59,10 @@ window.commonData = {
             username: '@ray_pianocover',
             title: {
                 en: 'YouTube',
-                ja: 'YouTube'
+                ja: 'YouTube',
             },
-            icon: 'fab fa-youtube'
-        }
+            icon: 'fab fa-youtube',
+        },
     ],
     // Internal portfolio navigation links
     portfolioLinks: [
@@ -71,53 +71,53 @@ window.commonData = {
             url: 'index.html', // Relative URL to homepage
             title: {
                 en: 'Portfolio',
-                ja: 'ポートフォリオ'
+                ja: 'ポートフォリオ',
             },
-            icon: 'fas fa-home'
-        }
+            icon: 'fas fa-home',
+        },
     ],
     // Main site navigation menu - order determines display order
     navigation: [
         {
             name: 'Home', // Display text in navigation
             href: 'index.html', // Page file path
-            icon: 'fas fa-home' // FontAwesome icon for mobile/visual nav
+            icon: 'fas fa-home', // FontAwesome icon for mobile/visual nav
         },
         {
             name: 'Summary',
             href: 'summary.html',
-            icon: 'fas fa-file-alt'
+            icon: 'fas fa-file-alt',
         },
         {
             name: 'About',
             href: 'about.html',
-            icon: 'fas fa-user'
+            icon: 'fas fa-user',
         },
         {
             name: 'CV',
             href: 'cv.html',
-            icon: 'fas fa-file-alt'
+            icon: 'fas fa-file-alt',
         },
         {
             name: 'Projects',
             href: 'projects.html',
-            icon: 'fas fa-briefcase'
+            icon: 'fas fa-briefcase',
         },
         {
             name: 'Links',
             href: 'links.html',
-            icon: 'fas fa-link'
-        }
+            icon: 'fas fa-link',
+        },
     ],
     // Resume download button labels
     resumeButtons: {
         ja: {
             text: 'レジュメをダウンロード (日本語)',
-            icon: 'fas fa-file-download'
+            icon: 'fas fa-file-download',
         },
         en: {
             text: 'Download Resume (English)',
-            icon: 'fas fa-file-download'
-        }
-    }
+            icon: 'fas fa-file-download',
+        },
+    },
 };
