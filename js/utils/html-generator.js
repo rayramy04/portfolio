@@ -27,12 +27,13 @@ class HTMLGenerator {
                 ${amount ? `<p class="text-meta">${amount}</p>` : ''}
             </div>
         ` : '';
-        const cardDescription = description ? `<p>${description}</p>` : '';
+        const cardDescription = description ? (config.rawDescription ? description : `<p>${description}</p>`) : '';
         const itemContent = cardHeader + cardMeta + cardDescription;
+        const cardClass = config.cardClass ? `card hover-lift ${config.cardClass}` : 'card hover-lift';
         if (link) {
-            return `<a href="${link}" target="_blank" class="card hover-lift">${itemContent}</a>`;
+            return `<a href="${link}" target="_blank" class="${cardClass}">${itemContent}</a>`;
         }
-        return `<div class="card hover-lift">${itemContent}</div>`;
+        return `<div class="${cardClass}">${itemContent}</div>`;
     }
 
     static cvItem(item, config = {}) {

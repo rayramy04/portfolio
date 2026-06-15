@@ -9,12 +9,12 @@ window.aboutData = {
         image: 'assets/about-photo.jpg',
         description: [
             {
-                en: 'After graduating from high school in Japan, I moved to Malaysia to study in an international environment and now work across AI, web development, education, music, and media.',
-                ja: '日本の高校を卒業後、国際的な環境で学ぶためにマレーシアへ渡り、現在はAI、Web開発、教育、音楽、メディア運営など複数の領域で活動しています。',
+                en: 'After graduating from high school in Japan, I moved to Malaysia to study in an international environment and now study Computer Science and Data Science at Monash University Malaysia.',
+                ja: '日本の高校を卒業後、国際的な環境で学ぶためにマレーシアへ渡り、現在はモナッシュ大学マレーシア校でコンピュータサイエンスとデータサイエンスを学んでいます。',
             },
             {
-                en: 'My focus is on learning quickly, building practically, and turning ideas into things that people can actually use.',
-                ja: '素早く学び、実際に作り、人に使われる形まで落とし込むことを大切にしています。',
+                en: 'With AI and data science as my core focus, I also work across web development, education, music, and media.',
+                ja: 'AI・データサイエンスを軸に、Web開発、教育、音楽、メディア運営など、複数の領域で活動しています。',
             },
         ],
     },
@@ -23,16 +23,12 @@ window.aboutData = {
         // Multiple paragraph format for storytelling flow
         paragraphs: [
             {
-                en: 'In high school, my research on speech synthesis introduced me to Python and sparked my interest in AI, statistics, and treating language as data.',
-                ja: '高校時代の合成音声研究でPythonに初めて触れたことが、AIや統計、言語をデータとして扱う面白さを知るきっかけになりました。',
+                en: 'In high school, my research on speech synthesis introduced me to Python and sparked my interest in AI, statistics, and treating language as data. Also, after building a school festival website used across my school, I realized how rewarding it is to turn what I learn into something people can actually use.',
+                ja: '高校時代の合成音声研究でPythonに初めて触れたことが、AIや統計、言語をデータとして扱う面白さを知るきっかけになりました。また、自作した学園祭サイトを全校生徒に使ってもらった経験から、学んだことを形にし、実際に使われるものへつなげる喜びを実感しました。',
             },
             {
-                en: 'After building a school festival website used across my school, I realized how rewarding it is to create technology that helps people in a concrete way.',
-                ja: '自作した学園祭サイトを全校生徒に使ってもらった経験から、技術で人の具体的な役に立つ喜びを実感しました。',
-            },
-            {
-                en: 'That led me to Monash University Malaysia, where I could deepen Computer Science and Data Science in an international environment. Looking ahead, I want to use AI and data science to build things that are genuinely useful to others.',
-                ja: 'その延長で、国際的な環境でコンピュータサイエンスとデータサイエンスを深められるモナッシュ大学マレーシア校へ進学しました。今後は、AIやデータサイエンスを通じて、誰かの役に立つものを形にしていきたいです。',
+                en: 'That led me to Monash University Malaysia, where I could deepen Computer Science and Data Science in an international environment. Looking ahead, I want to use AI and data science to create practical value for others.',
+                ja: 'その延長で、国際的な環境でコンピュータサイエンスとデータサイエンスを深められるモナッシュ大学マレーシア校へ進学しました。今後は、AIやデータサイエンスを通じて、誰かの役に立つ価値を生み出していきたいです。',
             },
         ],
     },
@@ -42,10 +38,6 @@ window.aboutData = {
             title: {
                 en: 'Fast Learning & Consistent Results',
                 ja: '高速学習と成果の再現性',
-            },
-            description: {
-                en: 'Learn new fields quickly, then turn that learning into tested, repeatable results',
-                ja: '新しい分野を素早く学び、実装と検証を通じて再現性のある成果につなげる',
             },
             icon: 'fas fa-bolt',
             highlights: [
@@ -64,10 +56,6 @@ window.aboutData = {
                 en: 'Global × Cross-Domain Value Creation',
                 ja: 'グローバル×多領域で価値を創る',
             },
-            description: {
-                en: 'Connect technology, communication, and creativity across cultures and fields',
-                ja: '技術・発信・クリエイティブを、文化や分野を越えてつなげる',
-            },
             icon: 'fas fa-globe',
             highlights: [
                 {
@@ -85,10 +73,6 @@ window.aboutData = {
                 en: 'Persistent Until Impact',
                 ja: '成果が出るまで粘り強く',
             },
-            description: {
-                en: 'Keep improving through long-term effort until the work reaches real people',
-                ja: '長期的に改善を重ね、成果が人に届くところまで粘り強く続ける',
-            },
             icon: 'fas fa-mountain',
             highlights: [
                 {
@@ -105,10 +89,6 @@ window.aboutData = {
             title: {
                 en: 'Communicating Technology Clearly',
                 ja: '技術を分かりやすく伝える',
-            },
-            description: {
-                en: 'Make complex ideas easier to understand through teaching, writing, and storytelling',
-                ja: '教える・書く・伝えることを通じて、複雑な内容を分かりやすく届ける',
             },
             icon: 'fas fa-comments',
             highlights: [
@@ -180,8 +160,8 @@ window.aboutData = {
                 ja: '誕生',
             },
             description: {
-                en: 'Born in Kanagawa, spent early childhood in Chiba, and later moved to a rural area.',
-                ja: '神奈川県で生まれ、千葉県で幼少期を過ごす。小学4年生で地方に転校。',
+                en: 'Born in the Kanto region and later moved to a rural area in fourth grade.',
+                ja: '関東で生まれ、小学4年生で地方に転校。',
             },
             icon: 'fas fa-baby',
         },
