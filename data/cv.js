@@ -335,21 +335,6 @@ window.cvData = {
                 },
                 link: 'https://iolingjapan.org/',
             },
-            {
-                title: {
-                    en: 'Featured in Coming of Age Ceremony Exhibition',
-                    ja: '二十歳のつどい: 同級生応援イベント経歴掲載',
-                },
-                organization: {
-                    en: 'Local City Hall',
-                    ja: '地元市役所',
-                },
-                date: '2025.01',
-                description: {
-                    en: 'Career profile displayed at city hall to inspire fellow graduates',
-                    ja: '市役所にて一定期間の経歴展示',
-                },
-            },
         ],
         2024: [
             {
@@ -526,18 +511,6 @@ window.cvData = {
         },
         {
             title: {
-                en: 'AI Business Insights 2025',
-                ja: 'AI経営講座 AI Business Insights 2025: 修了',
-            },
-            organization: {
-                en: 'Matsuo Lab, The University of Tokyo',
-                ja: '東京大学 松尾研究室',
-            },
-            date: '2025.04',
-            link: 'https://weblab.t.u-tokyo.ac.jp/lecture/course-list/ai-driven/',
-        },
-        {
-            title: {
                 en: 'Fundamental Information Technology Engineer Examination (FE)',
                 ja: '基本情報技術者試験（FE）: 取得',
             },
@@ -546,40 +519,6 @@ window.cvData = {
                 ja: '独立行政法人情報処理推進機構（IPA）',
             },
             date: '2025.02',
-        },
-        {
-            title: {
-                en: 'Information Technology Passport Examination (i-Passport)',
-                ja: 'ITパスポート試験（iパス）: 取得',
-            },
-            organization: {
-                en: 'Information-technology Promotion Agency, Japan (IPA)',
-                ja: '独立行政法人情報処理推進機構（IPA）',
-            },
-            date: '2025.02',
-        },
-        {
-            title: {
-                en: 'Japan Chamber of Commerce and Industry Bookkeeping Test (Level 3)',
-                ja: '日本商工会議所 簿記検定試験 3級: 取得',
-            },
-            organization: {
-                en: 'The Japan Chamber of Commerce and Industry',
-                ja: '日本商工会議所',
-            },
-            date: '2025.02',
-        },
-        {
-            title: {
-                en: 'Global Consumer Intelligence 2024 Summer',
-                ja: 'グローバル消費インテリジェンス寄附講座 2024 Summer: 修了',
-            },
-            organization: {
-                en: 'Matsuo Lab, The University of Tokyo',
-                ja: '東京大学 松尾研究室',
-            },
-            date: '2024.08',
-            link: 'https://gci2.t.u-tokyo.ac.jp/',
         },
         {
             title: {
