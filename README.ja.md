@@ -77,7 +77,7 @@ git add . && git commit -m "ポートフォリオ内容を更新" && git push
         en: "Software Engineer",
         ja: "ソフトウェアエンジニア"
     },
-    description: {
+    description: {  // セクションに応じて任意
         en: "Built scalable web applications",
         ja: "スケーラブルなWebアプリケーションを構築"
     }
