@@ -20,5 +20,15 @@ window.homeData = {
             'Acoustic Engineering',
             'Music',
         ],
+        cta: {
+            summary: {
+                en: 'View Summary',
+                ja: '概要を見る',
+            },
+            projects: {
+                en: 'View Projects',
+                ja: 'プロジェクトを見る',
+            },
+        },
     },
 };
