@@ -338,7 +338,7 @@ window.cvData = {
             {
                 title: {
                     en: 'Featured in Coming of Age Ceremony Exhibition',
-                    ja: '20歳のつどい: 同級生応援イベント経歴掲載',
+                    ja: '二十歳のつどい: 同級生応援イベント経歴掲載',
                 },
                 organization: {
                     en: 'Local City Hall',
