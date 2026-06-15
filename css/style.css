@@ -941,6 +941,49 @@ h3 {
 .card-icons-primary h3 i {
   color: var(--primary-color);
 }
+
+.strengths-grid {
+  margin-top: var(--space-4);
+}
+
+.strength-card {
+  gap: var(--space-2);
+}
+
+.strength-card .card-header {
+  margin-bottom: var(--space-1);
+}
+
+.strength-card h3 {
+  line-height: 1.35;
+}
+
+.strength-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.strength-highlight {
+  display: grid;
+  grid-template-columns: 1rem 1fr;
+  gap: var(--space-2);
+  align-items: start;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.strength-highlight i {
+  color: var(--primary-color);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-relaxed);
+  margin-top: 0.1rem;
+}
+
+.strength-highlight span {
+  line-height: var(--lh-relaxed);
+}
+
 .interests-grid .card h3 {
   margin-bottom: var(--space-2);
 }

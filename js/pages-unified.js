@@ -249,16 +249,24 @@ async function initAbout() {
     
     const strengthsContainer = document.getElementById('strengths-container');
     if (strengthsContainer) {
-        strengthsContainer.className = 'grid-2-cols gap-sm cards-equal-height card-icons-primary';
+        strengthsContainer.className = 'strengths-grid grid-2-cols gap-sm cards-equal-height card-icons-primary';
         if (window.aboutData.strengths && window.aboutData.strengths.length > 0) {
             strengthsContainer.innerHTML = window.aboutData.strengths.map(item => {
                 const highlightsList = item.highlights ?
-                    `${item.highlights.map(h => `<p>• ${getText(h)}</p>`).join('')}` : '';
-                const customDescription = `<p class="text-meta">${getText(item.description)}</p>${highlightsList}`;
+                    `<div class="strength-highlights">${item.highlights.map(h => `
+                        <p class="strength-highlight">
+                            <i class="fas fa-check" aria-hidden="true"></i>
+                            <span>${getText(h)}</span>
+                        </p>
+                    `).join('')}</div>` : '';
+                const customDescription = highlightsList;
                 return HTMLGenerator.unifiedCardTemplate({
                     ...item,
                     title: getText(item.title),
                     description: customDescription
+                }, {
+                    cardClass: 'strength-card',
+                    rawDescription: true
                 });
             }).join('');
         } else {
