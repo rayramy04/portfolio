@@ -166,20 +166,6 @@ window.projectsData = [
     },
     {
         name: {
-            en: 'connect-with-me',
-            ja: 'connect-with-me',
-        },
-        description: {
-            en: 'High-performance link aggregation page built with Hugo',
-            ja: 'Hugoで構築した高速リンク集約ページ',
-        },
-        categories: ['Web Development'],
-        githubUrl: 'https://github.com/rayramy04/connect-with-me',
-        liveUrl: 'https://rayramy04.github.io/connect-with-me/',
-        image: 'assets/projects/connect-with-me.jpg',
-    },
-    {
-        name: {
             en: "Ray's Global Life Notes",
             ja: 'Rayの海外生活ノート',
         },
