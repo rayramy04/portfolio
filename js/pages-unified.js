@@ -152,16 +152,27 @@ function initializeSEO() {
 }
 
 async function initHome() {
-    const { name, subtitle, keywords } = window.homeData.hero;
+    const { name, subtitle, keywords, cta } = window.homeData.hero;
     const heroName = document.getElementById('hero-name');
     const heroTitle = document.getElementById('hero-title');
     const keywordsList = document.getElementById('keywords-list');
+    const heroCta = document.getElementById('hero-cta');
     if (heroName) heroName.textContent = name;
     if (heroTitle) heroTitle.textContent = getText(subtitle);
     if (keywordsList) {
         keywordsList.innerHTML = keywords.map(keyword =>
             `<li class="keyword-item">${keyword}</li>`
         ).join('');
+    }
+    if (heroCta && cta) {
+        heroCta.innerHTML = `
+            <a href="summary.html" class="btn btn-primary hover-lift">
+                <i class="fas fa-list-ul"></i> ${getText(cta.summary)}
+            </a>
+            <a href="projects.html" class="btn btn-primary hover-lift">
+                <i class="fas fa-briefcase"></i> ${getText(cta.projects)}
+            </a>
+        `;
     }
     if (typeof particlesJS !== 'undefined' && document.getElementById('particles-js')) {
         const rootStyles = getComputedStyle(document.documentElement);
@@ -190,7 +201,6 @@ async function initHome() {
         const heroContent = document.querySelector('.hero-content');
         if (heroContent) heroContent.classList.add('loaded');
     }, 100);
-    await initResumeButtons();
 }
 
 async function initAbout() {
