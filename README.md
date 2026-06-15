@@ -77,7 +77,7 @@ All data files support bilingual objects:
         en: "Software Engineer",
         ja: "ソフトウェアエンジニア"
     },
-    description: {
+    description: {  // optional, depending on the section
         en: "Built scalable web applications",
         ja: "スケーラブルなWebアプリケーションを構築"
     }
