@@ -112,8 +112,8 @@ window.aboutData = {
                 ja: '現在',
             },
             description: {
-                en: 'Now in my third undergraduate year, studying advanced programming and data analysis while continuing music and web/media projects.',
-                ja: '2026年現在、学部3年生として、より専門的なプログラミングやデータ解析の分野を学んでいる。学業の傍ら、音楽活動、ウェブサイト運営などにも取り組む。',
+                en: 'Now in my third undergraduate year, studying programming and data analysis while continuing music and web media projects.',
+                ja: '2026年現在、学部3年生としてプログラミングやデータ解析を学びながら、音楽活動やWebメディア運営にも取り組む。',
             },
             icon: 'fas fa-laptop-code',
         },
@@ -136,8 +136,8 @@ window.aboutData = {
                 ja: 'マレーシア留学開始',
             },
             description: {
-                en: 'Moved to Malaysia and entered Monash University Foundation Year (MUFY) with a scholarship; also began internships around this time.',
-                ja: '海外での新生活をスタート。モナッシュ大学基礎課程（MUFY）に奨学金付きで入学。この頃から各種インターンシップなども開始。',
+                en: 'Entered Monash University Foundation Year (MUFY) with a scholarship and began studying abroad in Malaysia.',
+                ja: 'モナッシュ大学基礎課程（MUFY）に奨学金付きで入学し、マレーシア留学を開始。',
             },
             icon: 'fas fa-plane-departure',
         },
@@ -148,8 +148,8 @@ window.aboutData = {
                 ja: '高校卒業',
             },
             description: {
-                en: 'Graduated from an IB-accredited public high school in Japan before a 4.5-month gap term.',
-                ja: '地元の公立高校（国際バカロレア認定校）を卒業。渡航まで約4か月半のギャップタームに突入。',
+                en: 'Graduated from an IB-accredited public high school in Japan, followed by a four-month gap term before moving to Malaysia.',
+                ja: '地元の公立高校（国際バカロレア認定校）を卒業。マレーシア渡航まで4か月のギャップタームを過ごす。',
             },
             icon: 'fas fa-graduation-cap',
         },
@@ -176,7 +176,7 @@ window.aboutData = {
             },
             description: {
                 en: 'Building with Python and JavaScript, from machine learning experiments to websites.',
-                ja: 'PythonやJavaScriptを使った開発、機械学習の実装、ウェブサイト制作など。',
+                ja: 'PythonやJavaScriptを使った開発、機械学習の実装、Webサイト制作など。',
             },
             icon: 'fas fa-code',
         },
@@ -208,8 +208,8 @@ window.aboutData = {
                 ja: '旅行',
             },
             description: {
-                en: 'Traveled to around 15 countries. I enjoy different cultures and local food.',
-                ja: 'アジア各国へ15か国ほど旅行。異文化体験と食べ歩きが好き。',
+                en: 'Traveled to 15+ countries, mainly in Asia. I enjoy different cultures and local food.',
+                ja: 'アジアを中心に15か国以上を旅行。異文化体験と食べ歩きが好き。',
             },
             icon: 'fas fa-plane',
         },
@@ -231,7 +231,7 @@ window.aboutData = {
             },
             description: {
                 en: 'Reading across a wide range of genres from technical books to novels. Particularly love mystery novels.',
-                ja: '技術書から小説まで、幅広いジャンルの読書。ミステリー小説が特に好き。',
+                ja: '技術書から小説まで幅広く読む。特にミステリー小説が好き。',
             },
             icon: 'fas fa-book',
         },
