@@ -208,8 +208,8 @@ window.cvData = {
             },
             {
                 title: {
-                    en: 'Academic Excellence Award (+ Top Scholar in Mathematics): Monash University',
-                    ja: 'モナッシュ大学: 成績優秀賞(+数学分野首席表彰)',
+                    en: 'Academic Excellence Award: Monash University',
+                    ja: 'モナッシュ大学: 成績優秀賞',
                 },
                 organization: {
                     en: 'Monash University Malaysia',
@@ -217,8 +217,8 @@ window.cvData = {
                 },
                 date: '2026.03',
                 description: {
-                    en: 'WAM approximately 90% (consecutive awards since last year)',
-                    ja: '総合成績約90%（昨年からの連続受賞）',
+                    en: 'Awarded consecutively in 2025 and 2026; Top Scholar in Mathematics in 2025',
+                    ja: '2025年・2026年の2年連続受賞・数学分野首席（2025）',
                 },
             },
         ],
