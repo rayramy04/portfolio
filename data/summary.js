@@ -113,6 +113,10 @@ window.summaryData = {
     topAchievements: {
         2026: [
             {
+                en: 'Academic Excellence Award: Monash University (2nd consecutive year) + Top Scholar in Mathematics (2025)',
+                ja: 'モナッシュ大学: 成績優秀賞（2年連続）・数学分野首席（2025）',
+            },
+            {
                 en: '25,000+ Subscribers: YouTube Music Channel (4M+ total views)',
                 ja: 'YouTube音楽チャンネル: 登録者数2.5万人（総再生回数400万回超）',
             },
@@ -133,10 +137,6 @@ window.summaryData = {
             {
                 en: '5th Place Nationally: Japan AI Olympiad 2025 Gold Award',
                 ja: '日本人工知能オリンピック2025: 金賞・全国5位',
-            },
-            {
-                en: 'Academic Excellence Award: Monash University (Top Scholar in Mathematics)',
-                ja: 'モナッシュ大学: 成績優秀賞・数学分野首席表彰',
             },
         ],
         2024: [
