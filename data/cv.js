@@ -176,17 +176,17 @@ window.cvData = {
         2026: [
             {
                 title: {
-                    en: '25,000+ Subscribers: YouTube Music Channel',
-                    ja: 'YouTube音楽チャンネル: 登録者数2.5万人達成',
+                    en: '30,000+ Subscribers: YouTube Music Channel',
+                    ja: 'YouTube音楽チャンネル: 登録者数3万人達成',
                 },
                 organization: {
                     en: 'YouTube',
                     ja: 'YouTube',
                 },
-                date: '2026.05',
+                date: '2026.07',
                 description: {
-                    en: 'Piano performance and sheet music videos (over 4 million total views)',
-                    ja: 'ピアノ演奏・楽譜動画の投稿（総再生回数400万回超）',
+                    en: 'Piano performance and sheet music videos (over 4.5 million total views)',
+                    ja: 'ピアノ演奏・楽譜動画の投稿（総再生回数450万回超）',
                 },
                 link: 'https://www.youtube.com/@ray_pianocover',
             },
@@ -654,7 +654,6 @@ window.cvData = {
                 'Japanese (Native)',
                 'English (Business)',
                 'Mandarin Chinese (Basic)',
-                'Malay/Indonesian (Basic)',
             ],
         },
     ],
