@@ -76,12 +76,12 @@ window.aboutData = {
             icon: 'fas fa-mountain',
             highlights: [
                 {
-                    en: 'YouTube: 0 → 30K subscribers, 4.5M+ views over years of consistency',
-                    ja: 'YouTube：0→3万人（総再生450万回超）数年間継続',
+                    en: 'YouTube: 0 → 30K subscribers, 5M+ views over years of consistency',
+                    ja: 'YouTube：0→3万人（総再生500万回超）数年間継続',
                 },
                 {
-                    en: 'Study abroad blog: 850+ articles built into industry-leading site',
-                    ja: '留学ブログ：850記事以上執筆、業界最大級のサイトに成長',
+                    en: 'Study abroad blog: 900+ articles built into industry-leading site',
+                    ja: '留学ブログ：900記事以上執筆、業界最大級のサイトに成長',
                 },
             ],
         },
