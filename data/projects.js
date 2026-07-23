@@ -170,8 +170,8 @@ window.projectsData = [
             ja: 'Rayの海外生活ノート',
         },
         description: {
-            en: 'One of the largest study abroad blogs in the industry with 850+ articles and 25,000+ monthly page views',
-            ja: '累計850記事超/月2万PV超の、業界最大級の留学情報ブログ',
+            en: 'One of the largest study abroad blogs in the industry with 900+ articles and 25,000+ monthly page views',
+            ja: '累計900記事超/月2万PV超の、業界最大級の留学情報ブログ',
         },
         categories: ['Research & Others'],
         githubUrl: null,
@@ -212,8 +212,8 @@ window.projectsData = [
             ja: 'YouTubeピアノチャンネル',
         },
         description: {
-            en: 'Piano performance and sheet music transcription channel with 30,000+ subscribers and 4.5 million+ total views',
-            ja: '登録者3万人超/総再生回数450万回超のピアノ・耳コピ楽譜のチャンネル',
+            en: 'Piano performance and sheet music transcription channel with 30,000+ subscribers and 5 million+ total views',
+            ja: '登録者3万人超/総再生回数500万回超のピアノ・耳コピ楽譜のチャンネル',
         },
         categories: ['Research & Others'],
         githubUrl: null,

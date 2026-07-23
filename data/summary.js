@@ -113,16 +113,16 @@ window.summaryData = {
     topAchievements: {
         2026: [
             {
-                en: '30,000+ Subscribers: YouTube Music Channel (4.5M+ total views)',
-                ja: 'YouTube音楽チャンネル: 登録者数3万人達成（総再生回数450万回超）',
+                en: '30,000+ Subscribers: YouTube Music Channel (5M+ total views)',
+                ja: 'YouTube音楽チャンネル: 登録者数3万人達成（総再生回数500万回超）',
             },
             {
                 en: 'Academic Excellence Award: Monash University (2nd consecutive year) + Top Scholar in Mathematics (2025)',
                 ja: 'モナッシュ大学: 成績優秀賞（2年連続）・数学分野首席（2025）',
             },
             {
-                en: '850+ Articles Published: Study Abroad Blog (20,000+ monthly PVs)',
-                ja: '留学ブログ: 累計850記事以上執筆（月2万PV超）',
+                en: '900+ Articles Published: Study Abroad Blog (20,000+ monthly PVs)',
+                ja: '留学ブログ: 累計900記事以上執筆（月2万PV超）',
             },
         ],
         2025: [
