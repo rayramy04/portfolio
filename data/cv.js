@@ -160,7 +160,7 @@ window.cvData = {
                 en: 'General Incorporated Association 52Hz',
                 ja: '一般社団法人52Hz',
             },
-            period: '2023.04 - Present',
+            period: '2023.04 - 2026.08',
             position: {
                 en: 'Member (Former Contractor — Mentor, 52Hz Accelerator Gen 0; 2024.07 - 2025.03)',
                 ja: '会員（元業務委託 - 52Hz Accelerator 0期メンター; 2024.07 - 2025.03）',
