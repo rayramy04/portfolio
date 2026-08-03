@@ -15,7 +15,7 @@ A clean, responsive, and **bilingual** portfolio template built with vanilla HTM
 
 ## Features
 
-- **Bilingual** - Full English/Japanese support with localStorage
+- **Bilingual** - Full English/Japanese support, switchable from the nav or a `?lang=` URL parameter
 - **Data-driven** - Edit content via JSON-like JavaScript files
 - **Responsive** - Mobile-first design, works on all devices
 - **Zero Dependencies** - Pure HTML/CSS/JS, no build step required
@@ -106,6 +106,21 @@ lang: {
     available: ['en', 'ja']
 }
 ```
+
+This is what a first-time visitor sees. Returning visitors keep whichever language they last picked.
+
+### Share a Link in a Specific Language
+
+Add `?lang=en` or `?lang=ja` to any URL to decide the language a visitor lands on, regardless of the default:
+
+```
+https://your-site.com/?lang=ja
+https://your-site.com/summary.html?lang=en
+```
+
+The language is saved to `localStorage`, so it sticks as the visitor moves to other pages. Handy for sending the same site to different audiences - an English link for one, a Japanese link for another - without asking them to find the switcher.
+
+Values other than those in `available` are ignored. The nav switcher always overrides the parameter.
 
 ## Fork & Update Workflow
 
