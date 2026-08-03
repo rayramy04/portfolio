@@ -26,8 +26,30 @@ const RESUME_FILES = {
 };
 
 // ===== LANGUAGE SYSTEM =====
+let resolvedLang = null;
+
+function resolveLang() {
+    const available = window.commonData?.lang?.available || ['en', 'ja'];
+    const fallback = window.commonData?.lang?.current || 'en';
+
+    // ?lang=en / ?lang=ja wins, so a shared link always opens in the intended language
+    const requested = new URLSearchParams(window.location.search).get('lang');
+    if (requested && available.includes(requested)) {
+        localStorage.setItem('siteLang', requested); // Keep it while navigating the site
+        return requested;
+    }
+
+    const stored = localStorage.getItem('siteLang');
+    return available.includes(stored) ? stored : fallback;
+}
+
 function getCurrentLang() {
-    return localStorage.getItem('siteLang') || window.commonData?.lang?.current || 'en';
+    if (!resolvedLang) resolvedLang = resolveLang();
+    return resolvedLang;
+}
+
+function applyDocumentLang() {
+    document.documentElement.lang = getCurrentLang();
 }
 
 function getText(obj) {
@@ -75,7 +97,10 @@ function switchLanguage(lang) {
     document.body.style.transition = 'opacity 0.3s ease-in-out';
 
     setTimeout(() => {
-        location.reload();
+        // Drop ?lang= so it does not override the choice just made
+        const url = new URL(window.location.href);
+        url.searchParams.delete('lang');
+        location.replace(url.toString());
     }, 300);
 }
 
@@ -123,6 +148,7 @@ async function initializePage() {
 async function initializeBase() {
     const pageBase = new PageBase('current');
     await pageBase.loadCommonComponents();
+    applyDocumentLang();
     initLanguageSwitcher();
     initializeSEO();
     setTimeout(() => {
