@@ -107,7 +107,7 @@ const seoConfig = {
                 '@type': 'Person',
                 name: 'Ray',
             },
-            inLanguage: 'ja',
+            inLanguage: 'en',
         },
         // Page-specific structured data
         pages: {
