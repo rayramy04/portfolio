@@ -29,8 +29,8 @@ window.summaryData = {
                 ja: '情報学部 コンピュータサイエンス・データサイエンス学士課程',
             },
             details: {
-                en: 'GPA 4.0, Merit Scholarship',
-                ja: 'GPA 4.0、奨学金受給',
+                en: 'GPA 3.9, Merit Scholarship',
+                ja: 'GPA 3.9、奨学金受給',
             },
         },
         {
@@ -79,7 +79,7 @@ window.summaryData = {
             },
         },
         {
-            period: '2024.06 - Present',
+            period: '2024.06 - 2026.08',
             company: {
                 en: 'Tobiratory Japan LLC',
                 ja: '合同会社Tobiratory Japan',

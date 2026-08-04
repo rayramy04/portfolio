@@ -12,8 +12,8 @@ window.cvData = {
             },
             period: '2024.07 - Present',
             description: {
-                en: 'GPA 4.0 • Academic Excellence Award • Top Scholar in Mathematics • Merit scholarship',
-                ja: 'GPA 4.0・成績優秀表彰・数学分野首席・奨学金獲得',
+                en: 'GPA 3.9 • Academic Excellence Award • Top Scholar in Mathematics • Merit scholarship',
+                ja: 'GPA 3.9・成績優秀表彰・数学分野首席・奨学金獲得',
             },
         },
         {
@@ -112,7 +112,7 @@ window.cvData = {
                 en: 'Tobiratory Japan LLC',
                 ja: '合同会社Tobiratory Japan',
             },
-            period: '2024.06 - Present',
+            period: '2024.06 - 2026.08',
             position: {
                 en: 'Intern',
                 ja: 'インターンシップ',
