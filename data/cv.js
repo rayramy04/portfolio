@@ -453,6 +453,19 @@ window.cvData = {
     certifications: [
         {
             title: {
+                en: 'Fundamentals of Deep Learning',
+                ja: 'Fundamentals of Deep Learning: 取得',
+            },
+            organization: {
+                en: 'NVIDIA Deep Learning Institute',
+                ja: 'NVIDIA Deep Learning Institute',
+            },
+            date: '2026.10',
+            // NVIDIA says this course will be retired (access ends Dec 31, 2026), so this URL may stop working.
+            link: 'https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+C-FX-01+V3',
+        },
+        {
+            title: {
                 en: 'AWS Certified Cloud Practitioner',
                 ja: 'AWS認定 クラウドプラクティショナー: 取得',
             },
