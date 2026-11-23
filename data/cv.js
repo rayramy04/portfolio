@@ -417,7 +417,7 @@ window.cvData = {
         {
             title: {
                 en: 'Mahout (elephant driver) license',
-                ja: 'Mahout (象使い) 免許: 取得',
+                ja: 'Mahout（象使い）免許: 取得',
             },
             organization: {
                 en: 'Manifa Elephant Camp (Laos)',

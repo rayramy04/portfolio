@@ -9,16 +9,16 @@ This portfolio is designed as a **forkable template** with built-in protection f
 
 ## Protected vs Synced Files
 
-**Protected (never overwritten):**
+**Kept as yours** (marked `merge=ours` in `.gitattributes`; `./sync-template.sh` restores them after every merge):
 - `data/**` - Your portfolio content
 - `assets/**`, `resume/**` - Your images and PDFs
 - `css/palette.css` - Your brand colors
-- `*.html`, `sitemap.xml` - Generated from your data
+- `robots.txt`, `sitemap.xml` and the six generated pages (`index`, `about`, `summary`, `cv`, `projects`, `links` `.html`) - rebuilt from your data by `node generate-pages.js`
 
-**Synced (receives updates):**
-- `generate-pages.js`, `template-base.html` - HTML generator
+**Merged from upstream** (everything else; your own edits to these files are kept and merged, and the script stops if they conflict):
+- `generate-pages.js`, `template-base.html`, `content/*.html` - HTML generator and page fragments
 - `js/**`, `css/style.css` - Core functionality
-- `.gitattributes` - Merge strategy config
+- `.gitattributes`, docs, workflows (unless you add them to your own `.gitattributes`)
 
 ## Quick Start
 
@@ -63,33 +63,44 @@ Enable GitHub Pages: Settings → Pages → Source: main branch
 
 ## Syncing Template Updates
 
-**Recommended:**
 ```bash
 ./sync-template.sh
+git push
 ```
 
-**Manual:**
+The script fetches `template-upstream`, merges with `--no-commit`, restores every protected path from your side, regenerates the pages and commits. It stops and lists the files if a file that is *not* protected conflicts.
+
+Avoid a plain `git merge template-upstream/main`: `merge=ours` alone does not protect a file that only upstream changed. If you do merge by hand, check afterwards:
+
 ```bash
-git remote add template-upstream https://github.com/rayramy04/portfolio.git
-git fetch template-upstream
-git merge template-upstream/main
-node generate-pages.js  # If post-merge hook not set up
+git diff ORIG_HEAD HEAD --stat -- data assets resume css/palette.css robots.txt
+node generate-pages.js
 ```
 
 ## How It Works
 
 ### Protection Mechanism
 
-`.gitattributes` defines merge strategies:
+`.gitattributes` lists the protected paths:
 
 ```gitattributes
 data/** merge=ours
 assets/** merge=ours
+resume/** merge=ours
 css/palette.css merge=ours
+robots.txt merge=ours
+sitemap.xml merge=ours
+index.html merge=ours
+about.html merge=ours
+summary.html merge=ours
+cv.html merge=ours
+projects.html merge=ours
+links.html merge=ours
 ```
 
-- `merge=ours` = Always keep local version during conflicts
-- Configured via `git config merge.ours.driver true`
+- `merge=ours` alone only decides **conflicts** (a file changed on both sides since the last common commit). A protected file that only upstream changed would be overwritten.
+- That is why `sync-template.sh` reads this list and, after merging, restores every protected path from your side (and removes protected files that upstream added). Add your own lines (for example your own `README.md` or CI workflow) to protect more.
+- Configured via `git config merge.ours.driver true` (the script sets it for you).
 
 ### Example Sync
 
@@ -109,17 +120,15 @@ css/palette.css merge=ours
 
 ## Troubleshooting
 
-**Merge conflict in protected files:**
+**The script stopped on a conflict:** it lists files that are not protected. Resolve them, then:
 ```bash
-git checkout --ours data/
-git add data/
-git merge --continue
+node generate-pages.js && git add -A && git commit
 ```
 
 **HTML looks broken:**
 ```bash
 node generate-pages.js
-git add *.html && git commit -m "Regenerate HTML"
+git add -A && git commit -m "Regenerate HTML"
 ```
 
 **Post-merge hook not running:**

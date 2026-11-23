@@ -1,23 +1,24 @@
 # ==========================================
 # GIT ATTRIBUTES FOR FORK SYNC
 # ==========================================
-# This file protects custom data files from being overwritten
-# when syncing updates from the upstream repository.
+# Files listed here keep the FORK's version when syncing from upstream.
+# `merge=ours` alone only decides conflicts, so sync-template.sh also
+# restores every path below after merging (it reads this list).
+# Everything not listed (generator, templates, js/, css/style.css, docs)
+# takes the upstream version.
 
-# Custom data files - always keep local version during merge
+# Your content and colors
 data/** merge=ours
-
-# Custom assets - always keep local version during merge
 assets/** merge=ours
-
-# Custom resume files - always keep local version during merge
 resume/** merge=ours
+css/palette.css merge=ours
 
-# Generated HTML files - keep local version (regenerated from data/seo-config.js)
-*.html merge=ours
-content/*.html merge=ours
-
-# Custom configuration files - always keep local version during merge
+# Search-engine settings and generated pages (rebuilt by `node generate-pages.js`)
 robots.txt merge=ours
 sitemap.xml merge=ours
-css/palette.css merge=ours
+index.html merge=ours
+about.html merge=ours
+summary.html merge=ours
+cv.html merge=ours
+projects.html merge=ours
+links.html merge=ours

@@ -74,8 +74,8 @@ window.summaryData = {
                 ja: '開発・音楽講師',
             },
             description: {
-                en: 'Developing AI-powered apps and business automation tools for business clients; music instruction, custom sheet music and arrangement on coconala and others',
-                ja: '事業者様向けのAIアプリ・業務自動化ツールの開発。ココナラなどでの音楽講師・オーダーメイド楽譜制作・編曲',
+                en: 'AI apps & automation; music instruction & sheet music',
+                ja: 'AIアプリ・業務自動化ツールの開発、音楽講師・楽譜制作・編曲',
             },
         },
         {

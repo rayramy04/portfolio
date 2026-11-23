@@ -79,6 +79,60 @@ function generateMetaTags(pageName, pageConfig) {
 }
 
 // ==========================================
+// PROJECT FILTER BUTTONS
+// ==========================================
+// Keeps the static filter buttons in projects.html in sync with
+// window.projectCategories (data/projects.js), so crawlers and
+// no-JS visitors see the same categories as everyone else.
+function loadProjectCategories() {
+    const previousWindow = global.window;
+    global.window = {};
+    try {
+        const dataPath = require.resolve('./data/projects.js');
+        delete require.cache[dataPath];
+        require(dataPath);
+        const categories = global.window.projectCategories;
+        return Array.isArray(categories) ? categories : null;
+    } finally {
+        if (previousWindow === undefined) {
+            delete global.window;
+        } else {
+            global.window = previousWindow;
+        }
+    }
+}
+
+function escapeHtml(text) {
+    return String(text)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+}
+
+function renderProjectFilters(content) {
+    const categories = loadProjectCategories();
+    if (categories === null) {
+        console.warn('⚠ window.projectCategories not found in data/projects.js; filter buttons left unchanged');
+        return content;
+    }
+
+    // "All" button, followed by zero or more category buttons (LF or CRLF)
+    const filterButtons = /^([ \t]*)(<button class="filter-btn active" data-category="all">All<\/button>)(\r?\n)(?:[ \t]*<button class="filter-btn" data-category="[^"]*">[^<]*<\/button>\r?\n)*/m;
+    const match = content.match(filterButtons);
+    if (!match) {
+        console.warn('⚠ Filter buttons not found in content/projects-content.html; left unchanged');
+        return content;
+    }
+
+    const [, indent, allButton, newline] = match;
+    const buttons = categories
+        .map(name => `${indent}<button class="filter-btn" data-category="${escapeHtml(name)}">${escapeHtml(name)}</button>${newline}`)
+        .join('');
+    return content.replace(filterButtons, () => `${indent}${allButton}${newline}${buttons}`);
+}
+
+// ==========================================
 // GENERATE PAGE
 // ==========================================
 function generatePage(pageName) {
@@ -94,6 +148,10 @@ function generatePage(pageName) {
 
     let template = fs.readFileSync(templatePath, 'utf8');
     let content = fs.readFileSync(contentPath, 'utf8');
+
+    if (pageName === 'projects') {
+        content = renderProjectFilters(content);
+    }
 
     // Generate meta tags
     const metaTags = generateMetaTags(pageName, pageConfig);

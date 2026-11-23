@@ -58,6 +58,11 @@ function getText(obj) {
     return obj[lang] || obj['en'] || obj['ja'] || ''; // Fallback chain
 }
 
+// "label (note)" in English, "label（note）" in Japanese (full-width parentheses)
+function withNote(label, note) {
+    return getCurrentLang() === 'ja' ? `${label}（${note}）` : `${label} (${note})`;
+}
+
 function extractChronologyValue(value) {
     if (!value || typeof value !== 'string') return Number.NEGATIVE_INFINITY;
 
@@ -82,6 +87,24 @@ function sortItemsByPeriodStartDesc(items) {
         const aValue = extractChronologyValue(a.period);
         const bValue = extractChronologyValue(b.period);
         return bValue - aValue;
+    });
+}
+
+function extractPeriodEnd(period) {
+    if (!period || typeof period !== 'string') return Number.NEGATIVE_INFINITY;
+
+    const parts = period.split(/\s+-\s+/);
+    const end = parts[parts.length - 1];
+    if (parts.length > 1 && /present/i.test(end)) return Number.POSITIVE_INFINITY;
+    return extractChronologyValue(end);
+}
+
+// Ongoing roles first, then by end date (newest first); ties fall back to start date
+function sortItemsByPeriodEndDesc(items) {
+    return [...items].sort((a, b) => {
+        const endDiff = extractPeriodEnd(b.period) - extractPeriodEnd(a.period);
+        if (endDiff !== 0 && !Number.isNaN(endDiff)) return endDiff;
+        return extractChronologyValue(b.period) - extractChronologyValue(a.period);
     });
 }
 
@@ -359,7 +382,7 @@ async function initCV() {
     });
 
     // Transform experience data
-    const experienceData = sortItemsByPeriodStartDesc(window.cvData.experience).map(item => ({
+    const experienceData = sortItemsByPeriodEndDesc(window.cvData.experience).map(item => ({
         ...item,
         company: getText(item.company),
         position: getText(item.position),
@@ -670,7 +693,7 @@ async function initSummary() {
         educationList.innerHTML = sortItemsByPeriodStartDesc(summaryData.education).map(item => `
             <li>
                 <strong>${item.period}:</strong>
-                <span>${getText(item.institution)} - ${getText(item.degree)} (${getText(item.details)})</span>
+                <span>${withNote(`${getText(item.institution)} - ${getText(item.degree)}`, getText(item.details))}</span>
             </li>
         `).join('');
     }
@@ -678,10 +701,10 @@ async function initSummary() {
     // Populate Work Experience
     const experienceList = document.getElementById('experience-list');
     if (experienceList) {
-        experienceList.innerHTML = sortItemsByPeriodStartDesc(summaryData.experience).map(item => `
+        experienceList.innerHTML = sortItemsByPeriodEndDesc(summaryData.experience).map(item => `
             <li>
                 <strong>${item.period}:</strong>
-                <span>${getText(item.company)} - ${getText(item.role)} (${getText(item.description)})</span>
+                <span>${withNote(`${getText(item.company)} - ${getText(item.role)}`, getText(item.description))}</span>
             </li>
         `).join('');
     }

@@ -122,26 +122,35 @@ https://your-site.com/summary.html?lang=en
 
 `available` に無い値は無視されます。ナビの切替ボタンで変更した場合は、そちらが常に優先されます。
 
+### データ形式のメモ
+
+- **`period`（学歴・職歴）**：`YYYY.MM - YYYY.MM` または `YYYY.MM - Present` の形で書きます（ハイフンの前後は半角スペース）。職歴は自動で並び替えられ、現在進行中が先頭、その下は終了日の新しい順になります（同じ終了日は開始日の新しい順）。学歴は開始日順、受賞・資格・奨学金は `date` 順です。
+- **プロジェクトのカテゴリー**：フィルターボタンは `data/projects.js` の `window.projectCategories` から作られます。各プロジェクトの `categories` は、このリストと同じ綴りで、最大3個まで（できれば1〜2個）にします。使った技術を全て並べるのではなく、そのプロジェクトが何であるかに最も合うものを選びます。
+- **データやテンプレートを編集したら** `node generate-pages.js` を実行します。HTMLページと `sitemap.xml` が作り直され、`projects.html` の静的なフィルターボタンも `window.projectCategories` から書き直されます。
+
 ## フォークと更新のワークフロー
 
 このテンプレートは**フォークして上流の更新と同期できる**ように設計されています。
 
 ### 仕組み
 
-**あなたのコンテンツは保護されます** - 更新を同期すると：
-- 新しいテンプレート機能とバグ修正が適用されます
-- あなたのカスタムデータ、画像、色は**絶対に上書きされません**
-- HTMLページは新しいテンプレート + あなたのデータで自動再生成されます
+`./sync-template.sh` が、上流のテンプレートを自分のフォークにマージしたあと、あなたの内容を元のままに戻します：
 
-**保護されるファイル**（上書きされない）：
+- 新しいテンプレート機能とバグ修正が適用されます
+- **あなたのコンテンツと色は、そのまま変わりません**（下の一覧）
+- ページは、マージ後のテンプレート＋あなたのデータで再生成されます
+
+**あなたのものとして保持されるファイル**（`.gitattributes` に `merge=ours` で記載）：
 - `data/**` - あなたのコンテンツ（名前、プロジェクト、経験）
 - `css/palette.css` - あなたのブランドカラー
-- `assets/**` - あなたの画像
-- `resume/**` - あなたの履歴書PDF
+- `assets/**`、`resume/**` - あなたの画像と履歴書PDF
+- `robots.txt`、`sitemap.xml`、`index.html`、`about.html`、`summary.html`、`cv.html`、`projects.html`、`links.html` - 検索エンジンの設定と生成されるページ（スクリプトが作り直します）
 
-**同期されるファイル**（テンプレートの更新を受け取る）：
-- `generate-pages.js`、`template-base.html` - HTMLジェネレーター
-- `js/**`、`css/style.css` - コア機能
+**上流の変更が取り込まれるファイル：** それ以外の全て。たとえば `generate-pages.js`、`template-base.html`、`content/*.html`、`js/**`、`css/style.css` です。あなた自身がこれらを編集していた場合は、両方の変更がマージされ、競合したときはスクリプトが止まって知らせます。
+
+> **なぜスクリプトを使うのか：** `merge=ours` だけでは、「競合したとき」（共通の祖先から双方が変更したファイル）しか守れません。上流だけが変更した保護対象のファイルは、上書きされます。このスクリプトは、`--no-commit` でマージし、`merge=ours` の全てのパスを自分側の内容に戻し（上流が追加した保護対象のファイルは取り除き）、ページを再生成してコミットします。保護されていないファイルで競合したときは、止まって、そのファイルを表示します。
+
+スクリプトは、あなたの `.gitattributes` の `merge=ours` の行を読むので、自分のREADMEやCI設定なども、行を足せば守れます。
 
 ### 初回セットアップ
 
@@ -150,32 +159,23 @@ https://your-site.com/summary.html?lang=en
 ```bash
 git config --local merge.ours.driver true
 
-# オプション：同期後に自動でHTMLを再生成
+# オプション：通常の `git merge` のあとにHTMLを自動再生成
 cp .github/hooks/post-merge .git/hooks/post-merge
 chmod +x .git/hooks/post-merge
 ```
 
-### テンプレート更新の同期
+### テンプレートの更新を同期
 
-**簡単な方法**（推奨）：
 ```bash
 ./sync-template.sh
+git push
 ```
 
-**手動の方法**：
-```bash
-# GitHubで：「Sync fork」ボタンをクリック
-# またはコマンドラインで：
-git remote add template-upstream https://github.com/rayramy04/portfolio.git
-git fetch template-upstream
-git merge template-upstream/main
+スクリプトは、`template-upstream` リモートの追加、取得、確認、マージ、保護ファイルの復元、`node generate-pages.js` の実行、コミットを順に行います。
 
-# HTMLを再生成（post-mergeフックを使っていない場合）
-node generate-pages.js
-git add *.html && git commit -m "同期後にHTMLを再生成" && git push
-```
+通常の `git merge template-upstream/main` は、あとで `.gitattributes` に `merge=ours` で書かれたファイルが変わっていないか確認しないなら、避けてください（たとえば `git diff ORIG_HEAD HEAD --stat -- data assets resume css/palette.css robots.txt`）。
 
-**詳細なセットアップ手順**: [TEMPLATE_SETUP.md](TEMPLATE_SETUP.md) を参照
+**詳しいセットアップ**：[TEMPLATE_SETUP.md](TEMPLATE_SETUP.md) を参照
 
 ## プロジェクト構造
 

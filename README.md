@@ -122,26 +122,35 @@ The language is saved to `localStorage`, so it sticks as the visitor moves to ot
 
 Values other than those in `available` are ignored. The nav switcher always overrides the parameter.
 
+### Data Format Notes
+
+- **`period` (education / experience)**: write `YYYY.MM - YYYY.MM` or `YYYY.MM - Present` (a hyphen with spaces on both sides). Experience is sorted automatically: ongoing roles first, then by end date (newest first), with the start date breaking ties. Education is sorted by start date. Awards, certifications and grants are sorted by `date`.
+- **Project categories**: the filter buttons come from `window.projectCategories` in `data/projects.js`. Give each project at most 3 `categories` (ideally one or two), spelled exactly as in that list. Pick the category that best describes what the project *is*, not every technology it uses.
+- **After editing data or templates**, run `node generate-pages.js`. It rebuilds the HTML pages and `sitemap.xml`, and it rewrites the static filter buttons in `projects.html` from `window.projectCategories`.
+
 ## Fork & Update Workflow
 
 This template is designed to be **forked and kept in sync** with upstream updates.
 
 ### How It Works
 
-**Your content is protected** - When you sync updates:
-- You get new template features and bug fixes
-- Your custom data, images, and colors are **never overwritten**
-- HTML pages auto-regenerate with new template + your data
+`./sync-template.sh` merges the upstream template into your fork and then puts your content back exactly as it was:
 
-**Protected files** (won't be overwritten):
+- You get new template features and bug fixes
+- **Your content and colors stay exactly as they are** (see the list below)
+- Pages are regenerated from the merged template and your data
+
+**Kept as yours** (listed with `merge=ours` in `.gitattributes`):
 - `data/**` - Your content (name, projects, experience)
 - `css/palette.css` - Your brand colors
-- `assets/**` - Your images
-- `resume/**` - Your resume PDFs
+- `assets/**`, `resume/**` - Your images and PDFs
+- `robots.txt`, `sitemap.xml`, `index.html`, `about.html`, `summary.html`, `cv.html`, `projects.html`, `links.html` - Search-engine settings and generated pages (the script rebuilds them)
 
-**Synced files** (receives template updates):
-- `generate-pages.js`, `template-base.html` - HTML generator
-- `js/**`, `css/style.css` - Core functionality
+**Merged from upstream:** everything else, for example `generate-pages.js`, `template-base.html`, `content/*.html`, `js/**` and `css/style.css`. Upstream's changes to these files come in. If you also edited one of them, git merges both sides and the script stops on a conflict for you to resolve.
+
+> **Why a script?** `merge=ours` on its own only decides *conflicts*, that is, files changed on both sides since the last common commit. A protected file that only upstream changed would be overwritten. The script merges with `--no-commit`, restores every `merge=ours` path from your side (and removes protected files that upstream added), regenerates the pages and commits. If a file that is not protected conflicts, it stops and lists it.
+
+The script reads the `merge=ours` lines of your `.gitattributes`, so you can add your own (for example your own README or CI file).
 
 ### One-Time Setup
 
@@ -150,30 +159,21 @@ After forking, configure the merge strategy:
 ```bash
 git config --local merge.ours.driver true
 
-# Optional: Auto-regenerate HTML after sync
+# Optional: Auto-regenerate HTML after a plain `git merge`
 cp .github/hooks/post-merge .git/hooks/post-merge
 chmod +x .git/hooks/post-merge
 ```
 
 ### Syncing Template Updates
 
-**Easy way** (recommended):
 ```bash
 ./sync-template.sh
+git push
 ```
 
-**Manual way**:
-```bash
-# On GitHub: Click "Sync fork" button
-# Or via command line:
-git remote add template-upstream https://github.com/rayramy04/portfolio.git
-git fetch template-upstream
-git merge template-upstream/main
+The script adds the `template-upstream` remote, fetches, asks for confirmation, merges, restores your protected files, runs `node generate-pages.js` and commits.
 
-# Regenerate HTML (if not using post-merge hook)
-node generate-pages.js
-git add *.html && git commit -m "Regenerate HTML after sync" && git push
-```
+Avoid a plain `git merge template-upstream/main` unless you check afterwards that none of the files marked `merge=ours` in `.gitattributes` changed (for example `git diff ORIG_HEAD HEAD --stat -- data assets resume css/palette.css robots.txt`).
 
 **For detailed setup instructions**: See [TEMPLATE_SETUP.md](TEMPLATE_SETUP.md)
 

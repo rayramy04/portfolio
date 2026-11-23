@@ -8,7 +8,7 @@
 echo "🔄 Post-merge hook: Checking if HTML regeneration is needed..."
 
 # Check if template files were updated
-TEMPLATE_CHANGED=$(git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD | grep -E '(generate-pages\.js|template-base\.html|js/|css/style\.css)')
+TEMPLATE_CHANGED=$(git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD | grep -E '(generate-pages\.js|template-base\.html|js/|css/style\.css|content/|data/)')
 
 if [ -n "$TEMPLATE_CHANGED" ]; then
     echo "✨ Template files were updated. Regenerating HTML pages..."
