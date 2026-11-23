@@ -710,24 +710,36 @@ async function initSummary() {
     }
 
     // Populate Top Achievements
+    // New format: an array of { date, en, ja }, shown as one list, newest first.
+    // Old format (an object keyed by year) still works and is shown grouped by year.
     const achievementsContainer = document.getElementById('achievements-container');
     if (achievementsContainer) {
-        const years = sortYearKeysDesc(Object.keys(summaryData.topAchievements));
-        achievementsContainer.innerHTML = years.map(year => `
-            <div class="award-year-group">
-                <h3 class="award-year">${year}</h3>
-                <ul class="award-list">
-                    ${summaryData.topAchievements[year].map(award => {
-                        const text = getText(award);
-                        const parts = text.split(':');
-                        if (parts.length > 1) {
-                            return `<li><strong>${parts[0]}:</strong>${parts.slice(1).join(':')}</li>`;
-                        }
-                        return `<li>${text}</li>`;
-                    }).join('')}
-                </ul>
-            </div>
-        `).join('');
+        const achievements = summaryData.topAchievements;
+        if (Array.isArray(achievements)) {
+            achievementsContainer.innerHTML = `<ul class="summary-list">${sortItemsByDateDesc(achievements).map(item => `
+                <li>
+                    ${item.date ? `<strong>${item.date}:</strong>` : ''}
+                    <span>${getText(item)}</span>
+                </li>`).join('')}
+            </ul>`;
+        } else {
+            const years = sortYearKeysDesc(Object.keys(achievements));
+            achievementsContainer.innerHTML = years.map(year => `
+                <div class="award-year-group">
+                    <h3 class="award-year">${year}</h3>
+                    <ul class="award-list">
+                        ${achievements[year].map(award => {
+                            const text = getText(award);
+                            const parts = text.split(':');
+                            if (parts.length > 1) {
+                                return `<li><strong>${parts[0]}:</strong>${parts.slice(1).join(':')}</li>`;
+                            }
+                            return `<li>${text}</li>`;
+                        }).join('')}
+                    </ul>
+                </div>
+            `).join('');
+        }
     }
 
     // Populate Technical Skills
@@ -741,16 +753,25 @@ async function initSummary() {
         `).join('');
     }
 
-    // Populate Social Links
+    // Populate Links: a single link to the Links page when `linksPage` is set,
+    // otherwise (older data) the full list of social links
     const socialLinksList = document.getElementById('social-links-list');
     if (socialLinksList) {
-        socialLinksList.innerHTML = summaryData.socialLinks.map(link => `
-            <li>
-                <i class="${link.icon}"></i>
-                <strong>${getText(link.title)}:</strong>
-                <a href="${link.url}" target="_blank">${link.username}</a>
-            </li>
-        `).join('');
+        if (summaryData.linksPage) {
+            socialLinksList.innerHTML = `
+                <li>
+                    <i class="fas fa-link"></i>
+                    <a href="links.html">${getText(summaryData.linksPage)}</a>
+                </li>`;
+        } else {
+            socialLinksList.innerHTML = summaryData.socialLinks.map(link => `
+                <li>
+                    <i class="${link.icon}"></i>
+                    <strong>${getText(link.title)}:</strong>
+                    <a href="${link.url}" target="_blank">${link.username}</a>
+                </li>
+            `).join('');
+        }
     }
 
     // Add CTA section

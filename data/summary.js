@@ -6,15 +6,15 @@ window.summaryData = {
         name: 'Ray',
         age: '22',
         specialization: {
-            en: 'Data Science, AI/ML, Full-stack Development',
-            ja: 'データサイエンス・AI/ML・フルスタック開発',
+            en: 'Full-stack Development, AI, Data Science',
+            ja: 'フルスタック開発・AI・データサイエンス',
         },
         photo: 'assets/profile.jpg',
     },
     // Brief about me paragraph
     aboutMe: {
-        en: 'Born in 2004. During high school, pursued acoustic phonetics research and English debate, earning top national awards and competing internationally.\n\nAt Monash University Malaysia (Faculty of IT), earned merit scholarships through top academic performance. Also achieved top national placements in artificial intelligence and linguistics olympiads.\n\nConcurrently run a study-abroad media platform and work as an IT/music freelancer, with over 30K social media followers. Continue to expand into new challenges across content creation, education, development, and creative production.',
-        ja: '2004年生まれ。高校時代は音響音声学の研究や英語ディベートに取り組み、全国最優秀賞などを受賞し、国際大会にも出場。\n\nモナッシュ大学マレーシア校（情報学部）では学内トップクラスの成績により奨学金を受給。人工知能オリンピックや言語学オリンピックで国内上位入賞。\n\n並行して、留学メディアの運営やIT・音楽領域でのフリーランス活動にも取り組み、SNSフォロワーは3万人超。発信・教育・開発・クリエイティブ制作と、領域を越えて挑戦を広げ続けている。',
+        en: 'Studying Computer Science and Data Science at Monash University Malaysia while building AI apps and running study-abroad media and music content.\n\nWon the Academic Excellence Award two years in a row, and earned medals at both the AI and Linguistics Olympiads. Over 30K social media followers.\n\nIn high school, won a national grand prize for acoustic phonetics research and competed internationally.',
+        ja: 'モナッシュ大学マレーシア校でコンピュータサイエンスとデータサイエンスを学ぶ傍ら、AIアプリの開発や留学メディア・音楽の発信に取り組む。\n\n成績優秀賞を2年連続で受賞し、人工知能・言語学の両オリンピックではメダルも獲得。SNSのフォロワーは3万人超。\n\n高校時代は音響音声学の研究で全国最優秀賞を受賞し、国際大会にも出場。',
     },
     // Top 3 education entries (from cv.js)
     education: [
@@ -30,7 +30,7 @@ window.summaryData = {
             },
             details: {
                 en: 'GPA 3.9, Merit Scholarship',
-                ja: 'GPA 3.9、奨学金受給',
+                ja: 'GPA 3.9・奨学金受給',
             },
         },
         {
@@ -45,7 +45,7 @@ window.summaryData = {
             },
             details: {
                 en: 'GPA 4.0, Merit Scholarship',
-                ja: 'GPA 4.0、奨学金受給',
+                ja: 'GPA 4.0・奨学金受給',
             },
         },
         {
@@ -109,132 +109,72 @@ window.summaryData = {
             },
         },
     ],
-    // Top achievements grouped by year (condensed from cv.js awards)
-    topAchievements: {
-        2026: [
-            {
-                en: '30,000+ Subscribers: YouTube Music Channel (5M+ total views)',
-                ja: 'YouTube音楽チャンネル: 登録者数3万人達成（総再生回数500万回超）',
-            },
-            {
-                en: 'Academic Excellence Award: Monash University (2nd consecutive year) + Top Scholar in Mathematics (2025)',
-                ja: 'モナッシュ大学: 成績優秀賞（2年連続）・数学分野首席（2025）',
-            },
-            {
-                en: '900+ Articles Published: Study Abroad Blog (20,000+ monthly PVs)',
-                ja: '留学ブログ: 累計900記事以上執筆（月2万PV超）',
-            },
-        ],
-        2025: [
-            {
-                en: "3rd Place: L'Oréal x Monash Datathon 2025 (500+ entries)",
-                ja: "L'Oréal x Monash Datathon 2025: 第3位（500以上のエントリー）",
-            },
-            {
-                en: 'Excellence Award: Geek Camp Hackathon 2025 vol.9 (EmotiGift)',
-                ja: '技育CAMPハッカソン2025 vol.9: 優秀賞（EmotiGift）',
-            },
-            {
-                en: '5th Place Nationally: Japan AI Olympiad 2025 Gold Award',
-                ja: '日本人工知能オリンピック2025: 金賞・全国5位',
-            },
-        ],
-        2024: [
-            {
-                en: 'Silver Award: Kangaroo Math Contest 2024',
-                ja: 'カンガルー数学コンテスト2024: 銀賞',
-            },
-            {
-                en: 'Bronze Award: Malaysia Computational Linguistics Olympiad 2024 (Top 32)',
-                ja: '言語学オリンピックマレーシア大会2024: 銅賞・ベスト32',
-            },
-        ],
-        '~2023': [
-            {
-                en: 'National Grand Prize: Research Science Contest, International Competition Participant (Text-to-Speech)',
-                ja: '研究科学コンテスト: 全国最優秀賞・国際大会出場（音響音声学領域）',
-            },
-        ],
-    },
-    // Technical skills (customize for Summary page)
+    // Top achievements, newest first (date = YYYY.MM)
+    topAchievements: [
+        {
+            date: '2026.07',
+            en: 'YouTube Music Channel: 30,000+ subscribers (5M+ total views)',
+            ja: 'YouTube音楽チャンネル: 登録者3万人達成（総再生回数500万回超）',
+        },
+        {
+            date: '2026.07',
+            en: 'Study-abroad blog: 900+ articles (20,000+ monthly page views)',
+            ja: '留学ブログ: 累計900記事以上（月2万PV超）',
+        },
+        {
+            date: '2026.03',
+            en: 'Monash University: Academic Excellence Award (2nd consecutive year), Top Scholar in Mathematics (2025)',
+            ja: 'モナッシュ大学: 成績優秀賞（2年連続）・数学分野首席（2025）',
+        },
+        {
+            date: '2025.10',
+            en: 'L\'Oréal x Monash Datathon 2025: 3rd place',
+            ja: 'L\'Oréal x Monash Datathon 2025: 第3位',
+        },
+        {
+            date: '2025.08',
+            en: 'Geek CAMP Hackathon 2025 vol.9: Excellence Award (EmotiGift)',
+            ja: '技育CAMPハッカソン2025 vol.9: 優秀賞（EmotiGift）',
+        },
+        {
+            date: '2025.05',
+            en: 'Japan AI Olympiad 2025: Gold Award, 5th place nationally',
+            ja: '日本人工知能オリンピック2025: 金賞・全国5位',
+        },
+    ],
+
+    // Technical skills: only what is used in the projects shown on this site (full list is on the CV)
     skills: [
         {
             category: {
                 en: 'Development',
                 ja: '開発',
             },
-            items: [
-                'Python',
-                'R',
-                'SQL',
-                'Java',
-                'JavaScript',
-                'React',
-                'Next.js',
-                'TypeScript',
-                'Astro',
-                'PHP',
-                'HTML/CSS',
-                'Git/GitHub',
-                'Docker',
-            ],
+            items: ['Python', 'R', 'SQL', 'JavaScript / TypeScript', 'React', 'Next.js'],
         },
         {
             category: {
                 en: 'Infrastructure & Services',
                 ja: 'インフラ・サービス',
             },
-            items: [
-                'MySQL',
-                'Firebase',
-                'Supabase',
-                'AWS',
-                'Cloudflare',
-                'Vercel',
-                'Railway',
-                'Stripe',
-                'Linux',
-                'Dify',
-                'WordPress',
-            ],
+            items: ['Firebase', 'Supabase', 'Cloudflare', 'Vercel', 'Railway', 'Stripe'],
         },
         {
             category: {
                 en: 'Data Science & AI',
                 ja: 'データサイエンス・AI',
             },
-            items: [
-                'Machine Learning',
-                'Data Analytics',
-                'Statistical Modeling',
-            ],
-        },
-        {
-            category: {
-                en: 'Creative Production',
-                ja: 'クリエイティブ制作',
-            },
-            items: [
-                'MuseScore',
-                'Sibelius',
-                'Dorico Pro',
-                'OBS Studio',
-                'Logic Pro',
-                'Final Cut Pro',
-            ],
+            items: ['LLM APIs', 'Machine Learning', 'Data Analytics', 'Statistical Modeling'],
         },
         {
             category: {
                 en: 'Languages',
                 ja: '言語',
             },
-            items: [
-                'Japanese (Native)',
-                'English (Business)',
-                'Mandarin Chinese (Basic)',
-            ],
+            items: ['Japanese (Native)', 'English (Business)', 'Mandarin Chinese (Basic)'],
         },
     ],
+
     // CTA section text
     cta: {
         title: {
@@ -254,6 +194,12 @@ window.summaryData = {
             ja: 'プロジェクトを見る',
         },
     },
+    // Link at the end of the Links section
+    linksPage: {
+        en: 'All links are here',
+        ja: 'リンク集はこちら',
+    },
+
     // Social links (customize which links to show on Summary page)
     socialLinks: [
         {

@@ -15,7 +15,7 @@ const seoConfig = {
         index: {
             title: "Ray's Portfolio | Computer Science & Data Science",
             metaDescription:
-                'Ray - Computer Science & Data Science student at Monash University Malaysia. AI/ML projects, full-stack development, award-winning research experience. Explore innovative tech solutions.',
+                'Ray - Computer Science & Data Science student at Monash University Malaysia. AI projects, full-stack development, award-winning research experience. Explore innovative tech solutions.',
             metaKeywords:
                 'Ray, portfolio, computer science, data science, AI, machine learning, web development, Monash University Malaysia',
             ogImage: 'assets/og-image.jpg',
@@ -31,7 +31,7 @@ const seoConfig = {
         summary: {
             title: "Summary - Ray's Portfolio",
             metaDescription:
-                "Quick overview of Ray's education, experience, awards, and skills. Computer Science & Data Science student at Monash University Malaysia with AI/ML expertise.",
+                "Quick overview of Ray's education, experience, awards, and skills. Computer Science & Data Science student at Monash University Malaysia with AI expertise.",
             metaKeywords:
                 'Ray, summary, overview, computer science, data science, AI, education, experience, awards',
             ogImage: 'assets/profile.jpg',
@@ -47,7 +47,7 @@ const seoConfig = {
         projects: {
             title: "Projects - Ray's Portfolio",
             metaDescription:
-                "Ray's Tech Projects - AI/ML applications, full-stack web development, data analysis tools. Explore innovative solutions built with Python, JavaScript, and modern frameworks.",
+                "Ray's Tech Projects - AI applications, full-stack web development, data analysis tools. Explore innovative solutions built with Python, JavaScript, and modern frameworks.",
             metaKeywords:
                 'Ray, projects, AI, machine learning, web development, Python, JavaScript, full-stack development, data analysis',
             ogImage: 'assets/og-image.jpg',
@@ -70,7 +70,7 @@ const seoConfig = {
             name: 'Ray',
             jobTitle: 'Computer Science & Data Science Student',
             description:
-                'Computer Science & Data Science student at Monash University Malaysia with expertise in AI/ML, full-stack development, and research.',
+                'Computer Science & Data Science student at Monash University Malaysia with expertise in AI, full-stack development, and research.',
             url: 'https://rayramy04.github.io/portfolio/',
             image: 'https://rayramy04.github.io/portfolio/assets/profile.jpg',
             sameAs: [
@@ -101,7 +101,7 @@ const seoConfig = {
             '@type': 'Website',
             name: "Ray's Portfolio",
             description:
-                'Portfolio website showcasing computer science and data science projects, AI/ML applications, and professional experience.',
+                'Portfolio website showcasing computer science and data science projects, AI applications, and professional experience.',
             url: 'https://rayramy04.github.io/portfolio/',
             author: {
                 '@type': 'Person',
@@ -139,7 +139,7 @@ const seoConfig = {
                 '@context': 'https://schema.org',
                 '@type': 'CollectionPage',
                 name: "Ray's Projects",
-                description: 'Collection of AI/ML and web development projects',
+                description: 'Collection of AI and web development projects',
             },
             cv: {
                 '@context': 'https://schema.org',

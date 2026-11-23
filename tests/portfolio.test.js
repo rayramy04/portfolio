@@ -118,6 +118,25 @@ test('cv and summary: periods use "YYYY.MM - YYYY.MM" or "YYYY.MM - Present", te
     }
 });
 
+test('summary: achievements are listed newest first, About Me and skills are bilingual, Links points to the Links page', () => {
+    const summaryData = Object.values(loadData('summary')).find(v => v && Array.isArray(v.experience));
+    assert.ok(Array.isArray(summaryData.topAchievements), 'topAchievements should be an array of { date, en, ja }');
+    const dates = summaryData.topAchievements.map(item => item.date);
+    for (const item of summaryData.topAchievements) {
+        assert.match(item.date, /^\d{4}\.\d{2}$/, `bad achievement date: ${item.date}`);
+        assert.ok(bilingual(item), `achievement must be bilingual: ${item.date}`);
+    }
+    assert.deepEqual(Array.from(dates), Array.from(dates).sort().reverse(), 'achievements must be newest first');
+    assert.ok(bilingual(summaryData.aboutMe), 'aboutMe must be bilingual');
+    assert.equal(summaryData.aboutMe.ja.split('\n\n').length, summaryData.aboutMe.en.split('\n\n').length, 'aboutMe paragraphs must match in en/ja');
+    for (const group of summaryData.skills) {
+        assert.ok(bilingual(group.category) && group.items.length > 0, `skill group needs en/ja and items: ${group.category?.en}`);
+    }
+    assert.ok(bilingual(summaryData.linksPage), 'linksPage text must be bilingual');
+    const educationDetails = summaryData.education.map(item => (typeof item.details === 'string' ? item.details : item.details.ja));
+    for (const detail of educationDetails) assert.ok(!/、/.test(detail), `use "・" between facts: ${detail}`);
+});
+
 // ---------- page script helpers ----------
 
 test('experience sort: ongoing first, then end date newest first, ties by start date', () => {

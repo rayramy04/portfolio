@@ -184,7 +184,7 @@ window.projectsData = [
         },
         description: {
             en: 'One of the largest study abroad blogs in the industry with 900+ articles and 20,000+ monthly page views',
-            ja: '累計900記事超/月2万PV超の、業界最大級の留学情報ブログ',
+            ja: '累計900記事超・月2万PV超の、業界最大級の留学情報ブログ',
         },
         categories: ['Content & Media'],
         githubUrl: null,
@@ -226,7 +226,7 @@ window.projectsData = [
         },
         description: {
             en: 'Piano performance and sheet music transcription channel with 30,000+ subscribers and 5 million+ total views',
-            ja: '登録者3万人超/総再生回数500万回超のピアノ・耳コピ楽譜のチャンネル',
+            ja: '登録者3万人超・総再生回数500万回超のピアノ・耳コピ楽譜のチャンネル',
         },
         categories: ['Content & Media'],
         githubUrl: null,
