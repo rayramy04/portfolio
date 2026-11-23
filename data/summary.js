@@ -271,8 +271,8 @@ window.summaryData = {
             url: 'https://ray-globallife.com/contact/',
             username: 'Contact Form',
             title: {
-                en: 'Contact',
-                ja: 'お問い合わせ',
+                en: 'Contact / Work Inquiries',
+                ja: 'お問い合わせ・お仕事のご相談',
             },
             icon: 'fas fa-paper-plane',
         },

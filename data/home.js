@@ -29,6 +29,11 @@ window.homeData = {
                 en: 'View Projects',
                 ja: 'プロジェクトを見る',
             },
+            contact: {
+                en: 'Contact / Work Inquiries',
+                ja: 'お問い合わせ・お仕事のご相談',
+                url: 'https://ray-globallife.com/contact/',
+            },
         },
     },
 };

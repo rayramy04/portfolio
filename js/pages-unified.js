@@ -198,6 +198,9 @@ async function initHome() {
             <a href="projects.html" class="btn btn-primary hover-lift">
                 <i class="fas fa-briefcase"></i> ${getText(cta.projects)}
             </a>
+            ${cta.contact ? `<a href="${cta.contact.url}" class="btn btn-primary hover-lift" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-paper-plane"></i> ${getText(cta.contact)}
+            </a>` : ''}
         `;
     }
     if (typeof particlesJS !== 'undefined' && document.getElementById('particles-js')) {

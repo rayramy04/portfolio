@@ -11,8 +11,8 @@ window.linksData = {
         },
         {
             title: {
-                en: 'Contact',
-                ja: 'お問い合わせ',
+                en: 'Contact / Work Inquiries',
+                ja: 'お問い合わせ・お仕事のご相談',
             },
             url: 'https://ray-globallife.com/contact/',
             icon: 'fas fa-paper-plane',
