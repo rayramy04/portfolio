@@ -1,7 +1,7 @@
 # ポートフォリオウェブサイト テンプレート
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Node.js Version](https://img.shields.io/badge/node-%3E%3D15.0.0-brightgreen)](https://nodejs.org/)
+[![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)](https://nodejs.org/)
 
 **[🇬🇧 English Version](README.md)**
 
@@ -9,7 +9,7 @@
 
 バニラHTML、CSS、JavaScriptで構築された、シンプルでレスポンシブな**日英バイリンガル対応**のポートフォリオテンプレートです。自由にフォーク、カスタマイズ、デプロイできます。
 
-**[🌟 デモサイト](https://rayramy04.github.io/portfolio/)** | **[📝 更新履歴](CHANGELOG.md)**
+**[🌟 デモサイト](https://rayramy04.github.io/portfolio/)**
 
 ![Portfolio Preview](assets/og-image.jpg)
 
@@ -35,6 +35,8 @@ cd portfolio
 # 3. コンテンツを編集
 vim data/seo-config.js    # 名前、URL、メタタグ
 vim data/common.js        # SNSリンク、ナビゲーション
+vim data/home.js          # トップページ（見出し・ボタン）
+vim data/links.js         # リンク集ページ
 vim data/about.js         # 自己紹介と価値観
 vim data/summary.js       # 簡易サマリー
 vim data/cv.js            # 経歴とスキル
@@ -47,7 +49,8 @@ node generate-pages.js
 python -m http.server 8000
 # http://localhost:8000 を開く
 
-# 6. GitHub Pagesにデプロイ
+# 6. テストを実行してからプッシュ（GitHub Actionsがチェックし、GitHub Pagesにデプロイ）
+node --test tests/*.test.js && bash tests/sync-template.test.sh
 git add . && git commit -m "ポートフォリオ内容を更新" && git push
 ```
 
@@ -184,15 +187,23 @@ portfolio/
 ├── data/              # ← コンテンツを編集
 │   ├── seo-config.js
 │   ├── common.js
+│   ├── home.js
+│   ├── links.js
 │   ├── about.js
 │   ├── summary.js
 │   ├── cv.js
 │   └── projects.js
 ├── assets/            # ← あなたの画像
 ├── css/
-│   └── palette.css    # ← あなたの色
+│   ├── palette.css    # ← あなたの色
+│   └── style.css      # テンプレートのスタイル
 ├── resume/            # ← resume-ja.pdf, resume-en.pdf
-├── generate-pages.js  # ← HTMLを再生成
+├── content/           # ページの断片（テンプレート）
+├── js/                # ページのスクリプト（テンプレート）
+├── template-base.html # ページの枠（テンプレート）
+├── generate-pages.js  # ← HTMLとsitemap.xmlを再生成
+├── sync-template.sh   # フォークにテンプレートの更新を取り込む
+├── tests/             # node --test tests/*.test.js ; bash tests/sync-template.test.sh
 └── *.html             # 生成されたページ
 ```
 
@@ -200,16 +211,15 @@ portfolio/
 
 ### GitHub Pages
 
-1. GitHubにプッシュ
-2. Settings → Pages に移動
-3. `main` ブランチをソースに設定 → 保存
-4. `data/seo-config.js` の `baseUrl` をGitHub PagesのURLに更新
+1. Settings → Pages で **Source** を **GitHub Actions** にする
+2. `data/seo-config.js` の `baseUrl` をGitHub PagesのURLに更新
+3. `main` にプッシュする。`.github/workflows/deploy.yml` が、JavaScript・JSON・HTMLのチェックとテストを行い、ページを再生成してデプロイします
 
 任意の静的ホスティング（Netlify、Vercel、Cloudflare Pagesなど）で動作します。
 
 ## SEO設定
 
-`robots.txt` で検索エンジンの可視性を制御：
+`robots.txt` で検索エンジンの可視性を制御（`robots.txt.public` か `robots.txt.private` を `robots.txt` にコピー）：
 
 **公開**（デフォルト）：
 ```txt
@@ -228,7 +238,7 @@ Disallow: /
 コントリビューション歓迎！以下の手順でお願いします：
 1. リポジトリをフォーク
 2. フィーチャーブランチを作成（`git checkout -b feature/新機能`）
-3. 英語と日本語の両方のコンテンツでテスト
+3. 英語と日本語の両方のコンテンツで確認し、`node --test tests/*.test.js` と `bash tests/sync-template.test.sh` を実行
 4. プルリクエストを送信
 
 ## ライセンス
@@ -243,4 +253,4 @@ MITライセンス - 個人利用・商用利用ともに自由です。詳細�
 
 ---
 
-**バージョン**: 1.3 | **必要環境**: Node.js 15.0+
+**必要環境**: Node.js 18以上（テストが `node:test` を使用）

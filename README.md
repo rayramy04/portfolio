@@ -1,7 +1,7 @@
 # Portfolio Website Template
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Node.js Version](https://img.shields.io/badge/node-%3E%3D15.0.0-brightgreen)](https://nodejs.org/)
+[![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)](https://nodejs.org/)
 
 **[🇯🇵 日本語版 / Japanese](README.ja.md)**
 
@@ -9,7 +9,7 @@
 
 A clean, responsive, and **bilingual** portfolio template built with vanilla HTML, CSS, and JavaScript. Free to fork, customize, and deploy.
 
-**[🌟 Live Demo](https://rayramy04.github.io/portfolio/)** | **[📝 Changelog](CHANGELOG.md)**
+**[🌟 Live Demo](https://rayramy04.github.io/portfolio/)**
 
 ![Portfolio Preview](assets/og-image.jpg)
 
@@ -35,6 +35,8 @@ cd portfolio
 # 3. Edit your content
 vim data/seo-config.js    # Your name, URLs, meta tags
 vim data/common.js        # Social links, navigation
+vim data/home.js          # Home page (hero, buttons)
+vim data/links.js         # Links page
 vim data/about.js         # Your story and values
 vim data/summary.js       # Quick overview/summary
 vim data/cv.js            # Experience and skills
@@ -47,7 +49,8 @@ node generate-pages.js
 python -m http.server 8000
 # Open http://localhost:8000
 
-# 6. Deploy to GitHub Pages
+# 6. Run the tests, then push (GitHub Actions checks and deploys to GitHub Pages)
+node --test tests/*.test.js && bash tests/sync-template.test.sh
 git add . && git commit -m "Update portfolio content" && git push
 ```
 
@@ -184,15 +187,23 @@ portfolio/
 ├── data/              # ← Edit these for your content
 │   ├── seo-config.js
 │   ├── common.js
+│   ├── home.js
+│   ├── links.js
 │   ├── about.js
 │   ├── summary.js
 │   ├── cv.js
 │   └── projects.js
 ├── assets/            # ← Your images
 ├── css/
-│   └── palette.css    # ← Your colors
+│   ├── palette.css    # ← Your colors
+│   └── style.css      # Template styles
 ├── resume/            # ← resume-en.pdf, resume-ja.pdf
-├── generate-pages.js  # ← Run to regenerate HTML
+├── content/           # Page fragments (template)
+├── js/                # Page scripts (template)
+├── template-base.html # Page layout (template)
+├── generate-pages.js  # ← Run to regenerate HTML and sitemap.xml
+├── sync-template.sh   # Pull template updates into a fork
+├── tests/             # node --test tests/*.test.js ; bash tests/sync-template.test.sh
 └── *.html             # Generated pages
 ```
 
@@ -200,16 +211,15 @@ portfolio/
 
 ### GitHub Pages
 
-1. Push to GitHub
-2. Go to Settings → Pages
-3. Set source to `main` branch → Save
-4. Update `baseUrl` in `data/seo-config.js` with your GitHub Pages URL
+1. Go to Settings → Pages and set **Source** to **GitHub Actions**
+2. Update `baseUrl` in `data/seo-config.js` with your GitHub Pages URL
+3. Push to `main`. `.github/workflows/deploy.yml` checks the JavaScript, JSON and HTML, runs the tests, regenerates the pages and deploys
 
 Works on any static hosting (Netlify, Vercel, Cloudflare Pages, etc.).
 
 ## SEO Settings
 
-Control search engine visibility with `robots.txt`:
+Control search engine visibility with `robots.txt` (copy `robots.txt.public` or `robots.txt.private` over it):
 
 **Public** (default):
 ```txt
@@ -228,7 +238,7 @@ Disallow: /
 Contributions welcome! Please:
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/NewFeature`)
-3. Test with both English and Japanese content
+3. Test with both English and Japanese content, and run `node --test tests/*.test.js` and `bash tests/sync-template.test.sh`
 4. Submit a pull request
 
 ## License
@@ -243,4 +253,4 @@ MIT License - Free for personal and commercial use. See [LICENSE](LICENSE) for d
 
 ---
 
-**Version**: 1.3 | **Requires**: Node.js 15.0+
+**Requires**: Node.js 18+ (the tests use `node:test`)

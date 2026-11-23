@@ -102,6 +102,11 @@ jobs:
           done
           echo "✓ All generated HTML files passed validation"
 
+      - name: Run tests
+        run: |
+          node --test tests/*.test.js
+          bash tests/sync-template.test.sh
+
       - name: Run page generation test
         run: |
           echo "Testing page generation..."

@@ -59,7 +59,7 @@ node generate-pages.js
 git add . && git commit -m "Initial setup" && git push
 ```
 
-Enable GitHub Pages: Settings → Pages → Source: main branch
+Enable GitHub Pages: Settings → Pages → Source: **GitHub Actions**. Every push to `main` runs the checks and tests in `.github/workflows/deploy.yml`, then deploys.
 
 ## Syncing Template Updates
 
@@ -136,22 +136,25 @@ git add -A && git commit -m "Regenerate HTML"
 chmod +x .git/hooks/post-merge
 ```
 
+### Tests and data rules
+
+`tests/` is template code, so forks receive it on sync, and CI runs it before deploying. Besides the generator and sync checks, `tests/portfolio.test.js` enforces this template's data rules: every project has 1-3 categories from `window.projectCategories` (each category used at least once), periods use `YYYY.MM - YYYY.MM` / `YYYY.MM - Present`, texts have both `en` and `ja`, Japanese award/certification titles use full-width parentheses, and the committed HTML is regenerated. Adjust the data, or the test, if your fork follows different rules.
+
 ## For Template Maintainers
 
 ### Publishing Updates
 
-1. Modify template files (`generate-pages.js`, `js/`, `css/style.css`)
-2. **Do not** modify user files (`data/`, `assets/`, `css/palette.css`)
-3. Test sync in a fork
-4. Document in `CHANGELOG.md`
-5. Tag releases: `git tag v1.4.0`
+1. Modify template files (`generate-pages.js`, `template-base.html`, `content/`, `js/`, `css/style.css`)
+2. **Do not** rely on forks taking user files (`data/`, `assets/`, `css/palette.css`): the sync keeps the fork's versions
+3. Run the tests: `node --test tests/*.test.js` and `bash tests/sync-template.test.sh` (CI runs them too)
+4. Describe the change in the commit message, so forks can read it in `git log` before syncing
 
 ### Breaking Changes
 
 For data structure changes:
 - Add **optional** new fields
-- Use fallbacks in `generate-pages.js`
-- Document migration in `CHANGELOG.md`
+- Use fallbacks in `generate-pages.js` and `js/`
+- Explain any manual migration in the commit message
 
 Example:
 ```javascript
@@ -162,8 +165,7 @@ const title = data.newTitle || data.oldTitle || 'Default'
 
 - [README.md](README.md) - Full documentation
 - [Issues](https://github.com/rayramy04/portfolio/issues) - Bug reports
-- [CHANGELOG.md](CHANGELOG.md) - Version history
 
 ---
 
-**Version**: 1.3 | **Last Updated**: 2025-11-14
+**Last Updated**: 2026-11-23

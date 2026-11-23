@@ -16,7 +16,7 @@ window.projectsData = [
         },
         description: {
             en: 'A 10-day dating sim played on a GitHub-style screen',
-            ja: 'GitHub風の画面で遊ぶ10日間の恋愛シミュレーションゲーム',
+            ja: 'GitHub風の画面で遊ぶ、10日間の恋愛シミュレーションゲーム',
         },
         categories: ['Web'],
         githubUrl: null,
@@ -30,7 +30,7 @@ window.projectsData = [
         },
         description: {
             en: 'Lets you snap any unfamiliar ingredient to instantly discover local recipes',
-            ja: '見知らぬ現地の食材を撮影するだけでローカルレシピを発見できるアプリ',
+            ja: '見知らぬ現地の食材を撮影するだけで、ローカルレシピを発見できるアプリ',
         },
         categories: ['AI & Data', 'Web'],
         githubUrl: null,
@@ -86,7 +86,7 @@ window.projectsData = [
         },
         description: {
             en: 'AI-powered web service that automatically generates press releases for businesses',
-            ja: 'AIが自動でプレスリリースを生成する企業向けウェブサービス',
+            ja: 'AIが自動でプレスリリースを生成する、企業向けウェブサービス',
         },
         categories: ['AI & Data', 'Web'],
         githubUrl: null,
@@ -127,8 +127,8 @@ window.projectsData = [
             ja: 'KoeLink',
         },
         description: {
-            en: 'AI voice cloning technology for generating English audio',
-            ja: 'AIによる音声クローニング技術で英語音声を生成',
+            en: 'AI voice cloning technology that turns Japanese speech into English audio',
+            ja: 'AIによる音声クローニング技術で、日本語から英語音声を生成',
         },
         categories: ['AI & Data', 'Tools & Templates'],
         githubUrl: 'https://github.com/rayramy04/koeLink',
@@ -170,7 +170,7 @@ window.projectsData = [
         },
         description: {
             en: 'Free simple household budget Excel template with currency conversion feature',
-            ja: '外貨換算機能付きシンプル家計簿を無料配布',
+            ja: '外貨換算機能付きの、シンプル家計簿を無料配布',
         },
         categories: ['Tools & Templates'],
         githubUrl: null,
