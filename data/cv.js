@@ -125,17 +125,17 @@ window.cvData = {
         },
         {
             company: {
-                en: 'coconala Inc.',
-                ja: '株式会社ココナラ',
+                en: 'Freelance',
+                ja: 'フリーランス',
             },
             period: '2024.03 - Present',
             position: {
-                en: 'Freelancer',
-                ja: 'フリーランス',
+                en: 'Developer / Music Instructor',
+                ja: '開発・音楽講師',
             },
             description: {
-                en: 'Music instructor, custom sheet music transcription, music arrangement',
-                ja: '音楽講師・オーダーメイド楽譜制作・編曲',
+                en: 'Developing AI-powered apps and business automation tools for business clients; music instruction, custom sheet music and arrangement on coconala and others',
+                ja: '事業者様向けのAIアプリ・業務自動化ツールの開発。ココナラなどでの音楽講師・オーダーメイド楽譜制作・編曲',
             },
             url: 'https://coconala.com/users/4454434',
         },
