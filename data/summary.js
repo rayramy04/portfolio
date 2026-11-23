@@ -64,18 +64,18 @@ window.summaryData = {
     // Top 5 work experiences (from cv.js)
     experience: [
         {
-            period: '2024.09 - 2025.12',
+            period: '2024.03 - Present',
             company: {
-                en: 'GFI Educations Co., Ltd.',
-                ja: '株式会社GFIエデュケーションズ',
+                en: 'Freelance',
+                ja: 'フリーランス',
             },
             role: {
-                en: 'Intern',
-                ja: 'インターンシップ',
+                en: 'Developer / Music Instructor',
+                ja: '開発・音楽講師',
             },
             description: {
-                en: 'WordPress development, SEO, Project planning & Management',
-                ja: 'WordPress開発・SEO・企画/運営',
+                en: 'Developing AI-powered apps and business automation tools for business clients; music instruction, custom sheet music and arrangement on coconala and others',
+                ja: '事業者様向けのAIアプリ・業務自動化ツールの開発。ココナラなどでの音楽講師・オーダーメイド楽譜制作・編曲',
             },
         },
         {
@@ -94,18 +94,18 @@ window.summaryData = {
             },
         },
         {
-            period: '2024.03 - Present',
+            period: '2024.09 - 2025.12',
             company: {
-                en: 'Freelance',
-                ja: 'フリーランス',
+                en: 'GFI Educations Co., Ltd.',
+                ja: '株式会社GFIエデュケーションズ',
             },
             role: {
-                en: 'Developer / Music Instructor',
-                ja: '開発・音楽講師',
+                en: 'Intern',
+                ja: 'インターンシップ',
             },
             description: {
-                en: 'Developing AI-powered apps and business automation tools for business clients; music instruction, custom sheet music and arrangement on coconala and others',
-                ja: '事業者様向けのAIアプリ・業務自動化ツールの開発。ココナラなどでの音楽講師・オーダーメイド楽譜制作・編曲',
+                en: 'WordPress development, SEO, Project planning & Management',
+                ja: 'WordPress開発・SEO・企画/運営',
             },
         },
     ],

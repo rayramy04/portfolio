@@ -47,65 +47,19 @@ window.cvData = {
     experience: [
         {
             company: {
-                en: 'Ski Resort',
-                ja: 'スキー場',
+                en: 'Freelance',
+                ja: 'フリーランス',
             },
-            period: '2025.12 - 2026.01',
+            period: '2024.03 - Present',
             position: {
-                en: 'Rental Staff',
-                ja: 'レンタルスタッフ',
+                en: 'Developer / Music Instructor',
+                ja: '開発・音楽講師',
             },
             description: {
-                en: 'Rental of ski equipment (English support experience)',
-                ja: 'スキー用品の貸し出し（英語対応も経験）',
+                en: 'Developing AI-powered apps and business automation tools for business clients; music instruction, custom sheet music and arrangement on coconala and others',
+                ja: '事業者様向けのAIアプリ・業務自動化ツールの開発。ココナラなどでの音楽講師・オーダーメイド楽譜制作・編曲',
             },
-        },
-        {
-            company: {
-                en: 'Reabroad, Inc. (Smaryu)',
-                ja: '株式会社リアブロード（スマ留）',
-            },
-            period: '2025.05 - 2025.11 (Contracted)',
-            position: {
-                en: 'Contracted (Official Ambassador)',
-                ja: '業務委託（公式アンバサダー）',
-            },
-            description: {
-                en: 'Speaking at study abroad events, event management, and article writing',
-                ja: '留学関係イベントの登壇・運営・記事執筆',
-            },
-            url: 'https://smaryu.com/',
-        },
-        {
-            company: {
-                en: 'GFI Educations Co., Ltd. (Go for it)',
-                ja: '株式会社GFIエデュケーションズ（Go for it）',
-            },
-            period: '2024.09 - 2025.12',
-            position: {
-                en: 'Intern',
-                ja: 'インターンシップ',
-            },
-            description: {
-                en: 'Study abroad article writing, WordPress site development, SEO optimization',
-                ja: '留学関係記事執筆・WordPressサイト構築・SEO対策',
-            },
-            url: 'https://go-for-it-malaysia.com/',
-        },
-        {
-            company: {
-                en: 'Self-Employed',
-                ja: '個人事業',
-            },
-            period: '2024.06 - 2024.11',
-            position: {
-                en: 'Private Tutor',
-                ja: '家庭教師',
-            },
-            description: {
-                en: 'One-on-one tutoring for middle school mathematics',
-                ja: '中学数学の個別指導',
-            },
+            url: 'https://coconala.com/users/4454434',
         },
         {
             company: {
@@ -125,51 +79,66 @@ window.cvData = {
         },
         {
             company: {
-                en: 'Freelance',
-                ja: 'フリーランス',
+                en: 'GFI Educations Co., Ltd. (Go for it)',
+                ja: '株式会社GFIエデュケーションズ（Go for it）',
             },
-            period: '2024.03 - Present',
-            position: {
-                en: 'Developer / Music Instructor',
-                ja: '開発・音楽講師',
-            },
-            description: {
-                en: 'Developing AI-powered apps and business automation tools for business clients; music instruction, custom sheet music and arrangement on coconala and others',
-                ja: '事業者様向けのAIアプリ・業務自動化ツールの開発。ココナラなどでの音楽講師・オーダーメイド楽譜制作・編曲',
-            },
-            url: 'https://coconala.com/users/4454434',
-        },
-        {
-            company: {
-                en: 'Loopal Inc.',
-                ja: '株式会社LOOPAL',
-            },
-            period: '2023.07 - 2024.09',
+            period: '2024.09 - 2025.12',
             position: {
                 en: 'Intern',
                 ja: 'インターンシップ',
             },
             description: {
-                en: 'Study abroad article writing, SEO optimization',
-                ja: '留学関係記事執筆・SEO対策',
+                en: 'Study abroad article writing, WordPress site development, SEO optimization',
+                ja: '留学関係記事執筆・WordPressサイト構築・SEO対策',
             },
-            url: 'https://loopal.net/',
+            url: 'https://go-for-it-malaysia.com/',
+        },
+        {
+            company: {
+                en: 'Reabroad, Inc. (Smaryu)',
+                ja: '株式会社リアブロード（スマ留）',
+            },
+            period: '2025.05 - 2025.11',
+            position: {
+                en: 'Contracted (Official Ambassador)',
+                ja: '業務委託（公式アンバサダー）',
+            },
+            description: {
+                en: 'Speaking at study abroad events, event management, and article writing',
+                ja: '留学関係イベントの登壇・運営・記事執筆',
+            },
+            url: 'https://smaryu.com/',
         },
         {
             company: {
                 en: 'General Incorporated Association 52Hz',
                 ja: '一般社団法人52Hz',
             },
-            period: '2023.04 - 2026.08',
+            period: '2024.07 - 2025.03',
             position: {
-                en: 'Member (Former Contractor — Mentor, 52Hz Accelerator Gen 0; 2024.07 - 2025.03)',
-                ja: '会員（元業務委託 - 52Hz Accelerator 0期メンター; 2024.07 - 2025.03）',
+                en: 'Contractor (Mentor, 52Hz Accelerator Gen 0)',
+                ja: '業務委託（52Hz Accelerator 0期メンター）',
             },
             description: {
                 en: 'Managing career exploration programs for middle and high school students, serving as an extracurricular mentor',
                 ja: '中高生向け進路探求プログラム運営・課外活動メンター',
             },
             url: 'https://52hz.world/',
+        },
+        {
+            company: {
+                en: 'Self-Employed',
+                ja: '個人事業',
+            },
+            period: '2024.06 - 2024.11',
+            position: {
+                en: 'Private Tutor',
+                ja: '家庭教師',
+            },
+            description: {
+                en: 'One-on-one tutoring for middle school mathematics',
+                ja: '中学数学の個別指導',
+            },
         },
     ],
     awards: {
@@ -303,38 +272,6 @@ window.cvData = {
                 },
                 link: 'https://ioai-japan.org/',
             },
-            {
-                title: {
-                    en: 'Membership: Malaysian Mensa',
-                    ja: 'Malaysian Mensa: 入会',
-                },
-                organization: {
-                    en: 'Malaysian Mensa',
-                    ja: 'Malaysian Mensa',
-                },
-                date: '2025.03',
-                description: {
-                    en: 'Joined international organization for individuals in the top 2% of IQ',
-                    ja: '人口上位2%のIQ保有者が入会可能な国際団体に入会',
-                },
-                link: 'https://mensa.my/',
-            },
-            {
-                title: {
-                    en: 'Merit Award: Japan Linguistics Olympiad 2025 (Open Division)',
-                    ja: '日本言語学オリンピック2025: 敢闘賞（オープン枠）',
-                },
-                organization: {
-                    en: 'The International Linguistics Olympiad Japan Committee',
-                    ja: '国際言語学オリンピック日本委員会',
-                },
-                date: '2025.02',
-                description: {
-                    en: 'Academic olympiad analyzing unknown languages',
-                    ja: '未知の言語を解析する学術オリンピック',
-                },
-                link: 'https://iolingjapan.org/',
-            },
         ],
         2024: [
             {
@@ -369,22 +306,6 @@ window.cvData = {
                 },
                 link: 'https://myclo.my/',
             },
-            {
-                title: {
-                    en: 'Merit Award: Japan Linguistics Olympiad 2024 (Open Division)',
-                    ja: '日本言語学オリンピック2024: 敢闘賞（オープン枠）',
-                },
-                organization: {
-                    en: 'The International Linguistics Olympiad Japan Committee',
-                    ja: '国際言語学オリンピック日本委員会',
-                },
-                date: '2024.02',
-                description: {
-                    en: 'Academic olympiad analyzing unknown languages',
-                    ja: '未知の言語を解析する学術オリンピック',
-                },
-                link: 'https://iolingjapan.org/',
-            },
         ],
         '~2023': [
             {
@@ -401,22 +322,6 @@ window.cvData = {
                     en: 'Research on improving quality of synthetic voice (Text-to-Speech) in acoustic phonetics field',
                     ja: '合成音声（Text-to-Speech）の品質改善研究（音響音声学領域）',
                 },
-            },
-            {
-                title: {
-                    en: '3rd Place Nationally: Mainichi Typing Competition (High School Division - Japanese B), 1st Dan Certification, and others',
-                    ja: '毎日パソコン入力コンクール: 初段認定・高校生部門全国3位（和文B） ほか',
-                },
-                organization: {
-                    en: 'The Mainichi Newspapers Co., Ltd. and others',
-                    ja: '毎日新聞社 ほか',
-                },
-                date: '~2023',
-                description: {
-                    en: 'Typing speed: 154 characters/minute with 100% accuracy',
-                    ja: 'タイピング競技154文字/分・正確性100%',
-                },
-                link: 'https://pasoken.or.jp/maipaso/',
             },
             {
                 title: {
@@ -488,30 +393,6 @@ window.cvData = {
         },
         {
             title: {
-                en: 'Certification for Business-Oriented Mathematics Skills (CBOMS) - for Business Manager',
-                ja: '英語版ビジネス数学検定（CBOMS） for Business Manager: 取得',
-            },
-            organization: {
-                en: 'The Japan Institute of Mathematics Certification',
-                ja: '公益財団法人 日本数学検定協会',
-            },
-            date: '2025.11',
-            link: 'https://direct.career-tasu.jp/lp/su-gaku',
-        },
-        {
-            title: {
-                en: 'Deep Learning Advanced Course - Deep Generative Models Summer 2025',
-                ja: 'Deep Learning 応用講座 深層生成モデル 2025 Summer: 修了',
-            },
-            organization: {
-                en: 'Matsuo Lab, The University of Tokyo',
-                ja: '東京大学 松尾研究室',
-            },
-            date: '2025.10',
-            link: 'https://weblab.t.u-tokyo.ac.jp/lecture/course-list/deep-generative-model/',
-        },
-        {
-            title: {
                 en: 'Deep Learning Basic Course 2025 Spring',
                 ja: 'Deep Learning 基礎講座 2025 Spring: 修了',
             },
@@ -543,18 +424,6 @@ window.cvData = {
                 ja: 'Manifa Elephant Camp（ラオス）',
             },
             date: '2024.06',
-        },
-        {
-            title: {
-                en: 'Nagoya University MIRAI GSC Stage 2',
-                ja: '名大MIRAI GSC 第2ステージ: 修了',
-            },
-            organization: {
-                en: 'Nagoya University',
-                ja: '名古屋大学',
-            },
-            date: '2021.11',
-            link: 'https://nuqa.nagoya-u.ac.jp/miraigsc/',
         },
     ],
     grants: [
